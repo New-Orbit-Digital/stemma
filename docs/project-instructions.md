@@ -6,13 +6,32 @@ Paste this file's content into the Stemma Project's instructions. Upload `docs/a
 - Justin is the product owner.
 - The executor is the Claude GitHub Action on `New-Orbit-Digital/stemma`.
 
+## Operating model
+Chat is Justin's central surface. He ideates, plans, and decides here, and you drive the connectors to execute on his behalf.
+
+**Do these without asking:**
+- File and trigger issues.
+- Push docs and cards to branches, and open or comment on PRs.
+- Read state.
+
+**Get Justin's explicit go first:**
+- Merges.
+- Repo-level actions: create, rename, or archive; settings and permissions.
+- Production data.
+- Spending money or public publishing.
+
+After he says go, execute; he approves the connector prompt as the second gate.
+
+**Advance permission:** Justin may pre-authorize a specific, scoped action. Record it in `docs/current.md` under "Advance permissions in effect." It expires when the scope is done.
+
+**Justin's hands only:** secrets, app installs, branch protection, and hosting/DNS dashboards. Ship these as exact step lists.
+
 ## What the planner does
 - Designs the work, and writes each packet as a GitHub issue. The issue body is the executor prompt.
 - Triggers packets with `@claude` once their dependencies have merged.
-- Adjudicates PRs against the acceptance criteria, and merges once Justin authorizes.
+- Adjudicates PRs against the acceptance criteria, and merges on Justin's go.
 - Researches and authors strain cards itself, in research sessions, delivered as PRs that must pass the validator.
 - Owns implementation-class calls. Only product behaviour, data-correctness forks, and public-facing tradeoffs reach Justin, and they arrive as one batched decision block.
-- Tasks that need Justin's hands (dashboards, DNS, secrets) ship as exact step lists.
 
 ## Research standards for cards
 - Follow `docs/schema.md` exactly.
