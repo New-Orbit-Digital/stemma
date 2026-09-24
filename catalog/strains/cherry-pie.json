@@ -3,6 +3,46 @@
   "name": "Cherry Pie",
   "aliases": [],
   "kind": "cultivar",
-  "status": "stub",
+  "status": "draft",
+  "summary": "**Cherry Pie** is a [[kind:cultivar|cultivar]] bred by PieGuy in California's San Francisco Bay Area. A cross of [[granddaddy-purple|Granddaddy Purple]] and [[f1-durban|F1 Durban]], it was later carried to wider distribution by Jigga and Berner through the Cookies brand. Some accounts also name it as a parent of [[gsc|GSC]].",
+  "born": {
+    "unknown": true,
+    "display": "unknown"
+  },
+  "origin": {
+    "place": "San Francisco Bay Area, California",
+    "country": "US",
+    "lat": 37.8,
+    "lon": -122.3
+  },
+  "breeder": "PieGuy",
+  "parents": [
+    "granddaddy-purple",
+    "f1-durban"
+  ],
+  "traditional_label": "hybrid",
+  "sources": [
+    {
+      "title": "Cherry Pie Strain Information",
+      "publisher": "Greenpoint Seeds",
+      "category": "database",
+      "url": "https://greenpointseeds.com/cannabis-strain-attributes/lineage/cherry-pie-strain/",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Cherry Pie strain page",
+      "publisher": "AllBud",
+      "category": "database",
+      "url": "https://www.allbud.com/marijuana-strains/hybrid/cherry-pie",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Who's Got the Real Cookies?",
+      "publisher": "Cannabis Now",
+      "category": "publication",
+      "url": "https://cannabisnow.com/whos-got-real-cookies/",
+      "accessed": "2026-09-24"
+    }
+  ],
   "updated": "2026-09-24"
 }

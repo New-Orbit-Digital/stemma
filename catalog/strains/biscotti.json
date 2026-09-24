@@ -3,6 +3,36 @@
   "name": "Biscotti",
   "aliases": [],
   "kind": "cultivar",
-  "status": "stub",
+  "status": "draft",
+  "summary": "**Biscotti** is a [[kind:cultivar|cultivar]] bred by [[breeder:Cookies|Cookies]]. A cross of [[gelato|Gelato]] #25 and [[south-florida-og|South Florida OG]], it is grown as an [[label:indica|indica]]-dominant hybrid. Some sources also list [[gsc|GSC]] as a parent.",
+  "born": {
+    "unknown": true,
+    "display": "recent"
+  },
+  "origin": {
+    "unknown": true
+  },
+  "breeder": "Cookies",
+  "parents": [
+    "gelato",
+    "south-florida-og"
+  ],
+  "traditional_label": "indica",
+  "sources": [
+    {
+      "title": "Biscotti",
+      "publisher": "Proper Cannabis",
+      "category": "publication",
+      "url": "https://www.propercannabis.com/genetics/biscotti",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Biscotti",
+      "publisher": "AllBud",
+      "category": "database",
+      "url": "https://www.allbud.com/marijuana-strains/hybrid/biscotti",
+      "accessed": "2026-09-24"
+    }
+  ],
   "updated": "2026-09-24"
 }

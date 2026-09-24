@@ -5,6 +5,43 @@
     "LCG"
   ],
   "kind": "cultivar",
-  "status": "stub",
+  "status": "draft",
+  "summary": "**Lemon Cherry Gelato** is a [[kind:cultivar|cultivar]] of unconfirmed breeder origin, a cross of [[sunset-sherbet|Sunset Sherbet]] and [[gsc|GSC]]. It was popularized by the Bay Area brand Backpackboyz, which debuted it at a Cookies dispensary in Los Angeles in late 2019; some sources cite an unidentified third parent.",
+  "born": {
+    "unknown": true,
+    "display": "unknown"
+  },
+  "origin": {
+    "unknown": true
+  },
+  "breeder": null,
+  "parents": [
+    "sunset-sherbet",
+    "gsc"
+  ],
+  "traditional_label": "hybrid",
+  "growing": {
+    "environment": "unknown",
+    "flowering_weeks": {
+      "min": 8,
+      "max": 10
+    }
+  },
+  "sources": [
+    {
+      "title": "Lemon Cherry Gelato: Lineage, Breeder & Origin",
+      "publisher": "Prime Cuts Nursery",
+      "category": "publication",
+      "url": "https://www.primecutsnursery.com/strains/lemon-cherry-gelato",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Lemon Cherry Gelato (Unknown or Legendary)",
+      "publisher": "SeedFinder.eu",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/lemon-cherry-gelato/unknown-or-legendary",
+      "accessed": "2026-09-24"
+    }
+  ],
   "updated": "2026-09-24"
 }

@@ -6,6 +6,37 @@
     "East Coast Sour Diesel"
   ],
   "kind": "cultivar",
-  "status": "stub",
+  "status": "draft",
+  "summary": "**Sour Diesel** is a [[kind:cultivar|cultivar]] that emerged in New York City in the 1990s, reportedly first grown by a breeder known as Joe Murray around 1996. Its exact parentage is disputed: accounts describe it as a cross of Chemdawg and a Skunk variety, though some place a Mexican sativa in its background instead. It has since been distributed as clones and seed by numerous breeders.",
+  "born": {
+    "year_min": 1990,
+    "year_max": 1999,
+    "display": "1990s"
+  },
+  "origin": {
+    "place": "New York City, New York",
+    "country": "US",
+    "lat": 40.7,
+    "lon": -74.0
+  },
+  "breeder": null,
+  "parents": [],
+  "traditional_label": "sativa",
+  "sources": [
+    {
+      "title": "Sour Diesel (Unknown or Legendary) :: Cannabis Strain Info",
+      "publisher": "SeedFinder.eu",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/sour-diesel/unknown-or-legendary",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Sour Diesel Marijuana Strain Information & Reviews",
+      "publisher": "AllBud",
+      "category": "database",
+      "url": "https://www.allbud.com/marijuana-strains/sativa-dominant-hybrid/sour-diesel",
+      "accessed": "2026-09-24"
+    }
+  ],
   "updated": "2026-09-24"
 }

@@ -8,6 +8,43 @@
     "Dosi"
   ],
   "kind": "cultivar",
-  "status": "stub",
+  "status": "draft",
+  "summary": "**Do-Si-Dos** is a [[kind:cultivar|cultivar]] bred by [[breeder:Archive Seed Bank|Archive Seed Bank]]. A cross of [[gsc|GSC]] and a backcrossed [[face-off-og|Face Off OG]], it is grown as an [[label:indica|indica]]-dominant hybrid both indoors and outdoors.",
+  "born": {
+    "unknown": true,
+    "display": "recent"
+  },
+  "origin": {
+    "unknown": true
+  },
+  "breeder": "Archive Seed Bank",
+  "parents": [
+    "gsc",
+    "face-off-og"
+  ],
+  "traditional_label": "indica",
+  "sources": [
+    {
+      "title": "Do-Si-Dos (Archive Seed Bank)",
+      "publisher": "SeedFinder.eu",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/do-si-dos/archive-seed-bank",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Do-Si-Dos",
+      "publisher": "AllBud",
+      "category": "database",
+      "url": "https://www.allbud.com/marijuana-strains/hybrid/do-si-dos",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Do-Si-Dos",
+      "publisher": "CannaConnection",
+      "category": "publication",
+      "url": "https://www.cannaconnection.com/strains/do-si-dos",
+      "accessed": "2026-09-24"
+    }
+  ],
   "updated": "2026-09-24"
 }
