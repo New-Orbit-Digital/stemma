@@ -1,152 +1,123 @@
 # Stemma — Current
 **STATUS:** Volatile state. Rewritten at every close-out.
 
-**Last close-out:** the overnight planner run, 2026-09-24 (Sprint 2A).
+**Last close-out:** the overnight planner run, 2026-09-24 (Sprint 2B).
 
 ## Headline
-- STM-U7 (schema v2, the community-catalog model) is merged.
-- The Haze family research notes are merged.
-- The Stemma interface prep doc is merged.
+- STM-U8 (inline links and browse pages) is merged.
+- The 9 existing Skunk-family summaries are rewritten in the house voice, with links.
+- The full Haze family is written as draft cards (14 new/upgraded cards, 2 new stubs), sourced and spot-checked against live pages.
 
-**No cards were written tonight.** Per Justin (about 02:55 UTC), Haze card prose waits until he picks a house voice. The notes are ready to turn into cards once that's decided.
+**Catalog is now 28 cards** (23 draft, 5 stub), up from 13 last close-out.
 
 ## What merged tonight (with evidence)
 
 | PR | What | Merge SHA | Evidence |
 |---|---|---|---|
-| #27 | **STM-U7**: schema v2 (closes #26) | `d58b30d` | See below |
-| #28 | R2 Haze research notes, `docs/research/haze.md` | `8fc0f04` | `mergeable_state` clean; docs only |
-| #29 | Interface prep, `docs/prep/stemma-interface.md` | `0780368` | `mergeable_state` clean; docs only |
+| #33 | **STM-U8**: inline `[[...]]` links, browse pages, `tools/countries.py` | `f36baa6` | See below |
+| #34 | Task 2: voice rewrite of the 9 Skunk-family summaries | `c1382fa` | See below |
+| #35 | Task 3 (1/3): `haze`, `mexican-sativa`, `thai`, `south-indian`; stubs `silver-pearl`, `chitral`; `northern-lights-5` stub → draft | `c5214b0` | See below |
+| #36 | Task 3 (2/3): `northern-lights-5-x-haze`, `nevilles-haze`, `silver-haze`, `jack-herer`, `super-silver-haze`, `amnesia-haze` | `c21ff42` | See below |
+| #37 | Task 3 (3/3): `lemon-skunk`, `lemon-haze`, `super-lemon-haze` | `57d3f24` | See below |
 | this PR | Close-out docs | — | — |
 
-### #27 evidence
-- Clean PASS, adjudicated at head `e49fc59` (adjudication comment on #27).
-- **Acceptance output posted by the executor:**
-  - Tests: 155, 0 failures.
-  - `node --check`: exit 0.
-  - Validator: `13 cards, 0 errors, 0 warnings`.
-  - Build: `13 strains, 12 edges`.
-  - Mechanical proof: `13 cards compared against 2e7ccc2, 0 with changed facts`.
-  - Tier/dispute grep: only the word "documented" inside colombian-gold's summary prose.
-- **Planner's independent check:** every catalog patch was scanned for aliases, kind, status, traditional_label, growing, and updated. Only whitespace and comma reflow changed; all values are the same.
-- Merged under the STM-U7 advance permission, which has now expired.
-- **Judgment calls accepted:**
-  1. Acapulco Gold's dispute note was dropped along with the dispute.
-  2. Super Skunk's multiple notes per source were joined into one.
+### #33 (STM-U8) evidence
+- Adjudicated PASS at head `1be0e29`; `mergeable_state` clean.
+- **Acceptance output posted by the executor:** 205 tests, 0 failures; `node --check` exit 0; real catalog `validate.py` 13 cards/0 errors; `build.py` 13 strains, 12 edges, 13 browse pages (31 pages total); fixture build 12 browse pages with the full markup-form summary rendered; fixture link resolution 374 hrefs checked (72 under `/browse/`), 0 unresolved; per-rule E11–E14 fixture output.
+- Scope confirmed via file diff: 24 files, no `catalog/strains/` or `.github/workflows/` changes.
+- Judgment calls accepted (7, listed on the PR): new rule ids E12–E14, `TL` added to the country map, breeder slugs left as-is pending the planner's cleanup, origin-country link on the `place` text, bare-prefix default link text, schema docs updated in-unit, slug collisions raise loudly.
+- Merged under the standing STM-U8 advance permission (below — now **EXPIRED**).
 
-## Sprint plan
+### #34 (Task 2 voice rewrite) evidence
+- All 9 cards' visible-text lengths checked locally against the real `tools/links.py`/`tools/countries.py` logic before push: 217–397 characters, all under the 400 limit.
+- Every `[[...]]` link resolves: strain ids, `kind`/`label` enum values, `country` codes present on some card's `origin.country`, and `breeder:Sacred Seeds`/`breeder:Sensi Seeds` matching the cleaned `breeder` fields exactly.
+- `skunk-1.breeder` cleaned to `"Sacred Seeds"` (was `"Sacred Seeds (David Watson, aka Sam the Skunkman)"`); the person now appears in the summary prose.
+- No facts changed — voice rewrite only. `mergeable_state` clean at merge.
 
-| Sprint | Scope | Status |
-|---|---|---|
-| 1 | v1 features (U1–U6) and the Skunk family | **VERIFIED** by Justin, 2026-09-24 |
-| 2 | U7, then the Haze and OG Kush families | **2A done:** U7 merged, Haze notes ready. **Cards are blocked on the voice decision.** OG Kush not started, per tonight's usage cap. |
-| 3 | GSC and Blue Dream families | ~80–100 cards, then launch readiness |
+### #35–#37 (Task 3, Haze family) evidence
+- Each card's key facts were spot-checked against one live source via WebFetch before writing (a subagent ran 14 fetches). Two corrections came out of that pass and are recorded in the affected cards' own source notes:
+  - **Haze's parentage:** SeedFinder's live page describes a three-way Colombian cross, not the four-landrace account — already flagged as disputed in `docs/research/haze.md`; the card states both accounts.
+  - **Lemon Skunk's "Citral" parent:** Green House's own live page says Citral has Indian heritage, contradicting SeedFinder's guess that it means Chitral, Pakistan. `chitral` is now a soft, disputed mention in prose, not a structural parent (`parents: ["skunk-1"]` only).
+  - Minor softenings also made on `northern-lights-5` (dropped an unconfirmed "founded 1984" detail) and `silver-haze` (Silver Pearl naming attributed to SeedFinder specifically, since Sensi's own page doesn't name it).
+- All 14 new/upgraded cards under the 400-character visible-text limit; every link resolves (checked locally before each push).
+- `mergeable_state` clean on all three PRs; Cloudflare Pages preview deploys succeeded on #35 (confirms `validate.py`/`build.py` passed on the real catalog).
+- Planner defaults applied per `docs/research/haze.md`'s open questions:
+  - Haze's Mexican parent: generic `mexican-sativa` (not `acapulco-gold`).
+  - Jack Herer parents: Leafly's set (`haze`, `northern-lights-5`, `shiva-skunk`); SeedFinder's alternative (no Shiva Skunk) stated in prose.
+  - Amnesia Haze parents: `[]` (unknown), given genuinely disputed origin; `breeder` also left `null` to avoid implying a false connection to `skunk-1`'s unrelated "Sacred Seeds" breeder via Soma's similarly-named company.
+  - Northern Lights #5 `kind`: `cut`.
+  - Lemon Skunk: one card (the Green House line); DNA Genetics' line mentioned in prose only.
+  - Lemon Haze: kept (weakest-sourced card in the family — see morning checklist).
+- Stopped after Haze, per instructions. OG Kush not started.
 
-**Launch readiness:**
-- A `reviewed` pass on all cards.
-- Drop `noindex`.
-- Age-notice copy.
+## Justin's morning checklist (Sprint 2B)
 
-## Justin's morning checklist (Sprint 2A)
+### A. Live-site checks (sandbox proxy blocks the site — the planner couldn't check these)
+1. **Inline links render** in the Skunk-family and Haze-family summaries: strain links go to `/s/<id>/`, and `breeder`/`kind`/`country`/`label` links go to their `/browse/...` pages.
+2. **Browse pages** exist and list the right cards for each dimension, including the new `Haze Brothers`, `Green House Seed Co.`, and `The Seed Bank` breeder pages, and the new `TH`/`IN` country pages.
+3. **Strain-header field links**: `breeder`, `kind`, origin country, and `traditional_label` link out on strain pages, including the newly-populated Haze-family pages.
+4. **`/browse/` index** lists all dimension values with correct counts (should now include several new breeders and two new countries, TH and IN).
 
-### A. Live-site checks of U7
-Check these on `stemma.neworbitdigital.com`. The sandbox proxy blocks the site, so the planner couldn't check it.
-1. **No tier badges** anywhere on strain pages, and no "Disputed" block.
-2. **Quiet sources list** at the bottom of a strain page. Each entry shows:
-   - a linked title
-   - the publisher
-   - a small muted category word
-   It has no numbers or badges.
-3. **Uniform lines:**
-   - The lineage graph uses one edge style with no tier legend and no disputed toggle.
-   - The map arcs are one style with no tier legend.
-4. **About page:**
-   - It uses the community-catalog framing: categories are descriptive, not a ranking; accounts can differ; and indica/sativa is only a traditional label.
-   - It includes "not medical advice."
-   - It has no tier or dispute language.
-5. **Migrated pages:**
-   - `/s/skunk-1/`: 4 sources, 2 breeder and 2 database; parents are Afghani x Colombian Gold and Acapulco Gold.
-   - `/s/acapulco-gold/`: no parents, the Nepalese edge is gone, and the summary still mentions the Nepalese claim; 3 sources.
-6. **Timeline and map** still load and filter. The map should show 5 markers and 6 arcs.
+### B. Voice spot-check — 3–4 rewritten Skunk-family summaries
+Read for whether the Reference voice landed right:
+- `skunk-1` (follows Justin's own `docs/voice.md` sample closely).
+- `acapulco-gold` (same — also follows the voice.md sample).
+- `afghani-x-colombian-gold` (the "proto-Skunk" unnamed cross — check the hedged tone on the disputed originator).
+- `super-skunk` or `shiva-skunk` (shorter, more mechanical cards — check they don't read as dry).
 
-### B. Decisions that came up
-1. **House voice for card prose.** This is the blocker for the Haze cards.
-2. **Interface direction.** Pick A "Library card", B "Quiet app", C "Field notes", or a mix. See `docs/prep/stemma-interface.md`.
-3. **Haze modelling calls.** These are in the open questions at the end of `docs/research/haze.md`. The planner's defaults apply unless Justin overrides them.
-   - Haze's Mexican parent: generic `mexican-sativa`, or `acapulco-gold`?
-   - Jack Herer's parents: the Leafly set or the SeedFinder set?
-   - Amnesia Haze: unknown parents, or Soma's landraces?
-   - Lemon Skunk: one card or two?
-   - Northern Lights #5: a `cut` or a `cultivar`?
-   - Lemon Haze: keep it or drop it?
-4. **`tools/check_migration.py`:**
-   - Keep it or delete it.
-   - It isn't in the packet, but it backs the U7 mechanical proof.
-   - The planner's default is to keep it until the next tooling unit.
+### C. Haze card spot-checks (5, each with its source)
+1. **`haze`** — the four-landrace vs. three-way-Colombian dispute. Source: [SeedFinder](https://seedfinder.eu/en/strain-info/haze/unknown-or-legendary).
+2. **`jack-herer`** — the Leafly vs. SeedFinder parent-set disagreement (Shiva Skunk in or out). Source: [SeedFinder](https://seedfinder.eu/en/strain-info/jack-herer/sensi-seeds).
+3. **`lemon-skunk`** — the Citral/Chitral correction (Indian heritage per the breeder, not confirmed Pakistani). Source: [Green House Seed Co.](https://shop.greenhouseseeds.nl/feminised-cannabis-seeds/lemon-skunk/).
+4. **`amnesia-haze`** — the disputed origin and the deliberately empty `parents`/`null` `breeder`. Source: [Soma's Sacred Seeds](https://www.somaseeds.nl/product/amnesia-haze).
+5. **`super-silver-haze`** — the three Cup wins and the Roskam/Shantibaba credit dispute. Source: [Green House Seed Co.](https://shop.greenhouseseeds.nl/feminised-cannabis-seeds/super-silver-haze/).
+
+### D. Decisions
+1. **Lemon Skunk / Soma naming collision:** is leaving `chitral` out of the structural `parents` (prose-only, disputed) the right call, or should it go back in per the original SeedFinder guess?
+2. **Lemon Haze's thin sourcing:** acceptable for v1 as a draft with undocumented breeder/origin, or should it be pulled pending better sources?
+3. **Amnesia Haze's `breeder: null`:** agree with keeping it unset to avoid implying a link between Soma's "Sacred Seeds" and Skunk #1's unrelated "Sacred Seeds", or would a distinctly-named breeder value (e.g. "Soma Seeds") be clearer?
+4. **Interface direction** — still open, see carried-forward item below.
+
+### Carried forward from the previous checklist (still open)
+1. **U7 live-site checks** (tier badges gone, quiet sources list, uniform lineage/map lines, About page copy, the `skunk-1`/`acapulco-gold` migrated-page specifics, timeline/map marker counts) — not yet confirmed done by Justin.
+2. **Interface direction:** pick A "Library card", B "Quiet app", C "Field notes", or a mix. See `docs/prep/stemma-interface.md`.
+3. **`tools/check_migration.py`:** keep or delete. Still backing the U7 mechanical proof; the planner's default remains to keep it until the next tooling unit.
 
 ## State (after tonight)
 
 ### Units
-- U1–U7 are merged: #8, #9, #13, #15, #19, #21, and #27.
+- U1–U8 are merged: #8, #9, #13, #15, #19, #21, #27, and #33.
 - No executor unit is in flight.
 
 ### Catalog
-13 cards, now in **schema v2**. There are no new cards tonight.
-- **9 drafts:**
-  - `skunk-1`
-  - `afghani-x-colombian-gold`
-  - `acapulco-gold`
-  - `afghani`
-  - `colombian-gold`
-  - `super-skunk`
-  - `early-skunk`
-  - `shiva-skunk`
-  - `skunk-kush`
-- **4 stubs:**
-  - `early-pearl`
-  - `northern-lights-5`
-  - `hindu-kush`
-  - `nepalese`
-
-### Research
-- `docs/research/haze.md`: 15 strains.
-  - 12 new ids.
-  - 1 stub to upgrade (`northern-lights-5`).
-  - Haze-link notes for `colombian-gold`.
-- Two more stubs are needed: `silver-pearl` and `chitral`.
-- Citations have not been checked yet. That's required before any card is marked `reviewed`.
+**28 cards** (23 draft, 5 stub), all schema v2 with inline-link markup where applicable.
+- **23 drafts:** the original 9 (`skunk-1`, `afghani-x-colombian-gold`, `acapulco-gold`, `afghani`, `colombian-gold`, `super-skunk`, `early-skunk`, `shiva-skunk`, `skunk-kush`, now voice-rewritten) plus 14 new/upgraded tonight (`northern-lights-5`, `haze`, `mexican-sativa`, `thai`, `south-indian`, `northern-lights-5-x-haze`, `nevilles-haze`, `silver-haze`, `jack-herer`, `super-silver-haze`, `amnesia-haze`, `lemon-skunk`, `lemon-haze`, `super-lemon-haze`).
+- **5 stubs:** `early-pearl`, `hindu-kush`, `nepalese` (carried over), plus `silver-pearl` and `chitral` (new tonight).
+- **None marked `reviewed` yet.** Citations were spot-checked (one live source per card) but not exhaustively verified against every listed source.
 
 ### Hosting
 - Live on Cloudflare Pages at `stemma.neworbitdigital.com` and `stemma-9j6.pages.dev`.
-- PRs get preview deploys.
+- PRs get preview deploys; #35's preview deploy succeeded, confirming the real-catalog build passed.
 
 ### Docs
-- `README.md` and `docs/project-instructions.md` were updated in this PR to the community-catalog model. They previously said "evidence-backed" and "cited and tiered".
-- **Justin:** if the Project's instructions were pasted from the old file, re-paste them.
+- `docs/voice.md` (house voice, 2a "Reference") and `docs/packets/STM-U8.md` are unchanged tonight — both already merged before this session started.
+- `docs/schema.md` and `schema/strain.schema.json` gained the link/E12–E14 rules in #33.
+- `docs/backlog.md` updated in this PR: R2 (Haze) moved from "notes done, cards blocked" to "cards written, sourced, and merged."
 
 ## Connector facts
-- **GitHub connector:**
-  - No workflows, administration, or secrets permission.
-  - Check runs and status return 403, so `mergeable_state` is the CI evidence.
-  - `unstable` shows while checks are pending. Re-read after 30–60 seconds; #29 went clean after about 2 minutes.
-- **Sandbox proxy:**
-  - It blocks `*.pages.dev`, `neworbitdigital.com`, and cdnjs.
-  - Live checks go to Justin's checklist unless the built-in browser is available.
+- **GitHub connector:** no workflows, administration, or secrets permission. Check runs return 403, so `mergeable_state` is the CI evidence; re-read 30–60s after pushes (this held again tonight — U8 and both catalog PRs went clean within about 2 minutes of push).
+- **Sandbox proxy:** blocks `*.pages.dev`, `neworbitdigital.com`, and cdnjs. Live checks go to Justin's checklist.
 - **Private repo:** `git clone` from the sandbox has no credentials. Use the connector for all reads.
 - **Cloudflare dashboard:** Justin's hands only.
 
 ## Advance permissions in effect
-- **STM-U7:** EXPIRED. U7 merged in #27 on 2026-09-24.
+- **STM-U8:** **EXPIRED.** Merged in #33 on 2026-09-24, per Justin's advance permission (chat, 2026-09-24 ~03:30 UTC): "auto-merge STM-U8 on a clean PASS; after it merges, rewrite the 9 existing draft summaries in the house voice with links, and write the Haze cards from docs/research/haze.md."
+- **Task 2 (voice rewrite) and Task 3 (Haze cards):** both executed under the same 2026-09-24 advance permission, now also **EXPIRED** (scope complete — Haze is done, and the planner stopped before OG Kush per instructions).
 - **Catalog-card and docs PRs:** the planner merges on a clean pass. Standing.
-- **Small fix units:** auto-merge on a clean PASS. Renewed for Sprint 2.
-- **A clean PASS means:**
-  - Every acceptance check has its actual output posted, and each output matches.
-  - Scope is respected.
-  - No stops were tripped.
-  - `mergeable_state` is clean.
+- **Small fix units:** auto-merge on a clean PASS. Standing.
+- **A clean PASS means:** every acceptance check has its actual output posted and each output matches; scope is respected; no stops were tripped; `mergeable_state` is clean.
 
 ## Next
-1. Justin runs the morning checklist and picks a house voice and an interface direction.
-2. Write the Haze cards from `docs/research/haze.md` in the chosen voice. Status is `draft`, with a planner check of each citation. Merge on clean CI.
-3. R3: the OG Kush family, research notes first if the voice is still open.
-4. Optionally, STM-U8: a visual pass from the chosen interface direction.
+1. Justin runs the morning checklist: live-site checks, voice and Haze-card spot-checks, and the decisions above.
+2. R3: the OG Kush family — research notes first, then cards once Justin has spot-checked the Haze voice.
+3. Optionally, resume STM-U8's visual-pass follow-on once Justin picks an interface direction.
