@@ -3,6 +3,40 @@
   "name": "Gushers",
   "aliases": [],
   "kind": "cultivar",
-  "status": "stub",
+  "status": "draft",
+  "summary": "**Gushers** is a [[kind:cultivar|cultivar]] bred by [[breeder:Cookie Fam Genetics]] in the San Francisco Bay Area, California. A cross of [[gelato-41|Gelato #41]] and [[triangle-kush|Triangle Kush]], it placed in the outdoor category at the 2018 Emerald Cup. It is also sold as White Gushers.",
+  "born": {
+    "year_min": 2016,
+    "year_max": 2018,
+    "display": "circa 2017"
+  },
+  "origin": {
+    "place": "San Francisco Bay Area, California, USA",
+    "country": "US",
+    "lat": 37.8,
+    "lon": -122.3
+  },
+  "breeder": "Cookie Fam Genetics",
+  "parents": [
+    "gelato-41",
+    "triangle-kush"
+  ],
+  "traditional_label": "hybrid",
+  "sources": [
+    {
+      "title": "Gushers (Cookie Fam Genetics)",
+      "publisher": "SeedFinder",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/gushers/cookie-fam-genetics",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Gushers (TK41)",
+      "publisher": "Leafly",
+      "category": "database",
+      "url": "https://www.leafly.com/strains/gushers",
+      "accessed": "2026-09-24"
+    }
+  ],
   "updated": "2026-09-24"
 }

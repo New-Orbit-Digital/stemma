@@ -5,6 +5,46 @@
     "Alien OG Kush"
   ],
   "kind": "cultivar",
-  "status": "stub",
+  "status": "draft",
+  "summary": "**Alien OG** is a [[kind:cultivar|cultivar]] bred by [[breeder:Cali Connection]], crossing [[tahoe-og|Tahoe OG]] with [[alien-kush|Alien Kush]]. It first circulated as a clone-only cutting in California's Bay Area before being released in seed form.",
+  "born": {
+    "unknown": true,
+    "display": "early 2010s"
+  },
+  "origin": {
+    "place": "San Francisco Bay Area, California, USA",
+    "country": "US",
+    "lat": 37.8,
+    "lon": -122.3
+  },
+  "breeder": "Cali Connection",
+  "parents": [
+    "tahoe-og",
+    "alien-kush"
+  ],
+  "traditional_label": "hybrid",
+  "growing": {
+    "environment": "both",
+    "flowering_weeks": {
+      "min": 7,
+      "max": 9
+    }
+  },
+  "sources": [
+    {
+      "title": "Alien OG aka Alien OG Kush, Alien Banana",
+      "publisher": "Leafly",
+      "category": "database",
+      "url": "https://www.leafly.com/strains/alien-og",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Alien OG (The Cali Connection)",
+      "publisher": "SeedFinder",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/alien-og/the-cali-connection",
+      "accessed": "2026-09-24"
+    }
+  ],
   "updated": "2026-09-24"
 }

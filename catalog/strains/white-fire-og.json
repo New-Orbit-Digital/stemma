@@ -6,7 +6,47 @@
     "WiFi",
     "White Fire"
   ],
-  "kind": "cultivar",
-  "status": "stub",
+  "kind": "cut",
+  "status": "draft",
+  "summary": "**White Fire OG** is a [[kind:cut|cut]] bred by [[breeder:OG Raskal Genetics]], crossing a phenotype of [[fire-og|Fire OG]] with [[the-white|The White]]. It is the strain behind the widely used name WiFi OG, and first circulated as a clone-only selection.",
+  "born": {
+    "unknown": true,
+    "display": "unknown"
+  },
+  "origin": {
+    "place": "Southern California, USA",
+    "country": "US",
+    "lat": 34.0,
+    "lon": -118.2
+  },
+  "breeder": "OG Raskal Genetics",
+  "parents": [
+    "fire-og",
+    "the-white"
+  ],
+  "traditional_label": "hybrid",
+  "growing": {
+    "environment": "both",
+    "flowering_weeks": {
+      "min": 8,
+      "max": 10
+    }
+  },
+  "sources": [
+    {
+      "title": "White Fire (OG Raskal Genetics) :: Lineage & Hybrids",
+      "publisher": "SeedFinder",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/white-fire/og-raskal-genetics/genealogy",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "White Fire OG (WiFi OG)",
+      "publisher": "Weedmaps",
+      "category": "database",
+      "url": "https://weedmaps.com/strains/white-fire-og-wifi-og",
+      "accessed": "2026-09-24"
+    }
+  ],
   "updated": "2026-09-24"
 }

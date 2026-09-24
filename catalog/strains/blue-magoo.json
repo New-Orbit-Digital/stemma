@@ -2,7 +2,40 @@
   "id": "blue-magoo",
   "name": "Blue Magoo",
   "aliases": [],
-  "kind": "cultivar",
-  "status": "stub",
+  "kind": "cut",
+  "status": "draft",
+  "summary": "**Blue Magoo** is a [[kind:cut|cut]] that emerged in Oregon in the mid-1990s from a cross of [[blueberry|Blueberry]] and a [[williams-wonder|Williams Wonder]] phenotype. It has never been released as seed and is propagated only by cutting.",
+  "born": {
+    "year_min": 1994,
+    "year_max": 1996,
+    "display": "mid-1990s"
+  },
+  "origin": {
+    "place": "Oregon, USA",
+    "country": "US",
+    "lat": 44.0,
+    "lon": -120.5
+  },
+  "parents": [
+    "blueberry",
+    "williams-wonder"
+  ],
+  "traditional_label": "indica",
+  "sources": [
+    {
+      "title": "Blue Magoo (Clone Only Strains)",
+      "publisher": "SeedFinder",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/blue-magoo/clone-only-strains",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Blue Magoo",
+      "publisher": "AllBud",
+      "category": "database",
+      "url": "https://www.allbud.com/marijuana-strains/indica-dominant-hybrid/blue-magoo",
+      "accessed": "2026-09-24"
+    }
+  ],
   "updated": "2026-09-24"
 }

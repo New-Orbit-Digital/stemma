@@ -6,6 +6,46 @@
     "OG18"
   ],
   "kind": "cultivar",
-  "status": "stub",
+  "status": "draft",
+  "summary": "**OG #18** is a [[kind:cultivar|cultivar]] released by [[breeder:Reserva Privada]] as a selected, re-feminized phenotype of [[og-kush|OG Kush]] grown from seed rather than as a clone. It placed second in the Indica category at the 2009 High Times Cannabis Cup.",
+  "born": {
+    "year_min": 2005,
+    "year_max": 2009,
+    "display": "mid-to-late 2000s"
+  },
+  "origin": {
+    "place": "California, USA",
+    "country": "US",
+    "lat": 36.7,
+    "lon": -119.4
+  },
+  "breeder": "Reserva Privada",
+  "parents": [
+    "og-kush"
+  ],
+  "traditional_label": "hybrid",
+  "growing": {
+    "environment": "indoor",
+    "flowering_weeks": {
+      "min": 8,
+      "max": 9
+    }
+  },
+  "sources": [
+    {
+      "title": "The OG #18 (Reserva Privada)",
+      "publisher": "SeedFinder",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/the-og-nr18/reserva-privada",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "The OG 18 - Strain Information",
+      "publisher": "CannaConnection",
+      "category": "database",
+      "url": "https://www.cannaconnection.com/strains/the-og-18",
+      "accessed": "2026-09-24"
+    }
+  ],
   "updated": "2026-09-24"
 }
