@@ -1,0 +1,63 @@
+{
+  "id": "og-kush",
+  "name": "OG Kush",
+  "aliases": [
+    "OG",
+    "Premium OG Kush"
+  ],
+  "kind": "cut",
+  "status": "draft",
+  "summary": "OG Kush is a [[kind:cut|cut]] that emerged in Florida in the early 1990s and reached Los Angeles in 1996, when Matt \"Bubba\" Berger brought cuttings to the grower Josh D. Its commonly cited parents are [[chemdawg|Chemdawg]], [[lemon-thai|Lemon Thai]], and [[pakistani-kush|Pakistani Kush]]; Leafly gives [[hindu-kush|Hindu Kush]] in place of the Pakistani line.",
+  "born": {
+    "year_min": 1990,
+    "year_max": 1994,
+    "display": "early 1990s"
+  },
+  "origin": {
+    "place": "Florida, USA",
+    "country": "US",
+    "lat": 27.8,
+    "lon": -81.7
+  },
+  "breeder": null,
+  "parents": [
+    "chemdawg",
+    "lemon-thai",
+    "pakistani-kush"
+  ],
+  "traditional_label": "hybrid",
+  "growing": {
+    "environment": "both",
+    "flowering_weeks": {
+      "min": 7,
+      "max": 9
+    }
+  },
+  "sources": [
+    {
+      "title": "OG Kush",
+      "publisher": "Leafly",
+      "category": "database",
+      "url": "https://www.leafly.com/strains/og-kush",
+      "accessed": "2026-09-24",
+      "note": "Planner-verified 2026-09-24: confirms the early-1990s Florida origin and Berger bringing it to Josh D in Los Angeles in 1996; gives Chemdawg, Hindu Kush, and Lemon Thai as the lineage, and 7–9 weeks of flowering."
+    },
+    {
+      "title": "OG Kush: A Quarter Century of Gas",
+      "publisher": "LA Weekly",
+      "category": "publication",
+      "url": "https://www.laweekly.com/og-kush-a-quarter-century-of-gas/",
+      "accessed": "2026-09-24",
+      "note": "Planner-verified 2026-09-24: confirms Berger carried about 15 cuttings from Florida, one OG Kush cut survived, and the group added \"OG\" to mark their original cut."
+    },
+    {
+      "title": "Everything You Need To Know About OG Kush",
+      "publisher": "Zamnesia",
+      "category": "breeder",
+      "url": "https://www.zamnesia.com/us/blog-og-kush-n93",
+      "accessed": "2026-09-24",
+      "note": "Gives the commonly cited three-way of Chemdawg, Lemon Thai, and Pakistani Kush."
+    }
+  ],
+  "updated": "2026-09-24"
+}
