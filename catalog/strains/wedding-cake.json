@@ -6,6 +6,47 @@
     "Triangle Mints"
   ],
   "kind": "cultivar",
-  "status": "stub",
+  "status": "draft",
+  "summary": "**Wedding Cake** is a [[kind:cultivar|cultivar]] bred by JBeezy of [[breeder:Seed Junky Genetics|Seed Junky Genetics]] in Southern California in the mid-2010s. A cross of [[triangle-kush|Triangle Kush]] and [[animal-mints|Animal Mints]], it was first called Pink Cookies before the Jungle Boys crew in Los Angeles renamed it Wedding Cake.",
+  "born": {
+    "year_min": 2014,
+    "year_max": 2016,
+    "display": "mid-2010s"
+  },
+  "origin": {
+    "place": "Southern California",
+    "country": "US",
+    "lat": 34.1,
+    "lon": -118.2
+  },
+  "breeder": "Seed Junky Genetics",
+  "parents": [
+    "triangle-kush",
+    "animal-mints"
+  ],
+  "traditional_label": "hybrid",
+  "sources": [
+    {
+      "title": "Wedding Cake (Seed Junky Genetics)",
+      "publisher": "SeedFinder.eu",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/wedding-cake/seed-junky-genetics",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "The History of Wedding Cake Cannabis Seeds",
+      "publisher": "Green Avenger Seeds",
+      "category": "publication",
+      "url": "https://www.greenavengerseeds.com/the-history-of-wedding-cake-cannabis-seeds/",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Wedding Cake strain page",
+      "publisher": "AllBud",
+      "category": "database",
+      "url": "https://www.allbud.com/marijuana-strains/hybrid/wedding-cake",
+      "accessed": "2026-09-24"
+    }
+  ],
   "updated": "2026-09-24"
 }

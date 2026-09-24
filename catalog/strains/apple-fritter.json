@@ -3,6 +3,47 @@
   "name": "Apple Fritter",
   "aliases": [],
   "kind": "cultivar",
-  "status": "stub",
+  "status": "draft",
+  "summary": "**Apple Fritter** is a [[kind:cultivar|cultivar]] bred by Jason Dias of [[breeder:Lumpy's Flowers|Lumpy's Flowers]] in Sacramento, California, in 2013. A cross of [[sour-apple|Sour Apple]] and [[animal-cookies|Animal Cookies]], it came from the last four seeds of an experimental run and placed second in the Hybrids category at the 2016 Northern California High Times Cannabis Cup.",
+  "born": {
+    "year_min": 2013,
+    "year_max": 2013,
+    "display": "2013"
+  },
+  "origin": {
+    "place": "Sacramento, California",
+    "country": "US",
+    "lat": 38.6,
+    "lon": -121.5
+  },
+  "breeder": "Lumpy's Flowers",
+  "parents": [
+    "sour-apple",
+    "animal-cookies"
+  ],
+  "traditional_label": "hybrid",
+  "sources": [
+    {
+      "title": "Apple Fritter Strain – Grow Guide & Genetics",
+      "publisher": "Prime Cuts Nursery",
+      "category": "publication",
+      "url": "https://www.primecutsnursery.com/strains/apple-fritter",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Apple Fritter (Unknown or Legendary)",
+      "publisher": "SeedFinder.eu",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/apple-fritter/unknown-or-legendary",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Apple Fritter",
+      "publisher": "AllBud",
+      "category": "database",
+      "url": "https://www.allbud.com/marijuana-strains/hybrid/apple-fritter",
+      "accessed": "2026-09-24"
+    }
+  ],
   "updated": "2026-09-24"
 }

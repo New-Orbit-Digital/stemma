@@ -8,6 +8,40 @@
     "Sherb"
   ],
   "kind": "cultivar",
-  "status": "stub",
+  "status": "draft",
+  "summary": "**Sunset Sherbet** is a [[kind:cultivar|cultivar]] bred by Mario Guzman, known as Sherbinski, in the San Francisco Bay Area around 2014. It arose from an accidental cross of a [[thin-mint-gsc|Thin Mint GSC]] phenotype and a [[pink-panties|Pink Panties]] male plant. The resulting cut later became a parent of [[gelato|Gelato]].",
+  "born": {
+    "year_min": 2013,
+    "year_max": 2014,
+    "display": "circa 2014"
+  },
+  "origin": {
+    "place": "San Francisco, California",
+    "country": "US",
+    "lat": 37.8,
+    "lon": -122.4
+  },
+  "breeder": "Sherbinski",
+  "parents": [
+    "thin-mint-gsc",
+    "pink-panties"
+  ],
+  "traditional_label": "hybrid",
+  "sources": [
+    {
+      "title": "The Sherbinski Sitdown: A Comprehensive Guide to Gelato",
+      "publisher": "Cannabis Now",
+      "category": "publication",
+      "url": "https://cannabisnow.com/sherbinski-sitdown-gelato/",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Sunset Sherbet strain page",
+      "publisher": "AllBud",
+      "category": "database",
+      "url": "https://www.allbud.com/marijuana-strains/hybrid/sunset-sherbet",
+      "accessed": "2026-09-24"
+    }
+  ],
   "updated": "2026-09-24"
 }

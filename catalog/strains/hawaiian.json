@@ -3,6 +3,36 @@
   "name": "Hawaiian",
   "aliases": [],
   "kind": "landrace",
-  "status": "stub",
+  "status": "draft",
+  "summary": "**Hawaiian** is a [[kind:landrace|landrace]] [[label:sativa|sativa]] native to the Hawaiian Islands, grown there long before entering the US mainland cannabis trade in the 1960s and 1970s. It was later used as a parent in crosses such as [[northern-lights-5|Northern Lights #5]]. Some cannabis sold as Hawaiian today is a hybridized descendant rather than the original landrace.",
+  "born": {
+    "unknown": true,
+    "display": "traditional"
+  },
+  "origin": {
+    "place": "Hawaii, United States",
+    "country": "US",
+    "lat": 21.3,
+    "lon": -157.9
+  },
+  "breeder": null,
+  "parents": [],
+  "traditional_label": "sativa",
+  "sources": [
+    {
+      "title": "Hawaiian Sativa Marijuana Strain Information & Reviews",
+      "publisher": "AllBud",
+      "category": "database",
+      "url": "https://www.allbud.com/marijuana-strains/sativa/hawaiian-sativa",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Hawaiian Marijuana Strain Information & Reviews",
+      "publisher": "AllBud",
+      "category": "database",
+      "url": "https://www.allbud.com/marijuana-strains/sativa-dominant-hybrid/hawaiian",
+      "accessed": "2026-09-24"
+    }
+  ],
   "updated": "2026-09-24"
 }

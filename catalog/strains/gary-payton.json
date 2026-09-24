@@ -3,6 +3,54 @@
   "name": "Gary Payton",
   "aliases": [],
   "kind": "cultivar",
-  "status": "stub",
+  "status": "draft",
+  "summary": "**Gary Payton** is a [[kind:cultivar|cultivar]] selected by Powerzzzup Genetics and Cookies as phenotype 20 of a cross between [[the-y|The Y]] and [[snowman|Snowman]], grown by Kenny Dumetz in California. It launched commercially on July 11, 2019, named and licensed after NBA Hall of Famer Gary Payton.",
+  "born": {
+    "year_min": 2019,
+    "year_max": 2019,
+    "display": "2019"
+  },
+  "origin": {
+    "place": "California",
+    "country": "US",
+    "lat": 36.8,
+    "lon": -119.4
+  },
+  "breeder": "Powerzzzup Genetics",
+  "parents": [
+    "the-y",
+    "snowman"
+  ],
+  "traditional_label": "hybrid",
+  "growing": {
+    "environment": "unknown",
+    "flowering_weeks": {
+      "min": 7,
+      "max": 9
+    }
+  },
+  "sources": [
+    {
+      "title": "Gary Payton",
+      "publisher": "Cookies",
+      "category": "breeder",
+      "url": "https://cookies.co/strains/gary-payton/",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "California Based Lifestyle & Cannabis Brand, Cookies, To Launch Exclusive \"Gary Payton\" Strain",
+      "publisher": "PR Newswire",
+      "category": "publication",
+      "url": "https://www.prnewswire.com/news-releases/california-based-lifestyle--cannabis-brand-cookies-to-launch-exclusive-gary-payton-strain-named-after-hall-of-fame-basketball-player-300883617.html",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Gary Payton Strain – Grow Guide & Genetics",
+      "publisher": "Prime Cuts Nursery",
+      "category": "publication",
+      "url": "https://www.primecutsnursery.com/strains/gary-payton",
+      "accessed": "2026-09-24"
+    }
+  ],
   "updated": "2026-09-24"
 }

@@ -1,7 +1,38 @@
 {
   "id": "nepalese",
   "name": "Nepalese",
+  "aliases": [],
   "kind": "landrace",
-  "status": "stub",
+  "status": "draft",
+  "summary": "**Nepalese** is a [[kind:landrace|landrace]] [[label:sativa|sativa]] from the hill regions of [[country:NP|Nepal]], traditionally grown for hashish production. Plants can exceed 3 metres and take 18 to 20 weeks to finish, harvested outdoors in October or November. It is not well suited to indoor cultivation.",
+  "born": {
+    "unknown": true,
+    "display": "traditional"
+  },
+  "origin": {
+    "place": "Nepal (hill regions)",
+    "country": "NP",
+    "lat": 27.7,
+    "lon": 85.3
+  },
+  "breeder": null,
+  "parents": [],
+  "traditional_label": "sativa",
+  "growing": {
+    "environment": "outdoor",
+    "flowering_weeks": {
+      "min": 18,
+      "max": 20
+    }
+  },
+  "sources": [
+    {
+      "title": "Nepalese (The Landrace Team) :: Cannabis Strain Info",
+      "publisher": "SeedFinder.eu",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/nepalese/the-landrace-team",
+      "accessed": "2026-09-24"
+    }
+  ],
   "updated": "2026-09-24"
 }

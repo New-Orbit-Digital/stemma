@@ -3,6 +3,40 @@
   "name": "Gelato",
   "aliases": [],
   "kind": "cultivar",
-  "status": "stub",
+  "status": "draft",
+  "summary": "**Gelato** is a [[kind:cultivar|cultivar]] bred by Sherbinski and Jigga in San Francisco around 2014. A cross of [[sunset-sherbet|Sunset Sherbet]] and [[thin-mint-gsc|Thin Mint GSC]], it was selected from roughly 200 seedlings and narrowed to numbered phenotypes. [[gelato-33|Gelato #33]] and [[gelato-41|Gelato #41]] became its best-known cuts.",
+  "born": {
+    "year_min": 2014,
+    "year_max": 2014,
+    "display": "2014"
+  },
+  "origin": {
+    "place": "San Francisco, California",
+    "country": "US",
+    "lat": 37.8,
+    "lon": -122.4
+  },
+  "breeder": "Sherbinski",
+  "parents": [
+    "sunset-sherbet",
+    "thin-mint-gsc"
+  ],
+  "traditional_label": "hybrid",
+  "sources": [
+    {
+      "title": "The Sherbinski Sitdown: A Comprehensive Guide to Gelato",
+      "publisher": "Cannabis Now",
+      "category": "publication",
+      "url": "https://cannabisnow.com/sherbinski-sitdown-gelato/",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Gelato strain page",
+      "publisher": "AllBud",
+      "category": "database",
+      "url": "https://www.allbud.com/marijuana-strains/hybrid/gelato",
+      "accessed": "2026-09-24"
+    }
+  ],
   "updated": "2026-09-24"
 }

@@ -3,6 +3,37 @@
   "name": "Jealousy",
   "aliases": [],
   "kind": "cultivar",
-  "status": "stub",
+  "status": "draft",
+  "summary": "**Jealousy** is a [[kind:cultivar|cultivar]] bred by [[breeder:Seed Junky Genetics|Seed Junky Genetics]], first released in 2019. A cross of [[gelato-41|Gelato #41]] and [[sherbet-bx1|Sherbet Bx1]], itself a backcross of Sherbert OG and [[animal-cookies|Animal Cookies]], it is grown as a [[label:hybrid|hybrid]].",
+  "born": {
+    "year_min": 2019,
+    "year_max": 2019,
+    "display": "2019"
+  },
+  "origin": {
+    "unknown": true
+  },
+  "breeder": "Seed Junky Genetics",
+  "parents": [
+    "gelato-41",
+    "sherbet-bx1"
+  ],
+  "traditional_label": "hybrid",
+  "sources": [
+    {
+      "title": "Jealousy (Seed Junky Genetics)",
+      "publisher": "SeedFinder.eu",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/jealousy/seed-junky-genetics",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Jealousy",
+      "publisher": "AllBud",
+      "category": "database",
+      "url": "https://www.allbud.com/marijuana-strains/hybrid/jealousy",
+      "accessed": "2026-09-24"
+    }
+  ],
   "updated": "2026-09-24"
 }

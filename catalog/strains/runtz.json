@@ -3,6 +3,40 @@
   "name": "Runtz",
   "aliases": [],
   "kind": "cultivar",
-  "status": "stub",
+  "status": "draft",
+  "summary": "**Runtz** is a [[kind:cultivar|cultivar]] created in late 2016 or early 2017 in Los Angeles by Nick Corwin, a cross of [[zkittlez|Zkittlez]] and [[gelato-33|Gelato #33]] sourced from Jai Chang of the Cookies fam. Branded by Ray Bama and rapper Yung LB as the Runtz Crew, it debuted at the December 2017 Emerald Cup before Cookies became its exclusive distributor in 2018.",
+  "born": {
+    "year_min": 2016,
+    "year_max": 2017,
+    "display": "2016-2017"
+  },
+  "origin": {
+    "place": "Los Angeles, California",
+    "country": "US",
+    "lat": 34.1,
+    "lon": -118.2
+  },
+  "breeder": null,
+  "parents": [
+    "zkittlez",
+    "gelato-33"
+  ],
+  "traditional_label": "hybrid",
+  "sources": [
+    {
+      "title": "Runtz Strain – Grow Guide & Genetics",
+      "publisher": "Prime Cuts Nursery",
+      "category": "publication",
+      "url": "https://www.primecutsnursery.com/strains/runtz",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Runtz (Unknown or Legendary)",
+      "publisher": "SeedFinder.eu",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/runtz/unknown-or-legendary",
+      "accessed": "2026-09-24"
+    }
+  ],
   "updated": "2026-09-24"
 }
