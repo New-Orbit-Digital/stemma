@@ -6,22 +6,26 @@ Durable standing work. `[blocker]` = gates other work.
 - ~~STM-U7~~ MERGED 2026-09-24 (#27): schema v2, the community-catalog model. Tiers and disputes are dropped, sources are categorized, and the site is simplified.
 - ~~STM-U8~~ MERGED 2026-09-24 (#33): inline `[[...]]` links, browse pages, `tools/countries.py`.
 - **STM-U8 visual pass (proposed)** — still waits on Justin's interface direction (`docs/prep/stemma-interface.md`).
-- **STM-U9 (issue #41)** — a `chemotype` field for cannabinoid (THC/CBD) ranges and dominant
+- **STM-U9 (issue #41, PR #42)** — a `chemotype` field for cannabinoid (THC/CBD) ranges and dominant
   terpenes. Purely additive; `schema_version` stays 2, per the U8 precedent. See
   `docs/packets/STM-U9.md`. The first executor run errored at 0s (2026-09-24 ~14:23 UTC, before the
-  usage rollover); re-triggered ~16:10 UTC. Its PR needs Justin's go. Unblocks R6.
+  usage rollover); re-triggered ~16:10 UTC, and draft PR #42 is open. Its PR needs Justin's go. Unblocks R6.
 
 ## Research units (planner sessions, cards via PR)
 - **R1** — Skunk family. Done for Sprint 1 (13 cards, migrated to v2 in U7, voice-rewritten with links in Sprint 2B / #34).
 - **R2** — Haze family. **DONE 2026-09-24 (#35, #36, #37): 14 new/upgraded draft cards + 2 new stubs (`silver-pearl`, `chitral`), written in the house voice with inline links, and merged.**
   - Each card's key facts were spot-checked against one live source before writing; corrections are noted in the affected cards' own source lists (see `current.md`).
   - Status is `draft`, not `reviewed` — a full citation check against every listed source (not just the one spot-checked) is still needed before any card can move to `reviewed`.
-  - Two modelling calls got planner defaults that Justin should confirm (see `current.md`'s morning checklist): the Lemon Skunk / Chitral parentage, and Amnesia Haze's disputed origin (`parents: []`, `breeder: null`).
-- **R3** — OG Kush family. Scheduled planner run (Opus), 2026-09-24 16:45 UTC.
+  - Justin ruled on both modelling calls on 2026-09-24: Chitral stays a prose mention only, and Amnesia Haze's breeder is "Soma's Sacred Seeds".
+- **R3** — OG Kush family. **DONE 2026-09-24 (#43, #44, #45): 15 new draft cards, `hindu-kush` upgraded from stub, and 2 new stubs (`hawaiian`, `sour-diesel`). All are written in the house voice with inline links and are merged.**
+  - **Cards:** `og-kush`, `chemdawg`, `chemdawg-d`, `chemdawg-4`, `lemon-thai`, `pakistani-kush`, `sfv-og`, `tahoe-og`, `ghost-og`, `bubba-kush`, `fire-og`, `larry-og`, `headband`, `kosher-kush`, and `master-kush`.
+  - **Source checks:** each card's key facts were checked against at least one live source before writing, under the populate-first rule. The status is `draft`, not `reviewed`.
+  - **First use of `kind: cut`:** OG Kush, the Chem line, SFV OG, Tahoe OG, Ghost OG, and Kosher Kush are all cuts.
+  - **Open for Justin:** whether a grower's moniker belongs in `breeder` (see `current.md`).
 - ~~**R4** — GSC family.~~ Folded into L1 (Justin, 2026-09-24).
 - ~~**R5** — Blue Dream family.~~ Folded into L1 (Justin, 2026-09-24).
 - **L1 — Library pass (500+ strains).** Opus worklist, then Sonnet fill batches of 25, with an Opus
-  sample audit. Scheduled 2026-09-24 to start after R3 closes out. See `docs/library.md`.
+  sample audit. L1-A is scheduled for 2026-09-24 18:30 UTC, now that R3 has closed out. See `docs/library.md`.
 - **R6 — Chemotype enrichment (proposed, blocked on STM-U9 merging).** Populate `chemotype` on
   existing and future cards from original sources (breeder and seed-bank pages, SeedFinder, Leafly,
   AllBud, lab-data pages), cited and paraphrased like every other fact. L1 fills chemotype
