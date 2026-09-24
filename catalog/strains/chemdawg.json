@@ -1,0 +1,46 @@
+{
+  "id": "chemdawg",
+  "name": "Chemdawg",
+  "aliases": [
+    "Chemdog",
+    "Chem Dog",
+    "Chem 91",
+    "Chemdawg 91"
+  ],
+  "kind": "cut",
+  "status": "draft",
+  "summary": "Chemdawg is a [[kind:cut|cut]] kept since 1991 by a grower known as Chemdog, from one of 13 seeds found in bud bought at a Grateful Dead show in Indiana. The bud was said to have come from the California–Oregon border. This first keeper, also called Chem 91, is a parent of [[sour-diesel|Sour Diesel]] and is commonly named in the ancestry of OG Kush.",
+  "born": {
+    "year_min": 1991,
+    "year_max": 1991,
+    "display": "1991"
+  },
+  "origin": {
+    "place": "Western Massachusetts, USA",
+    "country": "US",
+    "lat": 42.4,
+    "lon": -72.6
+  },
+  "breeder": "Chemdog",
+  "parents": [],
+  "traditional_label": "hybrid",
+  "sources": [
+    {
+      "title": "25 Years of Chem Dog",
+      "publisher": "High Times",
+      "category": "publication",
+      "url": "https://hightimes.com/grow/25-years-of-chem-dog/",
+      "accessed": "2026-09-24",
+      "note": "Planner-verified 2026-09-24: confirms the June 1991 Deer Creek (Indiana) purchase, the 13 seeds, the California/Oregon-border source, Chem 91 as the first keeper, and the Sour Diesel and OG Kush connections."
+    },
+    {
+      "title": "Chemdawg",
+      "publisher": "Leafly",
+      "category": "database",
+      "url": "https://www.leafly.com/strains/chemdawg",
+      "accessed": "2026-09-24",
+      "note": "Describes the seed as Northern California bag seed from a Colorado show — a variant of the same story."
+    }
+  ],
+  "updated": "2026-09-24"
+}
