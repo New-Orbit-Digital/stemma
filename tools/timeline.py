@@ -24,8 +24,8 @@ Shape of the page:
   from ``year_min`` to ``year_max``, the fuzziness the schema records.
 * **Filter.** ``family()`` is the ancestor walk the diagram uses. Every card's
   family ships inline, so a shared ``?family=`` URL filters on first render
-  with no fetch, and rows only ever hide: the axis never moves under the
-  filter, the way the disputed toggle never moves the diagram.
+  with no fetch, and rows only ever hide, so the axis never moves under the
+  filter.
 """
 
 import html
@@ -98,19 +98,15 @@ def _undated_key(card):
     return (_name(card), card["id"])
 
 
-def family(strain_id, edges, with_disputed=False):
-    """The ids ``?family=<strain_id>`` keeps: the strain and its ancestors.
-
-    Disputed parents are left out by default, matching the rest of the site:
-    the timeline shows the best-supported account unless asked otherwise.
-    """
-    return lineage.family(strain_id, edges, with_disputed)
+def family(strain_id, edges):
+    """The ids ``?family=<strain_id>`` keeps: the strain and all its ancestors."""
+    return lineage.family(strain_id, edges)
 
 
-def families(strains, edges, with_disputed=False):
+def families(strains, edges):
     """Every card's family, the lookup the runtime filter reads."""
     return {
-        card["id"]: family(card["id"], edges, with_disputed)
+        card["id"]: family(card["id"], edges)
         for card in strains or []
         if isinstance(card, dict) and card.get("id")
     }
@@ -427,7 +423,7 @@ def render(graph):
 PICKER_FIELDS = ("id", "name", "aliases", "kind", "traditional_label", "status")
 
 
-def payload(strains, edges, with_disputed=False):
+def payload(strains, edges):
     """The inline JSON the page ships: every family, plus the picker's index.
 
     It rides along in the page rather than being fetched so that a shared
@@ -439,7 +435,7 @@ def payload(strains, edges, with_disputed=False):
         card for card in strains or [] if isinstance(card, dict) and card.get("id")
     ]
     return {
-        "families": families(cards, edges, with_disputed),
+        "families": families(cards, edges),
         "strains": [
             {key: card[key] for key in PICKER_FIELDS if key in card} for card in cards
         ],

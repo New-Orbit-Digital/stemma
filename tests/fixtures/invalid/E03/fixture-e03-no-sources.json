@@ -1,9 +1,10 @@
 {
-  "id": "fixture-e03-missing-summary",
-  "name": "Fixture Missing Summary",
+  "id": "fixture-e03-no-sources",
+  "name": "Fixture No Sources",
   "aliases": [],
   "kind": "cultivar",
   "status": "draft",
+  "summary": "Fictional draft fixture that cites nothing at all, which a draft may not do.",
   "born": {
     "year_min": 1990,
     "year_max": 1994,
@@ -15,12 +16,6 @@
   "breeder": null,
   "parents": [],
   "traditional_label": "hybrid",
-  "sources": [
-    {
-      "title": "Fixture magazine feature",
-      "publisher": "Fixture Press",
-      "category": "publication"
-    }
-  ],
+  "sources": [],
   "updated": "2026-09-23"
 }

@@ -15,63 +15,31 @@
     "place": "Guerrero, Mexico (around Acapulco)",
     "country": "MX",
     "lat": 16.9,
-    "lon": -99.9,
-    "evidence": [
-      {
-        "tier": "documented",
-        "source": "s1"
-      },
-      {
-        "tier": "documented",
-        "source": "s2",
-        "note": "Places traditional cultivation in the Guerrero mountains outside Acapulco, citing a 2011 newspaper; notes the first US record in 1964, citing Novak (1979)."
-      },
-      {
-        "tier": "folklore",
-        "source": "s3"
-      }
-    ]
+    "lon": -99.9
   },
   "breeder": null,
-  "lineage": {
-    "status": "disputed",
-    "parents": [],
-    "disputes": [
-      {
-        "claim": "Some strain guides describe it as a native Mexican plant crossed with a Nepalese indica, not a pure landrace",
-        "parents": [
-          "nepalese"
-        ],
-        "evidence": [
-          {
-            "tier": "folklore",
-            "source": "s2",
-            "note": "Wikipedia repeats this from strain-guide sites; no primary source is given."
-          }
-        ]
-      }
-    ]
-  },
+  "parents": [],
   "traditional_label": "sativa",
   "sources": [
     {
-      "id": "s1",
       "title": "Acapulco Gold strain page (cites Novak, Marijuana in the Lives of America; and Cannabis Pharmacy)",
       "publisher": "Cannigma",
+      "category": "database",
       "url": "https://cannigma.com/strains/acapulco-gold/",
       "accessed": "2026-09-23"
     },
     {
-      "id": "s2",
       "title": "Acapulco Gold",
       "publisher": "Wikipedia",
+      "category": "database",
       "url": "https://en.wikipedia.org/wiki/Acapulco_Gold",
-      "accessed": "2026-09-24"
+      "accessed": "2026-09-24",
+      "note": "Places traditional cultivation in the Guerrero mountains outside Acapulco, citing a 2011 newspaper; notes the first US record in 1964, citing Novak (1979)."
     },
     {
-      "id": "s3",
       "title": "Acapulco Gold Strain: Mexico's Legendary Golden Landrace",
       "publisher": "Black Cannabis Magazine",
+      "category": "publication",
       "url": "https://blackcannabismagazine.com/acapulco-gold/",
       "accessed": "2026-09-23"
     }

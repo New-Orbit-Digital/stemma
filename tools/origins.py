@@ -26,8 +26,8 @@ Shape of the page:
 * **Unknown origins.** Cards with ``origin.unknown``, with no coordinates, or
   with no ``origin`` at all (a stub) cannot be placed, so they are listed under
   the map instead of being dropped.
-* **Filter.** ``?family=<id>`` keeps a strain and its ancestors, disputed
-  parents out by default, exactly as the timeline does.
+* **Filter.** ``?family=<id>`` keeps a strain and all of its ancestors, exactly
+  as the timeline does.
 """
 
 import html
@@ -188,7 +188,7 @@ def curve(start, end, steps=ARC_STEPS):
     return points
 
 
-def arcs(strains, edges, with_disputed=False):
+def arcs(strains, edges):
     """One arc per lineage edge whose parent and child are both located.
 
     An edge to or from a card with no centroid has nothing to draw between, so
@@ -202,8 +202,6 @@ def arcs(strains, edges, with_disputed=False):
     }
     out = []
     for edge in edges or []:
-        if edge.get("disputed") and not with_disputed:
-            continue
         child, parent = edge.get("child"), edge.get("parent")
         if child not in points or parent not in points:
             continue
@@ -211,53 +209,47 @@ def arcs(strains, edges, with_disputed=False):
             {
                 "child": child,
                 "parent": parent,
-                "best_tier": edge.get("best_tier") or "folklore",
-                "disputed": bool(edge.get("disputed")),
                 "from": list(points[parent]),
                 "to": list(points[child]),
                 "points": curve(points[parent], points[child]),
             }
         )
-    out.sort(key=lambda arc: (arc["child"], arc["parent"], arc["disputed"]))
+    out.sort(key=lambda arc: (arc["child"], arc["parent"]))
     return out
 
 
-def family(strain_id, edges, with_disputed=False):
-    """The ids ``?family=<strain_id>`` keeps: the strain and its ancestors.
+def family(strain_id, edges):
+    """The ids ``?family=<strain_id>`` keeps: the strain and all its ancestors.
 
-    Delegated to ``lineage.family`` rather than walked again here, so disputed
-    parents stay out of a family on the map for the same reason they do on the
-    timeline: the site shows the best-supported account unless asked otherwise.
+    Delegated to ``lineage.family`` rather than walked again here, so the map
+    and the timeline can never drift apart on what a family is.
     """
-    return lineage.family(strain_id, edges, with_disputed)
+    return lineage.family(strain_id, edges)
 
 
-def families(strains, edges, with_disputed=False):
+def families(strains, edges):
     """Every card's family, the lookup the runtime filter reads."""
-    return {
-        card["id"]: family(card["id"], edges, with_disputed)
-        for card in _cards(strains)
-    }
+    return {card["id"]: family(card["id"], edges) for card in _cards(strains)}
 
 
-def family_arcs(strain_id, strains, edges, with_disputed=False):
+def family_arcs(strain_id, strains, edges):
     """The arcs ``?family=<strain_id>`` leaves on the map.
 
     Exactly the ancestor edges with both endpoints located: the filter is a set
     intersection against ``family()``, which is the same intersection the page
     does at runtime, so what the browser draws is what this returns.
     """
-    keep = set(family(strain_id, edges, with_disputed))
+    keep = set(family(strain_id, edges))
     return [
         arc
-        for arc in arcs(strains, edges, with_disputed)
+        for arc in arcs(strains, edges)
         if arc["child"] in keep and arc["parent"] in keep
     ]
 
 
-def family_groups(strain_id, strains, edges, with_disputed=False):
+def family_groups(strain_id, strains, edges):
     """The marker groups ``?family=<strain_id>`` leaves, members filtered."""
-    keep = set(family(strain_id, edges, with_disputed))
+    keep = set(family(strain_id, edges))
     out = []
     for group in groups(strains):
         members = [member for member in group["members"] if member["id"] in keep]
@@ -383,7 +375,7 @@ def counts(marker_groups, arc_list, unknown_cards):
 PICKER_FIELDS = ("id", "name", "aliases", "kind", "traditional_label", "status")
 
 
-def payload(strains, edges, with_disputed=False):
+def payload(strains, edges):
     """The inline JSON the page ships: markers, arcs, families, picker index.
 
     It rides along in the page rather than being fetched so that a shared
@@ -394,9 +386,9 @@ def payload(strains, edges, with_disputed=False):
     cards = _cards(strains)
     return {
         "groups": groups(cards),
-        "arcs": arcs(cards, edges, with_disputed),
+        "arcs": arcs(cards, edges),
         "unknown": [card["id"] for card in unknown(cards)],
-        "families": families(cards, edges, with_disputed),
+        "families": families(cards, edges),
         "strains": [
             {key: card[key] for key in PICKER_FIELDS if key in card} for card in cards
         ],

@@ -5,19 +5,25 @@
   "kind": "cultivar",
   "status": "draft",
   "summary": "Fictional fixture naming a parent card that does not exist.",
-  "born": { "year_min": 1990, "year_max": 1994, "display": "early 1990s", "evidence": [ { "tier": "documented", "source": "s1" } ] },
-  "origin": { "unknown": true },
-  "breeder": null,
-  "lineage": {
-    "status": "known",
-    "parents": [
-      { "id": "fixture-e05-ghost", "evidence": [ { "tier": "documented", "source": "s1" } ] }
-    ],
-    "disputes": []
+  "born": {
+    "year_min": 1990,
+    "year_max": 1994,
+    "display": "early 1990s"
   },
+  "origin": {
+    "unknown": true
+  },
+  "breeder": null,
+  "parents": [
+    "fixture-e05-ghost"
+  ],
   "traditional_label": "hybrid",
   "sources": [
-    { "id": "s1", "title": "Fixture magazine feature", "publisher": "Fixture Press" }
+    {
+      "title": "Fixture magazine feature",
+      "publisher": "Fixture Press",
+      "category": "publication"
+    }
   ],
   "updated": "2026-09-23"
 }

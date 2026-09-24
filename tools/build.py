@@ -3,14 +3,14 @@
 
 Stdlib only. Validation runs first; any error aborts the build with exit 1.
 The dataset is deterministic apart from ``generated``: strains are sorted by id
-and edges by (child, parent, disputed). Pages are rendered from the plain HTML
-templates in ``site/`` by substituting ``{{placeholder}}`` values, so the
-runtime only ever reads ``data/stemma.json``.
+and edges by (child, parent). Pages are rendered from the plain HTML templates
+in ``site/`` by substituting ``{{placeholder}}`` values, so the runtime only
+ever reads ``data/stemma.json``.
 
 Output layout under ``--out`` (the site root):
 
     index.html            search
-    about/index.html      evidence tiers, labels, disputes
+    about/index.html      what the catalog is, source categories, labels
     timeline/index.html   every dated card on a shared year axis
     map/index.html        every located card on a world map, with lineage arcs
     404.html
@@ -45,25 +45,13 @@ import validate  # noqa: E402
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = os.path.join(ROOT, "site")
 
-SCHEMA_VERSION = 1
+SCHEMA_VERSION = 2
 DEFAULT_OUT = "dist"
 DATASET_RELPATH = os.path.join("data", "stemma.json")
 
 PLACEHOLDER_RE = re.compile(r"\{\{([a-z_]+)\}\}")
 
 KIND_LABELS = timeline.KIND_LABELS  # one wording, shared with the timeline legend
-TIER_LABELS = {
-    "genetically-tested": "genetically tested",
-    "documented": "documented",
-    "breeder-claimed": "breeder claimed",
-    "folklore": "folklore",
-}
-LINEAGE_NOTES = {
-    "root": "A landrace. The tree stops here.",
-    "partial": "One parent is known and the other is not.",
-    "unknown": "No credible account of the parents.",
-    "disputed": "Competing accounts exist. The best-supported one is shown here.",
-}
 LABEL_HINT = '<a class="chip__hint" href="/about/#traditional-labels">what this means</a>'
 
 # The one pre-approved front-end library, pinned to an exact version on cdnjs.
@@ -108,41 +96,17 @@ ASSET_HASH_LEN = 10  # first 10 hex of sha256 — short enough to read in a URL
 
 
 def build_edges(cards):
-    """Edges for main parents (disputed: false) and dispute parents (true).
+    """One edge per (child, parent) pair, sorted, with duplicates collapsed.
 
-    ``best_tier`` is the highest-ranked tier among that parent's evidence
-    items; where the same (child, parent, disputed) parent is claimed more than
-    once, the evidence is pooled and the best tier wins.
+    A card that lists the same parent twice — a backcross written out long —
+    still draws one line, so the edge list is a set rather than a transcript.
     """
-    best = {}
+    pairs = set()
     for card in cards:
-        lineage = card.data.get("lineage") or {}
-        for parent in lineage.get("parents") or []:
-            _record(best, card.id, parent.get("id"), False, parent.get("evidence"))
-        for dispute in lineage.get("disputes") or []:
-            for parent_id in dispute.get("parents") or []:
-                _record(best, card.id, parent_id, True, dispute.get("evidence"))
-    return [
-        {
-            "child": child,
-            "parent": parent,
-            "best_tier": validate.TIER_BY_RANK[rank],
-            "disputed": disputed,
-        }
-        for (child, parent, disputed), rank in sorted(best.items())
-    ]
-
-
-def _record(best, child, parent, disputed, evidence):
-    ranks = [
-        validate.TIER_RANK[item["tier"]]
-        for item in evidence or []
-        if isinstance(item, dict) and item.get("tier") in validate.TIER_RANK
-    ]
-    if not (child and parent and ranks):
-        return
-    key = (child, parent, disputed)
-    best[key] = max(ranks + [best.get(key, 0)])
+        for parent in card.data.get("parents") or []:
+            if card.id and isinstance(parent, str) and parent:
+                pairs.add((card.id, parent))
+    return [{"child": child, "parent": parent} for child, parent in sorted(pairs)]
 
 
 # -- templating ------------------------------------------------------------
@@ -212,41 +176,11 @@ def strain_href(strain_id):
     return "/s/%s/" % strain_id
 
 
-def badge(tier):
-    return '<span class="badge badge--%s">%s</span>' % (
-        esc(tier),
-        esc(TIER_LABELS.get(tier, tier)),
-    )
+def fact(term, value_html):
+    return "<div><dt>%s</dt><dd>%s</dd></div>" % (esc(term), value_html)
 
 
-def evidence_list(items, sources):
-    """One badge per evidence item, with the source it rests on."""
-    rows = []
-    for item in items or []:
-        if not isinstance(item, dict):
-            continue
-        parts = [badge(item.get("tier"))]
-        source_id = item.get("source")
-        source = sources.get(source_id)
-        if source is not None:
-            parts.append(
-                '<a href="#source-%s">%s</a>' % (esc(source_id), esc(source.get("title")))
-            )
-        elif source_id:
-            parts.append("<span>%s</span>" % esc(source_id))
-        if item.get("note"):
-            parts.append("<span>%s</span>" % esc(item["note"]))
-        rows.append("<li>%s</li>" % "".join(parts))
-    if not rows:
-        return ""
-    return '<ul class="evidence">%s</ul>' % "".join(rows)
-
-
-def fact(term, value_html, evidence_html=""):
-    return "<div><dt>%s</dt><dd>%s%s</dd></div>" % (esc(term), value_html, evidence_html)
-
-
-def facts_block(data, sources):
+def facts_block(data):
     rows = []
 
     born = data.get("born") or {}
@@ -258,30 +192,18 @@ def facts_block(data, sources):
                 esc(born.get("year_min")),
                 esc(born.get("year_max")),
             )
-        rows.append(fact("Born", display, evidence_list(born.get("evidence"), sources)))
+        rows.append(fact("Born", display))
 
     origin = data.get("origin") or {}
     if origin:
         if origin.get("unknown") is True:
             rows.append(fact("Origin", "Unknown"))
         else:
-            place = esc(origin.get("place") or "Unknown")
-            rows.append(
-                fact("Origin", place, evidence_list(origin.get("evidence"), sources))
-            )
+            rows.append(fact("Origin", esc(origin.get("place") or "Unknown")))
 
     if "breeder" in data:
         breeder = data.get("breeder")
-        if isinstance(breeder, dict):
-            rows.append(
-                fact(
-                    "Breeder",
-                    esc(breeder.get("name")),
-                    evidence_list(breeder.get("evidence"), sources),
-                )
-            )
-        else:
-            rows.append(fact("Breeder", "Not recorded"))
+        rows.append(fact("Breeder", esc(breeder) if breeder else "Not recorded"))
 
     if not rows:
         return ""
@@ -313,39 +235,26 @@ def relation_item(strain_id, names, extra_html=""):
     )
 
 
-def parents_block(data, names, sources):
-    lineage = data.get("lineage") or {}
-    status = lineage.get("status")
-    parents = lineage.get("parents") or []
-    note = LINEAGE_NOTES.get(status)
+def parents_block(data, names):
     out = ["<h3>Parents</h3>"]
-    if parents:
-        rows = [
-            relation_item(
-                parent.get("id"),
-                names,
-                evidence_list(parent.get("evidence"), sources),
-            )
-            for parent in parents
-            if isinstance(parent, dict) and parent.get("id")
-        ]
+    rows = [
+        relation_item(parent, names)
+        for parent in data.get("parents") or []
+        if isinstance(parent, str) and parent
+    ]
+    if rows:
         out.append('<ul class="relations">%s</ul>' % "".join(rows))
     else:
         out.append('<p class="empty">No parents recorded.</p>')
-    if note:
-        out.append('<p class="empty">%s</p>' % esc(note))
     return "".join(out)
 
 
 def children_block(strain_id, edges, names):
-    rows = []
-    for edge in edges:
-        if edge["parent"] != strain_id:
-            continue
-        extra = badge(edge["best_tier"])
-        if edge["disputed"]:
-            extra += '<span class="badge">disputed claim</span>'
-        rows.append(relation_item(edge["child"], names, extra))
+    rows = [
+        relation_item(edge["child"], names)
+        for edge in edges
+        if edge["parent"] == strain_id
+    ]
     out = ["<h3>Children</h3>"]
     if rows:
         out.append('<ul class="relations">%s</ul>' % "".join(rows))
@@ -354,37 +263,14 @@ def children_block(strain_id, edges, names):
     return "".join(out)
 
 
-def disputes_block(data, names, sources):
-    disputes = (data.get("lineage") or {}).get("disputes") or []
-    if not disputes:
-        return ""
-    blocks = []
-    for dispute in disputes:
-        if not isinstance(dispute, dict):
-            continue
-        parent_links = ", ".join(
-            '<a href="%s">%s</a>' % (esc(strain_href(pid)), esc(names.get(pid, pid)))
-            for pid in dispute.get("parents") or []
-            if isinstance(pid, str)
-        )
-        parts = ["<p>%s</p>" % esc(dispute.get("claim"))]
-        if parent_links:
-            parts.append("<p>Parents named: %s</p>" % parent_links)
-        parts.append(evidence_list(dispute.get("evidence"), sources))
-        blocks.append('<div class="dispute">%s</div>' % "".join(parts))
-    return (
-        '<section class="disputes" aria-labelledby="disputes-heading">'
-        '<h2 id="disputes-heading">Disputed</h2>'
-        "<p>Accounts disagree about this lineage. Each claim is listed with its own "
-        "evidence. <a href=\"/about/#disputes\">How to read disputes</a></p>"
-        "%s</section>" % "".join(blocks)
-    )
-
-
 def sources_block(data):
-    sources = data.get("sources") or []
+    """A quiet list at the foot of the card: title, publisher, category.
+
+    Unnumbered on purpose. Nothing on the page points at a source any more, so
+    a number would only imply a ranking the categories deliberately are not.
+    """
     rows = []
-    for source in sources:
+    for source in data.get("sources") or []:
         if not isinstance(source, dict):
             continue
         title = esc(source.get("title"))
@@ -394,19 +280,17 @@ def sources_block(data):
         line = [title]
         if source.get("publisher"):
             line.append('<span class="publisher">%s</span>' % esc(source["publisher"]))
-        if source.get("accessed"):
+        if source.get("category"):
             line.append(
-                '<span class="publisher">accessed %s</span>' % esc(source["accessed"])
+                '<span class="sources__category">%s</span>' % esc(source["category"])
             )
-        rows.append(
-            '<li id="source-%s">%s</li>' % (esc(source.get("id")), " &middot; ".join(line))
-        )
+        rows.append("<li>%s</li>" % " &middot; ".join(line))
     if not rows:
         return ""
     return (
         '<section aria-labelledby="sources-heading">'
         '<h2 id="sources-heading">Sources</h2>'
-        '<ol class="sources">%s</ol></section>' % "".join(rows)
+        '<ul class="sources">%s</ul></section>' % "".join(rows)
     )
 
 
@@ -444,11 +328,6 @@ def page(base, assets, title, description, page_class, content, inline_data="", 
 
 def strain_page(base, assets, template, data, edges, names, cards=None):
     strain_id = data["id"]
-    sources = {
-        source["id"]: source
-        for source in data.get("sources") or []
-        if isinstance(source, dict) and isinstance(source.get("id"), str)
-    }
     aliases = [alias for alias in data.get("aliases") or [] if alias]
     stub = data.get("status") == "stub"
     children = [edge for edge in edges if edge["parent"] == strain_id]
@@ -471,14 +350,13 @@ def strain_page(base, assets, template, data, edges, names, cards=None):
         "summary": (
             "" if stub or not data.get("summary") else "<p>%s</p>" % esc(data["summary"])
         ),
-        "facts": "" if stub else facts_block(data, sources),
-        "parents": parents_block(data, names, sources),
+        "facts": "" if stub else facts_block(data),
+        "parents": parents_block(data, names),
         "children": children_block(strain_id, edges, names),
         "lineage_graph": lineage.graph_html(strain_id, edges, cards or {strain_id: data}),
         "timeline_link": '<a href="/timeline/?family=%s">See on timeline</a>'
         % esc(strain_id),
         "map_link": '<a href="/map/?family=%s">See on map</a>' % esc(strain_id),
-        "disputes": "" if stub else disputes_block(data, names, sources),
         "sources": "" if stub else sources_block(data),
         "updated": esc(data.get("updated")),
     }
@@ -525,7 +403,7 @@ def index_page(base, assets, template, strains):
         base,
         assets,
         title="Stemma — cannabis strain lineage",
-        description="Search a cannabis strain name and see where it came from, with a source and an evidence tier for every claim.",
+        description="Search a cannabis strain name and see where it came from, who bred it, and which sources the catalog is reading.",
         page_class="page-search",
         content=content,
     )
@@ -588,7 +466,7 @@ def write_site(out, dataset):
             base,
             assets,
             title="About — Stemma",
-            description="What Stemma is, the four evidence tiers, why indica and sativa are traditional labels, and how to read disputes.",
+            description="What Stemma is, how sources are categorized, and why indica and sativa are only traditional labels.",
             page_class="page-about",
             content=read_template("about.html"),
         ),

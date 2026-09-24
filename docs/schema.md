@@ -1,6 +1,10 @@
-# Strain Card Schema — v1
-**STATUS:** Contract. The validator (STM-U1) enforces it; changes go through the planner.
+# Strain Card Schema — v2
+**STATUS:** Contract. The validator (`tools/validate.py`) enforces it; changes go through the planner.
 Machine-readable reference: `schema/strain.schema.json`. Where the two differ, this doc wins.
+
+Stemma is a community-maintained catalog, closer to a library catalog than to a graded body of
+evidence. A card records what is known and cites where it came from. Contributing should be low
+friction: one card, one source list, no tiers to argue about.
 
 ## File layout
 - One card per strain at `catalog/strains/<id>.json`.
@@ -10,84 +14,91 @@ Machine-readable reference: `schema/strain.schema.json`. Where the two differ, t
 ## Card fields
 | Field | Required | Type / values | Notes |
 |---|---|---|---|
-| `id` | always | kebab-case `[a-z0-9]+(-[a-z0-9]+)*` | **Permanent.** Never renamed after merge. |
+| `id` | always | kebab-case `[a-z0-9]+(-[a-z0-9]+)*` | **Permanent.** Never renamed. |
 | `name` | always | string | Display name, e.g. `Skunk #1` |
-| `aliases` | draft+ | string[] | Other names; used by search. May be empty. |
+| `aliases` | optional | string[] | Defaults to `[]`. Used by search. |
 | `kind` | always | `landrace` \| `cultivar` \| `cut` | A landrace is a regional traditional population. A cultivar is a bred variety. A cut is a clone-only selection. |
-| `status` | always | `stub` \| `draft` \| `reviewed` | See the status rules below. |
-| `summary` | draft+ | string, ≤ 400 chars | Our own words. Never copied text. |
-| `born` | draft+ | Born object | When it emerged. |
-| `origin` | draft+ | Origin object | Where it emerged. |
-| `breeder` | optional | `{name, evidence[]}` or `null` | |
-| `lineage` | draft+ | Lineage object | |
-| `traditional_label` | draft+ | `indica` \| `sativa` \| `hybrid` \| `unknown` | A traditional label only; the site explains its limits. |
+| `status` | always | `stub` \| `draft` \| `reviewed` | A stub needs only the always-required fields. A draft or reviewed card also needs `summary` and at least one source. |
+| `summary` | draft+ | string, ≤ 400 chars | Written in our own words. Where accounts differ, say so here in plain prose. |
+| `born` | optional | `{year_min, year_max, display}` or `{unknown: true, display}` | Defaults to unknown. |
+| `origin` | optional | `{place, country, lat, lon}` or `{unknown: true}` | Coordinates are a region centroid, rounded to 1 decimal place. Defaults to unknown. |
+| `breeder` | optional | string or `null` | |
+| `parents` | optional | id[] | Defaults to `[]`. Every id must be an existing card. No self-reference and no cycles. An empty list means the strain is a root (landrace) or its parents are unknown. |
+| `traditional_label` | optional | `indica` \| `sativa` \| `hybrid` \| `unknown` | A traditional label only; the site explains its limits. |
 | `growing` | optional | `{environment, flowering_weeks:{min,max}}` | `environment`: `indoor` \| `outdoor` \| `both` \| `unknown` |
-| `sources` | draft+ | Source[] | Every `evidence.source` must resolve here. |
+| `sources` | draft+ | Source[] | |
 | `updated` | always | `YYYY-MM-DD` | |
 
 ### Born
 One of two shapes:
-- **Known:** `{ "year_min": 1975, "year_max": 1979, "display": "late 1970s", "evidence": [...] }`. Here `year_min ≤ year_max`, and both fall within 1900 to the current year.
-- **Unknown:** `{ "unknown": true, "display": "traditional" }`, typical for landraces. It needs no evidence.
+- **Known:** `{ "year_min": 1975, "year_max": 1979, "display": "late 1970s" }`. Here `year_min ≤ year_max`, and both fall within 1900 to the current year.
+- **Unknown:** `{ "unknown": true, "display": "traditional" }`, typical for landraces.
 
 ### Origin
-`{ "place": "Northern California, USA", "country": "US", "lat": 39.5, "lon": -121.5, "evidence": [...] }`
+`{ "place": "Northern California, USA", "country": "US", "lat": 39.5, "lon": -121.5 }`
 - `lat` and `lon` are an approximate region centroid, rounded to 1 decimal place, never a precise location.
 - An origin with `{ "unknown": true }` needs no other fields.
 
-### Lineage
-`{ "status": ..., "parents": [...], "disputes": [...] }`
-
-| `status` | Meaning | Rule |
-|---|---|---|
-| `root` | A landrace: the tree stops here. | `kind` must be `landrace`, and `parents` must be empty. |
-| `known` | All parents are identified. | At least 1 parent. Use 1 for a selection or cut, 2 for a cross. |
-| `partial` | One parent is known and the other is not. | Exactly 1 parent. |
-| `unknown` | Nothing is credible. | `parents` must be empty. |
-| `disputed` | Competing accounts exist. | `disputes` must be non-empty. `parents` holds the best-supported account. |
-
-- **Parent:** `{ "id": "afghani", "evidence": [...] }`. The id must be an existing card, and a card cannot list itself. The lineage graph must have no cycles.
-- **Dispute:** `{ "claim": "short description", "parents": ["id-a", "id-b"], "evidence": [...] }`. Dispute parent ids must also exist as cards.
+### Parents
+A flat list of card ids: `[ "afghani", "colombian-gold" ]`.
+- Every id must be an existing card. A card may not list itself, and the graph must have no cycles.
+- Use 1 id for a selection or a cut, 2 for a cross.
 - **Backcrosses** are expressed by listing the parent cross and the backcrossed parent as the two parents.
-
-### Evidence item
-`{ "tier": "documented", "source": "s1", "note": "optional context" }`
-
-| Tier | Rank | Meaning |
-|---|---|---|
-| `genetically-tested` | 4 | DNA evidence, such as a Phylos genotype report. It verifies the tested sample, not the name the sample was sold under. Use `note` to record the sample's name. |
-| `documented` | 3 | Contemporaneous or published records: books, magazines, interviews, seed catalogs. |
-| `breeder-claimed` | 2 | The breeder's own account. |
-| `folklore` | 1 | Community lore with no stronger backing. Good content, and labeled as such. |
-
-- Any claim that isn't marked unknown needs at least one evidence item. Claims are `born`, `origin`, `breeder`, each parent, and each dispute.
+- An empty list means the strain is a root, or that its parents are not known. Where accounts of a
+  lineage disagree, the card lists the best-supported parents and says so in the `summary` prose.
 
 ### Source
-`{ "id": "s1", "title": "...", "publisher": "...", "url": "https://...", "accessed": "YYYY-MM-DD" }`
-- The `url` is optional for print sources.
-- Source ids must be unique within the card.
+`{ "title": "...", "publisher": "...", "category": "breeder" | "publication" | "database" | "community", "url": "https://...", "accessed": "YYYY-MM-DD", "note": "..." }`
+- `title` and `category` are required. `url`, `accessed` and `note` are optional; `url` is left off print sources.
+
+The categories are descriptive labels, not a ranking:
+
+| Category | What it covers |
+|---|---|
+| `breeder` | A breeder or seed company. |
+| `publication` | Books, journals, and press. |
+| `database` | Strain databases and encyclopedias. |
+| `community` | Blogs, forums, and online magazines. |
 
 ## Status rules
 - **`stub`:** only `id`, `name`, `kind`, `status`, and `updated` are required. Stubs let a lineage end at a strain we haven't researched yet. Stubs render as "not yet cataloged."
-- **`draft`:** all draft+ fields are required, and evidence rules apply.
+- **`draft`:** also needs `summary` and at least one source.
 - **`reviewed`:** same as draft, plus the planner has checked every citation against its source.
+
+## Errors (the validator fails the card)
+| Rule | What it catches |
+|---|---|
+| **E01** | The JSON does not parse, or the top-level value is not an object. |
+| **E02** | The `id` is malformed, duplicated, or does not equal the filename stem. |
+| **E03** | A required field is missing, an enum field holds a value it may not, or a field has the wrong type. A draft with no `summary` or no sources lands here. |
+| **E04** | A source has no `title`, or a `category` that is not one of the four. |
+| **E05** | A parent id names no card, or the card lists itself. |
+| **E06** | The parent graph has a cycle. |
+| **E09** | A year is outside 1900..the current year, or `year_min > year_max`. |
+| **E10** | A coordinate is out of range, or carries more than 1 decimal place. |
+| **E11** | The summary runs past 400 characters. |
+
+E07 and E08 were v1 rules for the `lineage.status` table and for per-claim evidence. Both concepts
+are gone in v2, so the ids are retired rather than reused.
 
 ## Warnings (reported, not failures)
 - **W1:** a child's `year_max` is earlier than a parent's `year_min`. The dates are fuzzy, so flag it rather than fail.
-- **W2:** a `draft` or `reviewed` card has no evidence item stronger than `folklore`.
+- **W3:** a `landrace` card lists parents. Usually a sign the card should be a `cultivar`.
+
+W2 was the v1 "nothing stronger than folklore" warning. It went with the tiers.
 
 ## Compiled dataset (the Budlogs seam)
 `python3 tools/build.py` writes `dist/data/stemma.json`:
 ```json
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "generated": "ISO-8601 UTC",
   "strains": [ /* every card, sorted by id */ ],
-  "edges": [ { "child": "id", "parent": "id", "best_tier": "documented", "disputed": false } ]
+  "edges": [ { "child": "id", "parent": "id" } ]
 }
 ```
+- Cards are written as they appear in the catalog, with defaults filled in.
 - Output is deterministic apart from `generated`.
-- Edges cover main parents (`disputed: false`) and dispute parents (`disputed: true`).
 
 ## Example card
 ```json
@@ -97,21 +108,17 @@ One of two shapes:
   "aliases": [],
   "kind": "cultivar",
   "status": "draft",
-  "summary": "Illustrative card showing every field. Not a real strain.",
-  "born": { "year_min": 1980, "year_max": 1989, "display": "1980s", "evidence": [ { "tier": "breeder-claimed", "source": "s1" } ] },
-  "origin": { "place": "Northern California, USA", "country": "US", "lat": 39.5, "lon": -121.5, "evidence": [ { "tier": "documented", "source": "s2" } ] },
-  "breeder": { "name": "Example Seeds", "evidence": [ { "tier": "breeder-claimed", "source": "s1" } ] },
-  "lineage": {
-    "status": "disputed",
-    "parents": [ { "id": "parent-a", "evidence": [ { "tier": "documented", "source": "s2" } ] }, { "id": "parent-b", "evidence": [ { "tier": "documented", "source": "s2" } ] } ],
-    "disputes": [ { "claim": "Some growers say the second parent was Parent C", "parents": ["parent-a", "parent-c"], "evidence": [ { "tier": "folklore", "source": "s3" } ] } ]
-  },
+  "summary": "Illustrative card showing every field. Not a real strain. Accounts differ on the second parent: some name Parent C instead, and this sentence is where the card says so.",
+  "born": { "year_min": 1980, "year_max": 1989, "display": "1980s" },
+  "origin": { "place": "Northern California, USA", "country": "US", "lat": 39.5, "lon": -121.5 },
+  "breeder": "Example Seeds",
+  "parents": [ "parent-a", "parent-b" ],
   "traditional_label": "hybrid",
   "growing": { "environment": "indoor", "flowering_weeks": { "min": 8, "max": 9 } },
   "sources": [
-    { "id": "s1", "title": "Breeder product page", "publisher": "Example Seeds", "url": "https://example.com", "accessed": "2026-09-23" },
-    { "id": "s2", "title": "Book or magazine", "publisher": "Example Press" },
-    { "id": "s3", "title": "Forum thread", "publisher": "Example Forum", "url": "https://example.com/t/1", "accessed": "2026-09-23" }
+    { "title": "Breeder product page", "publisher": "Example Seeds", "category": "breeder", "url": "https://example.com", "accessed": "2026-09-23" },
+    { "title": "Book or magazine", "publisher": "Example Press", "category": "publication" },
+    { "title": "Forum thread", "publisher": "Example Forum", "category": "community", "url": "https://example.com/t/1", "accessed": "2026-09-23", "note": "Where the Parent C account comes from." }
   ],
   "updated": "2026-09-23"
 }

@@ -403,14 +403,6 @@
   var WORLD_VIEW = [20, 0];
   var WORLD_ZOOM = 2;
   var FIT_MAX_ZOOM = 5;
-  /* The evidence tiers of the lineage graph, as line styles: solid, dashed,
-     dotted. The legend under the map says the same three things. */
-  var ARC_DASH = {
-    "genetically-tested": null,
-    documented: null,
-    "breeder-claimed": "7 5",
-    folklore: "2 6"
-  };
 
   function markerRadius(count) {
     return count > 1 ? Math.min(8 + 3 * (count - 1), 18) : 8;
@@ -571,11 +563,9 @@
         if (keep && !(keep[arc.child] === true && keep[arc.parent] === true)) {
           continue;
         }
-        window.L.polyline(arc.points, {
-          className: "map-arc map-arc--" + (arc.best_tier || "folklore"),
-          dashArray: ARC_DASH[arc.best_tier] || null,
-          weight: 2.5
-        })
+        /* One style for every arc: the lines on the map say the same thing
+           the lines in a lineage graph do, and nothing more. */
+        window.L.polyline(arc.points, { className: "map-arc", weight: 2.5 })
           .bindTooltip(
             (names[arc.parent] || arc.parent) + " → " + (names[arc.child] || arc.child)
           )

@@ -5,13 +5,23 @@
   "kind": "cultivar",
   "status": "draft",
   "summary": "Fictional fixture whose born year_min falls after its year_max.",
-  "born": { "year_min": 1985, "year_max": 1979, "display": "muddled", "evidence": [ { "tier": "documented", "source": "s1" } ] },
-  "origin": { "unknown": true },
+  "born": {
+    "year_min": 1985,
+    "year_max": 1979,
+    "display": "muddled"
+  },
+  "origin": {
+    "unknown": true
+  },
   "breeder": null,
-  "lineage": { "status": "unknown", "parents": [], "disputes": [] },
+  "parents": [],
   "traditional_label": "hybrid",
   "sources": [
-    { "id": "s1", "title": "Fixture magazine feature", "publisher": "Fixture Press" }
+    {
+      "title": "Fixture magazine feature",
+      "publisher": "Fixture Press",
+      "category": "publication"
+    }
   ],
   "updated": "2026-09-23"
 }

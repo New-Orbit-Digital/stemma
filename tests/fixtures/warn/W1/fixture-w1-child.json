@@ -5,19 +5,25 @@
   "kind": "cultivar",
   "status": "draft",
   "summary": "Fictional fixture born before the parent it claims, which is a warning, not an error.",
-  "born": { "year_min": 1980, "year_max": 1989, "display": "1980s", "evidence": [ { "tier": "documented", "source": "s1" } ] },
-  "origin": { "unknown": true },
-  "breeder": null,
-  "lineage": {
-    "status": "known",
-    "parents": [
-      { "id": "fixture-w1-parent", "evidence": [ { "tier": "documented", "source": "s1" } ] }
-    ],
-    "disputes": []
+  "born": {
+    "year_min": 1980,
+    "year_max": 1989,
+    "display": "1980s"
   },
+  "origin": {
+    "unknown": true
+  },
+  "breeder": null,
+  "parents": [
+    "fixture-w1-parent"
+  ],
   "traditional_label": "hybrid",
   "sources": [
-    { "id": "s1", "title": "Fixture magazine feature", "publisher": "Fixture Press" }
+    {
+      "title": "Fixture magazine feature",
+      "publisher": "Fixture Press",
+      "category": "publication"
+    }
   ],
   "updated": "2026-09-23"
 }

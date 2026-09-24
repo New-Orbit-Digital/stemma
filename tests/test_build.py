@@ -16,48 +16,11 @@ VALID = os.path.join(FIXTURES, "valid")
 GENERATED_RE = re.compile(r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$")
 
 EXPECTED_EDGES = [
-    {
-        "child": "fixture-cut",
-        "parent": "fixture-disputed",
-        "best_tier": "genetically-tested",
-        "disputed": False,
-    },
-    {
-        "child": "fixture-disputed",
-        "parent": "fixture-known-cross",
-        "best_tier": "genetically-tested",
-        "disputed": False,
-    },
-    {
-        "child": "fixture-disputed",
-        "parent": "fixture-landrace-root",
-        "best_tier": "folklore",
-        "disputed": True,
-    },
-    {
-        "child": "fixture-disputed",
-        "parent": "fixture-partial",
-        "best_tier": "folklore",
-        "disputed": True,
-    },
-    {
-        "child": "fixture-known-cross",
-        "parent": "fixture-landrace-root",
-        "best_tier": "documented",
-        "disputed": False,
-    },
-    {
-        "child": "fixture-known-cross",
-        "parent": "fixture-stub-parent",
-        "best_tier": "breeder-claimed",
-        "disputed": False,
-    },
-    {
-        "child": "fixture-partial",
-        "parent": "fixture-known-cross",
-        "best_tier": "folklore",
-        "disputed": False,
-    },
+    {"child": "fixture-cut", "parent": "fixture-reviewed"},
+    {"child": "fixture-known-cross", "parent": "fixture-landrace-root"},
+    {"child": "fixture-known-cross", "parent": "fixture-stub-parent"},
+    {"child": "fixture-partial", "parent": "fixture-known-cross"},
+    {"child": "fixture-reviewed", "parent": "fixture-known-cross"},
 ]
 
 
@@ -89,7 +52,7 @@ class BuildTest(unittest.TestCase):
 
     def test_dataset_shape(self):
         data = json.loads(self.build_valid())
-        self.assertEqual(data["schema_version"], 1)
+        self.assertEqual(data["schema_version"], 2)
         self.assertRegex(data["generated"], GENERATED_RE)
         self.assertEqual(sorted(data), ["edges", "generated", "schema_version", "strains"])
 
@@ -101,19 +64,21 @@ class BuildTest(unittest.TestCase):
             ids,
             [
                 "fixture-cut",
-                "fixture-disputed",
                 "fixture-known-cross",
                 "fixture-landrace-root",
                 "fixture-partial",
+                "fixture-reviewed",
                 "fixture-stub-parent",
             ],
         )
 
-    def test_edges_are_sorted_with_the_right_best_tier(self):
+    def test_edges_are_child_parent_pairs_sorted(self):
         data = json.loads(self.build_valid())
         self.assertEqual(data["edges"], EXPECTED_EDGES)
-        keys = [(e["child"], e["parent"], e["disputed"]) for e in data["edges"]]
+        keys = [(e["child"], e["parent"]) for e in data["edges"]]
         self.assertEqual(keys, sorted(keys))
+        for edge in data["edges"]:
+            self.assertEqual(sorted(edge), ["child", "parent"])
 
     def test_output_is_deterministic_apart_from_generated(self):
         first = self.build_valid("first")

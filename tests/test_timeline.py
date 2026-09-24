@@ -16,8 +16,8 @@ sys.path.insert(0, os.path.join(ROOT, "tools"))
 import timeline  # noqa: E402
 
 
-def edge(child, parent, tier="documented", disputed=False):
-    return {"child": child, "parent": parent, "best_tier": tier, "disputed": disputed}
+def edge(child, parent):
+    return {"child": child, "parent": parent}
 
 
 def dated(strain_id, year_min, year_max, kind="cultivar", name=None):
@@ -112,17 +112,15 @@ class FamilyFilterTest(unittest.TestCase):
         edges = [edge(chain[n], chain[n + 1]) for n in range(len(chain) - 1)]
         self.assertEqual(timeline.family(chain[0], edges), sorted(chain))
 
-    def test_disputed_parents_stay_out_unless_asked_for(self):
+    def test_a_family_is_the_strain_plus_all_of_its_ancestors(self):
         edges = [
             edge("example-kid", "example-mum"),
-            edge("example-kid", "example-rumoured", tier="folklore", disputed=True),
+            edge("example-kid", "example-dad"),
+            edge("example-mum", "example-gran"),
         ]
         self.assertEqual(
-            timeline.family("example-kid", edges), ["example-kid", "example-mum"]
-        )
-        self.assertEqual(
-            timeline.family("example-kid", edges, with_disputed=True),
-            ["example-kid", "example-mum", "example-rumoured"],
+            timeline.family("example-kid", edges),
+            ["example-dad", "example-gran", "example-kid", "example-mum"],
         )
 
     def test_families_covers_every_card(self):

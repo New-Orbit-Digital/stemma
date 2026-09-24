@@ -16,8 +16,8 @@ sys.path.insert(0, os.path.join(ROOT, "tools"))
 import lineage  # noqa: E402
 
 
-def edge(child, parent, tier="documented", disputed=False):
-    return {"child": child, "parent": parent, "best_tier": tier, "disputed": disputed}
+def edge(child, parent):
+    return {"child": child, "parent": parent}
 
 
 def card(strain_id, name=None, status="draft", born="1990s"):
@@ -41,7 +41,7 @@ def crossings(graph):
     """Pairs of same-row-span edges whose endpoints are ordered the other way."""
     nodes = by_id(graph)
     total = 0
-    drawn = [e for e in graph["edges"] if not e["hidden"]]
+    drawn = graph["edges"]
     for i, one in enumerate(drawn):
         for other in drawn[i + 1 :]:
             top_a, bottom_a = nodes[one["parent"]], nodes[one["child"]]
@@ -59,7 +59,7 @@ class LayoutTest(unittest.TestCase):
     def setUp(self):
         self.cross_edges = [
             edge("example-cross", "example-mother"),
-            edge("example-cross", "example-father", tier="breeder-claimed"),
+            edge("example-cross", "example-father"),
         ]
 
     def test_simple_cross_puts_parents_on_the_row_above(self):
@@ -78,7 +78,6 @@ class LayoutTest(unittest.TestCase):
         self.assertFalse(nodes["example-mother"]["current"])
         self.assertEqual(len(graph["edges"]), 2)
         self.assertFalse(graph["truncated"])
-        self.assertFalse(graph["disputed"])
 
     def test_roots_are_at_the_top_and_every_edge_points_upward(self):
         edges = self.cross_edges + [
@@ -166,67 +165,45 @@ class LayoutTest(unittest.TestCase):
         self.assertEqual(html.count("<rect"), 4)
         self.assertEqual(html.count("<path"), 4)
 
-    # -- disputed edges ---------------------------------------------------
+    # -- one edge style ---------------------------------------------------
 
-    def disputed(self):
-        return [
-            edge("example-disputed", "example-agreed"),
-            edge("example-disputed", "example-rumoured", tier="folklore", disputed=True),
-        ]
-
-    def test_disputed_edges_and_their_nodes_are_hidden_by_default(self):
-        graph = lineage.layout(
-            "example-disputed",
-            self.disputed(),
-            cards("example-disputed", "example-agreed", "example-rumoured"),
-        )
-        self.assertTrue(graph["disputed"])
-        hidden = {e["parent"]: e["hidden"] for e in graph["edges"]}
-        self.assertFalse(hidden["example-agreed"])
-        self.assertTrue(hidden["example-rumoured"])
-        nodes = by_id(graph)
-        self.assertFalse(nodes["example-agreed"]["hidden"])
-        self.assertFalse(nodes["example-disputed"]["hidden"])
-        # Reachable only through the disputed edge, so it hides with it.
-        self.assertTrue(nodes["example-rumoured"]["hidden"])
-
-    def test_disputed_markup_is_behind_an_unchecked_toggle(self):
+    def test_every_edge_is_drawn_the_same_way(self):
         html = lineage.graph_html(
-            "example-disputed",
-            self.disputed(),
-            cards("example-disputed", "example-agreed", "example-rumoured"),
+            "example-cross",
+            self.cross_edges,
+            cards("example-cross", "example-mother", "example-father"),
         )
-        self.assertIn('type="checkbox"', html)
-        self.assertIn('id="lineage-disputed"', html)
-        self.assertNotIn("checked", html)  # off by default
-        self.assertIn("Show disputed links", html)
-        self.assertIn("lineage-layer--disputed", html)
-        self.assertIn("lineage-edge--disputed", html)
-        # The hidden node sits inside the hidden group, not the visible one.
-        visible, _, hidden_markup = html.partition("lineage-layer--disputed")
-        self.assertNotIn("example-rumoured", visible)
-        self.assertIn("example-rumoured", hidden_markup)
+        self.assertEqual(html.count('class="lineage-edge"'), 2)
+        for gone in ("lineage-edge--", "lineage-layer--disputed", "lineage-key"):
+            self.assertNotIn(gone, html)
 
-    def test_a_graph_with_no_disputes_has_no_toggle(self):
+    def test_the_graph_carries_no_toggle_and_no_legend(self):
         html = lineage.graph_html(
             "example-cross",
             self.cross_edges,
             cards("example-cross", "example-mother", "example-father"),
         )
         self.assertNotIn('type="checkbox"', html)
-        self.assertNotIn("lineage-layer--disputed", html)
+        self.assertNotIn("Show disputed", html)
 
-    def test_hiding_disputed_links_never_moves_the_other_nodes(self):
-        """Disputed nodes are laid out either way, so the toggle causes no jump."""
-        full = lineage.layout(
-            "example-disputed",
-            self.disputed(),
-            cards("example-disputed", "example-agreed", "example-rumoured"),
+    def test_every_parent_edge_is_laid_out_and_drawn(self):
+        """Nothing is hidden now, so every edge in the data reaches the SVG."""
+        edges = [
+            edge("example-kid", "example-agreed"),
+            edge("example-kid", "example-second"),
+        ]
+        graph = lineage.layout(
+            "example-kid",
+            edges,
+            cards("example-kid", "example-agreed", "example-second"),
         )
-        placed = {node["id"]: (node["x"], node["y"]) for node in full["nodes"]}
-        self.assertEqual(len(placed), 3)
+        self.assertEqual(len(graph["edges"]), 2)
+        self.assertEqual(len(graph["nodes"]), 3)
+        for drawn in graph["edges"]:
+            self.assertEqual(sorted(drawn), ["child", "from", "parent", "to"])
+        placed = {node["id"]: (node["x"], node["y"]) for node in graph["nodes"]}
         self.assertEqual(
-            placed["example-agreed"][1], placed["example-rumoured"][1]
+            placed["example-agreed"][1], placed["example-second"][1]
         )  # same row
 
     # -- generations, ordering, determinism -------------------------------
@@ -332,16 +309,6 @@ class LayoutTest(unittest.TestCase):
         svg = markup[markup.index("<svg") : markup.index("</svg>") + len("</svg>")]
         root = ET.fromstring(svg)
         self.assertTrue(root.tag.endswith("svg"))
-
-    def test_legend_lists_only_the_styles_on_screen(self):
-        html = lineage.graph_html(
-            "example-cross",
-            self.cross_edges,
-            cards("example-cross", "example-mother", "example-father"),
-        )
-        self.assertIn("lineage-key__line--solid", html)  # documented
-        self.assertIn("lineage-key__line--dashed", html)  # breeder claimed
-        self.assertNotIn("lineage-key__line--dotted", html)  # no folklore edge here
 
 
 if __name__ == "__main__":
