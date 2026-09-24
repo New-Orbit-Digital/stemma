@@ -1,0 +1,17 @@
+{
+  "id": "fixture-e08-no-evidence",
+  "name": "Fixture No Evidence",
+  "aliases": [],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "Fictional fixture whose known origin carries no evidence at all.",
+  "born": { "year_min": 1990, "year_max": 1994, "display": "early 1990s", "evidence": [ { "tier": "documented", "source": "s1" } ] },
+  "origin": { "place": "Fixture Plain, Testland", "country": "TL", "lat": 12.3, "lon": 45.6, "evidence": [] },
+  "breeder": null,
+  "lineage": { "status": "unknown", "parents": [], "disputes": [] },
+  "traditional_label": "hybrid",
+  "sources": [
+    { "id": "s1", "title": "Fixture magazine feature", "publisher": "Fixture Press" }
+  ],
+  "updated": "2026-09-23"
+}

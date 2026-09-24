@@ -1,0 +1,17 @@
+{
+  "id": "fixture-w2-folklore-only",
+  "name": "Fixture Folklore Only",
+  "aliases": [],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "Fictional fixture backed by nothing stronger than community lore.",
+  "born": { "year_min": 1990, "year_max": 1994, "display": "early 1990s", "evidence": [ { "tier": "folklore", "source": "s1" } ] },
+  "origin": { "unknown": true },
+  "breeder": null,
+  "lineage": { "status": "unknown", "parents": [], "disputes": [] },
+  "traditional_label": "hybrid",
+  "sources": [
+    { "id": "s1", "title": "Fixture forum thread", "publisher": "Fixture Forum", "url": "https://example.invalid/t/4", "accessed": "2026-09-23" }
+  ],
+  "updated": "2026-09-23"
+}

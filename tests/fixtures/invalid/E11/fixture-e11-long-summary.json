@@ -1,0 +1,17 @@
+{
+  "id": "fixture-e11-long-summary",
+  "name": "Fixture Long Summary",
+  "aliases": [],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "Fictional fixture whose summary runs past the four hundred character ceiling set by the card contract, padded here with filler sentences so the validator has something real to measure. Filler sentence one keeps the count climbing. Filler sentence two keeps the count climbing. Filler sentence three keeps the count climbing. Filler sentence four keeps the count climbing. Filler sentence five keeps the count climbing. Filler sentence six ends it.",
+  "born": { "year_min": 1990, "year_max": 1994, "display": "early 1990s", "evidence": [ { "tier": "documented", "source": "s1" } ] },
+  "origin": { "unknown": true },
+  "breeder": null,
+  "lineage": { "status": "unknown", "parents": [], "disputes": [] },
+  "traditional_label": "hybrid",
+  "sources": [
+    { "id": "s1", "title": "Fixture magazine feature", "publisher": "Fixture Press" }
+  ],
+  "updated": "2026-09-23"
+}

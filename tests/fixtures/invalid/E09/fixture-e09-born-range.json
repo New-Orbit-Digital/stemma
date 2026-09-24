@@ -1,0 +1,17 @@
+{
+  "id": "fixture-e09-born-range",
+  "name": "Fixture Born Range",
+  "aliases": [],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "Fictional fixture whose born year_min falls after its year_max.",
+  "born": { "year_min": 1985, "year_max": 1979, "display": "muddled", "evidence": [ { "tier": "documented", "source": "s1" } ] },
+  "origin": { "unknown": true },
+  "breeder": null,
+  "lineage": { "status": "unknown", "parents": [], "disputes": [] },
+  "traditional_label": "hybrid",
+  "sources": [
+    { "id": "s1", "title": "Fixture magazine feature", "publisher": "Fixture Press" }
+  ],
+  "updated": "2026-09-23"
+}
