@@ -49,7 +49,7 @@ These ship as exact step lists. Justin also remains the verification gate on the
 - **2026-09-23 — Stack:** a static site plus repo-stored cards. No database or accounts in v1; Supabase arrives with Budlogs.
 - **2026-09-23 — Cards are JSON, and tooling is stdlib-only Python.** The executor runner has no pip.
 - **2026-09-23 — Stable IDs:** a strain's `id` never changes once merged. It's the URL, the QR target, and the future Budlogs foreign key.
-- **2026-09-23 — v1 scope is the seed lineages:** the Skunk #1, OG Kush, Haze, GSC, and Blue Dream families, traced back to landraces. Depth comes before breadth.
+- **2026-09-23 — v1 scope is the seed lineages:** the Skunk #1, OG Kush, Haze, GSC, and Blue Dream families, traced back to landraces. Depth comes before breadth. *Expanded 2026-09-24 by the library pass (below).*
 - **2026-09-23 — Sources:** paraphrase in our own words, never copy text. Check each source's terms before relying on it heavily.
 - **2026-09-24 — Functionality before aesthetics (Justin).** Build and verify features first. The visual pass comes later. Planner verification checks behaviour, not looks.
 - **2026-09-24 — Community-catalog model (Justin). This replaces the 2026-09-23 evidence-tier and dispute rules.**
@@ -68,6 +68,8 @@ These ship as exact step lists. Justin also remains the verification gate on the
 - **2026-09-24 — Same-name breeders (Justin).** When two distinct breeders share an exact name, disambiguate the way film or music databases do: add location in parentheses, or failing that, founding year. See `docs/voice.md`.
 - **2026-09-24 — Simple attributes only (Justin).** Effects, flavors, and medical-condition or recommended-activity data stay out: they're subjective and not widely verified. Cards stick to simple, checkable attributes: lineage, breeder, origin, dates, growing, and (with STM-U9) THC/CBD ranges and dominant terpenes.
 - **2026-09-24 — Framing (Justin).** Stemma doesn't need to be authoritative. Cards are presented as researched with sources and open to changes.
+- **2026-09-24 — Library pass (Justin).** v1 grows from the five seed families to a library of 500+ strains, filled quickly as `draft` cards and merged on a clean pass, with an Opus sample audit. GSC and Blue Dream fold into the library. See `docs/library.md`.
+- **2026-09-24 — Model tiers (Justin).** Opus designs, handles messy lineages, and audits. Sonnet does bulk card filling. Haiku is only for status checks. The executor's model is set in `.github/workflows/claude.yml`, which is Justin's hands only.
 
 ## Roles
 - **Justin:** product owner and verification gate. He gives the go on gated actions, directly or in advance.
