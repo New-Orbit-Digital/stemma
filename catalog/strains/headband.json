@@ -1,0 +1,49 @@
+{
+  "id": "headband",
+  "name": "Headband",
+  "aliases": [
+    "HB"
+  ],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "Headband is a [[kind:cultivar|cultivar]] crossing [[og-kush|OG Kush]] and [[sour-diesel|Sour Diesel]], a pairing fixed by the seed release from [[breeder:DNA Genetics]]. Older references tie the name to East Coast Diesel lines of the 1990s. It is distinct from 707 Headband.",
+  "born": {
+    "unknown": true,
+    "display": "undated"
+  },
+  "origin": {
+    "unknown": true
+  },
+  "breeder": "DNA Genetics",
+  "parents": [
+    "og-kush",
+    "sour-diesel"
+  ],
+  "traditional_label": "hybrid",
+  "growing": {
+    "environment": "unknown",
+    "flowering_weeks": {
+      "min": 9,
+      "max": 10
+    }
+  },
+  "sources": [
+    {
+      "title": "Headband",
+      "publisher": "Leafly",
+      "category": "database",
+      "url": "https://www.leafly.com/strains/headband",
+      "accessed": "2026-09-24",
+      "note": "Planner-verified 2026-09-24: confirms OG Kush x Sour Diesel and 9–10 weeks of flowering."
+    },
+    {
+      "title": "Headband",
+      "publisher": "Weedmaps",
+      "category": "database",
+      "url": "https://weedmaps.com/strains/headband",
+      "accessed": "2026-09-24",
+      "note": "Planner-verified 2026-09-24: credits DNA Genetics' OG Kush x Sour Diesel release and notes the older East Coast Diesel references and 707 Headband as a separate strain."
+    }
+  ],
+  "updated": "2026-09-24"
+}

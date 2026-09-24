@@ -1,0 +1,51 @@
+{
+  "id": "kosher-kush",
+  "name": "Kosher Kush",
+  "aliases": [
+    "Kosher OG"
+  ],
+  "kind": "cut",
+  "status": "draft",
+  "summary": "Kosher Kush is a [[kind:cut|cut]] of [[og-kush|OG Kush]] from Los Angeles, kept as a clone before [[breeder:DNA Genetics]] offered it as seed. It won Best Indica at the High Times Cannabis Cup in 2010 and 2011, and Best Strain in 2011.",
+  "born": {
+    "unknown": true,
+    "display": "undated"
+  },
+  "origin": {
+    "place": "Los Angeles, California, USA",
+    "country": "US",
+    "lat": 34.1,
+    "lon": -118.3
+  },
+  "breeder": "DNA Genetics",
+  "parents": [
+    "og-kush"
+  ],
+  "traditional_label": "indica",
+  "growing": {
+    "environment": "both",
+    "flowering_weeks": {
+      "min": 9,
+      "max": 10
+    }
+  },
+  "sources": [
+    {
+      "title": "Kosher Kush",
+      "publisher": "Leafly",
+      "category": "database",
+      "url": "https://www.leafly.com/strains/kosher-kush",
+      "accessed": "2026-09-24",
+      "note": "Planner-verified 2026-09-24: confirms OG Kush as parent, Los Angeles, DNA Genetics, the clone-only start, and the 2010–2011 Cup wins."
+    },
+    {
+      "title": "Kosher Kush",
+      "publisher": "DNA Genetics",
+      "category": "breeder",
+      "url": "https://www.dnagenetics.com/strains/kosher-kush",
+      "accessed": "2026-09-24",
+      "note": "Gives 9–10 weeks of flowering, indoors and out."
+    }
+  ],
+  "updated": "2026-09-24"
+}

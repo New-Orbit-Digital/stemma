@@ -1,0 +1,51 @@
+{
+  "id": "master-kush",
+  "name": "Master Kush",
+  "aliases": [
+    "High Rise",
+    "Grandmaster Kush"
+  ],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "Master Kush is a [[kind:cultivar|cultivar]] from [[breeder:White Label]], the seed line sold through [[breeder:Sensi Seeds]], bred from two [[hindu-kush|Hindu Kush]] landrace lines. Sensi gives their origins as India and Afghanistan. It won gold at the High Life Cannabis Cup in Utrecht in 2004.",
+  "born": {
+    "unknown": true,
+    "display": "undated"
+  },
+  "origin": {
+    "place": "Amsterdam, Netherlands",
+    "country": "NL",
+    "lat": 52.4,
+    "lon": 4.9
+  },
+  "breeder": "White Label",
+  "parents": [
+    "hindu-kush"
+  ],
+  "traditional_label": "indica",
+  "growing": {
+    "environment": "both",
+    "flowering_weeks": {
+      "min": 7,
+      "max": 8
+    }
+  },
+  "sources": [
+    {
+      "title": "Master Kush (feminized)",
+      "publisher": "Sensi Seeds",
+      "category": "breeder",
+      "url": "https://sensiseeds.com/en/feminized-seeds/white-label/master-kush",
+      "accessed": "2026-09-24",
+      "note": "Planner-verified 2026-09-24: confirms White Label, two Hindu Kush indicas from India and Afghanistan, the 2004 Utrecht High Life Cup gold, and 50–55 days of flowering."
+    },
+    {
+      "title": "Master Kush",
+      "publisher": "Leafly",
+      "category": "database",
+      "url": "https://www.leafly.com/strains/master-kush",
+      "accessed": "2026-09-24"
+    }
+  ],
+  "updated": "2026-09-24"
+}
