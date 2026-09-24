@@ -1,0 +1,12 @@
+{
+  "id": "cheese",
+  "name": "Cheese",
+  "aliases": [
+    "UK Cheese",
+    "Exodus Cheese",
+    "Big Buddha Cheese"
+  ],
+  "kind": "cut",
+  "status": "stub",
+  "updated": "2026-09-24"
+}
