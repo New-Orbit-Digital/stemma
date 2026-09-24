@@ -59,6 +59,13 @@ These ship as exact step lists. Justin also remains the verification gate on the
   - "Unknown" is still a valid answer, and decade-precision dates are fine.
   - Implemented by STM-U7. The tiers and disputes are parked in the backlog.
 - **2026-09-24 — Name:** keep "Stemma" for now (Justin).
+- **2026-09-24 — House voice:** 2a "Reference", with inline links (Justin). See `docs/voice.md`.
+- **2026-09-24 — Populate first, don't adjudicate (Justin).** The primary goal is filled cards.
+  - Check facts against a source.
+  - Don't invest in weighing theories or disputes.
+  - Use the commonly cited account.
+  - Don't leave fields empty just to dodge a conflict.
+- **2026-09-24 — Same-name breeders (Justin).** When two distinct breeders share an exact name, disambiguate the way film or music databases do: add location in parentheses, or failing that, founding year. See `docs/voice.md`.
 
 ## Roles
 - **Justin:** product owner and verification gate. He gives the go on gated actions, directly or in advance.
