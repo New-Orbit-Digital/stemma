@@ -1,7 +1,41 @@
 {
   "id": "hindu-kush",
   "name": "Hindu Kush",
+  "aliases": [
+    "Hindi Kush"
+  ],
   "kind": "landrace",
-  "status": "stub",
+  "status": "draft",
+  "summary": "Hindu Kush is a [[kind:landrace|landrace]] named for the mountain range along the border of [[country:AF|Afghanistan]] and [[country:PK|Pakistan]], where its resin was long gathered for hashish. It is the root of the Kush line, a parent of [[skunk-kush|Skunk Kush]] and Master Kush, and Leafly lists it in the ancestry of OG Kush.",
+  "born": {
+    "unknown": true,
+    "display": "traditional"
+  },
+  "origin": {
+    "place": "Hindu Kush range, Afghanistan and Pakistan",
+    "country": "AF",
+    "lat": 35.5,
+    "lon": 70.5
+  },
+  "breeder": null,
+  "parents": [],
+  "traditional_label": "indica",
+  "growing": {
+    "environment": "unknown",
+    "flowering_weeks": {
+      "min": 7,
+      "max": 9
+    }
+  },
+  "sources": [
+    {
+      "title": "Hindu Kush",
+      "publisher": "Leafly",
+      "category": "database",
+      "url": "https://www.leafly.com/strains/hindu-kush",
+      "accessed": "2026-09-24",
+      "note": "Planner-verified 2026-09-24: confirms the name from the range between Pakistan and Afghanistan, the pure-indica landrace description, resin prized by hash makers, and a 7–9 week flowering time."
+    }
+  ],
   "updated": "2026-09-24"
 }

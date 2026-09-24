@@ -1,0 +1,36 @@
+{
+  "id": "chemdawg-d",
+  "name": "Chemdawg D",
+  "aliases": [
+    "Chem D",
+    "Chem Dog D"
+  ],
+  "kind": "cut",
+  "status": "draft",
+  "summary": "Chemdawg D is a [[kind:cut|cut]] that Chemdog selected in 2001, when he germinated three more of the original 1991 [[chemdawg|Chemdawg]] seeds, labeled C, D, and E. D was the keeper of that round. It is a sibling of Chem 91 rather than its offspring.",
+  "born": {
+    "year_min": 2001,
+    "year_max": 2001,
+    "display": "2001"
+  },
+  "origin": {
+    "place": "Western Massachusetts, USA",
+    "country": "US",
+    "lat": 42.4,
+    "lon": -72.6
+  },
+  "breeder": "Chemdog",
+  "parents": [],
+  "traditional_label": "hybrid",
+  "sources": [
+    {
+      "title": "25 Years of Chem Dog",
+      "publisher": "High Times",
+      "category": "publication",
+      "url": "https://hightimes.com/grow/25-years-of-chem-dog/",
+      "accessed": "2026-09-24",
+      "note": "Planner-verified 2026-09-24: confirms the 2001 germination of seeds C, D, and E, with D as the keeper."
+    }
+  ],
+  "updated": "2026-09-24"
+}
