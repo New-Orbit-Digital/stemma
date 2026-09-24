@@ -7,7 +7,9 @@ name, born display and status already in ``strains``.
 
 The layout is precomputed at build time rather than in the browser, so the
 markup that ships is the markup that renders. ``layout()`` is the pure function
-the tests exercise; ``render()`` turns its result into SVG.
+the tests exercise; ``render()`` turns its result into SVG. ``ancestors()`` and
+``family()`` expose the ancestor walk on its own, for the pages that filter by
+family rather than draw a diagram.
 
 Shape of the layout:
 
@@ -113,6 +115,28 @@ def _reachable(root, edges, max_generations):
     seen.add(root)
     seen.update(_child_ids(root, edges, False))
     return seen
+
+
+def ancestors(strain_id, edges, with_disputed=False, max_generations=None):
+    """Every ancestor of ``strain_id``, as a set of ids.
+
+    The same walk the diagram uses, exposed for the pages that need the line
+    itself rather than a layout: the timeline's ``?family=`` filter, and the
+    map's arcs. ``max_generations`` defaults to no practical limit, because a
+    filter has no row budget to run out of; the cap is only the one an acyclic
+    graph can never reach, so a cycle among disputed claims still terminates.
+    """
+    edges = list(edges or [])
+    cap = len(edges) + 1 if max_generations is None else max_generations
+    depths, _truncated = _ancestor_depths(
+        strain_id, _parents_by_child(edges, with_disputed), cap
+    )
+    return set(depths)
+
+
+def family(strain_id, edges, with_disputed=False):
+    """``strain_id`` and its ancestors, sorted: one family, as the filters mean it."""
+    return sorted(ancestors(strain_id, edges, with_disputed) | {strain_id})
 
 
 def _discovery_order(root, parents_by_child, children, nodes):

@@ -11,6 +11,7 @@ Output layout under ``--out`` (the site root):
 
     index.html            search
     about/index.html      evidence tiers, labels, disputes
+    timeline/index.html   every dated card on a shared year axis
     404.html
     s/<id>/index.html     one page per card, rendered at build time
     assets/               style.css, app.js
@@ -29,6 +30,7 @@ from datetime import datetime, timezone
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 import lineage  # noqa: E402  (sibling module, resolved via the path insert)
+import timeline  # noqa: E402
 import validate  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -40,11 +42,7 @@ DATASET_RELPATH = os.path.join("data", "stemma.json")
 
 PLACEHOLDER_RE = re.compile(r"\{\{([a-z_]+)\}\}")
 
-KIND_LABELS = {
-    "landrace": "landrace",
-    "cultivar": "cultivar",
-    "cut": "clone-only cut",
-}
+KIND_LABELS = timeline.KIND_LABELS  # one wording, shared with the timeline legend
 TIER_LABELS = {
     "genetically-tested": "genetically tested",
     "documented": "documented",
@@ -338,13 +336,16 @@ def sources_block(data):
     )
 
 
+def inline_json_block(element_id, payload):
+    """Build-time data the page carries, so it needs no fetch on first render."""
+    text = json.dumps(payload, ensure_ascii=False, sort_keys=True)
+    safe = text.replace("<", "\\u003c").replace(">", "\\u003e").replace("&", "\\u0026")
+    return '<script id="%s" type="application/json">%s</script>' % (element_id, safe)
+
+
 def inline_data_block(data, children):
     """The card data, inlined so the page needs no fetch on first render."""
-    payload = json.dumps(
-        {"strain": data, "children": children}, ensure_ascii=False, sort_keys=True
-    )
-    safe = payload.replace("<", "\\u003c").replace(">", "\\u003e").replace("&", "\\u0026")
-    return '<script id="strain-data" type="application/json">%s</script>' % safe
+    return inline_json_block("strain-data", {"strain": data, "children": children})
 
 
 # -- pages -----------------------------------------------------------------
@@ -396,6 +397,8 @@ def strain_page(base, template, data, edges, names, cards=None):
         "parents": parents_block(data, names, sources),
         "children": children_block(strain_id, edges, names),
         "lineage_graph": lineage.graph_html(strain_id, edges, cards or {strain_id: data}),
+        "timeline_link": '<a href="/timeline/?family=%s">See on timeline</a>'
+        % esc(strain_id),
         "disputes": "" if stub else disputes_block(data, names, sources),
         "sources": "" if stub else sources_block(data),
         "updated": esc(data.get("updated")),
@@ -447,6 +450,20 @@ def index_page(base, template, strains):
     )
 
 
+def timeline_page(base, template, graph, payload):
+    return page(
+        base,
+        title="Timeline — Stemma",
+        description="Every dated strain in the Stemma catalog on one year axis, with landraces and undated cards in a strip at the start.",
+        page_class="page-timeline",
+        content=render(
+            template,
+            {"counts": esc(timeline.counts(graph)), "chart": timeline.render(graph)},
+        ),
+        inline_data=inline_json_block("timeline-data", payload),
+    )
+
+
 def write_site(out, dataset):
     base = read_template("base.html")
     strains = dataset["strains"]
@@ -467,6 +484,28 @@ def write_site(out, dataset):
             page_class="page-about",
             content=read_template("about.html"),
         ),
+    )
+    chart = timeline.layout(strains, edges)
+    path = write_page(
+        out,
+        os.path.join("timeline", "index.html"),
+        timeline_page(
+            base,
+            read_template("timeline.html"),
+            chart,
+            timeline.payload(strains, edges),
+        ),
+    )
+    # One bar per dated card, so the two counts are the page's own check.
+    print(
+        "wrote %s: %d bars, %d dated cards, %d in the roots strip, %d decades"
+        % (
+            path,
+            len(chart["bars"]),
+            sum(1 for strain in strains if timeline.is_dated(strain)),
+            len(chart["roots"]),
+            len(chart["decades"]),
+        )
     )
     write_page(
         out,
@@ -501,7 +540,7 @@ def write_site(out, dataset):
         if os.path.isfile(source):
             shutil.copyfile(source, os.path.join(assets_out, name))
 
-    return 3 + len(strains)
+    return 4 + len(strains)
 
 
 # -- driver ----------------------------------------------------------------

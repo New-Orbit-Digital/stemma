@@ -1,5 +1,6 @@
-/* Stemma site behavior: the 21+ notice and name/alias search.
-   Vanilla JS, no dependencies. At runtime the site reads only data/stemma.json. */
+/* Stemma site behavior: the 21+ notice, name/alias search, and the timeline's
+   family filter. Vanilla JS, no dependencies. At runtime the site reads only
+   data/stemma.json and the build-time JSON the pages carry inline. */
 (function () {
   "use strict";
 
@@ -167,10 +168,12 @@
     return parts.join(" · ");
   }
 
-  function resultItem(entry) {
+  /* One result row. Callers pass an href so the same list can open a card or,
+     on the timeline, point at that card's family. */
+  function resultItem(entry, href) {
     var item = document.createElement("li");
     var link = document.createElement("a");
-    link.href = "/s/" + encodeURIComponent(entry.id) + "/";
+    link.href = href || "/s/" + encodeURIComponent(entry.id) + "/";
 
     var name = document.createElement("span");
     name.className = "result__name";
@@ -243,9 +246,158 @@
       });
   }
 
+  /* -- the timeline's family filter ------------------------------------- */
+
+  function inlineJSON(id) {
+    var node = document.getElementById(id);
+    if (!node) {
+      return null;
+    }
+    try {
+      return JSON.parse(node.textContent || "null");
+    } catch (err) {
+      return null;
+    }
+  }
+
+  function queryParam(name) {
+    var pairs = String(window.location.search || "").replace(/^\?/, "").split("&");
+    for (var i = 0; i < pairs.length; i += 1) {
+      var pair = pairs[i].split("=");
+      if (pair[0] === name) {
+        return decodeURIComponent((pair[1] || "").replace(/\+/g, "%20"));
+      }
+    }
+    return "";
+  }
+
+  /* The bars are laid out at build time, so filtering only ever hides rows:
+     the axis and the decade bands never move under the filter. */
+  function setupTimeline() {
+    var chart = document.getElementById("timeline");
+    var input = document.getElementById("family-input");
+    var results = document.getElementById("family-results");
+    var status = document.getElementById("family-status");
+    var active = document.getElementById("timeline-active");
+    if (!chart || !input || !results || !status) {
+      return; // not the timeline page
+    }
+
+    var data = inlineJSON("timeline-data") || {};
+    var families = data.families || {};
+    var entries = buildIndex(data.strains || []);
+    var names = {};
+    for (var i = 0; i < entries.length; i += 1) {
+      names[entries[i].id] = entries[i].name;
+    }
+    var rows = chart.querySelectorAll("[data-id]");
+    var everything = status.textContent;
+    var current = "";
+
+    function href(id) {
+      return window.location.pathname + (id ? "?family=" + encodeURIComponent(id) : "");
+    }
+
+    function apply(id) {
+      var keep = null;
+      if (id && families[id]) {
+        keep = {};
+        for (var k = 0; k < families[id].length; k += 1) {
+          keep[families[id][k]] = true;
+        }
+      }
+      var shown = 0;
+      for (var r = 0; r < rows.length; r += 1) {
+        var on = !keep || keep[rows[r].getAttribute("data-id")] === true;
+        rows[r].classList.toggle("is-filtered", !on);
+        if (on) {
+          shown += 1;
+        }
+      }
+      return { shown: shown, filtered: keep !== null };
+    }
+
+    function select(id, remember) {
+      var result = apply(id);
+      current = result.filtered ? id : "";
+      if (result.filtered) {
+        status.textContent =
+          names[id] +
+          " and its ancestors: " +
+          result.shown +
+          " of " +
+          rows.length +
+          " cards.";
+      } else if (id) {
+        status.textContent = 'No card with the id "' + id + '". Showing every card.';
+      } else {
+        status.textContent = everything;
+      }
+      if (active) {
+        active.hidden = !result.filtered;
+      }
+      input.value = result.filtered ? names[id] : "";
+      results.textContent = "";
+      if (remember && window.history && window.history.pushState) {
+        window.history.pushState({ family: current }, "", href(current));
+      }
+    }
+
+    function render() {
+      results.textContent = "";
+      var hits = search(entries, input.value);
+      for (var h = 0; h < hits.length; h += 1) {
+        var entry = hits[h].entry;
+        var row = resultItem(entry, href(entry.id));
+        row.firstChild.setAttribute("data-family-id", entry.id);
+        results.appendChild(row);
+      }
+    }
+
+    /* Delegated, so the rows stay plain links: a middle click or "copy link"
+       still gets a shareable ?family= URL. */
+    function pick(event) {
+      var link = event.target;
+      while (link && link !== results && !link.getAttribute("data-family-id")) {
+        link = link.parentNode;
+      }
+      var id = link && link.getAttribute && link.getAttribute("data-family-id");
+      if (!id || !window.history || !window.history.pushState) {
+        return;
+      }
+      event.preventDefault();
+      select(id, true);
+    }
+
+    input.addEventListener("input", render);
+    results.addEventListener("click", pick);
+    if (active) {
+      active.addEventListener("click", function (event) {
+        var target = event.target;
+        if (!target || target.id !== "timeline-clear") {
+          return;
+        }
+        if (!window.history || !window.history.pushState) {
+          return; // let the link navigate instead
+        }
+        event.preventDefault();
+        select("", true);
+      });
+    }
+    window.addEventListener("popstate", function () {
+      select(queryParam("family"), false);
+    });
+
+    var initial = queryParam("family");
+    if (initial) {
+      select(initial, false);
+    }
+  }
+
   function start() {
     setupAgeGate();
     setupSearch();
+    setupTimeline();
   }
 
   if (document.readyState === "loading") {
