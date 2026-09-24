@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="robots" content="noindex">
+<meta name="description" content="{{description}}">
+<title>{{title}}</title>
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body class="{{page_class}}">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="masthead">
+  <a class="masthead__brand" href="/">Stemma</a>
+  <nav class="masthead__nav" aria-label="Site">
+    <a href="/">Search</a>
+    <a href="/about/">About</a>
+  </nav>
+</header>
+<main id="main" class="main">
+{{content}}
+</main>
+<footer class="footer">
+  <p>Stemma is a strain-lineage catalog. Disputes are recorded, not resolved.</p>
+  <p>21+. Not medical advice. <a href="/about/">How to read this catalog</a></p>
+</footer>
+<div id="age-gate" class="age-gate" hidden aria-hidden="true">
+  <div class="age-gate__panel" role="dialog" aria-modal="true" aria-labelledby="age-gate-title">
+    <h2 class="age-gate__title" id="age-gate-title">21+ only</h2>
+    <p>Stemma is cannabis history for adults. Confirm you are 21 or older to continue.</p>
+    <p class="age-gate__actions">
+      <button class="button" type="button" id="age-gate-ok">I am 21 or older</button>
+      <button class="button button--quiet" type="button" id="age-gate-no">I am under 21</button>
+    </p>
+    <p class="age-gate__declined" id="age-gate-declined" hidden>Come back when you are 21. Nothing here is medical advice.</p>
+  </div>
+</div>
+{{inline_data}}
+<script src="/assets/app.js"></script>
+</body>
+</html>

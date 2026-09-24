@@ -1,0 +1,20 @@
+<section class="hero">
+  <h1>Where a strain came from</h1>
+  <p class="lede">Search a name or an alias. Every lineage claim on a card carries a source and an evidence tier.</p>
+</section>
+<section class="search" aria-labelledby="search-heading">
+  <h2 class="visually-hidden" id="search-heading">Search the catalog</h2>
+  <div class="search__form" role="search">
+    <label class="search__label" for="search-input">Strain name or alias</label>
+    <input class="search__input" id="search-input" type="search" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="skunk 1, haze, og kush">
+  </div>
+  <p class="search__status" id="search-status" role="status">Loading the catalog&hellip;</p>
+  <ul class="results" id="search-results"></ul>
+  <noscript>
+    <p class="search__status">Search needs JavaScript. The whole catalog is listed below.</p>
+  </noscript>
+</section>
+<section class="browse" aria-labelledby="browse-heading">
+  <h2 id="browse-heading">{{browse_heading}}</h2>
+  {{browse}}
+</section>
