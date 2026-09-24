@@ -1,0 +1,54 @@
+{
+  "id": "fire-og",
+  "name": "Fire OG",
+  "aliases": [
+    "Fire OG Kush",
+    "FOG"
+  ],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "Fire OG is a [[kind:cultivar|cultivar]] bred in California in the 2000s by [[breeder:OG Raskal Genetics]], a cross of [[og-kush|OG Kush]] and [[sfv-og|SFV OG]]. The name refers to the red pistils on its flowers.",
+  "born": {
+    "year_min": 2000,
+    "year_max": 2009,
+    "display": "2000s"
+  },
+  "origin": {
+    "place": "California, USA",
+    "country": "US",
+    "lat": 36.8,
+    "lon": -119.4
+  },
+  "breeder": "OG Raskal Genetics",
+  "parents": [
+    "og-kush",
+    "sfv-og"
+  ],
+  "traditional_label": "hybrid",
+  "growing": {
+    "environment": "unknown",
+    "flowering_weeks": {
+      "min": 9,
+      "max": 10
+    }
+  },
+  "sources": [
+    {
+      "title": "Fire OG strain: all you need to know",
+      "publisher": "GreenState",
+      "category": "publication",
+      "url": "https://www.greenstate.com/reviews/fire-og-strain/",
+      "accessed": "2026-09-24",
+      "note": "Planner-verified 2026-09-24: confirms OG Raskal Genetics as breeder, the OG Kush x SFV OG cross, and the 2000s date."
+    },
+    {
+      "title": "Fire OG",
+      "publisher": "Leafly",
+      "category": "database",
+      "url": "https://www.leafly.com/strains/fire-og",
+      "accessed": "2026-09-24",
+      "note": "Planner-verified 2026-09-24: confirms the cross, the red-hair naming, and 9–10 weeks of flowering."
+    }
+  ],
+  "updated": "2026-09-24"
+}

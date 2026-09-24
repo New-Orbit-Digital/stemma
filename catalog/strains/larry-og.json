@@ -1,0 +1,53 @@
+{
+  "id": "larry-og",
+  "name": "Larry OG",
+  "aliases": [
+    "Lemon Larry",
+    "Lemon Larry OG"
+  ],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "Larry OG is a [[kind:cultivar|cultivar]] from Orange County, California, a cross of [[og-kush|OG Kush]] and [[sfv-og|SFV OG]] also sold as Lemon Larry. Weedmaps credits [[breeder:The Cali Connection]], whose Larry OG Kush, a cross back to SFV OG, won at the High Times Medical Cannabis Cup in 2012 and 2014.",
+  "born": {
+    "unknown": true,
+    "display": "undated"
+  },
+  "origin": {
+    "place": "Orange County, California, USA",
+    "country": "US",
+    "lat": 33.7,
+    "lon": -117.8
+  },
+  "breeder": "The Cali Connection",
+  "parents": [
+    "og-kush",
+    "sfv-og"
+  ],
+  "traditional_label": "hybrid",
+  "growing": {
+    "environment": "unknown",
+    "flowering_weeks": {
+      "min": 8,
+      "max": 10
+    }
+  },
+  "sources": [
+    {
+      "title": "Larry OG",
+      "publisher": "Leafly",
+      "category": "database",
+      "url": "https://www.leafly.com/strains/larry-og",
+      "accessed": "2026-09-24",
+      "note": "Planner-verified 2026-09-24: confirms the OG Kush x SFV OG cross, the Orange County origin, and the Lemon Larry alias."
+    },
+    {
+      "title": "Larry OG",
+      "publisher": "Weedmaps",
+      "category": "database",
+      "url": "https://weedmaps.com/strains/larry-og",
+      "accessed": "2026-09-24",
+      "note": "Planner-verified 2026-09-24: credits The Cali Connection, gives 56–70 days of flowering, and the 2012 and 2014 Cup wins for Larry OG Kush."
+    }
+  ],
+  "updated": "2026-09-24"
+}
