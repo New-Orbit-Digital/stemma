@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      # Guarded until STM-U1 lands the tools; after that, every step is mandatory.
+      - name: Validate catalog
+        run: |
+          if [ -f tools/validate.py ]; then python3 tools/validate.py; else echo "tools/validate.py not present yet (pre STM-U1)"; fi
+      - name: Run tests
+        run: |
+          if [ -f tools/run_tests.py ]; then python3 tools/run_tests.py; else echo "tools/run_tests.py not present yet (pre STM-U1)"; fi
+      - name: Build
+        run: |
+          if [ -f tools/build.py ]; then python3 tools/build.py; else echo "tools/build.py not present yet (pre STM-U1)"; fi

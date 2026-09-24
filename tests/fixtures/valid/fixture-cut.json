@@ -1,0 +1,25 @@
+{
+  "id": "fixture-cut",
+  "name": "Fixture Cut",
+  "aliases": ["Fixture Clone Only"],
+  "kind": "cut",
+  "status": "draft",
+  "summary": "Fictional clone-only selection fixture for the test suite. Not a real strain.",
+  "born": { "year_min": 2005, "year_max": 2008, "display": "mid 2000s", "evidence": [ { "tier": "breeder-claimed", "source": "s1" } ] },
+  "origin": { "place": "Fixture City, Testland", "country": "TL", "lat": 45.4, "lon": -75.7, "evidence": [ { "tier": "breeder-claimed", "source": "s1" } ] },
+  "breeder": { "name": "Fixture Cuttings", "evidence": [ { "tier": "breeder-claimed", "source": "s1" } ] },
+  "lineage": {
+    "status": "known",
+    "parents": [
+      { "id": "fixture-disputed", "evidence": [ { "tier": "breeder-claimed", "source": "s1" }, { "tier": "genetically-tested", "source": "s2", "note": "sample sold as Fixture Cut" } ] }
+    ],
+    "disputes": []
+  },
+  "traditional_label": "hybrid",
+  "growing": { "environment": "indoor", "flowering_weeks": { "min": 8, "max": 10 } },
+  "sources": [
+    { "id": "s1", "title": "Fixture breeder page", "publisher": "Fixture Cuttings", "url": "https://example.invalid/cut", "accessed": "2026-09-23" },
+    { "id": "s2", "title": "Fixture genotype report", "publisher": "Fixture Lab", "url": "https://example.invalid/report/2", "accessed": "2026-09-23" }
+  ],
+  "updated": "2026-09-23"
+}
