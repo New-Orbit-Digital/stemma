@@ -1,0 +1,56 @@
+{
+  "id": "lemon-skunk",
+  "name": "Lemon Skunk",
+  "aliases": [],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "Lemon Skunk is a [[kind:cultivar|cultivar]] bred by [[breeder:Green House Seed Co.]] from [[skunk-1|Skunk #1]] and a lemon-scented line the breeder calls Citral, which it describes as having Indian heritage. Some sources instead read Citral as [[chitral|Chitral]], a landrace from northwestern Pakistan. A separate Lemon Skunk line is sold by DNA Genetics.",
+  "born": {
+    "unknown": true,
+    "display": "by 2006"
+  },
+  "origin": {
+    "place": "Amsterdam, Netherlands (Green House line)",
+    "country": "NL",
+    "lat": 52.4,
+    "lon": 4.9
+  },
+  "breeder": "Green House Seed Co.",
+  "parents": [
+    "skunk-1"
+  ],
+  "traditional_label": "hybrid",
+  "growing": {
+    "environment": "both",
+    "flowering_weeks": {
+      "min": 8,
+      "max": 8
+    }
+  },
+  "sources": [
+    {
+      "title": "Lemon Skunk",
+      "publisher": "Green House Seed Co.",
+      "category": "breeder",
+      "url": "https://shop.greenhouseseeds.nl/feminised-cannabis-seeds/lemon-skunk/",
+      "accessed": "2026-09-24",
+      "note": "Planner-verified 2026-09-24: confirms Skunk x Citral and describes Citral as having Indian heritage — this contradicts SeedFinder's speculative reading of 'Citral' as Chitral, Pakistan, so that identification is now presented as disputed rather than as fact, and Chitral is not listed as a structural parent."
+    },
+    {
+      "title": "Lemon Skunk (Green House Seeds)",
+      "publisher": "SeedFinder",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/lemon-skunk/green-house-seeds",
+      "accessed": "2026-09-24",
+      "note": "Reads 'Citral' as probably Chitral, Pakistan; the source of the disputed reading in the summary."
+    },
+    {
+      "title": "Lemon Skunk (DNA Genetics Seeds)",
+      "publisher": "SeedFinder",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/lemon-skunk/dna-genetics-seeds",
+      "accessed": "2026-09-24"
+    }
+  ],
+  "updated": "2026-09-24"
+}
