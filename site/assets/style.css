@@ -11,7 +11,6 @@
   --accent-ink: #ffffff;
   --warn-bg: #fdf3e0;
   --warn-line: #e6cf9d;
-  --dispute: #a8481a;
   --kind-landrace: #9a6a1f;
   --kind-cultivar: #2f6d4a;
   --kind-cut: #3d6aa3;
@@ -31,7 +30,6 @@
     --accent-ink: #11150f;
     --warn-bg: #2a2416;
     --warn-line: #574a2a;
-    --dispute: #e8a273;
     --kind-landrace: #d9ae63;
     --kind-cultivar: #8fd3a5;
     --kind-cut: #8ab4e8;
@@ -188,71 +186,19 @@ p { margin: 0 0 0.75rem; }
 }
 .chip__hint { font-size: 0.75rem; }
 
-.badge {
-  display: inline-block;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  padding: 0.05rem 0.5rem;
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  white-space: nowrap;
-  background: var(--panel);
-  color: var(--ink-soft);
-}
-.badge--genetically-tested { border-color: var(--accent); color: var(--accent); font-weight: 700; }
-.badge--documented { font-weight: 600; }
-
 .facts { margin: 1.25rem 0 0; }
 .facts div { padding: 0.6rem 0; border-top: 1px solid var(--line); }
 .facts dt { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-soft); }
 .facts dd { margin: 0.15rem 0 0; }
 
-.evidence { list-style: none; margin: 0.35rem 0 0; padding: 0; font-size: 0.85rem; color: var(--ink-soft); }
-.evidence li { display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: baseline; margin-top: 0.2rem; }
-
 .relations { list-style: none; margin: 0.5rem 0 0; padding: 0; }
 .relations li { margin-bottom: 0.7rem; }
-.relations .badge { margin-left: 0.25rem; }
 
 /* -- lineage graph ---------------------------------------------------- */
-/* Rendered at build time as plain SVG. The "show disputed" control is a
-   checkbox this stylesheet reads, so no script patches styles at runtime. */
+/* Rendered at build time as plain SVG: every line is drawn the same way, so
+   the diagram carries no legend and no script patches styles at runtime. */
 
 .lineage-graph { margin-top: 1.25rem; }
-
-.lineage-graph__bar { margin: 0 0 0.5rem; }
-.lineage-graph__switch {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  min-height: 40px;
-  padding: 0 0.9rem 0 0.7rem;
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  font-size: 0.85rem;
-  cursor: pointer;
-}
-.lineage-graph__switch::before {
-  content: "";
-  width: 14px;
-  height: 14px;
-  border: 1px solid var(--ink-soft);
-  border-radius: 3px;
-  background: transparent;
-}
-.lineage-graph__toggle:checked ~ .lineage-graph__bar .lineage-graph__switch {
-  border-color: var(--dispute);
-}
-.lineage-graph__toggle:checked ~ .lineage-graph__bar .lineage-graph__switch::before {
-  background: var(--dispute);
-  border-color: var(--dispute);
-}
-.lineage-graph__toggle:focus-visible ~ .lineage-graph__bar .lineage-graph__switch {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
-}
 
 /* The diagram scrolls inside this box; the page itself never scrolls sideways. */
 .lineage-graph__scroll {
@@ -274,18 +220,6 @@ p { margin: 0 0 0.75rem; }
   stroke: var(--ink-soft);
   stroke-width: 1.6;
 }
-.lineage-edge--genetically-tested,
-.lineage-edge--documented { stroke-dasharray: none; }
-.lineage-edge--breeder-claimed { stroke-dasharray: 7 4; }
-.lineage-edge--folklore { stroke-dasharray: 1.5 4; stroke-linecap: round; }
-.lineage-edge--disputed { stroke: var(--dispute); }
-
-/* Disputed edges, and anything only reachable through one, stay off until the
-   toggle is on. They are laid out either way, so nothing else moves. */
-.lineage-layer--disputed { display: none; }
-.lineage-graph__toggle:checked ~ .lineage-graph__scroll .lineage-layer--disputed {
-  display: inline;
-}
 
 .lineage-node__box { fill: var(--bg); stroke: var(--line); stroke-width: 1; }
 .lineage-node__name { font: 600 13px/1 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; fill: var(--ink); }
@@ -302,25 +236,6 @@ a.lineage-node:focus .lineage-node__box { stroke: var(--accent); stroke-width: 2
 .lineage-node--stub .lineage-node__box { fill: transparent; stroke-dasharray: 4 3; }
 .lineage-node--stub .lineage-node__name,
 .lineage-node--stub .lineage-node__meta { fill: var(--ink-soft); }
-
-.lineage-key {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem 1rem;
-  list-style: none;
-  margin: 0.6rem 0 0;
-  padding: 0;
-  font-size: 0.8rem;
-  color: var(--ink-soft);
-}
-.lineage-key__item { display: inline-flex; align-items: center; gap: 0.4rem; }
-.lineage-key__line {
-  width: 26px;
-  border-top: 2px solid var(--ink-soft);
-}
-.lineage-key__line--dashed { border-top-style: dashed; }
-.lineage-key__line--dotted { border-top-style: dotted; }
-.lineage-key__line--disputed { border-top-color: var(--dispute); }
 
 .lineage__elsewhere { margin: 0.9rem 0 0; font-size: 0.9rem; }
 
@@ -436,8 +351,7 @@ a.timeline-row:focus .timeline-row__name { text-decoration: underline; }
 }
 .map-marker:hover, .map-marker:focus { fill-opacity: 1; stroke: var(--ink); }
 
-.map-arc { fill: none; stroke: var(--ink); stroke-opacity: 0.75; }
-.map-arc--genetically-tested, .map-arc--documented { stroke-opacity: 0.85; }
+.map-arc { fill: none; stroke: var(--ink); stroke-opacity: 0.8; }
 
 .map-popup__place { margin: 0 0 0.25rem; font-weight: 600; }
 .map-popup__list { list-style: none; margin: 0; padding: 0; }
@@ -466,26 +380,27 @@ a.timeline-row:focus .timeline-row__name { text-decoration: underline; }
 .map-unknown.is-filtered,
 .map-unknown .card-list li.is-filtered { display: none; }
 
-.note, .stub-notice, .disputes {
+.note, .stub-notice {
   background: var(--panel);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 0.85rem 1rem;
   margin: 1rem 0;
 }
-.stub-notice, .disputes { background: var(--warn-bg); border-color: var(--warn-line); }
-.disputes h2 { margin-top: 0; }
-.dispute + .dispute { border-top: 1px solid var(--warn-line); margin-top: 0.85rem; padding-top: 0.85rem; }
+.stub-notice { background: var(--warn-bg); border-color: var(--warn-line); }
 
-.sources { padding-left: 1.1rem; font-size: 0.9rem; }
+/* Unnumbered: the categories are descriptive labels, not a ranking, and a
+   numbered list would imply an order the card does not mean. */
+.sources { list-style: none; margin: 0.5rem 0 0; padding: 0; font-size: 0.9rem; }
 .sources li { margin-bottom: 0.45rem; }
 .sources .publisher { color: var(--ink-soft); }
+.sources__category { color: var(--ink-soft); font-size: 0.8rem; }
 
 .strain__footer { margin-top: 1.75rem; border-top: 1px solid var(--line); padding-top: 0.85rem; font-size: 0.9rem; color: var(--ink-soft); }
 
 .prose { max-width: var(--measure); }
-.tiers dt { margin-top: 0.9rem; }
-.tiers dd { margin: 0.25rem 0 0; }
+.categories dt { margin-top: 0.9rem; font-weight: 600; }
+.categories dd { margin: 0.25rem 0 0; }
 
 /* -- 21+ notice ------------------------------------------------------ */
 

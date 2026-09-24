@@ -4,6 +4,7 @@ The validator is exercised through its CLI, the way CI and the packet's
 acceptance checks call it.
 """
 
+import json
 import os
 import re
 import subprocess
@@ -17,7 +18,10 @@ VALID = os.path.join(FIXTURES, "valid")
 INVALID = os.path.join(FIXTURES, "invalid")
 WARN = os.path.join(FIXTURES, "warn")
 
-ERROR_RULES = ["E%02d" % n for n in range(1, 12)]
+# E07 (the v1 lineage.status table) and E08 (per-claim evidence) are retired
+# rules, not gaps: docs/schema.md, "Errors".
+ERROR_RULES = ["E01", "E02", "E03", "E04", "E05", "E06", "E09", "E10", "E11"]
+WARN_RULES = ["W1", "W3"]
 RULE_RE = re.compile(r"^(E\d{2}|W\d)\b", re.MULTILINE)
 SUMMARY_RE = re.compile(r"^(\d+) cards, (\d+) errors, (\d+) warnings$")
 
@@ -76,10 +80,21 @@ class ValidFixturesTest(SummaryLineTest):
             "fixture-landrace-root",
             "fixture-known-cross",
             "fixture-partial",
-            "fixture-disputed",
+            "fixture-reviewed",
             "fixture-stub-parent",
         ):
             self.assertIn(required, names)
+
+    def test_valid_fixtures_cover_every_source_category(self):
+        seen = set()
+        for name in os.listdir(VALID):
+            if not name.endswith(".json"):
+                continue
+            with open(os.path.join(VALID, name), "r", encoding="utf-8") as handle:
+                card = json.load(handle)
+            for source in card.get("sources") or []:
+                seen.add(source.get("category"))
+        self.assertEqual(seen, {"breeder", "publication", "database", "community"})
 
 
 class InvalidFixturesTest(SummaryLineTest):
@@ -113,19 +128,27 @@ class InvalidFixturesTest(SummaryLineTest):
         result = run_validate("--path", os.path.join(INVALID, "E05"))
         self.assertIn("parent 'fixture-e05-ghost' not found", result.stdout)
 
+    def test_bad_source_category_names_the_value(self):
+        result = run_validate("--path", os.path.join(INVALID, "E04"))
+        self.assertIn("'hearsay'", result.stdout)
+
 
 class WarningTest(SummaryLineTest):
+    def test_every_warning_has_a_fixture_directory(self):
+        self.assertEqual(sorted(os.listdir(WARN)), WARN_RULES)
+
     def test_w1_is_reported_without_failing(self):
         result = run_validate("--path", os.path.join(WARN, "W1"))
         self.assertEqual(result.returncode, 0, result.stdout)
         self.assertIn("W1", rule_ids(result.stdout), result.stdout)
         self.assertEqual(self.summary(result.stdout), (2, 0, 1), result.stdout)
 
-    def test_w2_is_reported_without_failing(self):
-        result = run_validate("--path", os.path.join(WARN, "W2"))
+    def test_w3_is_reported_without_failing(self):
+        result = run_validate("--path", os.path.join(WARN, "W3"))
         self.assertEqual(result.returncode, 0, result.stdout)
-        self.assertIn("W2", rule_ids(result.stdout), result.stdout)
-        self.assertEqual(self.summary(result.stdout), (1, 0, 1), result.stdout)
+        self.assertIn("W3", rule_ids(result.stdout), result.stdout)
+        self.assertIn("landrace", result.stdout)
+        self.assertEqual(self.summary(result.stdout), (2, 0, 1), result.stdout)
 
 
 class CliTest(SummaryLineTest):

@@ -15,8 +15,8 @@ sys.path.insert(0, os.path.join(ROOT, "tools"))
 import origins  # noqa: E402
 
 
-def edge(child, parent, tier="documented", disputed=False):
-    return {"child": child, "parent": parent, "best_tier": tier, "disputed": disputed}
+def edge(child, parent):
+    return {"child": child, "parent": parent}
 
 
 def card(strain_id, lat=None, lon=None, name=None, kind="cultivar", place=None):
@@ -35,7 +35,6 @@ def card(strain_id, lat=None, lon=None, name=None, kind="cultivar", place=None):
             "country": "TL",
             "lat": lat,
             "lon": lon,
-            "evidence": [{"tier": "documented", "source": "s1"}],
         }
     return data
 
@@ -211,23 +210,20 @@ class ArcTest(unittest.TestCase):
         self.assertEqual(arc["points"][0], [34.5, 69.2])
         self.assertEqual(arc["points"][-1], [52.4, 4.9])
 
-    def test_disputed_edges_stay_off_the_map_unless_asked_for(self):
+    def test_every_located_edge_gets_an_arc_in_one_style(self):
         edges = [
             edge("example-child", "example-mum"),
-            edge("example-child", "example-gran", tier="folklore", disputed=True),
+            edge("example-child", "example-gran"),
         ]
+        drawn = origins.arcs(self.strains, edges)
         self.assertEqual(
-            pairs(origins.arcs(self.strains, edges)),
-            [("example-child", "example-mum")],
-        )
-        self.assertEqual(
-            pairs(origins.arcs(self.strains, edges, with_disputed=True)),
+            pairs(drawn),
             [("example-child", "example-gran"), ("example-child", "example-mum")],
         )
-
-    def test_an_arc_carries_its_best_tier_for_the_line_style(self):
-        edges = [edge("example-child", "example-mum", tier="folklore")]
-        self.assertEqual(origins.arcs(self.strains, edges)[0]["best_tier"], "folklore")
+        for arc in drawn:
+            self.assertEqual(
+                sorted(arc), ["child", "from", "parent", "points", "to"]
+            )
 
     def test_an_arc_is_a_curve_not_a_straight_line(self):
         arc = origins.arcs(self.strains, self.edges)[0]
@@ -302,8 +298,7 @@ class FamilyArcTest(unittest.TestCase):
             expected = sorted(
                 (e["child"], e["parent"])
                 for e in self.edges
-                if not e["disputed"]
-                and e["child"] in family
+                if e["child"] in family
                 and e["parent"] in family
                 and e["child"] in located
                 and e["parent"] in located
@@ -314,23 +309,19 @@ class FamilyArcTest(unittest.TestCase):
                 "family arcs for %s" % strain["id"],
             )
 
-    def test_disputed_parents_are_out_of_a_family_by_default(self):
+    def test_every_parent_of_a_family_member_stays_in_the_family(self):
         strains = [
             card("example-kid", 52.4, 4.9),
             card("example-mum", 37.0, -122.0),
-            card("example-rumoured", 34.5, 69.2),
+            card("example-second", 34.5, 69.2),
         ]
         edges = [
             edge("example-kid", "example-mum"),
-            edge("example-kid", "example-rumoured", tier="folklore", disputed=True),
+            edge("example-kid", "example-second"),
         ]
         self.assertEqual(
             pairs(origins.family_arcs("example-kid", strains, edges)),
-            [("example-kid", "example-mum")],
-        )
-        self.assertEqual(
-            pairs(origins.family_arcs("example-kid", strains, edges, with_disputed=True)),
-            [("example-kid", "example-mum"), ("example-kid", "example-rumoured")],
+            [("example-kid", "example-mum"), ("example-kid", "example-second")],
         )
 
     def test_a_family_keeps_only_its_own_markers(self):

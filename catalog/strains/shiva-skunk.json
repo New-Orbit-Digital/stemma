@@ -11,65 +11,19 @@
   "born": {
     "year_min": 1987,
     "year_max": 1987,
-    "display": "1987",
-    "evidence": [
-      {
-        "tier": "breeder-claimed",
-        "source": "s1",
-        "note": "Sensi says it was first released in 1987."
-      }
-    ]
+    "display": "1987"
   },
   "origin": {
     "place": "Netherlands (Sensi Seeds)",
     "country": "NL",
     "lat": 52.1,
-    "lon": 5.3,
-    "evidence": [
-      {
-        "tier": "breeder-claimed",
-        "source": "s2",
-        "note": "Sensi lists this among the Skunk #1 hybrids it developed from genetics it received in the Netherlands in 1982."
-      }
-    ]
+    "lon": 5.3
   },
-  "breeder": {
-    "name": "Sensi Seeds",
-    "evidence": [
-      {
-        "tier": "breeder-claimed",
-        "source": "s1"
-      }
-    ]
-  },
-  "lineage": {
-    "status": "known",
-    "parents": [
-      {
-        "id": "northern-lights-5",
-        "evidence": [
-          {
-            "tier": "breeder-claimed",
-            "source": "s1"
-          }
-        ]
-      },
-      {
-        "id": "skunk-1",
-        "evidence": [
-          {
-            "tier": "breeder-claimed",
-            "source": "s1"
-          },
-          {
-            "tier": "breeder-claimed",
-            "source": "s2"
-          }
-        ]
-      }
-    ],
-    "disputes": []
-  },
+  "breeder": "Sensi Seeds",
+  "parents": [
+    "northern-lights-5",
+    "skunk-1"
+  ],
   "traditional_label": "indica",
   "growing": {
     "environment": "both",
@@ -80,18 +34,20 @@
   },
   "sources": [
     {
-      "id": "s1",
       "title": "Shiva Skunk (regular seeds) product page",
       "publisher": "Sensi Seeds",
+      "category": "breeder",
       "url": "https://sensiseeds.com/en/regular-seeds/sensi/shiva-skunk",
-      "accessed": "2026-09-24"
+      "accessed": "2026-09-24",
+      "note": "Sensi says it was first released in 1987."
     },
     {
-      "id": "s2",
       "title": "'Skunk Weed': A Beginner's Guide to Skunk",
       "publisher": "Sensi Seeds",
+      "category": "breeder",
       "url": "https://sensiseeds.com/en/blog/what-is-skunk-weed-a-beginners-guide-to-skunk/",
-      "accessed": "2026-09-24"
+      "accessed": "2026-09-24",
+      "note": "Sensi lists this among the Skunk #1 hybrids it developed from genetics it received in the Netherlands in 1982."
     }
   ],
   "updated": "2026-09-24"

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate Stemma strain cards against docs/schema.md.
+"""Validate Stemma strain cards against docs/schema.md (schema v2).
 
 Stdlib only. Reads every ``*.json`` card in a catalog directory (default
 ``catalog/strains``) and reports every rule break as a line that starts with
@@ -24,29 +24,15 @@ DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 
 KINDS = ("landrace", "cultivar", "cut")
 STATUSES = ("stub", "draft", "reviewed")
-LINEAGE_STATUSES = ("root", "known", "partial", "unknown", "disputed")
 TRADITIONAL_LABELS = ("indica", "sativa", "hybrid", "unknown")
 ENVIRONMENTS = ("indoor", "outdoor", "both", "unknown")
 
-# docs/schema.md "Evidence item": tier name -> rank.
-TIER_RANK = {
-    "genetically-tested": 4,
-    "documented": 3,
-    "breeder-claimed": 2,
-    "folklore": 1,
-}
-TIER_BY_RANK = {rank: tier for tier, rank in TIER_RANK.items()}
+# docs/schema.md "Source". Descriptive labels, deliberately not a ranking, so
+# nothing here is ordered and nothing compares two of them.
+SOURCE_CATEGORIES = ("breeder", "publication", "database", "community")
 
 ALWAYS_REQUIRED = ("id", "name", "kind", "status", "updated")
-DRAFT_REQUIRED = (
-    "aliases",
-    "summary",
-    "born",
-    "origin",
-    "lineage",
-    "traditional_label",
-    "sources",
-)
+DRAFT_REQUIRED = ("summary", "sources")
 DRAFT_PLUS = ("draft", "reviewed")
 
 DEFAULT_CATALOG = os.path.join("catalog", "strains")
@@ -85,7 +71,6 @@ class Card:
         self.rel = _rel(path)
         self.data = data
         self.id = None  # set only once the id is well formed and unique
-        self.tier_ranks = []
 
 
 class Validator:
@@ -198,11 +183,16 @@ class Validator:
         ):
             self.error("E03", rel, "'updated' must be a YYYY-MM-DD date")
 
-        draft_plus = status in DRAFT_PLUS
-        if draft_plus:
+        # A draft or reviewed card is a researched card: it says something, and
+        # it says where that came from.
+        if status in DRAFT_PLUS:
             for field in DRAFT_REQUIRED:
-                if field not in data:
-                    self.error("E03", rel, "required field '%s' is missing" % field)
+                if not data.get(field):
+                    self.error(
+                        "E03",
+                        rel,
+                        "a '%s' card needs a non-empty '%s'" % (status, field),
+                    )
 
         if "aliases" in data and not (
             isinstance(data["aliases"], list)
@@ -218,51 +208,43 @@ class Validator:
                 "'traditional_label' %r is not one of %s"
                 % (data["traditional_label"], _enum(TRADITIONAL_LABELS)),
             )
+        if "breeder" in data and not (
+            data["breeder"] is None or _is_str(data["breeder"])
+        ):
+            self.error("E03", rel, "'breeder' must be a non-empty string or null")
 
-        source_ids = self._check_sources(card)
+        self._check_sources(card)
         self._check_summary(card)
-        self._check_born(card, source_ids)
-        self._check_origin(card, source_ids)
-        self._check_breeder(card, source_ids)
-        self._check_lineage(card, source_ids)
+        self._check_born(card)
+        self._check_origin(card)
+        self._check_parents(card)
         self._check_growing(card)
 
-        # W2: a draft or reviewed card with nothing stronger than folklore.
-        if draft_plus and max(card.tier_ranks, default=0) < TIER_RANK["breeder-claimed"]:
-            self.warn("W2", rel, "no evidence stronger than 'folklore'")
-
+    # -- E04: sources -------------------------------------------------------
     def _check_sources(self, card):
-        """Returns the set of source ids declared on the card."""
         sources = card.data.get("sources")
         if sources is None:
-            return set()
+            return
         if not isinstance(sources, list):
             self.error("E03", card.rel, "'sources' must be an array")
-            return set()
-        ids = set()
+            return
         for index, source in enumerate(sources):
+            label = "sources[%d]" % index
             if not isinstance(source, dict):
-                self.error("E03", card.rel, "sources[%d] is not an object" % index)
+                self.error("E03", card.rel, "%s is not an object" % label)
                 continue
-            source_id = source.get("id")
-            if not _is_str(source_id):
-                self.error(
-                    "E03", card.rel, "sources[%d] needs a non-empty string 'id'" % index
-                )
-                continue
-            if source_id in ids:
-                self.error(
-                    "E04", card.rel, "source id '%s' is duplicated" % source_id
-                )
-            ids.add(source_id)
             if not _is_str(source.get("title")):
                 self.error(
-                    "E03",
-                    card.rel,
-                    "sources[%d] ('%s') needs a non-empty string 'title'"
-                    % (index, source_id),
+                    "E04", card.rel, "%s needs a non-empty string 'title'" % label
                 )
-        return ids
+            category = source.get("category")
+            if category not in SOURCE_CATEGORIES:
+                self.error(
+                    "E04",
+                    card.rel,
+                    "%s category %r is not one of %s"
+                    % (label, category, _enum(SOURCE_CATEGORIES)),
+                )
 
     def _check_summary(self, card):
         summary = card.data.get("summary")
@@ -279,46 +261,7 @@ class Validator:
                 % (len(summary), MAX_SUMMARY),
             )
 
-    def _check_evidence(self, card, where, items, source_ids, required=True):
-        """Checks one claim's evidence list (E03/E04/E08)."""
-        if items is None:
-            if required:
-                self.error("E08", card.rel, "%s has no evidence" % where)
-            return
-        if not isinstance(items, list):
-            self.error("E03", card.rel, "%s.evidence must be an array" % where)
-            return
-        if required and not items:
-            self.error("E08", card.rel, "%s has no evidence" % where)
-        for index, item in enumerate(items):
-            label = "%s.evidence[%d]" % (where, index)
-            if not isinstance(item, dict):
-                self.error("E03", card.rel, "%s is not an object" % label)
-                continue
-            tier = item.get("tier")
-            if tier is None:
-                self.error("E03", card.rel, "%s is missing 'tier'" % label)
-            elif tier not in TIER_RANK:
-                self.error(
-                    "E03",
-                    card.rel,
-                    "%s tier %r is not one of %s" % (label, tier, _enum(TIER_RANK)),
-                )
-            else:
-                card.tier_ranks.append(TIER_RANK[tier])
-            source = item.get("source")
-            if not _is_str(source):
-                self.error(
-                    "E03", card.rel, "%s needs a non-empty string 'source'" % label
-                )
-            elif source not in source_ids:
-                self.error(
-                    "E04",
-                    card.rel,
-                    "%s source '%s' does not resolve to 'sources'" % (label, source),
-                )
-
-    def _check_born(self, card, source_ids):
+    def _check_born(self, card):
         born = card.data.get("born")
         if born is None:
             return
@@ -328,7 +271,7 @@ class Validator:
         if not _is_str(born.get("display")):
             self.error("E03", card.rel, "'born.display' must be a non-empty string")
         if born.get("unknown") is True:
-            return  # an unknown born needs no years and no evidence
+            return  # an unknown born needs no years
         for field in ("year_min", "year_max"):
             if field not in born:
                 self.error(
@@ -357,9 +300,8 @@ class Validator:
                 "born.year_min %d is greater than born.year_max %d"
                 % (year_min, year_max),
             )
-        self._check_evidence(card, "born", born.get("evidence"), source_ids)
 
-    def _check_origin(self, card, source_ids):
+    def _check_origin(self, card):
         origin = card.data.get("origin")
         if origin is None:
             return
@@ -379,7 +321,6 @@ class Validator:
                 )
         self._check_coord(card, "lat", origin.get("lat"), 90)
         self._check_coord(card, "lon", origin.get("lon"), 180)
-        self._check_evidence(card, "origin", origin.get("evidence"), source_ids)
 
     def _check_coord(self, card, field, value, limit):
         if value is None:
@@ -402,126 +343,32 @@ class Validator:
                 "origin.%s %s has more than 1 decimal place" % (field, value),
             )
 
-    def _check_breeder(self, card, source_ids):
-        if "breeder" not in card.data:
+    # -- E05: parents -------------------------------------------------------
+    def _check_parents(self, card):
+        parents = card.data.get("parents")
+        if parents is None:
             return
-        breeder = card.data["breeder"]
-        if breeder is None:
-            return
-        if not isinstance(breeder, dict):
-            self.error("E03", card.rel, "'breeder' must be an object or null")
-            return
-        if not _is_str(breeder.get("name")):
-            self.error("E03", card.rel, "'breeder.name' must be a non-empty string")
-        self._check_evidence(card, "breeder", breeder.get("evidence"), source_ids)
-
-    def _check_lineage(self, card, source_ids):
-        lineage = card.data.get("lineage")
-        if lineage is None:
-            return
-        if not isinstance(lineage, dict):
-            self.error("E03", card.rel, "'lineage' must be an object")
-            return
-
-        status = lineage.get("status")
-        if status is None:
-            self.error("E03", card.rel, "required field 'lineage.status' is missing")
-        elif status not in LINEAGE_STATUSES:
-            self.error(
-                "E03",
-                card.rel,
-                "'lineage.status' %r is not one of %s"
-                % (status, _enum(LINEAGE_STATUSES)),
-            )
-
-        parents = lineage.get("parents", [])
         if not isinstance(parents, list):
-            self.error("E03", card.rel, "'lineage.parents' must be an array")
-            parents = []
-        disputes = lineage.get("disputes", [])
-        if not isinstance(disputes, list):
-            self.error("E03", card.rel, "'lineage.disputes' must be an array")
-            disputes = []
-
-        for index, parent in enumerate(parents):
-            label = "parents[%d]" % index
-            if not isinstance(parent, dict):
-                self.error("E03", card.rel, "%s is not an object" % label)
-                continue
-            parent_id = parent.get("id")
+            self.error("E03", card.rel, "'parents' must be an array of card ids")
+            return
+        for index, parent_id in enumerate(parents):
             if not _is_str(parent_id):
                 self.error(
-                    "E03", card.rel, "%s needs a non-empty string 'id'" % label
+                    "E03", card.rel, "parents[%d] must be a card id" % index
                 )
-            else:
-                self._check_reference(card, "parent", parent_id)
-            self._check_evidence(card, label, parent.get("evidence"), source_ids)
-
-        for index, dispute in enumerate(disputes):
-            label = "disputes[%d]" % index
-            if not isinstance(dispute, dict):
-                self.error("E03", card.rel, "%s is not an object" % label)
                 continue
-            if not _is_str(dispute.get("claim")):
-                self.error(
-                    "E03", card.rel, "%s needs a non-empty string 'claim'" % label
-                )
-            dispute_parents = dispute.get("parents", [])
-            if not isinstance(dispute_parents, list):
-                self.error("E03", card.rel, "%s.parents must be an array" % label)
-                dispute_parents = []
-            for parent_id in dispute_parents:
-                if not _is_str(parent_id):
-                    self.error(
-                        "E03", card.rel, "%s.parents must hold card ids" % label
-                    )
-                    continue
-                self._check_reference(card, "dispute parent", parent_id)
-            self._check_evidence(card, label, dispute.get("evidence"), source_ids)
+            if card.id is not None and parent_id == card.id:
+                self.error("E05", card.rel, "card lists itself as a parent")
+            elif parent_id not in self._known_ids:
+                self.error("E05", card.rel, "parent '%s' not found" % parent_id)
 
-        # E07: the lineage status/parents table in docs/schema.md.
-        if status == "root":
-            if card.data.get("kind") != "landrace":
-                self.error(
-                    "E07", card.rel, "lineage status 'root' requires kind 'landrace'"
-                )
-            if parents:
-                self.error(
-                    "E07", card.rel, "lineage status 'root' requires empty 'parents'"
-                )
-        elif status == "known":
-            if len(parents) < 1:
-                self.error(
-                    "E07",
-                    card.rel,
-                    "lineage status 'known' requires at least 1 parent",
-                )
-        elif status == "partial":
-            if len(parents) != 1:
-                self.error(
-                    "E07",
-                    card.rel,
-                    "lineage status 'partial' requires exactly 1 parent, found %d"
-                    % len(parents),
-                )
-        elif status == "unknown":
-            if parents:
-                self.error(
-                    "E07", card.rel, "lineage status 'unknown' requires empty 'parents'"
-                )
-        elif status == "disputed":
-            if not disputes:
-                self.error(
-                    "E07",
-                    card.rel,
-                    "lineage status 'disputed' requires a non-empty 'disputes'",
-                )
-
-    def _check_reference(self, card, label, parent_id):
-        if card.id is not None and parent_id == card.id:
-            self.error("E05", card.rel, "card lists itself as a %s" % label)
-        elif parent_id not in self._known_ids:
-            self.error("E05", card.rel, "%s '%s' not found" % (label, parent_id))
+        # W3: a landrace is a regional population, not something with parents.
+        if parents and card.data.get("kind") == "landrace":
+            self.warn(
+                "W3",
+                card.rel,
+                "a 'landrace' card lists %d parent(s)" % len(parents),
+            )
 
     def _check_growing(self, card):
         if "growing" not in card.data:
@@ -569,22 +416,14 @@ class Validator:
 
     # -- cross-card --------------------------------------------------------
     def parent_edges(self, card):
-        """Main-parent ids listed by a card, in file order."""
-        lineage = card.data.get("lineage")
-        if not isinstance(lineage, dict):
-            return []
-        parents = lineage.get("parents")
+        """Parent ids listed by a card, in file order."""
+        parents = card.data.get("parents")
         if not isinstance(parents, list):
             return []
-        out = []
-        for parent in parents:
-            if isinstance(parent, dict) and _is_str(parent.get("id")):
-                out.append(parent["id"])
-        return out
+        return [parent for parent in parents if _is_str(parent)]
 
     def _check_cycles(self):
-        """E06. The lineage graph is the main-parent graph (docs/schema.md,
-        "Parent": "The lineage graph must have no cycles")."""
+        """E06. docs/schema.md, "Parents": the graph must have no cycles."""
         graph = {}
         rel_by_id = {}
         for card in self.cards:

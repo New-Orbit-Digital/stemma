@@ -10,81 +10,19 @@
   "born": {
     "year_min": 1982,
     "year_max": 1990,
-    "display": "1980s; out by 1990",
-    "evidence": [
-      {
-        "tier": "breeder-claimed",
-        "source": "s1",
-        "note": "Sensi says Super Skunk was originally launched in 1990."
-      },
-      {
-        "tier": "breeder-claimed",
-        "source": "s2",
-        "note": "Sensi dates its Skunk #1 stock in the Netherlands to 1982, which bounds the start."
-      },
-      {
-        "tier": "breeder-claimed",
-        "source": "s3",
-        "note": "Database entry relaying the breeder's 1990 release date."
-      }
-    ]
+    "display": "1980s; out by 1990"
   },
   "origin": {
     "place": "Netherlands (Sensi Seeds)",
     "country": "NL",
     "lat": 52.1,
-    "lon": 5.3,
-    "evidence": [
-      {
-        "tier": "breeder-claimed",
-        "source": "s2",
-        "note": "Bred by Sensi Seeds from Skunk #1 genetics it received in the Netherlands."
-      }
-    ]
+    "lon": 5.3
   },
-  "breeder": {
-    "name": "Sensi Seeds",
-    "evidence": [
-      {
-        "tier": "breeder-claimed",
-        "source": "s1"
-      }
-    ]
-  },
-  "lineage": {
-    "status": "known",
-    "parents": [
-      {
-        "id": "skunk-1",
-        "evidence": [
-          {
-            "tier": "breeder-claimed",
-            "source": "s1"
-          },
-          {
-            "tier": "breeder-claimed",
-            "source": "s2"
-          }
-        ]
-      },
-      {
-        "id": "afghani",
-        "evidence": [
-          {
-            "tier": "breeder-claimed",
-            "source": "s1",
-            "note": "Described only as a premium Afghan cultivar; the specific Afghan line is not named."
-          },
-          {
-            "tier": "breeder-claimed",
-            "source": "s2",
-            "note": "Described as a potent Afghani hash strain."
-          }
-        ]
-      }
-    ],
-    "disputes": []
-  },
+  "breeder": "Sensi Seeds",
+  "parents": [
+    "skunk-1",
+    "afghani"
+  ],
   "traditional_label": "indica",
   "growing": {
     "environment": "both",
@@ -95,25 +33,28 @@
   },
   "sources": [
     {
-      "id": "s1",
       "title": "Super Skunk (regular seeds) product page",
       "publisher": "Sensi Seeds",
+      "category": "breeder",
       "url": "https://sensiseeds.com/en/regular-seeds/sensi/super-skunk",
-      "accessed": "2026-09-24"
+      "accessed": "2026-09-24",
+      "note": "Sensi says Super Skunk was originally launched in 1990. Described only as a premium Afghan cultivar; the specific Afghan line is not named."
     },
     {
-      "id": "s2",
       "title": "'Skunk Weed': A Beginner's Guide to Skunk",
       "publisher": "Sensi Seeds",
+      "category": "breeder",
       "url": "https://sensiseeds.com/en/blog/what-is-skunk-weed-a-beginners-guide-to-skunk/",
-      "accessed": "2026-09-24"
+      "accessed": "2026-09-24",
+      "note": "Sensi dates its Skunk #1 stock in the Netherlands to 1982, which bounds the start. Bred by Sensi Seeds from Skunk #1 genetics it received in the Netherlands. Described as a potent Afghani hash strain."
     },
     {
-      "id": "s3",
       "title": "Super Skunk (Sensi Seeds) strain info",
       "publisher": "SeedFinder",
+      "category": "database",
       "url": "https://seedfinder.eu/en/strain-info/super-skunk/sensi-seeds",
-      "accessed": "2026-09-24"
+      "accessed": "2026-09-24",
+      "note": "Database entry relaying the breeder's 1990 release date."
     }
   ],
   "updated": "2026-09-24"

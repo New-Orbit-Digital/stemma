@@ -1,20 +1,17 @@
 {
-  "id": "fixture-e10-coordinates",
-  "name": "Fixture Coordinates",
+  "id": "fixture-e04-bad-category",
+  "name": "Fixture Bad Category",
   "aliases": [],
   "kind": "cultivar",
   "status": "draft",
-  "summary": "Fictional fixture whose origin latitude carries more than one decimal place.",
+  "summary": "Fictional fixture whose source carries a category the schema does not list.",
   "born": {
     "year_min": 1990,
     "year_max": 1994,
     "display": "early 1990s"
   },
   "origin": {
-    "place": "Fixture Plain, Testland",
-    "country": "TL",
-    "lat": 39.55,
-    "lon": -121.5
+    "unknown": true
   },
   "breeder": null,
   "parents": [],
@@ -23,7 +20,11 @@
     {
       "title": "Fixture magazine feature",
       "publisher": "Fixture Press",
-      "category": "publication"
+      "category": "hearsay"
+    },
+    {
+      "publisher": "Fixture Forum",
+      "category": "community"
     }
   ],
   "updated": "2026-09-23"

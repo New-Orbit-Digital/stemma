@@ -213,23 +213,39 @@ class SiteTest(unittest.TestCase):
         self.assertIn('href="/s/fixture-partial/"', page)  # child link, from edges
         self.assertIn('id="lineage-graph"', page)  # the U3 graph lands here
         self.assertIn("/about/#traditional-labels", page)  # "what this means"
-        self.assertIn('class="badge badge--documented"', page)  # evidence tier
         self.assertIn("Fixture magazine feature", page)  # sources list
         self.assertIn("https://example.invalid/fixture", page)  # source link
         self.assertIn('id="strain-data"', page)  # card data inlined
 
-    def test_every_claim_on_a_card_carries_a_tier_badge(self):
+    def test_a_card_shows_its_facts_and_its_relations(self):
         page = self.read(os.path.join("s", "fixture-cut", "index.html"))
-        for section in ("Born", "Origin", "Breeder", "Parents"):
+        for section in ("Born", "Origin", "Breeder", "Parents", "Children"):
             self.assertIn(section, page)
-        self.assertIn('class="badge badge--breeder-claimed"', page)
-        self.assertIn('class="badge badge--genetically-tested"', page)
 
-    def test_disputes_are_listed_as_claims(self):
-        page = self.read(os.path.join("s", "fixture-disputed", "index.html"))
-        self.assertIn("Disputed", page)
-        self.assertIn("Some growers name a landrace as the second parent", page)
-        self.assertIn('class="badge badge--folklore"', page)
+    def test_sources_are_a_quiet_unnumbered_list_with_a_category(self):
+        page = self.read(os.path.join("s", "fixture-reviewed", "index.html"))
+        block = page.split('id="sources-heading"')[1].split("</section>")[0]
+        self.assertIn('<ul class="sources">', block)
+        self.assertNotIn("<ol", block)
+        self.assertNotIn("badge", block)
+        for category in ("breeder", "publication", "database", "community"):
+            self.assertIn(
+                '<span class="sources__category">%s</span>' % category, block
+            )
+
+    def test_no_tier_or_dispute_language_survives_on_a_rendered_page(self):
+        """Card prose may say "differ"; the chrome may not carry the old model."""
+        for name in ("fixture-reviewed", "fixture-cut", "fixture-known-cross"):
+            page = self.read(os.path.join("s", name, "index.html"))
+            for gone in (
+                "tier",
+                "documented",
+                "breeder-claimed",
+                "folklore",
+                "disputed",
+                "badge",
+            ):
+                self.assertNotIn(gone, page, "%s still mentions %r" % (name, gone))
 
     def test_stub_pages_show_lineage_only(self):
         page = self.read(os.path.join("s", "fixture-stub-parent", "index.html"))
@@ -248,20 +264,17 @@ class SiteTest(unittest.TestCase):
         self.assertIn('href="/s/fixture-landrace-root/"', graph)  # parent node
         self.assertIn('href="/s/fixture-partial/"', graph)  # child node
         self.assertIn("lineage-node--stub", graph)  # stubs are muted
-        self.assertIn('class="lineage-key"', graph)  # the legend
-        self.assertIn("lineage-edge--documented", graph)
-        self.assertIn("lineage-edge--breeder-claimed", graph)
+        self.assertIn('class="lineage-edge"', graph)
 
-    def test_disputed_edges_ship_hidden_behind_an_unchecked_toggle(self):
+    def test_the_graph_draws_one_edge_style_and_carries_no_legend(self):
         page = self.read(os.path.join("s", "fixture-cut", "index.html"))
         graph = page.split('id="lineage-graph"')[1].split("</section>")[0]
-        self.assertIn('type="checkbox"', graph)
-        self.assertNotIn("checked", graph)
-        self.assertIn("lineage-edge--disputed", graph)
-        self.assertIn("lineage-layer--disputed", graph)
+        self.assertNotIn('type="checkbox"', graph)
+        self.assertNotIn("lineage-edge--", graph)
+        self.assertNotIn("lineage-key", graph)
         css = self.read(os.path.join("assets", "style.css"))
-        self.assertIn(".lineage-layer--disputed { display: none; }", css)
-        self.assertIn(".lineage-graph__toggle:checked ~ .lineage-graph__scroll", css)
+        self.assertNotIn("lineage-layer--disputed", css)
+        self.assertNotIn("lineage-key", css)
 
     def test_the_graph_scrolls_inside_its_own_box(self):
         css = self.read(os.path.join("assets", "style.css"))
@@ -333,9 +346,9 @@ class SiteTest(unittest.TestCase):
             payload["families"]["fixture-cut"],
             [
                 "fixture-cut",
-                "fixture-disputed",
                 "fixture-known-cross",
                 "fixture-landrace-root",
+                "fixture-reviewed",
                 "fixture-stub-parent",
             ],
         )
@@ -465,8 +478,7 @@ class SiteTest(unittest.TestCase):
             sorted(
                 (edge["child"], edge["parent"])
                 for edge in self.dataset["edges"]
-                if not edge["disputed"]
-                and edge["child"] in self.located_ids()
+                if edge["child"] in self.located_ids()
                 and edge["parent"] in self.located_ids()
             ),
         )
@@ -500,16 +512,22 @@ class SiteTest(unittest.TestCase):
     def test_about_page_covers_the_contract(self):
         page = self.read(os.path.join("about", "index.html"))
         for needle in (
-            "genetically tested",
-            "documented",
-            "breeder claimed",
-            "folklore",
-            "verifies the",  # the genetic-testing caveat
+            "community-maintained catalog",
+            "breeder",
+            "publication",
+            "database",
+            "community",
+            "not a ranking",  # the categories are descriptive
+            "the card says so",  # where accounts differ
             'id="traditional-labels"',
-            'id="disputes"',
             "Not medical advice",
         ):
             self.assertIn(needle, page)
+
+    def test_about_page_carries_no_tier_or_dispute_model(self):
+        page = self.read(os.path.join("about", "index.html"))
+        for gone in ("tier", "genetically tested", "breeder claimed", "folklore"):
+            self.assertNotIn(gone, page)
 
     def test_index_lists_the_catalog_for_crawlers(self):
         index = self.read("index.html")

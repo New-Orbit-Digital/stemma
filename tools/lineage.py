@@ -21,9 +21,9 @@ Shape of the layout:
 * **Order.** Rows are seeded in breadth-first discovery order, then swept with
   a barycenter heuristic to reduce crossings. Ties keep the previous order, so
   the output is deterministic.
-* **Disputed.** Disputed edges, and any node only reachable through one, are
-  emitted into a group that CSS hides until the "show disputed" toggle is on.
-  They are laid out either way, so toggling never moves the rest of the graph.
+* **Lines.** Every edge is drawn the same way. A card that carries competing
+  accounts of its lineage lists the best-supported parents and says so in its
+  summary prose, so there is nothing for a line style to encode.
 """
 
 import html
@@ -43,23 +43,13 @@ SWEEPS = 4
 NAME_CHARS = 19
 META_CHARS = 23
 
-TIER_STYLES = [
-    ("genetically-tested", "genetically tested", "solid"),
-    ("documented", "documented", "solid"),
-    ("breeder-claimed", "breeder claimed", "dashed"),
-    ("folklore", "folklore", "dotted"),
-]
-TIER_ORDER = [tier for tier, _label, _style in TIER_STYLES]
-
 
 # -- layout ----------------------------------------------------------------
 
 
-def _parents_by_child(edges, with_disputed):
+def _parents_by_child(edges):
     out = {}
     for edge in edges:
-        if edge.get("disputed") and not with_disputed:
-            continue
         out.setdefault(edge["child"], []).append(edge)
     return out
 
@@ -94,49 +84,34 @@ def _ancestor_depths(root, parents_by_child, max_generations):
     return depth, truncated
 
 
-def _child_ids(root, edges, with_disputed):
+def _child_ids(root, edges):
     out = []
     for edge in edges:
         if edge["parent"] != root:
-            continue
-        if edge.get("disputed") and not with_disputed:
             continue
         if edge["child"] != root and edge["child"] not in out:
             out.append(edge["child"])
     return out
 
 
-def _reachable(root, edges, max_generations):
-    """The node ids the graph would hold if disputed edges did not exist."""
-    depth, _truncated = _ancestor_depths(
-        root, _parents_by_child(edges, False), max_generations
-    )
-    seen = set(depth)
-    seen.add(root)
-    seen.update(_child_ids(root, edges, False))
-    return seen
-
-
-def ancestors(strain_id, edges, with_disputed=False, max_generations=None):
+def ancestors(strain_id, edges, max_generations=None):
     """Every ancestor of ``strain_id``, as a set of ids.
 
     The same walk the diagram uses, exposed for the pages that need the line
     itself rather than a layout: the timeline's ``?family=`` filter, and the
     map's arcs. ``max_generations`` defaults to no practical limit, because a
     filter has no row budget to run out of; the cap is only the one an acyclic
-    graph can never reach, so a cycle among disputed claims still terminates.
+    graph can never reach, so a malformed dataset still terminates.
     """
     edges = list(edges or [])
     cap = len(edges) + 1 if max_generations is None else max_generations
-    depths, _truncated = _ancestor_depths(
-        strain_id, _parents_by_child(edges, with_disputed), cap
-    )
+    depths, _truncated = _ancestor_depths(strain_id, _parents_by_child(edges), cap)
     return set(depths)
 
 
-def family(strain_id, edges, with_disputed=False):
+def family(strain_id, edges):
     """``strain_id`` and its ancestors, sorted: one family, as the filters mean it."""
-    return sorted(ancestors(strain_id, edges, with_disputed) | {strain_id})
+    return sorted(ancestors(strain_id, edges) | {strain_id})
 
 
 def _discovery_order(root, parents_by_child, children, nodes):
@@ -185,21 +160,20 @@ def layout(strain_id, edges, cards=None, max_generations=MAX_GENERATIONS):
 
     ``edges`` is the dataset's edge list; ``cards`` maps id to the card, for the
     name, born display and stub status. Returns a dict of ``nodes``, ``edges``,
-    the canvas ``width``/``height``, ``rows``, whether any ancestors were
-    ``truncated`` by the generation cap, and whether anything is ``disputed``.
+    the canvas ``width``/``height``, ``rows``, and whether any ancestors were
+    ``truncated`` by the generation cap.
     """
     cards = cards or {}
     edges = list(edges or [])
 
-    parents_by_child = _parents_by_child(edges, True)
+    parents_by_child = _parents_by_child(edges)
     depths, truncated = _ancestor_depths(strain_id, parents_by_child, max_generations)
-    children = _child_ids(strain_id, edges, True)
+    children = _child_ids(strain_id, edges)
 
     depth_of = dict(depths)
     depth_of[strain_id] = 0
     for child in children:
         depth_of.setdefault(child, -1)
-    plain = _reachable(strain_id, edges, max_generations)
 
     drawn = []
     for edge in edges:
@@ -211,16 +185,7 @@ def layout(strain_id, edges, cards=None, max_generations=MAX_GENERATIONS):
         # left to the Parents and Children lists rather than drawn sideways.
         if depth_of[parent] <= depth_of[child]:
             continue
-        disputed = bool(edge.get("disputed"))
-        drawn.append(
-            {
-                "child": child,
-                "parent": parent,
-                "best_tier": edge.get("best_tier"),
-                "disputed": disputed,
-                "hidden": disputed or child not in plain or parent not in plain,
-            }
-        )
+        drawn.append({"child": child, "parent": parent})
 
     adjacency = {}
     for edge in drawn:
@@ -260,14 +225,13 @@ def layout(strain_id, edges, cards=None, max_generations=MAX_GENERATIONS):
                     "y": y,
                     "current": node == strain_id,
                     "stub": card.get("status") == "stub",
-                    "hidden": node not in plain,
                 }
             )
 
     for edge in drawn:
         edge["from"] = placed[edge["parent"]]
         edge["to"] = placed[edge["child"]]
-    drawn.sort(key=lambda edge: (edge["hidden"], edge["parent"], edge["child"]))
+    drawn.sort(key=lambda edge: (edge["parent"], edge["child"]))
 
     return {
         "id": strain_id,
@@ -277,7 +241,6 @@ def layout(strain_id, edges, cards=None, max_generations=MAX_GENERATIONS):
         "width": canvas + 2 * PAD,
         "height": len(rows) * NODE_H + max(len(rows) - 1, 0) * ROW_GAP + 2 * PAD,
         "truncated": truncated,
-        "disputed": any(edge["disputed"] for edge in drawn),
         "max_generations": max_generations,
     }
 
@@ -308,10 +271,7 @@ def _path(edge):
 
 
 def _edge_svg(edge):
-    classes = ["lineage-edge", "lineage-edge--%s" % (edge["best_tier"] or "folklore")]
-    if edge["disputed"]:
-        classes.append("lineage-edge--disputed")
-    return '<path class="%s" d="%s"></path>' % (" ".join(classes), _path(edge))
+    return '<path class="lineage-edge" d="%s"></path>' % _path(edge)
 
 
 def _node_svg(node):
@@ -353,69 +313,33 @@ def _group(class_name, parts):
 
 
 def _svg(graph, name):
-    edges = graph["edges"]
-    nodes = graph["nodes"]
     return (
         '<svg class="lineage-svg" xmlns="http://www.w3.org/2000/svg" '
         'width="%d" height="%d" viewBox="0 0 %d %d">'
         "<title>Lineage graph for %s: ancestors above, children below.</title>"
-        "%s%s%s%s</svg>"
+        "%s%s</svg>"
         % (
             graph["width"],
             graph["height"],
             graph["width"],
             graph["height"],
             _esc(name),
-            _group("lineage-layer", [_edge_svg(e) for e in edges if not e["hidden"]]),
-            _group(
-                "lineage-layer lineage-layer--disputed",
-                [_edge_svg(e) for e in edges if e["hidden"]],
-            ),
-            _group("lineage-layer", [_node_svg(n) for n in nodes if not n["hidden"]]),
-            _group(
-                "lineage-layer lineage-layer--disputed",
-                [_node_svg(n) for n in nodes if n["hidden"]],
-            ),
+            _group("lineage-layer", [_edge_svg(e) for e in graph["edges"]]),
+            _group("lineage-layer", [_node_svg(n) for n in graph["nodes"]]),
         )
     )
 
 
-def _legend(graph):
-    tiers = {edge["best_tier"] for edge in graph["edges"] if not edge["hidden"]}
-    items = [
-        '<li class="lineage-key__item"><span class="lineage-key__line '
-        'lineage-key__line--%s"></span>%s</li>' % (style, _esc(label))
-        for tier, label, style in TIER_STYLES
-        if tier in tiers
-    ]
-    if graph["disputed"]:
-        items.append(
-            '<li class="lineage-key__item"><span class="lineage-key__line '
-            'lineage-key__line--disputed"></span>disputed claim</li>'
-        )
-    if not items:
-        return ""
-    return '<ul class="lineage-key">%s</ul>' % "".join(items)
-
-
 def render(graph, name=None):
-    """The contents of ``#lineage-graph``: toggle, scroller, SVG, legend.
+    """The contents of ``#lineage-graph``: the scroller and the SVG.
 
-    The "show disputed" toggle is a checkbox the stylesheet reads, so nothing
-    here depends on JavaScript and no script patches styles at runtime.
+    Every line is drawn the same way, so the diagram carries no legend and
+    nothing here depends on JavaScript.
     """
     name = name or graph["id"]
     if len(graph["nodes"]) < 2:
         return '<p class="empty">No lineage links in the catalog yet.</p>'
 
-    head = ""
-    if graph["disputed"]:
-        head = (
-            '<input class="lineage-graph__toggle visually-hidden" type="checkbox" '
-            'id="lineage-disputed">'
-            '<p class="lineage-graph__bar"><label class="lineage-graph__switch" '
-            'for="lineage-disputed">Show disputed links</label></p>'
-        )
     note = ""
     if graph["truncated"]:
         note = (
@@ -425,13 +349,11 @@ def render(graph, name=None):
     # tabindex keeps the scroller reachable from the keyboard on a narrow
     # screen, where the diagram is wider than the page.
     return (
-        '%s<div class="lineage-graph__scroll" tabindex="0" role="group" '
-        'aria-label="Lineage diagram for %s">%s</div>%s%s'
+        '<div class="lineage-graph__scroll" tabindex="0" role="group" '
+        'aria-label="Lineage diagram for %s">%s</div>%s'
     ) % (
-        head,
         _esc(name),
         _svg(graph, name),
-        _legend(graph),
         note,
     )
 

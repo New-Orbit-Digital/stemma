@@ -13,52 +13,13 @@
     "place": "Netherlands (Sensi Seeds)",
     "country": "NL",
     "lat": 52.1,
-    "lon": 5.3,
-    "evidence": [
-      {
-        "tier": "breeder-claimed",
-        "source": "s2",
-        "note": "Sensi lists this among the Skunk #1 hybrids it developed from genetics it received in the Netherlands in 1982."
-      }
-    ]
+    "lon": 5.3
   },
-  "breeder": {
-    "name": "Sensi Seeds",
-    "evidence": [
-      {
-        "tier": "breeder-claimed",
-        "source": "s1"
-      }
-    ]
-  },
-  "lineage": {
-    "status": "known",
-    "parents": [
-      {
-        "id": "skunk-1",
-        "evidence": [
-          {
-            "tier": "breeder-claimed",
-            "source": "s1"
-          },
-          {
-            "tier": "breeder-claimed",
-            "source": "s2"
-          }
-        ]
-      },
-      {
-        "id": "early-pearl",
-        "evidence": [
-          {
-            "tier": "breeder-claimed",
-            "source": "s1"
-          }
-        ]
-      }
-    ],
-    "disputes": []
-  },
+  "breeder": "Sensi Seeds",
+  "parents": [
+    "skunk-1",
+    "early-pearl"
+  ],
   "traditional_label": "hybrid",
   "growing": {
     "environment": "outdoor",
@@ -69,18 +30,19 @@
   },
   "sources": [
     {
-      "id": "s1",
       "title": "Early Skunk (regular seeds) product page",
       "publisher": "Sensi Seeds",
+      "category": "breeder",
       "url": "https://sensiseeds.com/en/regular-seeds/sensi/early-skunk",
       "accessed": "2026-09-24"
     },
     {
-      "id": "s2",
       "title": "'Skunk Weed': A Beginner's Guide to Skunk",
       "publisher": "Sensi Seeds",
+      "category": "breeder",
       "url": "https://sensiseeds.com/en/blog/what-is-skunk-weed-a-beginners-guide-to-skunk/",
-      "accessed": "2026-09-24"
+      "accessed": "2026-09-24",
+      "note": "Sensi lists this among the Skunk #1 hybrids it developed from genetics it received in the Netherlands in 1982."
     }
   ],
   "updated": "2026-09-24"

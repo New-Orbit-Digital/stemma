@@ -1,27 +1,43 @@
 {
   "id": "colombian-gold",
   "name": "Colombian Gold",
-  "aliases": ["Colombian", "Santa Marta Gold"],
+  "aliases": [
+    "Colombian",
+    "Santa Marta Gold"
+  ],
   "kind": "landrace",
   "status": "draft",
   "summary": "The narrow-leaflet drug cannabis of Colombia's Caribbean coast, grown around the Sierra Nevada de Santa Marta and exported in bulk to the US during the 1970s boom, when 'Santa Marta Gold' became a regional product name. It is a traditional population, not a bred variety; which exact seed lot went into early US hybrids is not documented.",
-  "born": { "unknown": true, "display": "traditional" },
+  "born": {
+    "unknown": true,
+    "display": "traditional"
+  },
   "origin": {
     "place": "Sierra Nevada de Santa Marta, Caribbean coast of Colombia",
     "country": "CO",
     "lat": 10.8,
-    "lon": -73.7,
-    "evidence": [
-      { "tier": "documented", "source": "s1", "note": "Academic history of the 1970s Colombian marijuana boom on the Caribbean coast; includes a chapter on 'Santa Marta Gold'." },
-      { "tier": "documented", "source": "s2", "note": "Places Latin American narrow-leafleted drug strains in the indica gene pool; does not name Colombia specifically." }
-    ]
+    "lon": -73.7
   },
   "breeder": null,
-  "lineage": { "status": "root", "parents": [], "disputes": [] },
+  "parents": [],
   "traditional_label": "sativa",
   "sources": [
-    { "id": "s1", "title": "Marijuana Boom: The Rise and Fall of Colombia's First Drug Paradise — Lina Britto (2020)", "publisher": "University of California Press", "url": "https://www.ucpress.edu/books/marijuana-boom/paper", "accessed": "2026-09-24" },
-    { "id": "s2", "title": "Genetic evidence for speciation in Cannabis (Cannabaceae) — K.W. Hillig, Genetic Resources and Crop Evolution 52:161–180 (2005)", "publisher": "Springer", "url": "https://link.springer.com/article/10.1007/s10722-003-4452-y", "accessed": "2026-09-24" }
+    {
+      "title": "Marijuana Boom: The Rise and Fall of Colombia's First Drug Paradise — Lina Britto (2020)",
+      "publisher": "University of California Press",
+      "category": "publication",
+      "url": "https://www.ucpress.edu/books/marijuana-boom/paper",
+      "accessed": "2026-09-24",
+      "note": "Academic history of the 1970s Colombian marijuana boom on the Caribbean coast; includes a chapter on 'Santa Marta Gold'."
+    },
+    {
+      "title": "Genetic evidence for speciation in Cannabis (Cannabaceae) — K.W. Hillig, Genetic Resources and Crop Evolution 52:161–180 (2005)",
+      "publisher": "Springer",
+      "category": "publication",
+      "url": "https://link.springer.com/article/10.1007/s10722-003-4452-y",
+      "accessed": "2026-09-24",
+      "note": "Places Latin American narrow-leafleted drug strains in the indica gene pool; does not name Colombia specifically."
+    }
   ],
   "updated": "2026-09-24"
 }

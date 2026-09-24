@@ -1,22 +1,22 @@
 {
-  "id": "fixture-e06-b",
-  "name": "Fixture Cycle B",
+  "id": "fixture-w3-landrace-with-parent",
+  "name": "Fixture W3 Landrace",
   "aliases": [],
-  "kind": "cultivar",
+  "kind": "landrace",
   "status": "draft",
-  "summary": "Fictional fixture that names Fixture Cycle A as its parent.",
+  "summary": "Fictional landrace fixture that lists a parent, which is a warning, not an error.",
   "born": {
     "unknown": true,
-    "display": "unclear"
+    "display": "traditional"
   },
   "origin": {
     "unknown": true
   },
   "breeder": null,
   "parents": [
-    "fixture-e06-a"
+    "fixture-w3-parent"
   ],
-  "traditional_label": "hybrid",
+  "traditional_label": "indica",
   "sources": [
     {
       "title": "Fixture magazine feature",
