@@ -399,6 +399,73 @@ a.timeline-row:focus .timeline-row__name { text-decoration: underline; }
 .timeline-key__swatch--cultivar { background: var(--kind-cultivar); }
 .timeline-key__swatch--cut { background: var(--kind-cut); }
 
+/* -- origin map -------------------------------------------------------- */
+/* Leaflet draws into .map; everything it draws is classed, so the colours
+   live here and no script patches a style. The lists under the map are the
+   same markers in text, and filter with them. */
+
+.map__filter { margin: 1.5rem 0 0; }
+.map__active { margin: 0.6rem 0 0; font-size: 0.9rem; }
+.map__active[hidden] { display: none; }
+.map__note { margin: 0.7rem 0 0; color: var(--ink-soft); font-size: 0.85rem; }
+
+.map {
+  height: 22rem;
+  margin-top: 1rem;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  z-index: 0; /* keep the tiles under the 21+ notice */
+}
+.map--unavailable {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  height: auto;
+  min-height: 8rem;
+  color: var(--ink-soft);
+  text-align: center;
+}
+
+/* A marker is one centroid, sized by how many strains share it. */
+.map-marker {
+  fill: var(--accent);
+  fill-opacity: 0.85;
+  stroke: var(--panel);
+}
+.map-marker:hover, .map-marker:focus { fill-opacity: 1; stroke: var(--ink); }
+
+.map-arc { fill: none; stroke: var(--ink); stroke-opacity: 0.75; }
+.map-arc--genetically-tested, .map-arc--documented { stroke-opacity: 0.85; }
+
+.map-popup__place { margin: 0 0 0.25rem; font-weight: 600; }
+.map-popup__list { list-style: none; margin: 0; padding: 0; }
+.map-popup__list li { border-bottom: 0; }
+.map-popup__list a { display: block; padding: 0.25rem 0; text-decoration: none; }
+
+.map-places { list-style: none; margin: 1rem 0 0; padding: 0; }
+.map-place { border-top: 1px solid var(--line); padding: 0.5rem 0; }
+.map-place__name { margin: 0; font-size: 0.95rem; }
+.map-place__strains { list-style: none; margin: 0.25rem 0 0; padding: 0; }
+.map-place__strain { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: baseline; }
+.map-place__strain .result__meta { display: inline; }
+
+.map-unknown {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 0.85rem 1rem;
+  margin: 1.5rem 0 0;
+}
+.map-unknown h2 { margin-top: 0; }
+
+/* The family filter: out of the family, out of the list. */
+.map-place.is-filtered,
+.map-place__strain.is-filtered,
+.map-unknown.is-filtered,
+.map-unknown .card-list li.is-filtered { display: none; }
+
 .note, .stub-notice, .disputes {
   background: var(--panel);
   border: 1px solid var(--line);

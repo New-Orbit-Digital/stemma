@@ -12,6 +12,7 @@ Output layout under ``--out`` (the site root):
     index.html            search
     about/index.html      evidence tiers, labels, disputes
     timeline/index.html   every dated card on a shared year axis
+    map/index.html        every located card on a world map, with lineage arcs
     404.html
     s/<id>/index.html     one page per card, rendered at build time
     assets/               style.css, app.js
@@ -30,6 +31,7 @@ from datetime import datetime, timezone
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 import lineage  # noqa: E402  (sibling module, resolved via the path insert)
+import origins  # noqa: E402
 import timeline  # noqa: E402
 import validate  # noqa: E402
 
@@ -56,6 +58,16 @@ LINEAGE_NOTES = {
     "disputed": "Competing accounts exist. The best-supported one is shown here.",
 }
 LABEL_HINT = '<a class="chip__hint" href="/about/#traditional-labels">what this means</a>'
+
+# The one pre-approved front-end library, pinned to an exact version on cdnjs.
+LEAFLET_VERSION = "1.9.4"
+LEAFLET_BASE = "https://cdnjs.cloudflare.com/ajax/libs/leaflet/%s" % LEAFLET_VERSION
+LEAFLET_HEAD = (
+    '<link rel="stylesheet" href="%s/leaflet.min.css" crossorigin="anonymous" '
+    'referrerpolicy="no-referrer">\n'
+    '<script src="%s/leaflet.min.js" crossorigin="anonymous" '
+    'referrerpolicy="no-referrer"></script>\n' % (LEAFLET_BASE, LEAFLET_BASE)
+)
 
 
 # -- dataset ---------------------------------------------------------------
@@ -351,7 +363,8 @@ def inline_data_block(data, children):
 # -- pages -----------------------------------------------------------------
 
 
-def page(base, title, description, page_class, content, inline_data=""):
+def page(base, title, description, page_class, content, inline_data="", head=""):
+    """One page. ``head`` is the seam a page uses to pin its own library."""
     return render(
         base,
         {
@@ -360,6 +373,7 @@ def page(base, title, description, page_class, content, inline_data=""):
             "page_class": page_class,
             "content": content,
             "inline_data": inline_data,
+            "head": head,
         },
     )
 
@@ -399,6 +413,7 @@ def strain_page(base, template, data, edges, names, cards=None):
         "lineage_graph": lineage.graph_html(strain_id, edges, cards or {strain_id: data}),
         "timeline_link": '<a href="/timeline/?family=%s">See on timeline</a>'
         % esc(strain_id),
+        "map_link": '<a href="/map/?family=%s">See on map</a>' % esc(strain_id),
         "disputes": "" if stub else disputes_block(data, names, sources),
         "sources": "" if stub else sources_block(data),
         "updated": esc(data.get("updated")),
@@ -464,6 +479,25 @@ def timeline_page(base, template, graph, payload):
     )
 
 
+def map_page(base, template, marker_groups, arc_list, unknown_cards, payload):
+    return page(
+        base,
+        title="Map — Stemma",
+        description="Where every strain in the Stemma catalog emerged, at an approximate regional centre, with a line from each parent's origin to its child's.",
+        page_class="page-map",
+        content=render(
+            template,
+            {
+                "counts": esc(origins.counts(marker_groups, arc_list, unknown_cards)),
+                "places": origins.places_html(marker_groups),
+                "unknown": origins.unknown_html(unknown_cards),
+            },
+        ),
+        inline_data=inline_json_block("map-data", payload),
+        head=LEAFLET_HEAD,
+    )
+
+
 def write_site(out, dataset):
     base = read_template("base.html")
     strains = dataset["strains"]
@@ -507,6 +541,33 @@ def write_site(out, dataset):
             len(chart["decades"]),
         )
     )
+    marker_groups = origins.groups(strains)
+    arc_list = origins.arcs(strains, edges)
+    unknown_cards = origins.unknown(strains)
+    path = write_page(
+        out,
+        os.path.join("map", "index.html"),
+        map_page(
+            base,
+            read_template("map.html"),
+            marker_groups,
+            arc_list,
+            unknown_cards,
+            origins.payload(strains, edges),
+        ),
+    )
+    # Every card is either on the map or in the unknown list, so the three
+    # counts are the page's own check.
+    print(
+        "wrote %s: %d markers, %d arcs, %d origin unknown (%d cards placed)"
+        % (
+            path,
+            len(marker_groups),
+            len(arc_list),
+            len(unknown_cards),
+            sum(len(group["members"]) for group in marker_groups),
+        )
+    )
     write_page(
         out,
         "404.html",
@@ -540,7 +601,7 @@ def write_site(out, dataset):
         if os.path.isfile(source):
             shutil.copyfile(source, os.path.join(assets_out, name))
 
-    return 4 + len(strains)
+    return 5 + len(strains)  # index, about, timeline, map, 404, one per card
 
 
 # -- driver ----------------------------------------------------------------
