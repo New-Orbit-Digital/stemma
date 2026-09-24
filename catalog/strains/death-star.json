@@ -5,6 +5,36 @@
     "Deathstar"
   ],
   "kind": "cultivar",
-  "status": "stub",
+  "status": "draft",
+  "summary": "**Death Star** is a [[kind:cultivar|cultivar]] commonly described as a cross of [[sensi-star|Sensi Star]] and [[sour-diesel|Sour Diesel]] that appeared in the US cannabis market around 2001. Its original breeder is not documented, and some growers dispute the standard parentage, describing instead a hermaphrodite Sour Diesel pollinating a plant known as Ogre.",
+  "born": {
+    "year_min": 2000,
+    "year_max": 2002,
+    "display": "circa 2001"
+  },
+  "origin": {
+    "unknown": true
+  },
+  "parents": [
+    "sensi-star",
+    "sour-diesel"
+  ],
+  "traditional_label": "indica",
+  "sources": [
+    {
+      "title": "Death Star aka Deathstar",
+      "publisher": "Leafly",
+      "category": "database",
+      "url": "https://www.leafly.com/strains/death-star",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "The Real Genetics Of Death Star",
+      "publisher": "THCFarmer",
+      "category": "community",
+      "url": "https://www.thcfarmer.com/threads/the-real-genetics-of-death-star.78222/",
+      "accessed": "2026-09-24"
+    }
+  ],
   "updated": "2026-09-24"
 }

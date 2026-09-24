@@ -3,6 +3,46 @@
   "name": "Georgia Pie",
   "aliases": [],
   "kind": "cultivar",
-  "status": "stub",
+  "status": "draft",
+  "summary": "**Georgia Pie** is a [[kind:cultivar|cultivar]] bred by [[breeder:Seed Junky Genetics]] in California and released through the Cookies brand, despite its name referencing the state of Georgia. A cross of [[gelatti|Gelatti]] and [[kush-mints|Kush Mints]], it is also sold as Sticky Buns.",
+  "born": {
+    "unknown": true,
+    "display": "unknown"
+  },
+  "origin": {
+    "place": "California, USA",
+    "country": "US",
+    "lat": 36.8,
+    "lon": -119.4
+  },
+  "breeder": "Seed Junky Genetics",
+  "parents": [
+    "gelatti",
+    "kush-mints"
+  ],
+  "traditional_label": "indica",
+  "growing": {
+    "environment": "both",
+    "flowering_weeks": {
+      "min": 8,
+      "max": 9
+    }
+  },
+  "sources": [
+    {
+      "title": "Georgia Pie (Seed Junky Genetics)",
+      "publisher": "SeedFinder",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/georgia-pie/seed-junky-genetics",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Georgia Pie",
+      "publisher": "AllBud",
+      "category": "database",
+      "url": "https://www.allbud.com/marijuana-strains/indica-dominant-hybrid/georgia-pie",
+      "accessed": "2026-09-24"
+    }
+  ],
   "updated": "2026-09-24"
 }

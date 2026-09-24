@@ -5,6 +5,46 @@
     "Candy Land"
   ],
   "kind": "cultivar",
-  "status": "stub",
+  "status": "draft",
+  "summary": "**Candyland** is a [[kind:cultivar|cultivar]] bred by [[breeder:Grand Daddy Purple]] in the San Francisco Bay Area, California, as a cross of [[granddaddy-purple|Granddaddy Purple]] and [[platinum-cookies|Platinum Cookies]]. Despite its indica-leaning parents, it is commonly grown as a sativa-leaning hybrid. It is also sold as Kandyland.",
+  "born": {
+    "unknown": true,
+    "display": "early 2010s"
+  },
+  "origin": {
+    "place": "San Francisco Bay Area, California, USA",
+    "country": "US",
+    "lat": 37.8,
+    "lon": -122.3
+  },
+  "breeder": "Grand Daddy Purple",
+  "parents": [
+    "granddaddy-purple",
+    "platinum-cookies"
+  ],
+  "traditional_label": "sativa",
+  "growing": {
+    "environment": "both",
+    "flowering_weeks": {
+      "min": 8,
+      "max": 9
+    }
+  },
+  "sources": [
+    {
+      "title": "Candyland (Grand Daddy Purp)",
+      "publisher": "SeedFinder",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/candyland/grand-daddy-purp",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Candyland aka Kandyland",
+      "publisher": "Leafly",
+      "category": "database",
+      "url": "https://www.leafly.com/strains/candyland",
+      "accessed": "2026-09-24"
+    }
+  ],
   "updated": "2026-09-24"
 }

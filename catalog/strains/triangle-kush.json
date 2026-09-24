@@ -6,6 +6,38 @@
     "Triangle OG"
   ],
   "kind": "cut",
-  "status": "stub",
+  "status": "draft",
+  "summary": "**Triangle Kush** is a [[kind:cut|cut]] of [[og-kush|OG Kush]] associated with Florida in the 1990s, named for the Tampa–Jacksonville–Miami triangle where it circulated. Some accounts instead describe an accidental cross of [[hindu-kush|Hindu Kush]] and Emerald Triangle genetics.",
+  "born": {
+    "year_min": 1990,
+    "year_max": 1999,
+    "display": "1990s"
+  },
+  "origin": {
+    "place": "Florida, USA",
+    "country": "US",
+    "lat": 28.5,
+    "lon": -81.9
+  },
+  "parents": [
+    "og-kush"
+  ],
+  "traditional_label": "indica",
+  "sources": [
+    {
+      "title": "Triangle Kush (Clone Only Strains)",
+      "publisher": "SeedFinder",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/triangle-kush/clone-only-strains",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Triangle Kush",
+      "publisher": "AllBud",
+      "category": "database",
+      "url": "https://www.allbud.com/marijuana-strains/indica-dominant-hybrid/triangle-kush",
+      "accessed": "2026-09-24"
+    }
+  ],
   "updated": "2026-09-24"
 }

@@ -5,6 +5,46 @@
     "Platinum OG Kush"
   ],
   "kind": "cultivar",
-  "status": "stub",
+  "status": "draft",
+  "summary": "**Platinum OG** is a [[kind:cultivar|cultivar]] bred by [[breeder:Apothecary Genetics]] from [[master-kush|Master Kush]] and [[og-kush|OG Kush]] genetics. The breeder's own lineage record instead describes a more specific cross of Platinum Kush and Joe's OG Kush, both themselves Master Kush and OG Kush derivatives.",
+  "born": {
+    "unknown": true,
+    "display": "unknown"
+  },
+  "origin": {
+    "place": "Southern California, USA",
+    "country": "US",
+    "lat": 34.0,
+    "lon": -118.2
+  },
+  "breeder": "Apothecary Genetics",
+  "parents": [
+    "master-kush",
+    "og-kush"
+  ],
+  "traditional_label": "hybrid",
+  "growing": {
+    "environment": "both",
+    "flowering_weeks": {
+      "min": 8,
+      "max": 9
+    }
+  },
+  "sources": [
+    {
+      "title": "Platinum OG",
+      "publisher": "Wikipedia",
+      "category": "database",
+      "url": "https://en.wikipedia.org/wiki/Platinum_OG",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Platinum OG (Apothecary Genetics) :: Lineage & Hybrids",
+      "publisher": "SeedFinder",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/platinum-og/apothecary-genetics/genealogy",
+      "accessed": "2026-09-24"
+    }
+  ],
   "updated": "2026-09-24"
 }

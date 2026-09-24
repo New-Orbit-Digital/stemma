@@ -3,6 +3,46 @@
   "name": "Cereal Milk",
   "aliases": [],
   "kind": "cultivar",
-  "status": "stub",
+  "status": "draft",
+  "summary": "**Cereal Milk** is a [[kind:cultivar|cultivar]] bred by [[breeder:Powerzzzup Genetics]] and released under the Cookies brand. It crosses [[y-life|Y Life]], itself a [[gsc|GSC]] and [[cherry-pie|Cherry Pie]] cross, with the [[snowman|Snowman]] cut.",
+  "born": {
+    "unknown": true,
+    "display": "unknown"
+  },
+  "origin": {
+    "place": "California, USA",
+    "country": "US",
+    "lat": 36.8,
+    "lon": -119.4
+  },
+  "breeder": "Powerzzzup Genetics",
+  "parents": [
+    "snowman",
+    "y-life"
+  ],
+  "traditional_label": "hybrid",
+  "growing": {
+    "environment": "both",
+    "flowering_weeks": {
+      "min": 9,
+      "max": 10
+    }
+  },
+  "sources": [
+    {
+      "title": "Cereal Milk (Cookie Fam Genetics)",
+      "publisher": "SeedFinder",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/cereal-milk/cookie-fam-genetics",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Cereal Milk",
+      "publisher": "Leafly",
+      "category": "database",
+      "url": "https://www.leafly.com/strains/cereal-milk",
+      "accessed": "2026-09-24"
+    }
+  ],
   "updated": "2026-09-24"
 }

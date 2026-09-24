@@ -5,6 +5,42 @@
     "Blueberry Cookies"
   ],
   "kind": "cultivar",
-  "status": "stub",
+  "status": "draft",
+  "summary": "**Blue Cookies** is a [[kind:cultivar|cultivar]] most often described as a cross of [[gsc|GSC]] and [[blueberry|Blueberry]], though its breeder is not documented. Some accounts instead trace it to a cross of F1 Durb and Florida OG, and a separate GSC phenotype circulates under the same name without any Blueberry genetics. It is also sold as Blue GSC.",
+  "born": {
+    "unknown": true,
+    "display": "unknown"
+  },
+  "origin": {
+    "unknown": true
+  },
+  "parents": [
+    "gsc",
+    "blueberry"
+  ],
+  "traditional_label": "indica",
+  "sources": [
+    {
+      "title": "Blue Cookies (Unknown or Legendary)",
+      "publisher": "SeedFinder",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/blue-cookies/unknown-or-legendary",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Blue Cookies aka Blue GSC",
+      "publisher": "Leafly",
+      "category": "database",
+      "url": "https://www.leafly.com/strains/blue-cookies",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Blue Cookies",
+      "publisher": "AllBud",
+      "category": "database",
+      "url": "https://www.allbud.com/marijuana-strains/indica-dominant-hybrid/blue-cookies",
+      "accessed": "2026-09-24"
+    }
+  ],
   "updated": "2026-09-24"
 }

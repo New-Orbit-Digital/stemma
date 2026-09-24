@@ -5,6 +5,46 @@
     "Mendobreath"
   ],
   "kind": "cultivar",
-  "status": "stub",
+  "status": "draft",
+  "summary": "**Mendo Breath** is a [[kind:cultivar|cultivar]] bred by [[breeder:Gage Green Genetics]], named for California's Mendocino County. A cross of [[ogkb|OGKB]] and [[mendo-montage|Mendo Montage]], it began as a clone-only cut before being released as feminized seed. It has since been used as a parent in numerous Gage Green crosses, including [[peanut-butter-breath|Peanut Butter Breath]].",
+  "born": {
+    "unknown": true,
+    "display": "unknown"
+  },
+  "origin": {
+    "place": "Mendocino County, California, USA",
+    "country": "US",
+    "lat": 39.5,
+    "lon": -123.4
+  },
+  "breeder": "Gage Green Genetics",
+  "parents": [
+    "ogkb",
+    "mendo-montage"
+  ],
+  "traditional_label": "indica",
+  "growing": {
+    "environment": "both",
+    "flowering_weeks": {
+      "min": 8,
+      "max": 9
+    }
+  },
+  "sources": [
+    {
+      "title": "Mendo Breath F1 (Gage Green Genetics)",
+      "publisher": "SeedFinder",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/mendo-breath-f1/gage-green-genetics",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Mendo Breath aka Mendo Breath F2",
+      "publisher": "Leafly",
+      "category": "database",
+      "url": "https://www.leafly.com/strains/mendo-breath",
+      "accessed": "2026-09-24"
+    }
+  ],
   "updated": "2026-09-24"
 }
