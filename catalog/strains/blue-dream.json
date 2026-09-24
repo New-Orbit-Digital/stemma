@@ -6,7 +6,7 @@
   ],
   "kind": "cultivar",
   "status": "draft",
-  "summary": "**Blue Dream** is a [[kind:cultivar|cultivar]] that emerged around 2003 in Santa Cruz, California, as a clone-only cross of [[blueberry|Blueberry]] and a [[haze|Haze]] phenotype. Sources differ on whether that second parent was Super Silver Haze or a local Santa Cruz Haze cut. No single breeder has been identified; the cut spread through Santa Cruz growers before seed versions followed.",
+  "summary": "**Blue Dream** is a [[kind:cultivar|cultivar]] that emerged around 2003 in Santa Cruz, California, as a clone-only cross of [[blueberry|Blueberry]] and a [[haze|Haze]] phenotype. Sources differ on whether that second parent was [[super-silver-haze|Super Silver Haze]] or a local Santa Cruz Haze cut. No single breeder has been identified; the cut spread through Santa Cruz growers before seed versions followed.",
   "born": {
     "year_min": 2003,
     "year_max": 2003,
@@ -25,7 +25,7 @@
   ],
   "traditional_label": "hybrid",
   "growing": {
-    "environment": "indoor",
+    "environment": "both",
     "flowering_weeks": {
       "min": 8,
       "max": 10
