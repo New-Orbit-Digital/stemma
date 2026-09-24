@@ -1,0 +1,30 @@
+{
+  "id": "fixture-links",
+  "name": "Fixture Links",
+  "aliases": [],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "Fixture Links is a [[kind:cultivar|cultivar]] whose summary exercises every link form the card contract allows. It crosses [[fixture-landrace-root]] with [[fixture-known-cross|the known cross fixture]], was recorded by [[breeder:Fixture Seeds]] in [[country:TL|Testland]], and carries the [[label:hybrid|hybrid]] label. The suite reads it to prove markup does not count against the visible-text ceiling. Not a real strain.",
+  "born": {
+    "year_min": 2001,
+    "year_max": 2001,
+    "display": "2001"
+  },
+  "origin": {
+    "place": "Fixture Ridge, Testland",
+    "country": "TL",
+    "lat": 39.5,
+    "lon": -121.5
+  },
+  "breeder": "Fixture Seeds",
+  "parents": [],
+  "traditional_label": "hybrid",
+  "sources": [
+    {
+      "title": "Fixture magazine feature",
+      "publisher": "Fixture Press",
+      "category": "publication"
+    }
+  ],
+  "updated": "2026-09-24"
+}

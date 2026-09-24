@@ -20,7 +20,20 @@ WARN = os.path.join(FIXTURES, "warn")
 
 # E07 (the v1 lineage.status table) and E08 (per-claim evidence) are retired
 # rules, not gaps: docs/schema.md, "Errors".
-ERROR_RULES = ["E01", "E02", "E03", "E04", "E05", "E06", "E09", "E10", "E11"]
+ERROR_RULES = [
+    "E01",
+    "E02",
+    "E03",
+    "E04",
+    "E05",
+    "E06",
+    "E09",
+    "E10",
+    "E11",
+    "E12",
+    "E13",
+    "E14",
+]
 WARN_RULES = ["W1", "W3"]
 RULE_RE = re.compile(r"^(E\d{2}|W\d)\b", re.MULTILINE)
 SUMMARY_RE = re.compile(r"^(\d+) cards, (\d+) errors, (\d+) warnings$")
@@ -65,7 +78,7 @@ class ValidFixturesTest(SummaryLineTest):
     def test_valid_fixtures_pass(self):
         result = run_validate("--path", VALID)
         self.assertEqual(result.returncode, 0, result.stdout)
-        self.assertEqual(self.summary(result.stdout), (6, 0, 0), result.stdout)
+        self.assertEqual(self.summary(result.stdout), (7, 0, 0), result.stdout)
 
     def test_valid_fixtures_cover_the_required_shapes(self):
         names = sorted(
@@ -82,8 +95,35 @@ class ValidFixturesTest(SummaryLineTest):
             "fixture-partial",
             "fixture-reviewed",
             "fixture-stub-parent",
+            "fixture-links",
         ):
             self.assertIn(required, names)
+
+    def test_a_fixture_summary_uses_every_markup_form(self):
+        with open(
+            os.path.join(VALID, "fixture-links.json"), "r", encoding="utf-8"
+        ) as handle:
+            summary = json.load(handle)["summary"]
+        for form in (
+            "[[fixture-landrace-root]]",
+            "[[fixture-known-cross|",
+            "[[breeder:",
+            "[[kind:",
+            "[[country:",
+            "[[label:",
+        ):
+            self.assertIn(form, summary)
+
+    def test_markup_does_not_count_against_the_summary_limit(self):
+        """The fixture's raw text is over 400; its visible text is not."""
+        with open(
+            os.path.join(VALID, "fixture-links.json"), "r", encoding="utf-8"
+        ) as handle:
+            summary = json.load(handle)["summary"]
+        self.assertGreater(len(summary), 400)
+        result = run_validate("--path", VALID)
+        self.assertEqual(result.returncode, 0, result.stdout)
+        self.assertNotIn("E11", result.stdout)
 
     def test_valid_fixtures_cover_every_source_category(self):
         seen = set()
@@ -131,6 +171,37 @@ class InvalidFixturesTest(SummaryLineTest):
     def test_bad_source_category_names_the_value(self):
         result = run_validate("--path", os.path.join(INVALID, "E04"))
         self.assertIn("'hearsay'", result.stdout)
+
+    def test_over_length_is_measured_on_the_visible_text(self):
+        result = run_validate("--path", os.path.join(INVALID, "E11"))
+        self.assertIn("visible characters, over the 400 limit", result.stdout)
+        # The card whose length is only over once the markup is reduced.
+        self.assertIn("fixture-e11-long-visible-text.json", result.stdout)
+
+    def test_malformed_markup_names_what_is_wrong(self):
+        result = run_validate("--path", os.path.join(INVALID, "E12"))
+        for message in (
+            "unbalanced '[['",
+            "unknown link prefix 'strain:'",
+            "empty link target",
+        ):
+            self.assertIn(message, result.stdout)
+
+    def test_an_unresolved_link_names_its_target(self):
+        result = run_validate("--path", os.path.join(INVALID, "E13"))
+        for message in (
+            "[[fixture-e13-ghost]] names no card",
+            "[[breeder:Nobody Seeds]] matches no card's 'breeder' exactly",
+            "[[country:ZZ|Nowhere]] is not a country in tools/countries.py",
+            "[[country:JM|Jamaica]] matches no card's 'origin.country'",
+            "[[kind:sativa|sativa]] is not one of",
+            "[[label:landrace|landrace]] is not one of",
+        ):
+            self.assertIn(message, result.stdout)
+
+    def test_an_unknown_country_code_names_the_code_and_the_map(self):
+        result = run_validate("--path", os.path.join(INVALID, "E14"))
+        self.assertIn("origin.country 'ZZ' is not in tools/countries.py", result.stdout)
 
 
 class WarningTest(SummaryLineTest):

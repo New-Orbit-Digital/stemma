@@ -1,0 +1,26 @@
+{
+  "id": "fixture-e13-unknown-country",
+  "name": "Fixture Unknown Country Link",
+  "aliases": [],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "Fictional fixture grown in [[country:ZZ|Nowhere]], a code the country map does not carry, and in [[country:JM|Jamaica]], which no card records as an origin. Not a real strain.",
+  "born": {
+    "unknown": true,
+    "display": "undated"
+  },
+  "origin": {
+    "unknown": true
+  },
+  "breeder": null,
+  "parents": [],
+  "traditional_label": "hybrid",
+  "sources": [
+    {
+      "title": "Fixture magazine feature",
+      "publisher": "Fixture Press",
+      "category": "publication"
+    }
+  ],
+  "updated": "2026-09-24"
+}

@@ -1,0 +1,29 @@
+{
+  "id": "fixture-e14-unknown-country",
+  "name": "Fixture Unknown Country Code",
+  "aliases": [],
+  "kind": "landrace",
+  "status": "draft",
+  "summary": "Fictional fixture whose origin names a country code that is not in the country map. Not a real strain.",
+  "born": {
+    "unknown": true,
+    "display": "traditional"
+  },
+  "origin": {
+    "place": "Fixture Bay, Nowhere",
+    "country": "ZZ",
+    "lat": 12.5,
+    "lon": 34.5
+  },
+  "breeder": null,
+  "parents": [],
+  "traditional_label": "indica",
+  "sources": [
+    {
+      "title": "Fixture magazine feature",
+      "publisher": "Fixture Press",
+      "category": "publication"
+    }
+  ],
+  "updated": "2026-09-24"
+}

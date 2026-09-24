@@ -19,6 +19,11 @@ import re
 import sys
 from datetime import datetime, timezone
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
+import countries  # noqa: E402  (sibling module, resolved via the path insert)
+import links  # noqa: E402
+
 ID_RE = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 
@@ -82,6 +87,7 @@ class Validator:
         self.errors = 0
         self.warnings = 0
         self._known_ids = {}
+        self._link_index = None
 
     # -- reporting ---------------------------------------------------------
     def error(self, rule, where, message):
@@ -246,20 +252,91 @@ class Validator:
                     % (label, category, _enum(SOURCE_CATEGORIES)),
                 )
 
+    # -- E11, E12, E13: the summary and its links ---------------------------
     def _check_summary(self, card):
+        """The prose, its ``[[...]]`` links, and the length a reader sees.
+
+        The 400-character ceiling counts the visible text: markup reduces to
+        its display text first, so linking a name never costs a card prose.
+        """
         summary = card.data.get("summary")
         if summary is None:
             return
         if not isinstance(summary, str):
             self.error("E03", card.rel, "'summary' must be a string")
             return
-        if len(summary) > MAX_SUMMARY:
+
+        found, problems = links.parse(summary)
+        for problem in problems:
+            self.error("E12", card.rel, problem)
+        for link in found:
+            unresolved = self._unresolved(link)
+            if unresolved:
+                self.error("E13", card.rel, unresolved)
+
+        visible = links.plain(summary, self._index()["names"])
+        if len(visible) > MAX_SUMMARY:
             self.error(
                 "E11",
                 card.rel,
-                "summary is %d characters, over the %d limit"
-                % (len(summary), MAX_SUMMARY),
+                "summary is %d visible characters, over the %d limit"
+                % (len(visible), MAX_SUMMARY),
             )
+
+    def _index(self):
+        """What a summary's links may point at, read once off every card.
+
+        Built lazily rather than in ``__init__`` because it needs every card:
+        a breeder or a country resolves when *any* card carries it, not only
+        the card doing the linking.
+        """
+        if self._link_index is None:
+            names, breeders, origin_codes = {}, set(), set()
+            for other in self.cards:
+                data = other.data
+                if other.id is not None:
+                    name = data.get("name")
+                    names[other.id] = name if _is_str(name) else other.id
+                breeder = data.get("breeder")
+                if _is_str(breeder):
+                    breeders.add(breeder)
+                origin = data.get("origin")
+                if isinstance(origin, dict) and origin.get("unknown") is not True:
+                    code = countries.code(origin.get("country"))
+                    if code:
+                        origin_codes.add(code)
+            self._link_index = {
+                "names": names,
+                "breeders": breeders,
+                "countries": origin_codes,
+            }
+        return self._link_index
+
+    def _unresolved(self, link):
+        """The E13 message for a link that points at nothing, else ``None``."""
+        index = self._index()
+        if link.dimension == links.STRAIN:
+            if link.value not in self._known_ids:
+                return "%s names no card" % link.raw
+            return None
+        if link.dimension == "breeder":
+            if link.value not in index["breeders"]:
+                return "%s matches no card's 'breeder' exactly" % link.raw
+            return None
+        if link.dimension == "kind":
+            if link.value not in KINDS:
+                return "%s is not one of %s" % (link.raw, _enum(KINDS))
+            return None
+        if link.dimension == "label":
+            if link.value not in TRADITIONAL_LABELS:
+                return "%s is not one of %s" % (link.raw, _enum(TRADITIONAL_LABELS))
+            return None
+        code = countries.code(link.value)
+        if code is None:
+            return "%s is not a country in tools/countries.py" % link.raw
+        if code not in index["countries"]:
+            return "%s matches no card's 'origin.country'" % link.raw
+        return None
 
     def _check_born(self, card):
         born = card.data.get("born")
@@ -319,6 +396,15 @@ class Validator:
                 self.error(
                     "E03", card.rel, "'origin.%s' must be a non-empty string" % field
                 )
+        # E14: the country map is the browse dimension's vocabulary, so an
+        # unrecognized code would otherwise become a page nobody can reach.
+        country = origin.get("country")
+        if _is_str(country) and not countries.is_known(country):
+            self.error(
+                "E14",
+                card.rel,
+                "origin.country '%s' is not in tools/countries.py" % country,
+            )
         self._check_coord(card, "lat", origin.get("lat"), 90)
         self._check_coord(card, "lon", origin.get("lon"), 180)
 

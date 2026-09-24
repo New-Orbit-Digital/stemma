@@ -19,7 +19,7 @@ friction: one card, one source list, no tiers to argue about.
 | `aliases` | optional | string[] | Defaults to `[]`. Used by search. |
 | `kind` | always | `landrace` \| `cultivar` \| `cut` | A landrace is a regional traditional population. A cultivar is a bred variety. A cut is a clone-only selection. |
 | `status` | always | `stub` \| `draft` \| `reviewed` | A stub needs only the always-required fields. A draft or reviewed card also needs `summary` and at least one source. |
-| `summary` | draft+ | string, ≤ 400 chars | Written in our own words. Where accounts differ, say so here in plain prose. |
+| `summary` | draft+ | string, ≤ 400 **visible** chars | Written in our own words. Where accounts differ, say so here in plain prose. May carry `[[...]]` links; the markup itself does not count against the limit. |
 | `born` | optional | `{year_min, year_max, display}` or `{unknown: true, display}` | Defaults to unknown. |
 | `origin` | optional | `{place, country, lat, lon}` or `{unknown: true}` | Coordinates are a region centroid, rounded to 1 decimal place. Defaults to unknown. |
 | `breeder` | optional | string or `null` | |
@@ -38,6 +38,29 @@ One of two shapes:
 `{ "place": "Northern California, USA", "country": "US", "lat": 39.5, "lon": -121.5 }`
 - `lat` and `lon` are an approximate region centroid, rounded to 1 decimal place, never a precise location.
 - An origin with `{ "unknown": true }` needs no other fields.
+- `country` is an ISO 3166-1 alpha-2 code that must be a key in `tools/countries.py` (E14). The map is a
+  deliberately partial list: adding a country is an edit someone makes on purpose, and each code that
+  a card uses gets a `/browse/country/<cc>/` page.
+
+### Summary links
+The summary is the one field that carries markup. `docs/voice.md` is the contract for when to link;
+this is the contract for what a link means.
+
+| Markup | Links to |
+|---|---|
+| `[[<id>]]` | `/s/<id>/`, with that card's `name` as the text |
+| `[[<id>\|text]]` | `/s/<id>/`, with that text |
+| `[[breeder:<name>]]`, `[[breeder:<name>\|text]]` | `/browse/breeder/<slug>/` |
+| `[[kind:<kind>\|text]]` | `/browse/kind/<kind>/` |
+| `[[country:<CC>\|text]]` | `/browse/country/<cc>/` |
+| `[[label:<label>\|text]]` | `/browse/label/<label>/` |
+
+- **Slug:** the value, lowercased, with runs of non-alphanumerics turned into `-` and the edges stripped.
+- **Every target must resolve** (E13): an id names a card, a breeder matches some card's `breeder`
+  exactly, a country is in the map *and* is some card's `origin.country`, and a kind or label is a
+  value of that field.
+- **The 400-character limit counts the visible text**, with each link reduced to its display text.
+- Markup anywhere else on a card is just text. Nothing outside `summary` is parsed.
 
 ### Parents
 A flat list of card ids: `[ "afghani", "colombian-gold" ]`.
@@ -76,7 +99,10 @@ The categories are descriptive labels, not a ranking:
 | **E06** | The parent graph has a cycle. |
 | **E09** | A year is outside 1900..the current year, or `year_min > year_max`. |
 | **E10** | A coordinate is out of range, or carries more than 1 decimal place. |
-| **E11** | The summary runs past 400 characters. |
+| **E11** | The summary's *visible* text runs past 400 characters. |
+| **E12** | The summary's link markup is malformed: an unbalanced `[[` or `]]`, an empty target or text, or an unknown prefix. |
+| **E13** | A link target resolves to nothing: no such card, breeder, country, kind, or label. |
+| **E14** | An `origin.country` code is not in `tools/countries.py`. |
 
 E07 and E08 were v1 rules for the `lineage.status` table and for per-claim evidence. Both concepts
 are gone in v2, so the ids are retired rather than reused.
@@ -98,6 +124,9 @@ W2 was the v1 "nothing stronger than folklore" warning. It went with the tiers.
 }
 ```
 - Cards are written as they appear in the catalog, with defaults filled in.
+- A card that has a `summary` also gets a `summary_plain`: the same prose with every link reduced to
+  its display text, for anything that cannot render a link. `summary` stays the raw text with the
+  markup, because that is what a card is edited as. The addition keeps `schema_version: 2`.
 - Output is deterministic apart from `generated`.
 
 ## Example card

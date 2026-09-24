@@ -66,11 +66,36 @@ class BuildTest(unittest.TestCase):
                 "fixture-cut",
                 "fixture-known-cross",
                 "fixture-landrace-root",
+                "fixture-links",
                 "fixture-partial",
                 "fixture-reviewed",
                 "fixture-stub-parent",
             ],
         )
+
+    def test_summary_keeps_its_markup_and_gains_the_visible_text(self):
+        """``summary`` is the source of truth; ``summary_plain`` is what reads."""
+        data = json.loads(self.build_valid())
+        cards = {strain["id"]: strain for strain in data["strains"]}
+        card = cards["fixture-links"]
+        self.assertIn("[[fixture-landrace-root]]", card["summary"])
+        self.assertNotIn("[[", card["summary_plain"])
+        self.assertIn("Fixture Landrace", card["summary_plain"])  # the card's name
+        self.assertIn("the known cross fixture", card["summary_plain"])  # link text
+        self.assertLessEqual(len(card["summary_plain"]), 400)
+        self.assertGreater(len(card["summary"]), 400)
+        # Every card that says something carries both, and no more than that.
+        for strain in data["strains"]:
+            if strain.get("summary"):
+                self.assertIn("summary_plain", strain, strain["id"])
+            else:
+                self.assertNotIn("summary_plain", strain, strain["id"])
+
+    def test_summary_plain_is_the_summary_when_there_is_no_markup(self):
+        data = json.loads(self.build_valid())
+        for strain in data["strains"]:
+            if strain.get("summary") and "[[" not in strain["summary"]:
+                self.assertEqual(strain["summary_plain"], strain["summary"])
 
     def test_edges_are_child_parent_pairs_sorted(self):
         data = json.loads(self.build_valid())

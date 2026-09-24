@@ -1,0 +1,30 @@
+{
+  "id": "fixture-e11-long-visible-text",
+  "name": "Fixture Long Visible Text",
+  "aliases": [],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "Fictional fixture whose visible text runs past the four hundred character ceiling even after its [[kind:cultivar|cultivar]] markup is reduced to what a reader actually sees on the page. It names [[breeder:Fixture Seeds]] and [[country:TL|Testland]], so every link here resolves and only the length is wrong. Filler sentence one keeps the count climbing. Filler sentence two keeps the count climbing. Filler sentence three keeps the count climbing. Filler sentence four ends it.",
+  "born": {
+    "year_min": 1990,
+    "year_max": 1994,
+    "display": "early 1990s"
+  },
+  "origin": {
+    "place": "Fixture Ridge, Testland",
+    "country": "TL",
+    "lat": 39.5,
+    "lon": -121.5
+  },
+  "breeder": "Fixture Seeds",
+  "parents": [],
+  "traditional_label": "hybrid",
+  "sources": [
+    {
+      "title": "Fixture magazine feature",
+      "publisher": "Fixture Press",
+      "category": "publication"
+    }
+  ],
+  "updated": "2026-09-24"
+}

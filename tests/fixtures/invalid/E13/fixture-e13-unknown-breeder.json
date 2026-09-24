@@ -1,0 +1,26 @@
+{
+  "id": "fixture-e13-unknown-breeder",
+  "name": "Fixture Unknown Breeder Link",
+  "aliases": [],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "Fictional fixture credited to [[breeder:Nobody Seeds]], which is no card's breeder. Not a real strain.",
+  "born": {
+    "unknown": true,
+    "display": "undated"
+  },
+  "origin": {
+    "unknown": true
+  },
+  "breeder": null,
+  "parents": [],
+  "traditional_label": "hybrid",
+  "sources": [
+    {
+      "title": "Fixture magazine feature",
+      "publisher": "Fixture Press",
+      "category": "publication"
+    }
+  ],
+  "updated": "2026-09-24"
+}

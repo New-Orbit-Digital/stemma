@@ -1,0 +1,26 @@
+{
+  "id": "fixture-e12-unbalanced",
+  "name": "Fixture Unbalanced Markup",
+  "aliases": [],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "Fictional fixture whose summary opens a link it never closes: [[fixture-e12-unbalanced and then carries on as if nothing were wrong. Not a real strain.",
+  "born": {
+    "unknown": true,
+    "display": "undated"
+  },
+  "origin": {
+    "unknown": true
+  },
+  "breeder": null,
+  "parents": [],
+  "traditional_label": "hybrid",
+  "sources": [
+    {
+      "title": "Fixture magazine feature",
+      "publisher": "Fixture Press",
+      "category": "publication"
+    }
+  ],
+  "updated": "2026-09-24"
+}
