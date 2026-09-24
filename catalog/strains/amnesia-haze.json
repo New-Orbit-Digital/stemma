@@ -6,7 +6,7 @@
   ],
   "kind": "cultivar",
   "status": "draft",
-  "summary": "Amnesia Haze is a [[kind:cultivar|cultivar]] whose origin is disputed. Soma's Sacred Seeds claims to have bred it from Southeast Asian landraces, Jamaican Haze lines, and an Afghani-Hawaiian cross; Leafly instead describes it simply as [[haze|Haze]] crossed with [[afghani|Afghani]]. An entry linked to Soma won the overall High Times Cannabis Cup in 2004, and Soma's own line won the sativa category in 2012.",
+  "summary": "Amnesia Haze is a [[kind:cultivar|cultivar]] whose origin is disputed. [[breeder:Soma's Sacred Seeds]] claims to have bred it from Southeast Asian landraces, Jamaican Haze lines, and an Afghani-Hawaiian cross; Leafly instead describes it simply as [[haze|Haze]] crossed with [[afghani|Afghani]]. An entry linked to Soma won the overall High Times Cannabis Cup in 2004, and Soma's own line won the sativa category in 2012.",
   "born": {
     "year_min": 1990,
     "year_max": 2004,
@@ -18,7 +18,7 @@
     "lat": 52.4,
     "lon": 4.9
   },
-  "breeder": null,
+  "breeder": "Soma's Sacred Seeds",
   "parents": [],
   "traditional_label": "sativa",
   "growing": {
