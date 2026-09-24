@@ -103,4 +103,7 @@
 L1 ends at the audit's stop-point checklist. Don't start R6 (the chemotype-only pass) or anything else.
 
 ## Fill rules — learned
-The audit appends here. None yet.
+The audit appends here. L1-B follows these on every card.
+
+1. **Cross-check every name against the catalog** (L1-C 2026-09-24, batch 1: 7 of 25 cards). Before you write a summary, search `name` and `aliases` on `main` for every strain it mentions, and the `breeder` values for every breeder it names. Link each one that has a card or a matching `breeder` at its first mention. If the summary names a strain's parents and they have cards, they go in `parents`. Never leave `parents` empty while the prose names a cataloged cross. (Seen: sour-diesel, silver-pearl, blue-dream, mac, gary-payton, cherry-pie, gelato.)
+2. **Keep grow data out of the summary** (L1-C 2026-09-24, batch 1: 6 of 25 cards). Flowering times, plant heights, and indoor/outdoor suitability belong in `growing`. The summary spends its 400 characters on identity, origin, lineage, and history. (Seen: chitral, nepalese, durban-poison, early-pearl, silver-pearl, white-runtz. Merged cards aren't reworked for this alone.)
