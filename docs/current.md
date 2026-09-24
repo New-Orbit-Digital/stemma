@@ -1,29 +1,42 @@
 # Stemma — Current
 **STATUS:** Volatile state. Rewritten at every close-out.
 
-**Last update:** the planner (scheduled R3 run), 2026-09-24 ~17:10 UTC. **Sprint 2 stop point.**
+**Last update:** the planner (scheduled L1-A worklist run), 2026-09-24 ~19:10 UTC. **Sprint 3 (L1 library pass) is running.**
 
 ## Headline
-- **R3 (OG Kush family) is done and merged:** 17 new cards and 1 upgrade across #43, #44, and #45, each merged on `mergeable_state: clean`.
-- **The catalog is 45 cards:** 39 draft and 6 stub, all schema v2 in the house voice with inline links.
-- **Sprint 2 is at its stop point.** Justin's bulk-verification checklist is below.
-- **Sprint 3 is the L1 library pass.** GSC and Blue Dream are folded in as worklist entries (`docs/library.md`). The L1-A worklist task is already scheduled for **2026-09-24 18:30 UTC**, and it starts on its own once it sees this stop point. To hold Sprint 3, pause that scheduled task before 18:30 UTC.
+- **L1-A (worklist) is done and merged.** 481 new stub cards across #47–#51, each merged on `mergeable_state: clean`. No existing card was edited.
+- **The catalog is 526 cards:** 39 draft and 487 stub.
+- **The fill queue is `docs/library/batches.json`:** 20 batches (19 of 25, the last of 12), 487 ids: the 481 new stubs plus the 6 older stubs. Seed families come first (batches 1–10, GSC and Blue Dream at the head of batch 1), then everything else by how widely known it is.
+- **L1-B (fill, Sonnet, hourly) and L1-C (audit, Opus, every 3 hours) are enabled** and run until the L1 stop point (`docs/library.md`).
+- **Sprint 2 bulk verification is still open for Justin** (below). L1 doesn't depend on it.
+
+## L1 status
+| Step | State |
+|---|---|
+| L1-A worklist | **Done** (this run). Stubs #47–#51; `batches.json` and `audit.md` in the docs PR that carries this file. |
+| L1-B fill | Enabled. Claims the lowest free batch each hour via a `planner/library-batch-<n>` branch. |
+| L1-C audit | Enabled. Logs to `docs/library/audit.md`. Writes Justin's L1 stop-point checklist here when every batch is filled and audited. |
 
 ## What merged this run (evidence)
-| PR | Cards | Merge evidence |
+| PR | Contents | Merge evidence |
 |---|---|---|
-| #43 R3 (1/3) roots | `hindu-kush` (stub → draft); new `pakistani-kush`, `lemon-thai`, `chemdawg`, `chemdawg-d`, `chemdawg-4`; new stubs `hawaiian`, `sour-diesel` | `unstable` → `clean` at head `ba68d42`; squash `840cda4` |
-| #44 R3 (2/3) OG Kush and cuts | new `og-kush`, `sfv-og`, `tahoe-og`, `ghost-og`, `bubba-kush`; `[[og-kush]]` links added to three parent cards | `unstable` → `clean` at head `217e621`; squash `6ceb4ab` |
-| #45 R3 (3/3) descendants | new `fire-og`, `larry-og`, `headband`, `kosher-kush`, `master-kush`; `hindu-kush` links onward | `unstable` → `clean` at head `6e2ef45`; squash `b452909` |
+| #47 Library stubs (1/5) | 100 stubs: seed-family heads (GSC, Blue Dream, GG4, Skywalker OG, Northern Lights, Cheese, Purple Haze, …) | `clean` at head `7643712`; squash `f029e3f` |
+| #48 Library stubs (2/5) | 100 stubs: seed-family depth (Cookies line, DJ Short line, OG/Chem/Diesel line, Sensi and Dutch classics) | `clean` at head `dc9401d`; squash `8f95b08` |
+| #49 Library stubs (3/5) | 100 stubs: Skunk and Haze tail, then the most widely known strains | `clean` at head `e3137bb`; squash `e573e32` |
+| #50 Library stubs (4/5) | 100 stubs: known strains, continued | `clean` at head `fd2bebb`; squash `d2735d9` |
+| #51 Library stubs (5/5) | 81 stubs: remaining strains and regional landraces | `clean` at head `fe1b695`; squash `3c28efb` |
 
-- **Source checks:** every draft had at least one source checked live with WebFetch before it was written. Each card's "Planner-verified" source note records what that source confirmed.
-- **Country codes:** none were added. AF, PK, US, and NL were already in `tools/countries.py`.
-- **Planner calls, per the populate-first rule:**
-  - **OG Kush** is a `cut`. Its parents are the commonly repeated three-way: Chemdawg, Lemon Thai, and Pakistani Kush. Leafly's Hindu Kush variant gets one clause. `breeder` is null because no organization bred it; Matt "Bubba" Berger and Josh D are named in the prose.
-  - **Chemdawg, Chem D, and Chem 4** are sibling `cut`s from the same 1991 bag seed, so each has `parents: []`. Their breeder is "Chemdog".
-  - **Tahoe OG** is a cut of OG Kush, and `breeder` is null. The one attribution found ("Ganja Guru") was single-source, and the name collides with another figure.
-  - **Unknown fields:** a field is `unknown` only where no source gave a value. That covers Headband's born and origin; Kosher Kush, Larry OG, and Master Kush's born; Ghost OG's and Chem 4's origin; and Lemon Thai's born and origin.
-- **Unused branch:** `planner/r3-og-kush-3-descendants` was cut by mistake and never used. It has no PR and is safe to delete.
+- **Merge evidence caveat:** each stub PR read `clean` within seconds of opening, unlike R3's 3–4 minutes at `unstable`, and #51 stayed `clean` on a re-read 2.5 minutes later. Commit status returns 403, so the Actions result itself wasn't visible. Supporting evidence: every PR's Cloudflare preview deploy succeeded, and a git blob-hash spot check of 26 pushed stubs (the trickiest aliases, non-ASCII names, and each PR's last file) matched the local files byte for byte.
+
+**Worklist calls (L1-A, planner):**
+- **Dedupe:** every new name and alias was normalized (case, `#`/`No.`, spacing and punctuation, Dawg/Dog, Sherbet/Sherbert) and checked against all 45 existing cards and within the list. There were no collisions. Spelling variants are aliases, never separate cards.
+- **Brand-safe ids:** `gsc` (aliases Girl Scout Cookies, Cookies) and `gg4` (aliases Gorilla Glue #4, Gorilla Glue, Original Glue, Glue) follow the breeders' post-dispute names and Leafly's current pages, so the permanent id never carries a disputed trademark.
+- **Numbered phenos and cuts with their own card:** `gelato-33`, `gelato-41`, `gsc-forum-cut`, `thin-mint-gsc`, `platinum-gsc`, `pre-98-bubba-kush`, `707-headband` (distinct from `headband`), and `northern-lights` (distinct from `northern-lights-5`). **Folded into one card:** Bruce Banner #3 into `bruce-banner`; UK, Exodus, and Big Buddha Cheese into `cheese`; Daywrecker into `original-diesel`; Maui Waui into `maui-wowie`.
+- **Same name, different things:** `mazar` (Dutch Passion cultivar) and `mazar-i-sharif` (landrace) are separate. `afghani-1` (Sensi's selection) is separate from the `afghani` landrace.
+- **`kind` is a best guess.** L1-B may correct it. Clone-only selections are `cut`, regional populations are `landrace`, and everything else is `cultivar`.
+- **Existing stubs in the queue:** `sour-diesel`, `hawaiian`, `silver-pearl`, `early-pearl`, `chitral`, and `nepalese` all sit in batch 1.
+
+**Source-access note for L1-B and L1-C:** in this unattended run, WebFetch of `leafly.com` and `en.wikipedia.org` timed out on an approval prompt nobody answered. `seedfinder.eu`, `sensiseeds.com`, and `allbud.com` fetched without a prompt. Fill runs are unattended too, so they'll lean on breeder pages, SeedFinder, and AllBud unless Leafly and Wikipedia are approved at site scope.
 
 ## Sprint 2 bulk verification (Justin)
 **A. Live pages** (at `stemma.neworbitdigital.com`; the sandbox can't reach the site)
@@ -37,7 +50,7 @@
   - [ ] `/browse/breeder/dna-genetics/`
   - [ ] `/browse/breeder/chemdog/`
   - [ ] `/browse/breeder/white-label/`
-- [ ] `/browse/`: the index counts reflect 45 cards.
+- [ ] `/browse/`: the index counts reflect the catalog (526 cards after L1-A; 45 before it).
 - [ ] Search: `Chem 91`, `Lemon Larry`, and `Old World Paki Kush` each find their card by alias.
 
 **B. OG Kush spot-checks** (the card against its source)
@@ -48,8 +61,7 @@
 - [ ] `master-kush`: from White Label, bred from two Hindu Kush lines; High Life Cup gold in 2004. Check against [Sensi Seeds](https://sensiseeds.com/en/feminized-seeds/white-label/master-kush).
 
 **C. Decisions (only what needs you)**
-1. **Can a grower's moniker go in `breeder`?** This run put "Chemdog" in `breeder` for the Chem line, but left OG Kush and Bubba Kush null, with the people named in the prose (they carried and spread the cuts rather than breeding them). L1 will hit this often. The planner's default is to keep doing exactly this unless you say otherwise.
-2. **Sprint 3 go.** L1-A (the Opus worklist) is scheduled for 18:30 UTC today and will then enable the fill and audit tasks. Let it run, or pause the "Stemma L1-A" scheduled task if you want to verify Sprint 2 first.
+1. **Can a grower's moniker go in `breeder`?** R3 put "Chemdog" in `breeder` for the Chem line, but left OG Kush and Bubba Kush null, with the people named in the prose (they carried and spread the cuts rather than breeding them). L1 will hit this often. The default is to keep doing exactly this unless you say otherwise.
 
 ## Still open (carried forward)
 1. **STM-U9 (#42), chemotype fields:** the executor's draft PR is open and needs your go to merge. It unblocks R6, and L1 fills chemotype only after it merges.
@@ -57,13 +69,14 @@
 3. **Interface direction:** A "Library card", B "Quiet app", C "Field notes", or a mix. See `docs/prep/stemma-interface.md`.
 4. **`tools/check_migration.py`:** keep or delete. The planner keeps it by default until the next tooling unit.
 5. **Cloudflare Insights beacon** on live pages even though Web Analytics is off. This is a dashboard look, and low priority (see backlog).
+6. **Unused branches:** `planner/r3-og-kush-3-descendants` (from R3) and the merged `planner/library-stubs-1` … `-5` branches are safe to delete.
 
 ## Sprint plan
 | Sprint | Scope | Status |
 |---|---|---|
 | 1 | v1 features (U1–U6) and the Skunk family | VERIFIED |
 | 2 | U7 and U8, then the Haze and OG Kush families | 2A/2B VERIFIED. **2C (R3 OG Kush) MERGED**, awaiting Justin's bulk verification |
-| 3 | L1 library pass (500+ strains; GSC and Blue Dream fold in) | L1-A scheduled for 2026-09-24 18:30 UTC |
+| 3 | L1 library pass (500+ strains; GSC and Blue Dream fold in) | **L1-A MERGED** (#47–#51). L1-B fill and L1-C audit running |
 
 **Launch readiness:**
 - A `reviewed` pass on all cards.
@@ -72,14 +85,17 @@
 
 ## State
 - **Units:** U1–U8 are merged (#8, #9, #13, #15, #19, #21, #27, and #33). STM-U9 is open as #42 and awaiting Justin.
-- **Catalog:** 45 cards: 39 draft and 6 stub (`hawaiian` and `sour-diesel` are new; four earlier stubs remain, including `chitral` and `silver-pearl`).
+- **Catalog:** 526 cards: 39 draft and 487 stub. The 487 stubs are exactly the ids in `docs/library/batches.json`.
 - **Hosting:** live at `stemma.neworbitdigital.com` and `stemma-9j6.pages.dev`. PRs get preview deploys.
 
 ## Connector facts
 - **GitHub connector:**
   - It has no workflows, administration, or secrets permission.
   - Check runs and commit status return 403, so `mergeable_state` is the CI evidence. It can sit at `unstable` for 3–4 minutes before it turns `clean`, so re-read it every 30–60 seconds.
+  - `push_files` handles 100 files per commit without trouble (L1-A stub PRs).
+  - Stub-only PRs read `clean` almost at once (2026-09-24). If the audit sees a red CI run on `main`, suspect that `clean` was read before checks registered.
 - **Sandbox proxy:** it blocks `*.pages.dev`, `neworbitdigital.com`, and cdnjs. Live checks go to Justin, or to the built-in browser when it's linked.
+- **WebFetch in unattended runs:** a domain that needs approval times out rather than waiting (seen for `leafly.com` and `en.wikipedia.org` on 2026-09-24). Pre-approved domains, such as SeedFinder, Sensi Seeds, and AllBud, work.
 - **Private repo:** `git clone` has no credentials, so use the connector.
 - **Cloudflare dashboard:** Justin's hands only.
 
@@ -95,5 +111,5 @@
   - `mergeable_state` is clean.
 
 ## Next
-1. **Justin:** run the Sprint 2 bulk verification above, and answer the two decisions.
-2. **18:30 UTC:** the L1-A worklist runs, unless Justin pauses it. Then the fill batches (Sonnet, hourly) and the audit (Opus, every 3 hours) run until the L1 stop point.
+1. **L1-B** fills one batch per hour (about 20 hours for the queue, then sweeps for anything left as a stub). **L1-C** audits every 3 hours and writes the L1 stop-point checklist here at the end.
+2. **Justin:** the Sprint 2 bulk verification and the breeder-moniker decision above, whenever convenient. Optionally, approve `leafly.com` and `en.wikipedia.org` for WebFetch at site scope so fill runs can use them.
