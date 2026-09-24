@@ -1,0 +1,69 @@
+{
+  "id": "super-silver-haze",
+  "name": "Super Silver Haze",
+  "aliases": [
+    "SSH"
+  ],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "Super Silver Haze is a [[kind:cultivar|cultivar]] bred by [[breeder:Green House Seed Co.]] as a three-way cross of the [[skunk-1|Skunk]], [[northern-lights-5|Northern Lights]], and [[haze|Haze]] lines. It won the High Times Cannabis Cup in 1997, 1998, and 1999, the first strain to take the overall prize twice running. Credit for the breeding is disputed between Arjan Roskam and Shantibaba, who both worked at Green House at the time.",
+  "born": {
+    "year_min": 1994,
+    "year_max": 1997,
+    "display": "mid-1990s (by 1997)"
+  },
+  "origin": {
+    "place": "Amsterdam, Netherlands",
+    "country": "NL",
+    "lat": 52.4,
+    "lon": 4.9
+  },
+  "breeder": "Green House Seed Co.",
+  "parents": [
+    "skunk-1",
+    "northern-lights-5",
+    "haze"
+  ],
+  "traditional_label": "sativa",
+  "growing": {
+    "environment": "both",
+    "flowering_weeks": {
+      "min": 10,
+      "max": 11
+    }
+  },
+  "sources": [
+    {
+      "title": "Super Silver Haze",
+      "publisher": "Green House Seed Co.",
+      "category": "breeder",
+      "url": "https://shop.greenhouseseeds.nl/feminised-cannabis-seeds/super-silver-haze/",
+      "accessed": "2026-09-24",
+      "note": "Planner-verified 2026-09-24: confirms the Skunk x Northern Lights x Haze three-way and the 1997, 1998, and 1999 Cannabis Cup wins, crediting Arjan Roskam."
+    },
+    {
+      "title": "Super Silver Haze (Green House Seeds)",
+      "publisher": "SeedFinder",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/super-silver-haze/green-house-seeds",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Scott Blakey",
+      "publisher": "Wikipedia",
+      "category": "database",
+      "url": "https://en.wikipedia.org/wiki/Scott_Blakey",
+      "accessed": "2026-09-24",
+      "note": "Credits Shantibaba (Scott Blakey), not Arjan Roskam, with the top Green House prizes in 1998 — the breeder-credit dispute noted in the summary."
+    },
+    {
+      "title": "1998 High Times Cannabis Cup",
+      "publisher": "Kind Green Buds",
+      "category": "community",
+      "url": "https://kindgreenbuds.com/culture/1998-high-times-cannabis-cup/",
+      "accessed": "2026-09-24",
+      "note": "Calls it the first strain to win the overall Cup twice in a row."
+    }
+  ],
+  "updated": "2026-09-24"
+}

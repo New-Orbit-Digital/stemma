@@ -1,0 +1,69 @@
+{
+  "id": "jack-herer",
+  "name": "Jack Herer",
+  "aliases": [
+    "JH",
+    "The Jack"
+  ],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "Jack Herer is a [[kind:cultivar|cultivar]] launched by [[breeder:Sensi Seeds]] in 1994, named for the cannabis activist Jack Herer. Leafly describes it as a [[haze|Haze]] hybrid crossed with [[northern-lights-5|Northern Lights #5]] and [[shiva-skunk|Shiva Skunk]]; SeedFinder instead gives a three-way of [[skunk-1|Skunk #1]], Northern Lights #5, and Haze, with no Shiva Skunk. It won first place at the 1994 High Times Cannabis Cup.",
+  "born": {
+    "year_min": 1994,
+    "year_max": 1994,
+    "display": "1994"
+  },
+  "origin": {
+    "place": "Netherlands",
+    "country": "NL",
+    "lat": 52.4,
+    "lon": 4.9
+  },
+  "breeder": "Sensi Seeds",
+  "parents": [
+    "haze",
+    "northern-lights-5",
+    "shiva-skunk"
+  ],
+  "traditional_label": "hybrid",
+  "growing": {
+    "environment": "both",
+    "flowering_weeks": {
+      "min": 10,
+      "max": 12
+    }
+  },
+  "sources": [
+    {
+      "title": "Jack Herer (Sensi Seeds)",
+      "publisher": "SeedFinder",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/jack-herer/sensi-seeds",
+      "accessed": "2026-09-24",
+      "note": "Planner-verified 2026-09-24: confirms the 1994 launch and naming, and gives a three-way of Skunk #1, Northern Lights #5, and Haze with no Shiva Skunk — the disagreement noted in the summary."
+    },
+    {
+      "title": "Jack Herer",
+      "publisher": "Leafly",
+      "category": "database",
+      "url": "https://www.leafly.com/strains/jack-herer",
+      "accessed": "2026-09-24",
+      "note": "Gives Haze x (Northern Lights #5 x Shiva Skunk) as the parentage; used as the planner's default parent set per docs/research/haze.md."
+    },
+    {
+      "title": "Sensi Seeds' pivotal moments",
+      "publisher": "Sensi Seeds",
+      "category": "breeder",
+      "url": "https://sensiseeds.com/en/blog/sensi-seeds-pivotal-moments-the-cannabis-strains-that-made-our-brand/",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Which Cannabis Cups … Has Sensi Seeds Won",
+      "publisher": "Sensi Seeds",
+      "category": "breeder",
+      "url": "https://sensiseeds.com/en/blog/which-cannabis-cups-awards-and-prizes-has-sensi-seeds-won-over-the-years/",
+      "accessed": "2026-09-24"
+    }
+  ],
+  "updated": "2026-09-24"
+}

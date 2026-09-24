@@ -1,0 +1,57 @@
+{
+  "id": "silver-haze",
+  "name": "Silver Haze",
+  "aliases": [],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "Silver Haze is a [[kind:cultivar|cultivar]] bred by [[breeder:Sensi Seeds]], combining [[haze|Haze]] with a [[northern-lights-5|Northern Lights]]-line parent to shorten its flowering time and height for indoor growing. SeedFinder names that parent as [[silver-pearl|Silver Pearl]], itself a cross of [[early-skunk|Early Skunk]] and Northern Lights #5. Its release year is not documented.",
+  "born": {
+    "unknown": true,
+    "display": "probably early 1990s"
+  },
+  "origin": {
+    "place": "Netherlands",
+    "country": "NL",
+    "lat": 52.4,
+    "lon": 4.9
+  },
+  "breeder": "Sensi Seeds",
+  "parents": [
+    "silver-pearl",
+    "haze"
+  ],
+  "traditional_label": "sativa",
+  "growing": {
+    "environment": "both",
+    "flowering_weeks": {
+      "min": 9,
+      "max": 11
+    }
+  },
+  "sources": [
+    {
+      "title": "Cannabis Strain Focus: Silver Haze",
+      "publisher": "Sensi Seeds",
+      "category": "breeder",
+      "url": "https://sensiseeds.com/en/blog/cannabis-strain-focus-silver-haze-sensi-seeds/",
+      "accessed": "2026-09-24",
+      "note": "Planner-verified 2026-09-24: confirms Haze combined with a Northern Lights-line parent to shorten flowering time and height for indoor growing. Does not itself name Silver Pearl; that specific parent name comes from SeedFinder."
+    },
+    {
+      "title": "Sensi Seeds' pivotal moments",
+      "publisher": "Sensi Seeds",
+      "category": "breeder",
+      "url": "https://sensiseeds.com/en/blog/sensi-seeds-pivotal-moments-the-cannabis-strains-that-made-our-brand/",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Silver Haze (Sensi Seeds)",
+      "publisher": "SeedFinder",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/silver-haze/sensi-seeds",
+      "accessed": "2026-09-24",
+      "note": "Names the parent cross as Silver Pearl x Haze."
+    }
+  ],
+  "updated": "2026-09-24"
+}
