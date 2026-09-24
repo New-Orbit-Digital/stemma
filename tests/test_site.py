@@ -17,6 +17,7 @@ BUILD = os.path.join(ROOT, "tools", "build.py")
 VALID = os.path.join(ROOT, "tests", "fixtures", "valid")
 sys.path.insert(0, os.path.join(ROOT, "tools"))
 
+import browse  # noqa: E402  (the site's own dimension rule, not a copy)
 import build  # noqa: E402  (the build's own hash rule, not a copy)
 import origins  # noqa: E402  (the site's own located/unknown rule, not a copy)
 import timeline  # noqa: E402  (the site's own dated/undated rule, not a copy)
@@ -81,18 +82,24 @@ class SiteTest(unittest.TestCase):
 
     def test_every_internal_link_resolves_to_a_file(self):
         checked = 0
+        browse_links = 0
         for page in html_files(self.out):
             for target in LINK_RE.findall(self.read(os.path.relpath(page, self.out))):
                 if target.startswith(EXTERNAL) or target.startswith("#") or not target:
                     continue
                 path = resolve(self.out, page, target)
                 checked += 1
+                if target.startswith("/browse/"):
+                    browse_links += 1
                 self.assertTrue(
                     os.path.isfile(path),
                     "%s links to %s, which is not a file"
                     % (os.path.relpath(page, self.out), target),
                 )
         self.assertGreater(checked, 0)
+        # The masthead item, the index, the field links, and the summary links:
+        # the walk above is what proves a browse URL is never a dead end.
+        self.assertGreater(browse_links, len(list(html_files(self.out))))
 
     def test_no_page_references_the_catalog(self):
         for page in html_files(self.out):
@@ -533,6 +540,154 @@ class SiteTest(unittest.TestCase):
         index = self.read("index.html")
         for strain in self.dataset["strains"]:
             self.assertIn('href="/s/%s/"' % strain["id"], index)
+
+    # -- browse pages ------------------------------------------------------
+
+    def browse_groups(self):
+        """The dimensions the build itself would find, from the dataset."""
+        return browse.groups(self.dataset["strains"])
+
+    def browse_entries(self):
+        for group in self.browse_groups():
+            for entry in group["entries"]:
+                yield group, entry
+
+    def test_one_browse_page_exists_per_value_a_card_has(self):
+        built = set()
+        for dirpath, _dirnames, filenames in os.walk(os.path.join(self.out, "browse")):
+            if "index.html" not in filenames:
+                continue
+            rel = os.path.relpath(dirpath, self.out).replace(os.sep, "/")
+            built.add("/%s/" % rel)
+        expected = {"/browse/"}
+        for _group, entry in self.browse_entries():
+            expected.add(entry["href"])
+        self.assertEqual(built, expected)
+        # Four dimensions, each with at least one value in the fixtures.
+        self.assertEqual(
+            [group["dimension"] for group in self.browse_groups()],
+            ["breeder", "kind", "country", "label"],
+        )
+
+    def test_a_browse_page_heads_its_dimension_and_counts_its_cards(self):
+        for group, entry in self.browse_entries():
+            page = self.read(os.path.join(*entry["relpath"]))
+            self.assertIn(
+                "<h1 id=\"browse-page-heading\">%s &middot; %s</h1>"
+                % (group["label"], html.escape(entry["title"], quote=True)),
+                page,
+            )
+            self.assertIn(
+                '<p class="browse-page__count">%s</p>'
+                % browse.count_text(len(entry["members"])),
+                page,
+            )
+
+    def test_a_browse_page_lists_exactly_the_cards_with_that_value(self):
+        for group, entry in self.browse_entries():
+            page = self.read(os.path.join(*entry["relpath"]))
+            listed = re.findall(r'<li data-id="([^"]+)"><a href="/s/', page)
+            self.assertEqual(
+                listed,
+                [card["id"] for card in entry["members"]],
+                "%s/%s" % (group["dimension"], entry["value"]),
+            )
+            # Membership is the cards' own field value, read back off the page.
+            for strain in self.dataset["strains"]:
+                has = browse.card_value(group["dimension"], strain) == entry["value"]
+                self.assertEqual(has, strain["id"] in listed, strain["id"])
+
+    def test_a_browse_row_shows_the_name_the_kind_and_the_born_display(self):
+        page = self.read(os.path.join("browse", "kind", "cultivar", "index.html"))
+        self.assertIn(
+            '<a href="/s/fixture-known-cross/"><strong>Fixture Known Cross</strong>'
+            '<span class="result__meta">cultivar &middot; late 1970s</span></a>',
+            page,
+        )
+
+    def test_the_browse_index_lists_every_value_with_its_count(self):
+        page = self.read(os.path.join("browse", "index.html"))
+        for group, entry in self.browse_entries():
+            self.assertIn(">%s</h2>" % group["label"], page)
+            self.assertIn(
+                '<li><a href="%s">%s</a> <span class="result__meta">%s</span></li>'
+                % (
+                    entry["href"],
+                    html.escape(entry["title"], quote=True),
+                    browse.count_text(len(entry["members"])),
+                ),
+                page,
+            )
+
+    def test_every_page_carries_browse_in_the_masthead(self):
+        for page in html_files(self.out):
+            text = self.read(os.path.relpath(page, self.out))
+            self.assertIn('<a href="/browse/">Browse</a>', text)
+
+    def test_build_replaces_stale_browse_pages(self):
+        stale = os.path.join(
+            self.out, "browse", "breeder", "gone-from-catalog", "index.html"
+        )
+        os.makedirs(os.path.dirname(stale), exist_ok=True)
+        with open(stale, "w", encoding="utf-8") as handle:
+            handle.write("stale")
+        result = subprocess.run(
+            [sys.executable, BUILD, "--path", VALID, "--out", self.out],
+            cwd=ROOT,
+            capture_output=True,
+            text=True,
+        )
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertFalse(os.path.exists(stale))
+
+    # -- inline links in the prose ----------------------------------------
+
+    def summary_html(self, strain_id):
+        """The rendered summary paragraph, between the header and the facts."""
+        page = self.read(os.path.join("s", strain_id, "index.html"))
+        return page.split('<dl class="facts">')[0].rsplit("</header>", 1)[1]
+
+    def test_a_summary_renders_every_markup_form_as_a_link(self):
+        summary = self.summary_html("fixture-links")
+        for href, text in (
+            ("/browse/kind/cultivar/", "cultivar"),
+            ("/s/fixture-landrace-root/", "Fixture Landrace"),  # a bare [[id]]
+            ("/s/fixture-known-cross/", "the known cross fixture"),
+            ("/browse/breeder/fixture-seeds/", "Fixture Seeds"),
+            ("/browse/country/tl/", "Testland"),
+            ("/browse/label/hybrid/", "hybrid"),
+        ):
+            self.assertIn('<a href="%s">%s</a>' % (href, text), summary)
+
+    def test_no_rendered_body_shows_raw_link_markup(self):
+        for page in html_files(self.out):
+            body = (
+                self.read(os.path.relpath(page, self.out))
+                .split('<main id="main"')[1]
+                .split("</main>")[0]
+            )
+            self.assertNotIn("[[", body, "%s shows raw markup" % page)
+
+    def test_a_meta_description_is_the_visible_text(self):
+        page = self.read(os.path.join("s", "fixture-links", "index.html"))
+        description = page.split('<meta name="description" content="')[1].split('">')[0]
+        self.assertNotIn("[[", description)
+        self.assertIn("Fixture Landrace", description)
+
+    def test_the_strain_header_links_its_fields_to_their_browse_pages(self):
+        page = self.read(os.path.join("s", "fixture-known-cross", "index.html"))
+        for link in (
+            '<a href="/browse/kind/cultivar/">cultivar</a>',
+            '<a href="/browse/label/hybrid/">hybrid</a>',
+            '<a href="/browse/breeder/fixture-seeds/">Fixture Seeds</a>',
+            '<a href="/browse/country/tl/">Fixture Coast, Testland</a>',
+        ):
+            self.assertIn(link, page)
+
+    def test_a_card_with_no_origin_country_links_no_country(self):
+        page = self.read(os.path.join("s", "fixture-partial", "index.html"))
+        self.assertIn("<dt>Origin</dt><dd>Unknown</dd>", page)
+        self.assertNotIn("/browse/country/", page)
 
     def test_build_replaces_stale_strain_pages(self):
         stale = os.path.join(self.out, "s", "gone-from-catalog", "index.html")

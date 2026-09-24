@@ -1,0 +1,26 @@
+{
+  "id": "fixture-e13-bad-enum",
+  "name": "Fixture Bad Enum Link",
+  "aliases": [],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "Fictional fixture calling itself a [[kind:sativa|sativa]] kind and carrying a [[label:landrace|landrace]] label, neither of which is a value of the field it names. Not a real strain.",
+  "born": {
+    "unknown": true,
+    "display": "undated"
+  },
+  "origin": {
+    "unknown": true
+  },
+  "breeder": null,
+  "parents": [],
+  "traditional_label": "hybrid",
+  "sources": [
+    {
+      "title": "Fixture magazine feature",
+      "publisher": "Fixture Press",
+      "category": "publication"
+    }
+  ],
+  "updated": "2026-09-24"
+}

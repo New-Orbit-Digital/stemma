@@ -11,7 +11,10 @@
     "aliases": { "type": "array", "items": { "type": "string" } },
     "kind": { "enum": ["landrace", "cultivar", "cut"] },
     "status": { "enum": ["stub", "draft", "reviewed"] },
-    "summary": { "type": "string", "maxLength": 400 },
+    "summary": {
+      "type": "string",
+      "description": "At most 400 visible characters: the [[...]] link markup is reduced to its display text first, so a raw string may be longer. tools/validate.py (E11) is the check; JSON Schema cannot express it."
+    },
     "born": { "$ref": "#/$defs/born" },
     "origin": { "$ref": "#/$defs/origin" },
     "breeder": { "type": ["string", "null"] },
@@ -37,7 +40,11 @@
       "properties": {
         "unknown": { "const": true },
         "place": { "type": "string", "minLength": 1 },
-        "country": { "type": "string", "minLength": 1 },
+        "country": {
+          "type": "string",
+          "minLength": 1,
+          "description": "ISO 3166-1 alpha-2, and a key in tools/countries.py (E14)."
+        },
         "lat": { "type": "number", "minimum": -90, "maximum": 90 },
         "lon": { "type": "number", "minimum": -180, "maximum": 180 }
       }

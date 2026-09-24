@@ -11,6 +11,8 @@ Output layout under ``--out`` (the site root):
 
     index.html            search
     about/index.html      what the catalog is, source categories, labels
+    browse/index.html     one list per dimension, with counts
+    browse/<dim>/<v>/     one page per value at least one card has
     timeline/index.html   every dated card on a shared year axis
     map/index.html        every located card on a world map, with lineage arcs
     404.html
@@ -37,7 +39,10 @@ from datetime import datetime, timezone
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-import lineage  # noqa: E402  (sibling module, resolved via the path insert)
+import browse  # noqa: E402  (sibling module, resolved via the path insert)
+import countries  # noqa: E402
+import lineage  # noqa: E402
+import links  # noqa: E402
 import origins  # noqa: E402
 import timeline  # noqa: E402
 import validate  # noqa: E402
@@ -180,6 +185,15 @@ def fact(term, value_html):
     return "<div><dt>%s</dt><dd>%s</dd></div>" % (esc(term), value_html)
 
 
+def browse_link(dimension, value, text):
+    """A field value as a link to its browse page.
+
+    Every value a card carries has a page, because the browse pages are built
+    from the cards, so a field link cannot point at nothing.
+    """
+    return '<a href="%s">%s</a>' % (esc(browse.value_href(dimension, value)), esc(text))
+
+
 def facts_block(data):
     rows = []
 
@@ -199,11 +213,23 @@ def facts_block(data):
         if origin.get("unknown") is True:
             rows.append(fact("Origin", "Unknown"))
         else:
-            rows.append(fact("Origin", esc(origin.get("place") or "Unknown")))
+            place = origin.get("place") or "Unknown"
+            code = countries.code(origin.get("country"))
+            rows.append(
+                fact(
+                    "Origin",
+                    browse_link("country", code, place) if code else esc(place),
+                )
+            )
 
     if "breeder" in data:
         breeder = data.get("breeder")
-        rows.append(fact("Breeder", esc(breeder) if breeder else "Not recorded"))
+        rows.append(
+            fact(
+                "Breeder",
+                browse_link("breeder", breeder, breeder) if breeder else "Not recorded",
+            )
+        )
 
     if not rows:
         return ""
@@ -214,10 +240,21 @@ def chips_block(data):
     items = []
     kind = data.get("kind")
     if kind:
-        items.append('<li class="chip">%s</li>' % esc(KIND_LABELS.get(kind, kind)))
+        wording = KIND_LABELS.get(kind, kind)
+        items.append(
+            '<li class="chip">%s</li>'
+            % (
+                browse_link("kind", kind, wording)
+                if kind in KIND_LABELS
+                else esc(wording)
+            )
+        )
     label = data.get("traditional_label")
     if label:
-        items.append('<li class="chip">%s %s</li>' % (esc(label), LABEL_HINT))
+        items.append(
+            '<li class="chip">%s %s</li>'
+            % (browse_link("label", label, label), LABEL_HINT)
+        )
     status = data.get("status")
     if status:
         items.append('<li class="chip">%s</li>' % esc(status))
@@ -347,8 +384,11 @@ def strain_page(base, assets, template, data, edges, names, cards=None):
             if stub
             else ""
         ),
+        # The prose links inline: [[...]] becomes an anchor, everything escapes.
         "summary": (
-            "" if stub or not data.get("summary") else "<p>%s</p>" % esc(data["summary"])
+            ""
+            if stub or not data.get("summary")
+            else "<p>%s</p>" % links.render(data["summary"], names)
         ),
         "facts": "" if stub else facts_block(data),
         "parents": parents_block(data, names),
@@ -365,7 +405,12 @@ def strain_page(base, assets, template, data, edges, names, cards=None):
     if stub:
         description = "%s is in the Stemma catalog as a stub: lineage links only." % name
     else:
-        description = data.get("summary") or ("%s lineage and history." % name)
+        # The visible text, so a meta description never shows link markup.
+        description = (
+            data.get("summary_plain")
+            or links.plain(data.get("summary") or "", names)
+            or ("%s lineage and history." % name)
+        )
     return page(
         base,
         assets,
@@ -442,6 +487,64 @@ def map_page(base, assets, template, marker_groups, arc_list, unknown_cards, pay
         inline_data=inline_json_block("map-data", payload),
         head=LEAFLET_HEAD,
     )
+
+
+def browse_pages(out, base, assets, strains):
+    """Write ``/browse/`` and one page per value. Returns ``(groups, written)``.
+
+    The tree is replaced wholesale, exactly as ``s/`` is: a breeder page whose
+    last card changed its breeder has no cards left, so it must stop existing
+    rather than linger from the previous build.
+    """
+    found = browse.groups(strains)
+    root = os.path.join(out, browse.ROOT)
+    if os.path.isdir(root):
+        shutil.rmtree(root)
+
+    template = read_template("browse.html")
+    written = 0
+    for group in found:
+        for entry in group["entries"]:
+            label = browse.heading_text(entry, group["label"])
+            write_page(
+                out,
+                os.path.join(*entry["relpath"]),
+                page(
+                    base,
+                    assets,
+                    title="%s — Stemma" % esc(label),
+                    description="Every card in the Stemma catalog under %s."
+                    % esc(label),
+                    page_class="page-browse",
+                    content=render(
+                        template,
+                        {
+                            "heading": browse.heading(entry, group["label"]),
+                            "count": esc(browse.count_text(len(entry["members"]))),
+                            "cards": browse.rows_html(entry["members"]),
+                        },
+                    ),
+                ),
+            )
+            written += 1
+
+    write_page(
+        out,
+        os.path.join(browse.ROOT, "index.html"),
+        page(
+            base,
+            assets,
+            title="Browse — Stemma",
+            description="Browse the Stemma catalog by breeder, kind, origin country, and traditional label.",
+            page_class="page-browse page-browse-index",
+            content=render(
+                read_template("browse-index.html"),
+                {"groups": browse.index_html(found)},
+            ),
+        ),
+    )
+    written += 1
+    return found, written
 
 
 def write_site(out, dataset):
@@ -548,6 +651,21 @@ def write_site(out, dataset):
             strain_page(base, assets, template, strain, edges, names, cards),
         )
 
+    found, browse_written = browse_pages(out, base, assets, strains)
+    # One page per value plus the index, so the two counts are the page's check.
+    print(
+        "wrote %s: %d pages (%s)"
+        % (
+            os.path.join(out, browse.ROOT),
+            browse_written,
+            ", ".join(
+                "%d %s" % (len(group["entries"]), group["dimension"])
+                for group in found
+            )
+            or "no dimensions",
+        )
+    )
+
     assets_out = os.path.join(out, "assets")
     os.makedirs(assets_out, exist_ok=True)
     for name in sorted(hrefs):
@@ -558,7 +676,8 @@ def write_site(out, dataset):
     path = write_page(out, HEADERS_RELPATH, HEADERS_TEXT)
     print("wrote %s: %s" % (path, ", ".join(hrefs[name] for name in sorted(hrefs))))
 
-    return 5 + len(strains)  # index, about, timeline, map, 404, one per card
+    # index, about, timeline, map, 404, one per card, plus the browse tree
+    return 5 + len(strains) + browse_written
 
 
 # -- driver ----------------------------------------------------------------
@@ -575,6 +694,17 @@ def build(path, out):
         (card for card in validator.cards if card.id is not None),
         key=lambda card: card.id,
     )
+
+    # ``summary`` stays the raw text with its markup, because that is the source
+    # of truth a card is edited as. ``summary_plain`` is the visible text, for
+    # anything that cannot render a link: a meta description, a search result,
+    # a Budlogs consumer. Additive, so the dataset is still schema_version 2.
+    names = {card.id: (card.data.get("name") or card.id) for card in cards}
+    for card in cards:
+        summary = card.data.get("summary")
+        if isinstance(summary, str) and summary:
+            card.data["summary_plain"] = links.plain(summary, names)
+
     dataset = {
         "schema_version": SCHEMA_VERSION,
         "generated": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
