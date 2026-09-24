@@ -6,6 +6,49 @@
     "AK 47"
   ],
   "kind": "cultivar",
-  "status": "stub",
+  "status": "draft",
+  "summary": "**AK-47** is a [[kind:cultivar|cultivar]] bred by [[breeder:Serious Seeds]] in the Netherlands, first released in 1992. A cross of [[colombian-gold|Colombian Gold]], [[mexican-sativa|Mexican Sativa]], [[thai|Thai]], and [[afghani|Afghani]] genetics, developed by founder Simon after years of selecting experimental lines. It is sativa-dominant, at roughly a 65:35 sativa-to-indica ratio.",
+  "born": {
+    "year_min": 1992,
+    "year_max": 1992,
+    "display": "1992"
+  },
+  "origin": {
+    "place": "Netherlands",
+    "country": "NL",
+    "lat": 52.1,
+    "lon": 5.3
+  },
+  "breeder": "Serious Seeds",
+  "parents": [
+    "colombian-gold",
+    "mexican-sativa",
+    "thai",
+    "afghani"
+  ],
+  "traditional_label": "hybrid",
+  "growing": {
+    "environment": "both",
+    "flowering_weeks": {
+      "min": 8,
+      "max": 9
+    }
+  },
+  "sources": [
+    {
+      "title": "AK-47 Strain — Originally Bred by Serious Seeds",
+      "publisher": "Serious Seeds",
+      "category": "breeder",
+      "url": "https://www.seriousseeds.com/cannabis-seeds/ak-47",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "AK-47 Strain (Colombian x Mexican x Thai x Afghani)",
+      "publisher": "Strainpedia",
+      "category": "database",
+      "url": "https://www.strainpedia.com/ak-47/",
+      "accessed": "2026-09-24"
+    }
+  ],
   "updated": "2026-09-24"
 }

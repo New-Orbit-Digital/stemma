@@ -3,6 +3,39 @@
   "name": "Animal Mints",
   "aliases": [],
   "kind": "cultivar",
-  "status": "stub",
+  "status": "draft",
+  "summary": "**Animal Mints** is a [[kind:cultivar|cultivar]] bred by [[breeder:Seed Junky Genetics]] in Southern California. A cross of [[animal-cookies|Animal Cookies]] and [[sin-mint-cookies|Sin Mint Cookies]], it joins two cookies-family lines into a resin-dense hybrid. Some sources describe it as a three-way cross that adds Blue Power directly.",
+  "born": {
+    "unknown": true,
+    "display": "unknown"
+  },
+  "origin": {
+    "place": "Southern California, United States",
+    "country": "US",
+    "lat": 34.0,
+    "lon": -117.8
+  },
+  "breeder": "Seed Junky Genetics",
+  "parents": [
+    "animal-cookies",
+    "sin-mint-cookies"
+  ],
+  "traditional_label": "hybrid",
+  "sources": [
+    {
+      "title": "Animal Mints (Seed Junky Genetics)",
+      "publisher": "SeedFinder.eu",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/animal-mints/seed-junky-genetics",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Animal Mints Strain – Grow Guide & Genetics",
+      "publisher": "Prime Cuts Nursery",
+      "category": "community",
+      "url": "https://www.primecutsnursery.com/strains/animal-mints",
+      "accessed": "2026-09-24"
+    }
+  ],
   "updated": "2026-09-24"
 }

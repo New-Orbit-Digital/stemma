@@ -5,6 +5,44 @@
     "NL"
   ],
   "kind": "cultivar",
-  "status": "stub",
+  "status": "draft",
+  "summary": "**Northern Lights** is a [[kind:cultivar|cultivar]] whose original plants were reportedly grown in the Pacific Northwest, United States, in the 1970s before being stabilized in the [[country:NL|Netherlands]] by [[breeder:Sensi Seeds]]. Its exact parentage was never documented, though Afghani and Thai landraces are commonly cited as ancestors. It became the base for many later hybrids.",
+  "born": {
+    "year_min": 1970,
+    "year_max": 1985,
+    "display": "1970s to 1985"
+  },
+  "origin": {
+    "place": "Netherlands (stabilized here; original stock reportedly from the Pacific Northwest, USA)",
+    "country": "NL",
+    "lat": 52.1,
+    "lon": 5.3
+  },
+  "breeder": "Sensi Seeds",
+  "parents": [],
+  "traditional_label": "indica",
+  "growing": {
+    "environment": "indoor",
+    "flowering_weeks": {
+      "min": 6,
+      "max": 7
+    }
+  },
+  "sources": [
+    {
+      "title": "Northern Lights (Sensi Seeds)",
+      "publisher": "SeedFinder.eu",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/nothern-lights/sensi-seeds",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "The origins of Northern Lights",
+      "publisher": "Alchimia Grow Shop",
+      "category": "publication",
+      "url": "https://www.alchimiaweb.com/blogen/origins-northern-lights/",
+      "accessed": "2026-09-24"
+    }
+  ],
   "updated": "2026-09-24"
 }
