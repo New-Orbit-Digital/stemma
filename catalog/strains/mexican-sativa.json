@@ -1,0 +1,46 @@
+{
+  "id": "mexican-sativa",
+  "name": "Mexican Sativa",
+  "aliases": [],
+  "kind": "landrace",
+  "status": "draft",
+  "summary": "Mexican Sativa is a [[kind:landrace|landrace]] from [[country:MX|Mexico]], one of the four traditional parents usually named for [[haze|Haze]]. Most histories describe it only as a generic Mexican sativa, though some name it specifically as [[acapulco-gold|Acapulco Gold]]. Which population was actually used is not documented.",
+  "born": {
+    "unknown": true,
+    "display": "traditional"
+  },
+  "origin": {
+    "place": "Mexico, generic",
+    "country": "MX",
+    "lat": 23.6,
+    "lon": -102.6
+  },
+  "breeder": null,
+  "parents": [],
+  "traditional_label": "sativa",
+  "sources": [
+    {
+      "title": "Haze Genetics",
+      "publisher": "CannaGenie",
+      "category": "community",
+      "url": "https://www.cannagenie.org/cultivar-history/first-generation-hybrid-families/haze-genetics",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "The Strains That Shaped Cannabis Culture: Haze",
+      "publisher": "Humboldt Seed Company",
+      "category": "breeder",
+      "url": "https://humboldtseedcompany.com/strains-that-shaped-cannabis-culture-haze/",
+      "accessed": "2026-09-24",
+      "note": "Planner-verified 2026-09-24: this breeder page names Acapulco Gold as the specific Mexican parent, rather than a generic Mexican sativa."
+    },
+    {
+      "title": "Legendary Cannabis Varieties 5: Original Haze",
+      "publisher": "Cannapio",
+      "category": "community",
+      "url": "https://www.cannapio.com/a/legendary-cannabis-varieties-5-original-haze",
+      "accessed": "2026-09-24"
+    }
+  ],
+  "updated": "2026-09-24"
+}

@@ -1,0 +1,56 @@
+{
+  "id": "south-indian",
+  "name": "South Indian",
+  "aliases": [
+    "Kerala"
+  ],
+  "kind": "landrace",
+  "status": "draft",
+  "summary": "South Indian is a [[kind:landrace|landrace]] associated with Kerala, [[country:IN|India]], one of the four traditional parents usually named for [[haze|Haze]]. Accounts differ on whether it contributed a sativa or an indica-leaning plant to that cross. Flowering for equatorial South Indian landraces runs roughly 14 to 19 weeks.",
+  "born": {
+    "unknown": true,
+    "display": "traditional"
+  },
+  "origin": {
+    "place": "Kerala, South India",
+    "country": "IN",
+    "lat": 10.5,
+    "lon": 76.3
+  },
+  "breeder": null,
+  "parents": [],
+  "traditional_label": "sativa",
+  "growing": {
+    "environment": "outdoor",
+    "flowering_weeks": {
+      "min": 14,
+      "max": 19
+    }
+  },
+  "sources": [
+    {
+      "title": "Where Did Haze Cannabis Come From?",
+      "publisher": "Soft Secrets",
+      "category": "community",
+      "url": "https://softsecrets.com/en-US/article/haze-cannabis-history-pure-sativa-modern-hybrids",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "The Diverse Indian Landraces",
+      "publisher": "Khalifa Genetics",
+      "category": "breeder",
+      "url": "https://khalifagenetics.com/diverse-indian-landraces/",
+      "accessed": "2026-09-24",
+      "note": "Planner-verified 2026-09-24: confirms Kerala as a South Indian landrace region and a roughly 95–130 day (about 14–19 week) flowering window."
+    },
+    {
+      "title": "Idukki Gold",
+      "publisher": "Wikipedia",
+      "category": "database",
+      "url": "https://en.wikipedia.org/wiki/Idukki_Gold",
+      "accessed": "2026-09-24",
+      "note": "Describes a Western Ghats landrace; does not tie it to Haze specifically."
+    }
+  ],
+  "updated": "2026-09-24"
+}
