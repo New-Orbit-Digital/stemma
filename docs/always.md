@@ -66,6 +66,8 @@ These ship as exact step lists. Justin also remains the verification gate on the
   - Use the commonly cited account.
   - Don't leave fields empty just to dodge a conflict.
 - **2026-09-24 — Same-name breeders (Justin).** When two distinct breeders share an exact name, disambiguate the way film or music databases do: add location in parentheses, or failing that, founding year. See `docs/voice.md`.
+- **2026-09-24 — Simple attributes only (Justin).** Effects, flavors, and medical-condition or recommended-activity data stay out: they're subjective and not widely verified. Cards stick to simple, checkable attributes: lineage, breeder, origin, dates, growing, and (with STM-U9) THC/CBD ranges and dominant terpenes.
+- **2026-09-24 — Framing (Justin).** Stemma doesn't need to be authoritative. Cards are presented as researched with sources and open to changes.
 
 ## Roles
 - **Justin:** product owner and verification gate. He gives the go on gated actions, directly or in advance.
