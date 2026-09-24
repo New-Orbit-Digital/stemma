@@ -11,6 +11,7 @@
   --accent-ink: #ffffff;
   --warn-bg: #fdf3e0;
   --warn-line: #e6cf9d;
+  --dispute: #a8481a;
   --radius: 10px;
   --measure: 38rem;
 }
@@ -26,6 +27,7 @@
     --accent-ink: #11150f;
     --warn-bg: #2a2416;
     --warn-line: #574a2a;
+    --dispute: #e8a273;
   }
 }
 
@@ -205,7 +207,112 @@ p { margin: 0 0 0.75rem; }
 .relations li { margin-bottom: 0.7rem; }
 .relations .badge { margin-left: 0.25rem; }
 
-.lineage-graph { margin-top: 1rem; }
+/* -- lineage graph ---------------------------------------------------- */
+/* Rendered at build time as plain SVG. The "show disputed" control is a
+   checkbox this stylesheet reads, so no script patches styles at runtime. */
+
+.lineage-graph { margin-top: 1.25rem; }
+
+.lineage-graph__bar { margin: 0 0 0.5rem; }
+.lineage-graph__switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 40px;
+  padding: 0 0.9rem 0 0.7rem;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+.lineage-graph__switch::before {
+  content: "";
+  width: 14px;
+  height: 14px;
+  border: 1px solid var(--ink-soft);
+  border-radius: 3px;
+  background: transparent;
+}
+.lineage-graph__toggle:checked ~ .lineage-graph__bar .lineage-graph__switch {
+  border-color: var(--dispute);
+}
+.lineage-graph__toggle:checked ~ .lineage-graph__bar .lineage-graph__switch::before {
+  background: var(--dispute);
+  border-color: var(--dispute);
+}
+.lineage-graph__toggle:focus-visible ~ .lineage-graph__bar .lineage-graph__switch {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* The diagram scrolls inside this box; the page itself never scrolls sideways. */
+.lineage-graph__scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.lineage-graph__scroll:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.lineage-svg { display: block; max-width: none; }
+
+.lineage-graph__note { margin: 0.5rem 0 0; color: var(--ink-soft); font-size: 0.85rem; }
+
+.lineage-edge {
+  fill: none;
+  stroke: var(--ink-soft);
+  stroke-width: 1.6;
+}
+.lineage-edge--genetically-tested,
+.lineage-edge--documented { stroke-dasharray: none; }
+.lineage-edge--breeder-claimed { stroke-dasharray: 7 4; }
+.lineage-edge--folklore { stroke-dasharray: 1.5 4; stroke-linecap: round; }
+.lineage-edge--disputed { stroke: var(--dispute); }
+
+/* Disputed edges, and anything only reachable through one, stay off until the
+   toggle is on. They are laid out either way, so nothing else moves. */
+.lineage-layer--disputed { display: none; }
+.lineage-graph__toggle:checked ~ .lineage-graph__scroll .lineage-layer--disputed {
+  display: inline;
+}
+
+.lineage-node__box { fill: var(--bg); stroke: var(--line); stroke-width: 1; }
+.lineage-node__name { font: 600 13px/1 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; fill: var(--ink); }
+.lineage-node__meta { font: 11px/1 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; fill: var(--ink-soft); }
+
+a.lineage-node { cursor: pointer; text-decoration: none; }
+a.lineage-node:hover .lineage-node__box,
+a.lineage-node:focus .lineage-node__box { stroke: var(--accent); stroke-width: 2.5; }
+
+.lineage-node--current .lineage-node__box { fill: var(--accent); stroke: var(--accent); }
+.lineage-node--current .lineage-node__name { fill: var(--accent-ink); }
+.lineage-node--current .lineage-node__meta { fill: var(--accent-ink); opacity: 0.85; }
+
+.lineage-node--stub .lineage-node__box { fill: transparent; stroke-dasharray: 4 3; }
+.lineage-node--stub .lineage-node__name,
+.lineage-node--stub .lineage-node__meta { fill: var(--ink-soft); }
+
+.lineage-key {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1rem;
+  list-style: none;
+  margin: 0.6rem 0 0;
+  padding: 0;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+}
+.lineage-key__item { display: inline-flex; align-items: center; gap: 0.4rem; }
+.lineage-key__line {
+  width: 26px;
+  border-top: 2px solid var(--ink-soft);
+}
+.lineage-key__line--dashed { border-top-style: dashed; }
+.lineage-key__line--dotted { border-top-style: dotted; }
+.lineage-key__line--disputed { border-top-color: var(--dispute); }
 
 .note, .stub-notice, .disputes {
   background: var(--panel);
