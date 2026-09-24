@@ -1,30 +1,24 @@
 # Setup runbook (Justin's hands)
 Each step is something the planner cannot reach through its connectors.
 
+Chat's GitHub connector is the "Claude Github MCP Connector" app. It has no workflows, administration, or secrets permission, so everything below stays manual.
+
 ## 1. Create the repo — DONE 2026-09-23
-`New-Orbit-Digital/stemma`, private, README-initialized. The planner pushed the initial contents the same day.
+`New-Orbit-Digital/stemma`, private, README-initialized.
 
-## 2. Give the connector access
-Connector token (fine-grained PAT, resource owner = New-Orbit-Digital):
-1. Edit the token → Repository access → add `stemma`.
-2. Grant these permissions:
-   - Contents: read & write
-   - Workflows: read & write (needed to push `.github/workflows/`)
-   - Issues: read & write
-   - Pull requests: read & write
-   - Actions: read
-   - Metadata: read
-3. Do NOT grant Administration or Secrets. Branch protection is the merge gate, and the planner must not be able to change it.
+## 2. Workflow files — DONE 2026-09-23
+Justin created `.github/workflows/ci.yml` and `claude.yml` in the web UI.
 
-## 3. Executor pipe
-1. Org Settings → GitHub Apps → Claude → Configure. Make sure `stemma` is included (skip this if the app is on all repos).
-2. Repo Settings → Secrets and variables → Actions → New secret: `CLAUDE_CODE_OAUTH_TOKEN`. Use the same value as ads-agent, or make it an org-level secret shared with both repos.
+Future workflow changes: the planner drafts the full file, and Justin pastes it in the web UI (Edit → Commit). Watch the path: type the filename into the `.github/workflows/` folder, not the full path again.
 
-## 4. Branch protection (do this after the planner's workflow push)
-Repo Settings → Branches → Add rule for `main`:
-- Require a pull request.
-- Required approvals: 0.
-- Do not allow bypassing.
+## 3. Executor pipe — DONE 2026-09-23
+- The "Claude" GitHub App is installed on all org repos.
+- `CLAUDE_CODE_OAUTH_TOKEN` is an org-level Actions secret, generated with `claude setup-token`.
+- A repo-level secret with the same name overrides it, which is why ads-agent is unaffected.
+- Never paste the token into chat.
+
+## 4. Branch protection — DONE 2026-09-23
+`main`: PR required, 0 approvals, no bypass.
 
 ## 5. Hosting (after STM-U2 merges)
 1. Cloudflare → Workers & Pages → Create → Pages → Connect to Git. Pick `New-Orbit-Digital/stemma`.
