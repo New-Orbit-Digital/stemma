@@ -17,9 +17,16 @@ Output layout under ``--out`` (the site root):
     s/<id>/index.html     one page per card, rendered at build time
     assets/               style.css, app.js
     data/stemma.json      the Budlogs seam
+    _headers              Cloudflare Pages cache rules for assets/
+
+Assets are referenced as ``/assets/<name>?v=<hash>``, where the hash is the
+first ten hex characters of the file's sha256. The URL changes exactly when the
+bytes change, so ``_headers`` can hand assets a one-year immutable cache
+without a deploy ever pairing new HTML with stale CSS or JS.
 """
 
 import argparse
+import hashlib
 import html
 import json
 import os
@@ -60,14 +67,41 @@ LINEAGE_NOTES = {
 LABEL_HINT = '<a class="chip__hint" href="/about/#traditional-labels">what this means</a>'
 
 # The one pre-approved front-end library, pinned to an exact version on cdnjs.
+# The subresource-integrity digests were verified against the fetched files and
+# the cdnjs API on 2026-09-24. Leaflet is pinned by version, not by our ?v=, so
+# these URLs stay exactly as cdnjs publishes them.
 LEAFLET_VERSION = "1.9.4"
 LEAFLET_BASE = "https://cdnjs.cloudflare.com/ajax/libs/leaflet/%s" % LEAFLET_VERSION
+LEAFLET_SRI = {
+    "leaflet.min.css": (
+        "sha512-h9FcoyWjHcOcmEVkxOfTLnmZFWIH0iZhZT1H2TbOq55xssQGEJHEaIm+"
+        "PgoUaZbRvQTNTluNOEfb1ZRy6D3BOw=="
+    ),
+    "leaflet.min.js": (
+        "sha512-puJW3E/qXDqYp9IfhAI54BJEaWIfloJ7JWs7OeD5i6ruC9JZL1gERT1wjtwXFlh7"
+        "CjE7ZJ+/vcRZRkIYIb6p4g=="
+    ),
+}
 LEAFLET_HEAD = (
-    '<link rel="stylesheet" href="%s/leaflet.min.css" crossorigin="anonymous" '
-    'referrerpolicy="no-referrer">\n'
-    '<script src="%s/leaflet.min.js" crossorigin="anonymous" '
-    'referrerpolicy="no-referrer"></script>\n' % (LEAFLET_BASE, LEAFLET_BASE)
+    '<link rel="stylesheet" href="%s/leaflet.min.css" integrity="%s" '
+    'crossorigin="anonymous" referrerpolicy="no-referrer">\n'
+    '<script src="%s/leaflet.min.js" integrity="%s" crossorigin="anonymous" '
+    'referrerpolicy="no-referrer"></script>\n'
+    % (
+        LEAFLET_BASE,
+        LEAFLET_SRI["leaflet.min.css"],
+        LEAFLET_BASE,
+        LEAFLET_SRI["leaflet.min.js"],
+    )
 )
+
+# Cloudflare Pages reads this from the site root. Only /assets/* gets a rule:
+# every reference to those files is versioned, so a year-long immutable cache
+# is safe. HTML and data keep the Pages default, which revalidates.
+HEADERS_RELPATH = "_headers"
+HEADERS_TEXT = "/assets/*\n  Cache-Control: public, max-age=31536000, immutable\n"
+
+ASSET_HASH_LEN = 10  # first 10 hex of sha256 — short enough to read in a URL
 
 
 # -- dataset ---------------------------------------------------------------
@@ -133,6 +167,34 @@ def render(template, values):
 
 def esc(value):
     return html.escape("" if value is None else str(value), quote=True)
+
+
+def asset_hash(path):
+    """The first ``ASSET_HASH_LEN`` hex characters of the file's sha256.
+
+    Content-addressed on purpose: the same bytes always give the same hash, so
+    a rebuild of an unchanged file emits a byte-identical page.
+    """
+    digest = hashlib.sha256()
+    with open(path, "rb") as handle:
+        for chunk in iter(lambda: handle.read(65536), b""):
+            digest.update(chunk)
+    return digest.hexdigest()[:ASSET_HASH_LEN]
+
+
+def asset_hrefs(assets_src):
+    """``{name: "/assets/<name>?v=<hash>"}`` for every file the build copies."""
+    hrefs = {}
+    for name in sorted(os.listdir(assets_src)):
+        path = os.path.join(assets_src, name)
+        if os.path.isfile(path):
+            hrefs[name] = "/assets/%s?v=%s" % (name, asset_hash(path))
+    return hrefs
+
+
+def asset_values(hrefs):
+    """The two asset placeholders the page shell in base.html spends."""
+    return {"css_href": hrefs["style.css"], "js_href": hrefs["app.js"]}
 
 
 def write_page(out, relpath, text):
@@ -363,22 +425,24 @@ def inline_data_block(data, children):
 # -- pages -----------------------------------------------------------------
 
 
-def page(base, title, description, page_class, content, inline_data="", head=""):
-    """One page. ``head`` is the seam a page uses to pin its own library."""
-    return render(
-        base,
-        {
-            "title": title,
-            "description": description,
-            "page_class": page_class,
-            "content": content,
-            "inline_data": inline_data,
-            "head": head,
-        },
-    )
+def page(base, assets, title, description, page_class, content, inline_data="", head=""):
+    """One page. ``head`` is the seam a page uses to pin its own library.
+
+    ``assets`` carries the versioned ``css_href``/``js_href`` for the shell.
+    """
+    values = {
+        "title": title,
+        "description": description,
+        "page_class": page_class,
+        "content": content,
+        "inline_data": inline_data,
+        "head": head,
+    }
+    values.update(assets)
+    return render(base, values)
 
 
-def strain_page(base, template, data, edges, names, cards=None):
+def strain_page(base, assets, template, data, edges, names, cards=None):
     strain_id = data["id"]
     sources = {
         source["id"]: source
@@ -426,6 +490,7 @@ def strain_page(base, template, data, edges, names, cards=None):
         description = data.get("summary") or ("%s lineage and history." % name)
     return page(
         base,
+        assets,
         title="%s — Stemma" % name,
         description=description,
         page_class="page-strain",
@@ -434,7 +499,7 @@ def strain_page(base, template, data, edges, names, cards=None):
     )
 
 
-def index_page(base, template, strains):
+def index_page(base, assets, template, strains):
     if strains:
         rows = "".join(
             "<li><a href=\"%s\"><strong>%s</strong>%s</a></li>"
@@ -458,6 +523,7 @@ def index_page(base, template, strains):
     content = render(template, {"browse": browse, "browse_heading": esc(heading)})
     return page(
         base,
+        assets,
         title="Stemma — cannabis strain lineage",
         description="Search a cannabis strain name and see where it came from, with a source and an evidence tier for every claim.",
         page_class="page-search",
@@ -465,9 +531,10 @@ def index_page(base, template, strains):
     )
 
 
-def timeline_page(base, template, graph, payload):
+def timeline_page(base, assets, template, graph, payload):
     return page(
         base,
+        assets,
         title="Timeline — Stemma",
         description="Every dated strain in the Stemma catalog on one year axis, with landraces and undated cards in a strip at the start.",
         page_class="page-timeline",
@@ -479,9 +546,10 @@ def timeline_page(base, template, graph, payload):
     )
 
 
-def map_page(base, template, marker_groups, arc_list, unknown_cards, payload):
+def map_page(base, assets, template, marker_groups, arc_list, unknown_cards, payload):
     return page(
         base,
+        assets,
         title="Map — Stemma",
         description="Where every strain in the Stemma catalog emerged, at an approximate regional centre, with a line from each parent's origin to its child's.",
         page_class="page-map",
@@ -500,6 +568,9 @@ def map_page(base, template, marker_groups, arc_list, unknown_cards, payload):
 
 def write_site(out, dataset):
     base = read_template("base.html")
+    assets_src = os.path.join(SITE, "assets")
+    hrefs = asset_hrefs(assets_src)
+    assets = asset_values(hrefs)
     strains = dataset["strains"]
     edges = dataset["edges"]
     cards = {strain["id"]: strain for strain in strains if strain.get("id")}
@@ -507,12 +578,15 @@ def write_site(out, dataset):
         strain_id: strain.get("name") or strain_id for strain_id, strain in cards.items()
     }
 
-    write_page(out, "index.html", index_page(base, read_template("index.html"), strains))
+    write_page(
+        out, "index.html", index_page(base, assets, read_template("index.html"), strains)
+    )
     write_page(
         out,
         os.path.join("about", "index.html"),
         page(
             base,
+            assets,
             title="About — Stemma",
             description="What Stemma is, the four evidence tiers, why indica and sativa are traditional labels, and how to read disputes.",
             page_class="page-about",
@@ -525,6 +599,7 @@ def write_site(out, dataset):
         os.path.join("timeline", "index.html"),
         timeline_page(
             base,
+            assets,
             read_template("timeline.html"),
             chart,
             timeline.payload(strains, edges),
@@ -549,6 +624,7 @@ def write_site(out, dataset):
         os.path.join("map", "index.html"),
         map_page(
             base,
+            assets,
             read_template("map.html"),
             marker_groups,
             arc_list,
@@ -573,6 +649,7 @@ def write_site(out, dataset):
         "404.html",
         page(
             base,
+            assets,
             title="Not found — Stemma",
             description="That page is not in the Stemma catalog.",
             page_class="page-404",
@@ -590,16 +667,18 @@ def write_site(out, dataset):
         write_page(
             out,
             os.path.join("s", strain["id"], "index.html"),
-            strain_page(base, template, strain, edges, names, cards),
+            strain_page(base, assets, template, strain, edges, names, cards),
         )
 
-    assets_src = os.path.join(SITE, "assets")
     assets_out = os.path.join(out, "assets")
     os.makedirs(assets_out, exist_ok=True)
-    for name in sorted(os.listdir(assets_src)):
-        source = os.path.join(assets_src, name)
-        if os.path.isfile(source):
-            shutil.copyfile(source, os.path.join(assets_out, name))
+    for name in sorted(hrefs):
+        shutil.copyfile(
+            os.path.join(assets_src, name), os.path.join(assets_out, name)
+        )
+
+    path = write_page(out, HEADERS_RELPATH, HEADERS_TEXT)
+    print("wrote %s: %s" % (path, ", ".join(hrefs[name] for name in sorted(hrefs))))
 
     return 5 + len(strains)  # index, about, timeline, map, 404, one per card
 
