@@ -62,6 +62,7 @@ EXPECTED_EDGES = [
 
 
 def run_build(path, out):
+    """Build into the output directory ``out`` (the site root)."""
     return subprocess.run(
         [sys.executable, BUILD, "--path", path, "--out", out],
         cwd=ROOT,
@@ -70,12 +71,16 @@ def run_build(path, out):
     )
 
 
+def dataset_path(out):
+    return os.path.join(out, "data", "stemma.json")
+
+
 class BuildTest(unittest.TestCase):
-    def build_valid(self, name="stemma.json"):
+    def build_valid(self, name="site"):
         out = os.path.join(self.tmp.name, name)
         result = run_build(VALID, out)
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-        with open(out, "r", encoding="utf-8") as handle:
+        with open(dataset_path(out), "r", encoding="utf-8") as handle:
             return handle.read()
 
     def setUp(self):
@@ -111,8 +116,8 @@ class BuildTest(unittest.TestCase):
         self.assertEqual(keys, sorted(keys))
 
     def test_output_is_deterministic_apart_from_generated(self):
-        first = self.build_valid("first.json")
-        second = self.build_valid("second.json")
+        first = self.build_valid("first")
+        second = self.build_valid("second")
         self.assertEqual(strip_generated(first), strip_generated(second))
         one, two = json.loads(first), json.loads(second)
         one.pop("generated")
@@ -120,24 +125,24 @@ class BuildTest(unittest.TestCase):
         self.assertEqual(one, two)
 
     def test_build_creates_missing_directories(self):
-        out = os.path.join(self.tmp.name, "dist", "data", "stemma.json")
+        out = os.path.join(self.tmp.name, "nested", "dist")
         result = run_build(VALID, out)
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-        self.assertTrue(os.path.isfile(out))
+        self.assertTrue(os.path.isfile(dataset_path(out)))
 
     def test_build_aborts_when_validation_fails(self):
-        out = os.path.join(self.tmp.name, "stemma.json")
+        out = os.path.join(self.tmp.name, "site")
         result = run_build(os.path.join(FIXTURES, "invalid", "E05"), out)
         self.assertEqual(result.returncode, 1, result.stdout)
         self.assertIn("E05", result.stdout)
-        self.assertFalse(os.path.exists(out))
+        self.assertFalse(os.path.exists(dataset_path(out)))
 
     def test_build_tolerates_warnings(self):
-        out = os.path.join(self.tmp.name, "stemma.json")
+        out = os.path.join(self.tmp.name, "site")
         result = run_build(os.path.join(FIXTURES, "warn", "W1"), out)
         self.assertEqual(result.returncode, 0, result.stdout)
         self.assertIn("W1", result.stdout)
-        self.assertTrue(os.path.isfile(out))
+        self.assertTrue(os.path.isfile(dataset_path(out)))
 
 
 def strip_generated(text):
