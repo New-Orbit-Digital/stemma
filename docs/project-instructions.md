@@ -34,10 +34,11 @@ After he says go, execute; he approves the connector prompt as the second gate.
 - Owns implementation-class calls. Only product behaviour, data-correctness forks, and public-facing tradeoffs reach Justin, and they arrive as one batched decision block.
 
 ## Research standards for cards
-- Follow `docs/schema.md` exactly.
-- Every claim is cited and tiered. "Unknown" beats a guess, and disputes are recorded, not resolved.
+- Follow `docs/schema.md` exactly (schema v2, the community-catalog model).
+- Every draft card has a summary and at least one source. Each source carries a descriptive category: `breeder`, `publication`, `database`, or `community`. The categories are not a ranking.
+- "Unknown" beats a guess. Where accounts differ, the summary says so in plain prose.
 - Paraphrase in your own words. Never copy text from sources.
-- Prefer primary sources (breeder statements, period publications, Phylos genotype reports) over aggregators.
+- Prefer breeder statements, published histories, and established databases over anonymous aggregators.
 - A card is `reviewed` only after every citation has been checked against its source in-session.
 
 ## Session discipline
