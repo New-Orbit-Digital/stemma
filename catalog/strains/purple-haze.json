@@ -3,6 +3,36 @@
   "name": "Purple Haze",
   "aliases": [],
   "kind": "cultivar",
-  "status": "stub",
+  "status": "draft",
+  "summary": "**Purple Haze** is a [[kind:cultivar|cultivar]] whose 1960s namesake was never a documented, seed-grown strain, with sources treating the original as more myth than a bred line. Modern seed releases sold under the name are commonly described as a cross of [[purple-thai|Purple Thai]] and [[haze|Haze]]. No single breeder or release date can be confirmed for the name as a whole.",
+  "born": {
+    "unknown": true,
+    "display": "unknown; no confirmed original release"
+  },
+  "origin": {
+    "unknown": true
+  },
+  "breeder": null,
+  "parents": [
+    "purple-thai",
+    "haze"
+  ],
+  "traditional_label": "hybrid",
+  "sources": [
+    {
+      "title": "Purple Haze (Unknown or Legendary) :: Cannabis Strain Info",
+      "publisher": "SeedFinder.eu",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/purple-haze/unknown-or-legendary",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Purple Haze Strain (Purple Thai x Haze)",
+      "publisher": "Strainpedia",
+      "category": "database",
+      "url": "https://www.strainpedia.com/purple-haze/",
+      "accessed": "2026-09-24"
+    }
+  ],
   "updated": "2026-09-24"
 }

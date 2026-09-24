@@ -5,7 +5,45 @@
     "Green Cush",
     "Mango Crack"
   ],
-  "kind": "cultivar",
-  "status": "stub",
+  "kind": "cut",
+  "status": "draft",
+  "summary": "**Green Crack** is a [[kind:cut|cut]] first selected in Athens, Georgia, in the United States, by a grower known as Cecil C., in the late 1980s or early 1990s. It was originally called Green Cush before being renamed in the early 2000s. Its exact parentage was never documented, though [[skunk-1|Skunk #1]] and [[afghani|Afghani]] genetics are commonly cited as ancestors.",
+  "born": {
+    "year_min": 1988,
+    "year_max": 1992,
+    "display": "late 1980s to early 1990s"
+  },
+  "origin": {
+    "place": "Athens, Georgia, United States",
+    "country": "US",
+    "lat": 33.9,
+    "lon": -83.4
+  },
+  "breeder": null,
+  "parents": [],
+  "traditional_label": "sativa",
+  "growing": {
+    "environment": "indoor",
+    "flowering_weeks": {
+      "min": 7,
+      "max": 8
+    }
+  },
+  "sources": [
+    {
+      "title": "Green Crack (Clone Only Strains)",
+      "publisher": "SeedFinder.eu",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/green-crack/clone-only-strains",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Green Crack: Strain History, Effects, Benefits, and Cultivation",
+      "publisher": "The Bluntness",
+      "category": "publication",
+      "url": "https://www.thebluntness.com/posts/green-crack-strain-history-effects-benefits-and-cultivation",
+      "accessed": "2026-09-24"
+    }
+  ],
   "updated": "2026-09-24"
 }

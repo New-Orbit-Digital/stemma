@@ -5,6 +5,42 @@
     "Gelato 41"
   ],
   "kind": "cut",
-  "status": "stub",
+  "status": "draft",
+  "summary": "**Gelato #41** is a [[kind:cut|cut]] kept by [[breeder:Sherbinski]] in the San Francisco Bay Area, first identified in 2014. A phenotype of [[gelato|Gelato]], it was picked from the same seedling batch as [[gelato-33|Gelato #33]] for its density and terpene profile. Sherbinski never released the original clone commercially, though other breeders now sell reproductions under the name.",
+  "born": {
+    "year_min": 2014,
+    "year_max": 2014,
+    "display": "2014"
+  },
+  "origin": {
+    "place": "San Francisco Bay Area, California",
+    "country": "US",
+    "lat": 37.8,
+    "lon": -122.4
+  },
+  "breeder": "Sherbinski",
+  "parents": [
+    "gelato"
+  ],
+  "traditional_label": "indica",
+  "growing": {
+    "environment": "both"
+  },
+  "sources": [
+    {
+      "title": "Gelato #41",
+      "publisher": "Prime Cuts Nursery",
+      "category": "community",
+      "url": "https://www.primecutsnursery.com/strains/gelato-41",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Gelato #41 (Unknown or Legendary)",
+      "publisher": "SeedFinder.eu",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/gelato-nr41/unknown-or-legendary",
+      "accessed": "2026-09-24"
+    }
+  ],
   "updated": "2026-09-24"
 }

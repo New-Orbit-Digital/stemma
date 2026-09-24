@@ -7,6 +7,39 @@
     "Big Buddha Cheese"
   ],
   "kind": "cut",
-  "status": "stub",
+  "status": "draft",
+  "summary": "**Cheese** is a [[kind:cut|cut]], a single clone selected from a pack of [[skunk-1|Skunk #1]] seeds by an anonymous grower in England in the late 1980s. The clone spread through the UK cannabis scene from the mid-1990s by way of the Exodus Collective, a community group near Luton. Big Buddha Seeds later released a stabilized feminized version.",
+  "born": {
+    "year_min": 1988,
+    "year_max": 1989,
+    "display": "1988 to 1989"
+  },
+  "origin": {
+    "place": "Chiltern Hills, England",
+    "country": "GB",
+    "lat": 51.7,
+    "lon": -0.7
+  },
+  "breeder": null,
+  "parents": [
+    "skunk-1"
+  ],
+  "traditional_label": "hybrid",
+  "growing": {
+    "environment": "unknown",
+    "flowering_weeks": {
+      "min": 7,
+      "max": 9
+    }
+  },
+  "sources": [
+    {
+      "title": "UK Cheese: Breeder, Origin & Lineage",
+      "publisher": "Prime Cuts Nursery",
+      "category": "publication",
+      "url": "https://www.primecutsnursery.com/strains/uk-cheese",
+      "accessed": "2026-09-24"
+    }
+  ],
   "updated": "2026-09-24"
 }

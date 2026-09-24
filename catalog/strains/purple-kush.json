@@ -3,6 +3,40 @@
   "name": "Purple Kush",
   "aliases": [],
   "kind": "cultivar",
-  "status": "stub",
+  "status": "draft",
+  "summary": "**Purple Kush** is a [[kind:cultivar|cultivar]] stabilized by growers in Oakland, California, in the mid-1990s. A cross of [[hindu-kush|Hindu Kush]] and [[purple-afghani|Purple Afghani]], both indica landraces. It circulated only as a clone for years before [[breeder:DNA Genetics]] released it in seed form.",
+  "born": {
+    "year_min": 1993,
+    "year_max": 1997,
+    "display": "mid-1990s"
+  },
+  "origin": {
+    "place": "Oakland, California, United States",
+    "country": "US",
+    "lat": 37.8,
+    "lon": -122.3
+  },
+  "breeder": null,
+  "parents": [
+    "hindu-kush",
+    "purple-afghani"
+  ],
+  "traditional_label": "indica",
+  "sources": [
+    {
+      "title": "Purple Kush Cannabis Strain: Origins, Effects & Growing Tips",
+      "publisher": "DNA Genetics",
+      "category": "breeder",
+      "url": "https://dnagenetics.com/purple-kush-cannabis-strain/",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Purple Kush Strain — Lineage",
+      "publisher": "Greenpoint Seeds",
+      "category": "publication",
+      "url": "https://greenpointseeds.com/cannabis-strain-attributes/lineage/purple-kush-strain/",
+      "accessed": "2026-09-24"
+    }
+  ],
   "updated": "2026-09-24"
 }

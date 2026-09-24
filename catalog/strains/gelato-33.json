@@ -6,6 +6,46 @@
     "Larry Bird"
   ],
   "kind": "cut",
-  "status": "stub",
+  "status": "draft",
+  "summary": "**Gelato #33** is a [[kind:cut|phenotype]] of [[gelato|Gelato]], selected by [[breeder:Cookie Fam Genetics]] in the San Francisco Bay Area. It was chosen at a June 2014 pheno-hunt tasting, earning the nickname Larry Bird after its pheno number matched the basketball player's jersey. [[breeder:Sherbinski]] later distributed cuts widely, making it the reference cut for Gelato.",
+  "born": {
+    "year_min": 2014,
+    "year_max": 2014,
+    "display": "2014"
+  },
+  "origin": {
+    "place": "San Francisco Bay Area, California",
+    "country": "US",
+    "lat": 37.8,
+    "lon": -122.3
+  },
+  "breeder": "Cookie Fam Genetics",
+  "parents": [
+    "gelato"
+  ],
+  "traditional_label": "hybrid",
+  "growing": {
+    "environment": "unknown",
+    "flowering_weeks": {
+      "min": 8,
+      "max": 10
+    }
+  },
+  "sources": [
+    {
+      "title": "Gelato #33 Strain – Grow Guide & Genetics",
+      "publisher": "Prime Cuts Nursery",
+      "category": "breeder",
+      "url": "https://www.primecutsnursery.com/strains/gelato-33",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Larry Bird Strain",
+      "publisher": "Beard Bros Pharms",
+      "category": "publication",
+      "url": "https://beardbrospharms.com/larry-bird-strain/",
+      "accessed": "2026-09-24"
+    }
+  ],
   "updated": "2026-09-24"
 }
