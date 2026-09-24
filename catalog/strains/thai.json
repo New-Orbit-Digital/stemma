@@ -1,0 +1,55 @@
+{
+  "id": "thai",
+  "name": "Thai",
+  "aliases": [
+    "Thai Stick"
+  ],
+  "kind": "landrace",
+  "status": "draft",
+  "summary": "Thai is a [[kind:landrace|landrace]] from [[country:TH|Thailand]], one of the four traditional parents usually named for [[haze|Haze]]. Seed reached the West in the 1960s and 1970s, carried in part by American servicemen returning from Vietnam. Which regional population was used in Haze is not documented.",
+  "born": {
+    "unknown": true,
+    "display": "traditional"
+  },
+  "origin": {
+    "place": "Thailand",
+    "country": "TH",
+    "lat": 15.9,
+    "lon": 100.9
+  },
+  "breeder": null,
+  "parents": [],
+  "traditional_label": "sativa",
+  "growing": {
+    "environment": "outdoor",
+    "flowering_weeks": {
+      "min": 12,
+      "max": 16
+    }
+  },
+  "sources": [
+    {
+      "title": "Thai",
+      "publisher": "Leafly",
+      "category": "database",
+      "url": "https://www.leafly.com/strains/thai",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Thai Genetics",
+      "publisher": "CannaGenie",
+      "category": "community",
+      "url": "https://www.cannagenie.org/cultivar-history/landrace-families/southeast-asia-genetics/thai-genetics",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Thai Cannabis Genetics: History and Origins",
+      "publisher": "Royal Queen Seeds",
+      "category": "breeder",
+      "url": "https://www.royalqueenseeds.com/content/224-thai-cannabis-genetics-history-and-origins",
+      "accessed": "2026-09-24",
+      "note": "Planner-verified 2026-09-24: confirms Thai genetics moved west in the 1960s via US troops returning from Vietnam. Does not mention specific regional types or hermaphroditism, so those details are left out of the summary."
+    }
+  ],
+  "updated": "2026-09-24"
+}

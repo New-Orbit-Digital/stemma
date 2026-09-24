@@ -1,7 +1,66 @@
 {
   "id": "northern-lights-5",
   "name": "Northern Lights #5",
-  "kind": "cultivar",
-  "status": "stub",
+  "aliases": [
+    "NL#5",
+    "NL5"
+  ],
+  "kind": "cut",
+  "status": "draft",
+  "summary": "Northern Lights #5 is a [[kind:cut|clone-only cut]], selected from [[afghani|Afghani]] stock by a Pacific Northwest grower known as the Indian, on an island near Seattle, Washington. Some accounts add a later Thai influence. Nevil Schoenmakers brought it to the Netherlands by 1985, where it became the most widely used parent in the Northern Lights line.",
+  "born": {
+    "year_min": 1976,
+    "year_max": 1985,
+    "display": "1970s; in the Netherlands by 1985"
+  },
+  "origin": {
+    "place": "Seattle area, Washington, USA",
+    "country": "US",
+    "lat": 47.6,
+    "lon": -122.3
+  },
+  "breeder": "The Seed Bank",
+  "parents": [
+    "afghani"
+  ],
+  "traditional_label": "indica",
+  "growing": {
+    "environment": "indoor",
+    "flowering_weeks": {
+      "min": 7,
+      "max": 9
+    }
+  },
+  "sources": [
+    {
+      "title": "Nevil Schoenmakers",
+      "publisher": "Wikipedia",
+      "category": "database",
+      "url": "https://en.wikipedia.org/wiki/Nevil_Schoenmakers",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Northern Lights #5 (The Seed Bank)",
+      "publisher": "SeedFinder",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/northern-lights-nr5/the-seed-bank",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "The origins of Northern Lights",
+      "publisher": "Alchimia",
+      "category": "community",
+      "url": "https://www.alchimiaweb.com/blogen/origins-northern-lights/",
+      "accessed": "2026-09-24",
+      "note": "Planner-verified 2026-09-24: confirms the grower known as 'the Indian', an island near Seattle, Afghani genetics with Thai added later per this account, and Nevil Schoenmakers bringing it to the Netherlands around 1985. Does not confirm a specific 1984 Seed Bank founding date, so that detail is left out."
+    },
+    {
+      "title": "1989 High Times Cannabis Cup",
+      "publisher": "Kind Green Buds",
+      "category": "community",
+      "url": "https://kindgreenbuds.com/culture/1989-high-times-cannabis-cup/",
+      "accessed": "2026-09-24"
+    }
+  ],
   "updated": "2026-09-24"
 }

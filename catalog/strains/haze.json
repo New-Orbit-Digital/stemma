@@ -1,0 +1,78 @@
+{
+  "id": "haze",
+  "name": "Haze",
+  "aliases": [
+    "Original Haze",
+    "O Haze",
+    "Haze Brothers Haze"
+  ],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "Haze is a [[kind:cultivar|cultivar]] bred by two growers working under the name [[breeder:Haze Brothers]] near Santa Cruz, California, in the late 1960s and early 1970s. It is usually described as a four-way cross of [[mexican-sativa|Mexican]], [[colombian-gold|Colombian]], [[south-indian|South Indian]], and [[thai|Thai]] landraces, though some sources describe it as a three-way of Colombian lines alone. Seeds later reached the Netherlands and became the base of a wide family of hybrids.",
+  "born": {
+    "year_min": 1969,
+    "year_max": 1975,
+    "display": "late 1960s–early 1970s"
+  },
+  "origin": {
+    "place": "Santa Cruz County, California, USA",
+    "country": "US",
+    "lat": 37.0,
+    "lon": -122.0
+  },
+  "breeder": "Haze Brothers",
+  "parents": [
+    "mexican-sativa",
+    "colombian-gold",
+    "south-indian",
+    "thai"
+  ],
+  "traditional_label": "sativa",
+  "growing": {
+    "environment": "outdoor",
+    "flowering_weeks": {
+      "min": 12,
+      "max": 24
+    }
+  },
+  "sources": [
+    {
+      "title": "The origins of Haze",
+      "publisher": "Alchimia",
+      "category": "community",
+      "url": "https://www.alchimiaweb.com/blogen/origins-haze/",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Haze (Unknown or Legendary)",
+      "publisher": "SeedFinder",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/haze/unknown-or-legendary",
+      "accessed": "2026-09-24",
+      "note": "Planner-verified 2026-09-24: confirms the Haze Brothers (R. and J. Haze) attribution, Santa Cruz location, and era, but describes Haze as a three-way Colombian cross rather than the four-landrace account. Used here as the source for the disputed three-way version and for the breeder/location/era facts."
+    },
+    {
+      "title": "The Strains That Shaped Cannabis Culture: Haze",
+      "publisher": "Humboldt Seed Company",
+      "category": "breeder",
+      "url": "https://humboldtseedcompany.com/strains-that-shaped-cannabis-culture-haze/",
+      "accessed": "2026-09-24",
+      "note": "Planner-verified 2026-09-24: confirms the Haze Brothers crossed a Mexican landrace with a Colombian landrace, naming Acapulco Gold as the Mexican parent."
+    },
+    {
+      "title": "Haze Genetics",
+      "publisher": "CannaGenie",
+      "category": "community",
+      "url": "https://www.cannagenie.org/cultivar-history/first-generation-hybrid-families/haze-genetics",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Haze",
+      "publisher": "Leafly",
+      "category": "database",
+      "url": "https://www.leafly.com/strains/haze",
+      "accessed": "2026-09-24"
+    }
+  ],
+  "updated": "2026-09-24"
+}
