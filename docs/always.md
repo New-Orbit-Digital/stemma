@@ -49,6 +49,7 @@ Once Justin says go in chat, chat executes. The connector's approval prompt is t
 - 2026-09-23 — **Stable IDs:** a strain's `id` never changes once merged. It is the URL, the QR target, and the future Budlogs foreign key.
 - 2026-09-23 — **v1 scope = seed lineages:** Skunk #1, OG Kush, Haze, GSC, and Blue Dream families, traced back to landraces. Depth before breadth.
 - 2026-09-23 — **Sources:** cite Phylos genotype reports, SeedFinder, breeder pages, and published histories. Paraphrase in our own words, never copy text. Check each source's terms before relying on it heavily.
+- 2026-09-24 — **Functionality before aesthetics (Justin).** Build and verify features first. The visual design pass (light mode, theme toggle, polish) is deferred until the Budlogs UI surface is scoped, so both products get designed together. Planner verification checks behaviour, not looks.
 
 ## Roles
 - **Justin:** product owner and verification gate. He gives the go on gated actions, directly or in advance.
