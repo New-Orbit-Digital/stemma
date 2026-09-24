@@ -15,6 +15,7 @@ BUILD = os.path.join(ROOT, "tools", "build.py")
 VALID = os.path.join(ROOT, "tests", "fixtures", "valid")
 sys.path.insert(0, os.path.join(ROOT, "tools"))
 
+import origins  # noqa: E402  (the site's own located/unknown rule, not a copy)
 import timeline  # noqa: E402  (the site's own dated/undated rule, not a copy)
 
 LINK_RE = re.compile(r'(?:href|src)="([^"]*)"')
@@ -103,6 +104,8 @@ class SiteTest(unittest.TestCase):
             "index.html",
             "404.html",
             os.path.join("about", "index.html"),
+            os.path.join("timeline", "index.html"),
+            os.path.join("map", "index.html"),
             os.path.join("assets", "style.css"),
             os.path.join("assets", "app.js"),
             os.path.join("data", "stemma.json"),
@@ -294,6 +297,118 @@ class SiteTest(unittest.TestCase):
         page = self.timeline_page()
         svg = page[page.index("<svg") : page.index("</svg>") + len("</svg>")]
         ET.fromstring(svg)  # raises on malformed markup
+
+    # -- the origin map ----------------------------------------------------
+
+    def map_page(self):
+        return self.read(os.path.join("map", "index.html"))
+
+    def located_ids(self):
+        return [
+            strain["id"]
+            for strain in self.dataset["strains"]
+            if origins.is_located(strain)
+        ]
+
+    def map_payload(self):
+        page = self.map_page()
+        return json.loads(
+            page.split('id="map-data" type="application/json">')[1]
+            .split("</script>")[0]
+            .replace("\\u003c", "<")
+            .replace("\\u003e", ">")
+            .replace("\\u0026", "&")
+        )
+
+    def test_the_map_pins_leaflet_to_the_approved_version(self):
+        page = self.map_page()
+        base = "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/"
+        self.assertIn('<script src="%sleaflet.min.js"' % base, page)
+        self.assertIn('<link rel="stylesheet" href="%sleaflet.min.css"' % base, page)
+        # Pinned exactly: no range, no "latest", and no second library.
+        self.assertNotIn("leaflet/latest", page)
+        for other in ("d3", "mapbox", "jquery", "leaflet.markercluster"):
+            self.assertNotIn(other, page)
+
+    def test_only_the_map_page_loads_leaflet(self):
+        for page in html_files(self.out):
+            text = self.read(os.path.relpath(page, self.out))
+            if page.endswith(os.path.join("map", "index.html")):
+                continue
+            self.assertNotIn("leaflet", text, "%s loads Leaflet" % page)
+
+    def test_the_map_keeps_the_openstreetmap_attribution(self):
+        app = self.read(os.path.join("assets", "app.js"))
+        self.assertIn("tile.openstreetmap.org", app)
+        self.assertIn("openstreetmap.org/copyright", app)
+        self.assertIn("OpenStreetMap", app)
+
+    def test_every_located_strain_is_on_the_map_in_text_too(self):
+        page = self.map_page()
+        for strain_id in self.located_ids():
+            self.assertIn('data-id="%s"' % strain_id, page)
+            self.assertIn('href="/s/%s/"' % strain_id, page)
+        self.assertIn("Fixture Valley, Testland", page)  # an origin place name
+
+    def test_unknown_origins_are_listed_under_the_map(self):
+        page = self.map_page()
+        block = page.split('class="map-unknown"')[1]
+        self.assertIn("Origin unknown", block)
+        for strain in self.dataset["strains"]:
+            if origins.is_located(strain):
+                continue
+            self.assertIn('data-id="%s"' % strain["id"], block)
+        self.assertIn('data-id="fixture-partial"', block)  # origin.unknown
+        self.assertIn('data-id="fixture-stub-parent"', block)  # no origin at all
+
+    def test_the_map_ships_its_markers_arcs_and_families_inline(self):
+        payload = self.map_payload()
+        placed = []
+        for group in payload["groups"]:
+            placed.extend(member["id"] for member in group["members"])
+        self.assertEqual(sorted(placed), sorted(self.located_ids()))
+        self.assertEqual(
+            sorted(payload["families"]),
+            sorted(strain["id"] for strain in self.dataset["strains"]),
+        )
+        # The arcs are the located edges: no arc leaves the map hanging.
+        drawn = sorted((arc["child"], arc["parent"]) for arc in payload["arcs"])
+        self.assertEqual(
+            drawn,
+            sorted(
+                (edge["child"], edge["parent"])
+                for edge in self.dataset["edges"]
+                if not edge["disputed"]
+                and edge["child"] in self.located_ids()
+                and edge["parent"] in self.located_ids()
+            ),
+        )
+        for arc in payload["arcs"]:
+            self.assertGreaterEqual(len(arc["points"]), 2)
+
+    def test_the_map_filter_is_the_same_family_the_timeline_uses(self):
+        payload = self.map_payload()
+        self.assertEqual(
+            payload["families"]["fixture-cut"],
+            timeline.family("fixture-cut", self.dataset["edges"]),
+        )
+        app = self.read(os.path.join("assets", "app.js"))
+        self.assertIn('inlineJSON("map-data")', app)
+        self.assertIn("map-family-input", app)
+        css = self.read(os.path.join("assets", "style.css"))
+        self.assertIn(".map-place__strain.is-filtered", css)
+
+    def test_every_strain_page_links_to_its_family_on_the_map(self):
+        for strain in self.dataset["strains"]:
+            page = self.read(os.path.join("s", strain["id"], "index.html"))
+            self.assertIn(
+                '<a href="/map/?family=%s">See on map</a>' % strain["id"], page
+            )
+
+    def test_the_map_works_without_javascript_as_a_list(self):
+        page = self.map_page()
+        self.assertIn("<noscript>", page)
+        self.assertIn('class="map-places"', page)
 
     def test_about_page_covers_the_contract(self):
         page = self.read(os.path.join("about", "index.html"))

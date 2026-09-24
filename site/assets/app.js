@@ -1,6 +1,7 @@
-/* Stemma site behavior: the 21+ notice, name/alias search, and the timeline's
-   family filter. Vanilla JS, no dependencies. At runtime the site reads only
-   data/stemma.json and the build-time JSON the pages carry inline. */
+/* Stemma site behavior: the 21+ notice, name/alias search, the timeline's
+   family filter, and the origin map. Vanilla JS; the map page is the one page
+   with a library, Leaflet, pinned in its own <head>. At runtime the site reads
+   only data/stemma.json and the build-time JSON the pages carry inline. */
 (function () {
   "use strict";
 
@@ -394,10 +395,315 @@
     }
   }
 
+  /* -- the origin map --------------------------------------------------- */
+
+  var TILE_URL = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
+  var TILE_ATTRIBUTION =
+    '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+  var WORLD_VIEW = [20, 0];
+  var WORLD_ZOOM = 2;
+  var FIT_MAX_ZOOM = 5;
+  /* The evidence tiers of the lineage graph, as line styles: solid, dashed,
+     dotted. The legend under the map says the same three things. */
+  var ARC_DASH = {
+    "genetically-tested": null,
+    documented: null,
+    "breeder-claimed": "7 5",
+    folklore: "2 6"
+  };
+
+  function markerRadius(count) {
+    return count > 1 ? Math.min(8 + 3 * (count - 1), 18) : 8;
+  }
+
+  /* Built as DOM rather than markup, so a name with an ampersand or a bracket
+     in it is text and never parsed. */
+  function markerPopup(place, members) {
+    var wrap = document.createElement("div");
+    wrap.className = "map-popup";
+    if (place) {
+      var title = document.createElement("p");
+      title.className = "map-popup__place";
+      title.textContent = place;
+      wrap.appendChild(title);
+    }
+    var list = document.createElement("ul");
+    list.className = "map-popup__list";
+    for (var i = 0; i < members.length; i += 1) {
+      list.appendChild(resultItem({ id: members[i].id, name: members[i].name }));
+    }
+    wrap.appendChild(list);
+    return wrap;
+  }
+
+  function plural(count, word) {
+    return count + " " + word + (count === 1 ? "" : "s");
+  }
+
+  function setupMap() {
+    var container = document.getElementById("map");
+    var input = document.getElementById("map-family-input");
+    var results = document.getElementById("map-results");
+    var status = document.getElementById("map-status");
+    var active = document.getElementById("map-active");
+    if (!container || !input || !results || !status) {
+      return; // not the map page
+    }
+
+    var data = inlineJSON("map-data") || {};
+    var groups = data.groups || [];
+    var arcs = data.arcs || [];
+    var families = data.families || {};
+    var unknownIds = data.unknown || [];
+    var entries = buildIndex(data.strains || []);
+    var names = {};
+    for (var i = 0; i < entries.length; i += 1) {
+      names[entries[i].id] = entries[i].name;
+    }
+    var placeRows = document.querySelectorAll(".map-place");
+    var rows = document.querySelectorAll(
+      ".map-places [data-id], .map-unknown [data-id]"
+    );
+    var unknownBlock = document.querySelector(".map-unknown");
+    var everything = status.textContent;
+    var current = "";
+    var placedTotal = 0;
+    for (var g = 0; g < groups.length; g += 1) {
+      placedTotal += (groups[g].members || []).length;
+    }
+
+    var map = null;
+    var markerLayer = null;
+    var arcLayer = null;
+    if (window.L && groups.length) {
+      /* The wheel would otherwise swallow the page scroll on the way past the
+         map; the zoom controls and pinch still work. */
+      map = window.L.map(container, { scrollWheelZoom: false });
+      window.L.tileLayer(TILE_URL, {
+        attribution: TILE_ATTRIBUTION,
+        maxZoom: 18
+      }).addTo(map);
+      markerLayer = window.L.layerGroup().addTo(map);
+      arcLayer = window.L.layerGroup().addTo(map);
+      map.setView(WORLD_VIEW, WORLD_ZOOM);
+    } else {
+      container.className = "map map--unavailable";
+      container.textContent = groups.length
+        ? "The map could not be loaded. Every origin is listed below."
+        : "No card has an origin we can place yet.";
+    }
+
+    /* The family is the ancestor walk the build shipped; filtering is only ever
+       an intersection with it, here and in tools/origins.py alike. */
+    function keepSet(id) {
+      if (!id || !families[id]) {
+        return null;
+      }
+      var keep = {};
+      for (var k = 0; k < families[id].length; k += 1) {
+        keep[families[id][k]] = true;
+      }
+      return keep;
+    }
+
+    function shown(keep) {
+      var out = { placed: 0, places: 0, arcs: 0, unknown: 0 };
+      for (var n = 0; n < groups.length; n += 1) {
+        var members = groups[n].members || [];
+        var kept = 0;
+        for (var m = 0; m < members.length; m += 1) {
+          if (!keep || keep[members[m].id] === true) {
+            kept += 1;
+          }
+        }
+        if (kept) {
+          out.places += 1;
+          out.placed += kept;
+        }
+      }
+      for (var a = 0; a < arcs.length; a += 1) {
+        if (!keep || (keep[arcs[a].child] === true && keep[arcs[a].parent] === true)) {
+          out.arcs += 1;
+        }
+      }
+      for (var u = 0; u < unknownIds.length; u += 1) {
+        if (!keep || keep[unknownIds[u]] === true) {
+          out.unknown += 1;
+        }
+      }
+      return out;
+    }
+
+    function draw(keep) {
+      if (!map) {
+        return;
+      }
+      markerLayer.clearLayers();
+      arcLayer.clearLayers();
+      var bounds = [];
+      for (var n = 0; n < groups.length; n += 1) {
+        var group = groups[n];
+        var members = [];
+        for (var m = 0; m < (group.members || []).length; m += 1) {
+          if (!keep || keep[group.members[m].id] === true) {
+            members.push(group.members[m]);
+          }
+        }
+        if (!members.length) {
+          continue;
+        }
+        bounds.push([group.lat, group.lon]);
+        window.L.circleMarker([group.lat, group.lon], {
+          className: "map-marker",
+          radius: markerRadius(members.length),
+          weight: 2
+        })
+          .bindPopup(markerPopup(group.place, members))
+          .bindTooltip(
+            group.place
+              ? group.place + " — " + plural(members.length, "strain")
+              : plural(members.length, "strain")
+          )
+          .addTo(markerLayer);
+      }
+      for (var a = 0; a < arcs.length; a += 1) {
+        var arc = arcs[a];
+        if (keep && !(keep[arc.child] === true && keep[arc.parent] === true)) {
+          continue;
+        }
+        window.L.polyline(arc.points, {
+          className: "map-arc map-arc--" + (arc.best_tier || "folklore"),
+          dashArray: ARC_DASH[arc.best_tier] || null,
+          weight: 2.5
+        })
+          .bindTooltip(
+            (names[arc.parent] || arc.parent) + " → " + (names[arc.child] || arc.child)
+          )
+          .addTo(arcLayer);
+      }
+      if (bounds.length) {
+        map.fitBounds(bounds, { padding: [34, 34], maxZoom: FIT_MAX_ZOOM });
+      } else {
+        map.setView(WORLD_VIEW, WORLD_ZOOM);
+      }
+    }
+
+    /* The lists under the map are the map in text, so they filter with it. */
+    function applyRows(keep) {
+      for (var r = 0; r < rows.length; r += 1) {
+        var on = !keep || keep[rows[r].getAttribute("data-id")] === true;
+        rows[r].classList.toggle("is-filtered", !on);
+      }
+      for (var p = 0; p < placeRows.length; p += 1) {
+        var kept = placeRows[p].querySelectorAll("[data-id]:not(.is-filtered)");
+        placeRows[p].classList.toggle("is-filtered", kept.length === 0);
+      }
+      if (unknownBlock) {
+        var left = unknownBlock.querySelectorAll("[data-id]:not(.is-filtered)");
+        unknownBlock.classList.toggle(
+          "is-filtered",
+          keep !== null && left.length === 0
+        );
+      }
+    }
+
+    function href(id) {
+      return window.location.pathname + (id ? "?family=" + encodeURIComponent(id) : "");
+    }
+
+    function select(id, remember) {
+      var keep = keepSet(id);
+      var counts = shown(keep);
+      draw(keep);
+      applyRows(keep);
+      current = keep ? id : "";
+      if (keep) {
+        var text =
+          names[id] +
+          " and its ancestors: " +
+          counts.placed +
+          " of " +
+          placedTotal +
+          " cards on the map, " +
+          plural(counts.arcs, "line") +
+          ".";
+        if (counts.unknown) {
+          text += " " + counts.unknown + " with an unknown origin.";
+        }
+        status.textContent = text;
+      } else if (id) {
+        status.textContent = 'No card with the id "' + id + '". Showing every card.';
+      } else {
+        status.textContent = everything;
+      }
+      if (active) {
+        active.hidden = !keep;
+      }
+      input.value = keep ? names[id] : "";
+      results.textContent = "";
+      if (remember && window.history && window.history.pushState) {
+        window.history.pushState({ family: current }, "", href(current));
+      }
+    }
+
+    function render() {
+      results.textContent = "";
+      var hits = search(entries, input.value);
+      for (var h = 0; h < hits.length; h += 1) {
+        var entry = hits[h].entry;
+        var row = resultItem(entry, href(entry.id));
+        row.firstChild.setAttribute("data-family-id", entry.id);
+        results.appendChild(row);
+      }
+    }
+
+    /* Delegated, so the rows stay plain links: a middle click or "copy link"
+       still gets a shareable ?family= URL. */
+    function pick(event) {
+      var link = event.target;
+      while (link && link !== results && !link.getAttribute("data-family-id")) {
+        link = link.parentNode;
+      }
+      var id = link && link.getAttribute && link.getAttribute("data-family-id");
+      if (!id || !window.history || !window.history.pushState) {
+        return;
+      }
+      event.preventDefault();
+      select(id, true);
+    }
+
+    input.addEventListener("input", render);
+    results.addEventListener("click", pick);
+    if (active) {
+      active.addEventListener("click", function (event) {
+        var target = event.target;
+        if (!target || target.id !== "map-clear") {
+          return;
+        }
+        if (!window.history || !window.history.pushState) {
+          return; // let the link navigate instead
+        }
+        event.preventDefault();
+        select("", true);
+      });
+    }
+    window.addEventListener("popstate", function () {
+      select(queryParam("family"), false);
+    });
+
+    var initial = queryParam("family");
+    if (initial) {
+      select(initial, false);
+    } else {
+      draw(null);
+    }
+  }
+
   function start() {
     setupAgeGate();
     setupSearch();
     setupTimeline();
+    setupMap();
   }
 
   if (document.readyState === "loading") {

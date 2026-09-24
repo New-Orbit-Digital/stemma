@@ -1,0 +1,26 @@
+<section class="map-page" aria-labelledby="map-heading">
+  <h1 id="map-heading">Origins and migration</h1>
+  <p class="lede">Where each strain emerged, and a line from every parent to its child, so you can follow how the genetics moved.</p>
+  <div class="map__filter" role="search">
+    <label class="search__label" for="map-family-input">Show one family: a strain and its ancestors</label>
+    <input class="search__input" id="map-family-input" type="search" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="skunk 1, afghani">
+    <p class="search__status" id="map-status" role="status">{{counts}}</p>
+    <ul class="results" id="map-results"></ul>
+    <p class="map__active" id="map-active" hidden><a id="map-clear" href="/map/">Show every card</a></p>
+  </div>
+  <noscript>
+    <p class="search__status">The map needs JavaScript. Every origin is listed below it.</p>
+  </noscript>
+  <div class="map" id="map" role="region" aria-label="Map of strain origins"></div>
+  <ul class="lineage-key">
+    <li class="lineage-key__item"><span class="lineage-key__line"></span>documented or tested</li>
+    <li class="lineage-key__item"><span class="lineage-key__line lineage-key__line--dashed"></span>breeder claimed</li>
+    <li class="lineage-key__item"><span class="lineage-key__line lineage-key__line--dotted"></span>folklore</li>
+  </ul>
+  <p class="map__note">A marker sits at an approximate regional centre, never a precise location, and one marker can hold several strains. A line joins a parent's origin to its child's: it shows the link between them, not the route anyone travelled.</p>
+  <section aria-labelledby="map-places-heading">
+    <h2 id="map-places-heading">Every origin on the map</h2>
+    {{places}}
+  </section>
+  {{unknown}}
+</section>
