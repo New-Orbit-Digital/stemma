@@ -1,0 +1,27 @@
+{
+  "id": "fixture-known-cross",
+  "name": "Fixture Known Cross",
+  "aliases": [],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "Fictional two-parent cross fixture for the test suite. Not a real strain.",
+  "born": { "year_min": 1975, "year_max": 1979, "display": "late 1970s", "evidence": [ { "tier": "documented", "source": "s2" } ] },
+  "origin": { "place": "Fixture Coast, Testland", "country": "TL", "lat": 39.5, "lon": -121.5, "evidence": [ { "tier": "documented", "source": "s2" } ] },
+  "breeder": { "name": "Fixture Seeds", "evidence": [ { "tier": "breeder-claimed", "source": "s1" } ] },
+  "lineage": {
+    "status": "known",
+    "parents": [
+      { "id": "fixture-landrace-root", "evidence": [ { "tier": "documented", "source": "s2" }, { "tier": "folklore", "source": "s3" } ] },
+      { "id": "fixture-stub-parent", "evidence": [ { "tier": "breeder-claimed", "source": "s1" } ] }
+    ],
+    "disputes": []
+  },
+  "traditional_label": "hybrid",
+  "growing": { "environment": "indoor", "flowering_weeks": { "min": 8, "max": 9 } },
+  "sources": [
+    { "id": "s1", "title": "Fixture breeder page", "publisher": "Fixture Seeds", "url": "https://example.invalid/fixture", "accessed": "2026-09-23" },
+    { "id": "s2", "title": "Fixture magazine feature", "publisher": "Fixture Press" },
+    { "id": "s3", "title": "Fixture forum thread", "publisher": "Fixture Forum", "url": "https://example.invalid/t/1", "accessed": "2026-09-23" }
+  ],
+  "updated": "2026-09-23"
+}

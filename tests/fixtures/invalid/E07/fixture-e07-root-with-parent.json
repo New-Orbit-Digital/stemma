@@ -1,0 +1,23 @@
+{
+  "id": "fixture-e07-root-with-parent",
+  "name": "Fixture Root With Parent",
+  "aliases": [],
+  "kind": "landrace",
+  "status": "draft",
+  "summary": "Fictional landrace fixture that breaks the root lineage rule by listing a parent.",
+  "born": { "unknown": true, "display": "traditional" },
+  "origin": { "unknown": true },
+  "breeder": null,
+  "lineage": {
+    "status": "root",
+    "parents": [
+      { "id": "fixture-e07-parent", "evidence": [ { "tier": "documented", "source": "s1" } ] }
+    ],
+    "disputes": []
+  },
+  "traditional_label": "indica",
+  "sources": [
+    { "id": "s1", "title": "Fixture magazine feature", "publisher": "Fixture Press" }
+  ],
+  "updated": "2026-09-23"
+}

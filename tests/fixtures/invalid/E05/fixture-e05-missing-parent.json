@@ -1,0 +1,23 @@
+{
+  "id": "fixture-e05-missing-parent",
+  "name": "Fixture Missing Parent",
+  "aliases": [],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "Fictional fixture naming a parent card that does not exist.",
+  "born": { "year_min": 1990, "year_max": 1994, "display": "early 1990s", "evidence": [ { "tier": "documented", "source": "s1" } ] },
+  "origin": { "unknown": true },
+  "breeder": null,
+  "lineage": {
+    "status": "known",
+    "parents": [
+      { "id": "fixture-e05-ghost", "evidence": [ { "tier": "documented", "source": "s1" } ] }
+    ],
+    "disputes": []
+  },
+  "traditional_label": "hybrid",
+  "sources": [
+    { "id": "s1", "title": "Fixture magazine feature", "publisher": "Fixture Press" }
+  ],
+  "updated": "2026-09-23"
+}
