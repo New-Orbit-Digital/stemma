@@ -1,0 +1,44 @@
+{
+  "id": "tahoe-og",
+  "name": "Tahoe OG",
+  "aliases": [
+    "Tahoe OG Kush"
+  ],
+  "kind": "cut",
+  "status": "draft",
+  "summary": "Tahoe OG is a [[kind:cut|cut]] of [[og-kush|OG Kush]] from California, named for Lake Tahoe. [[breeder:The Cali Connection]] later crossed the cut with [[sfv-og|SFV OG]] for a seed release, which is why some databases list both as parents.",
+  "born": {
+    "unknown": true,
+    "display": "undated"
+  },
+  "origin": {
+    "place": "California, USA",
+    "country": "US",
+    "lat": 36.8,
+    "lon": -119.4
+  },
+  "breeder": null,
+  "parents": [
+    "og-kush"
+  ],
+  "traditional_label": "hybrid",
+  "sources": [
+    {
+      "title": "Tahoe OG",
+      "publisher": "Leafly",
+      "category": "database",
+      "url": "https://www.leafly.com/strains/tahoe-og",
+      "accessed": "2026-09-24",
+      "note": "Planner-verified 2026-09-24: describes it as a phenotype of OG Kush while listing OG Kush and SFV OG Kush as parents."
+    },
+    {
+      "title": "Tahoe OG",
+      "publisher": "Weedmaps",
+      "category": "database",
+      "url": "https://weedmaps.com/strains/tahoe-og",
+      "accessed": "2026-09-24",
+      "note": "Planner-verified 2026-09-24: explains the Cali Connection seed version (Tahoe cut x SFV OG) behind the two-parent listing."
+    }
+  ],
+  "updated": "2026-09-24"
+}

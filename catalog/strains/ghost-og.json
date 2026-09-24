@@ -1,0 +1,50 @@
+{
+  "id": "ghost-og",
+  "name": "Ghost OG",
+  "aliases": [
+    "Ghost OG Kush",
+    "OG Ghost"
+  ],
+  "kind": "cut",
+  "status": "draft",
+  "summary": "Ghost OG is a [[kind:cut|cut]] of [[og-kush|OG Kush]] named for a grower known as Ghost, who received it and spread it in the early 2000s. Some accounts trace it to an earlier Florida line rather than the Los Angeles cut. It is a parent of Ghost Train Haze.",
+  "born": {
+    "year_min": 2000,
+    "year_max": 2004,
+    "display": "early 2000s"
+  },
+  "origin": {
+    "unknown": true
+  },
+  "breeder": null,
+  "parents": [
+    "og-kush"
+  ],
+  "traditional_label": "hybrid",
+  "growing": {
+    "environment": "indoor",
+    "flowering_weeks": {
+      "min": 8,
+      "max": 9
+    }
+  },
+  "sources": [
+    {
+      "title": "Ghost OG",
+      "publisher": "Leafly",
+      "category": "database",
+      "url": "https://www.leafly.com/strains/ghost-og",
+      "accessed": "2026-09-24",
+      "note": "Planner-verified 2026-09-24: confirms it is a cut of OG Kush and a parent of Ghost Train Haze."
+    },
+    {
+      "title": "Ghost OG Strain (Selected OG Kush Cut)",
+      "publisher": "Strainpedia",
+      "category": "community",
+      "url": "https://www.strainpedia.com/ghost-og/",
+      "accessed": "2026-09-24",
+      "note": "Source for the grower Ghost, the early-2000s date, the Florida-line account, and 8–9 weeks of flowering."
+    }
+  ],
+  "updated": "2026-09-24"
+}

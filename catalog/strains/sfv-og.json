@@ -1,0 +1,54 @@
+{
+  "id": "sfv-og",
+  "name": "SFV OG",
+  "aliases": [
+    "San Fernando Valley OG",
+    "SFV OG Kush",
+    "SFV"
+  ],
+  "kind": "cut",
+  "status": "draft",
+  "summary": "SFV OG is a [[kind:cut|cut]] of [[og-kush|OG Kush]] selected in the San Fernando Valley of Los Angeles in the early 2000s. [[breeder:The Cali Connection]] stabilized the Valley cut into seed lines sold as SFV OG Kush.",
+  "born": {
+    "year_min": 2000,
+    "year_max": 2004,
+    "display": "early 2000s"
+  },
+  "origin": {
+    "place": "San Fernando Valley, California, USA",
+    "country": "US",
+    "lat": 34.2,
+    "lon": -118.5
+  },
+  "breeder": "The Cali Connection",
+  "parents": [
+    "og-kush"
+  ],
+  "traditional_label": "hybrid",
+  "growing": {
+    "environment": "both",
+    "flowering_weeks": {
+      "min": 8,
+      "max": 10
+    }
+  },
+  "sources": [
+    {
+      "title": "SFV OG",
+      "publisher": "Leafly",
+      "category": "database",
+      "url": "https://www.leafly.com/strains/sfv-og",
+      "accessed": "2026-09-24",
+      "note": "Planner-verified 2026-09-24: confirms OG Kush as the parent, the San Fernando Valley origin, and The Cali Connection as breeder."
+    },
+    {
+      "title": "The San Fernando Valley OG Strain (SFV OG)",
+      "publisher": "Respect My Region",
+      "category": "community",
+      "url": "https://respectmyregion.com/san-fernando-valley-og-strain-sfv-og/",
+      "accessed": "2026-09-24",
+      "note": "Places it in the early-2000s OG boom and gives 8–10 weeks indoors."
+    }
+  ],
+  "updated": "2026-09-24"
+}
