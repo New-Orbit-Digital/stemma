@@ -8,7 +8,7 @@
   ],
   "kind": "cultivar",
   "status": "draft",
-  "summary": "A three-way hybrid stabilized by the Sacred Seeds collective around Santa Cruz, California. An Afghani x Colombian Gold cross was later crossed with Acapulco Gold to shorten flowering and raise yields. Widely treated as one of the first stable, high-potency hybrids and an ancestor of a huge share of modern strains.",
+  "summary": "Skunk #1 is a [[kind:cultivar|hybrid]] developed by the [[breeder:Sacred Seeds]] collective, led by David Watson (also known as Sam the Skunkman), near Santa Cruz, California, in the mid-to-late 1970s. A cross of [[afghani]] and [[colombian-gold]] was later bred with [[acapulco-gold]] to shorten flowering. Seeds reached the Netherlands in 1982, and it is among the most widely used parents in modern breeding.",
   "born": {
     "year_min": 1975,
     "year_max": 1979,
@@ -20,7 +20,7 @@
     "lat": 37.0,
     "lon": -122.0
   },
-  "breeder": "Sacred Seeds (David Watson, aka Sam the Skunkman)",
+  "breeder": "Sacred Seeds",
   "parents": [
     "afghani-x-colombian-gold",
     "acapulco-gold"
@@ -58,5 +58,5 @@
       "note": "Says Sacred Seeds offered it publicly in its first catalog by 1981."
     }
   ],
-  "updated": "2026-09-23"
+  "updated": "2026-09-24"
 }
