@@ -2,96 +2,106 @@
 **STATUS:** Volatile state. Rewritten at every close-out.
 
 ## Sprint plan (Justin, chat, 2026-09-24)
-The total v1 goal is the 5 seed families traced to their landraces: about 80–100 cards. The work runs in sprints. Each sprint ends at a **stop point**. At the stop point, the planner halts, prepares **one bulk verification checklist**, and Justin verifies everything in a single pass.
+The total v1 goal is the 5 seed families traced to their landraces, roughly 80–100 cards. Work runs in sprints. Each sprint ends at a **stop point**, where the planner halts and prepares **one bulk verification checklist** for Justin's single pass.
 
 | Sprint | Scope | Stop point |
 |---|---|---|
-| **1 (active)** | Finish v1 features (U5 map, U6 cache fix), and complete the **Skunk family** (~15 cards) | U5 and U6 merged and live, and the Skunk family complete |
+| 1 | v1 features (through U6) and the **Skunk family** | **REACHED 2026-09-24 ~02:01 UTC.** Awaiting Justin's verification pass. |
 | 2 | Haze and OG Kush families | ~40 cards |
 | 3 | GSC and Blue Dream families | ~80–100 cards, then launch readiness |
 
-**Launch readiness (after Sprint 3):**
-- A `reviewed` pass on the cards.
+**Launch readiness** comes after Sprint 3:
+- A `reviewed` pass on all cards.
 - Drop `noindex`.
-- A trademark check on "Stemma".
+- Trademark check on "Stemma".
 - Age-notice copy.
 
-**Bulk verification checklist (prepared at each stop point).** Justin's single pass covers:
-- Click through the site on his phone: search, a strain page, the graph, the timeline and map filters, and a shared `?family=` URL.
-- Spot-check about 5 planner-chosen cards against their sources.
-- Answer one batched decision block.
-
 ### Sprint 1 rules (Justin, chat, 2026-09-24)
-- **Cards ship as `draft` mid-sprint.** They merge on a clean CI pass with every claim sourced and tiered. Justin spot-checks a sample at the stop point. The upgrade to `reviewed` happens in launch readiness.
-- **Small fix units.** The planner may design, file, and auto-merge small fix/hardening units that it discovers. These are bug fixes that add no new feature or product surface, merged on a clean PASS. New features wait for Justin's go.
-- **Functionality before aesthetics.** See `always.md`. Verification checks behaviour, not looks.
+- **Cards ship as `draft` mid-sprint.** They merge on a clean CI pass, with every claim sourced and tiered.
+- **Small fix units.** The planner may auto-merge small fix units on a clean PASS. New features wait for Justin's go.
+- **Functionality before aesthetics.** See `always.md`.
+
+## Sprint 1 stop point: bulk verification checklist
+This checklist was posted to Justin in chat on 2026-09-24. Results get recorded here when he replies.
+
+**A. Phone click-through** on `https://stemma.neworbitdigital.com`:
+1. **Search.** Type "skunk 1" and confirm it finds Skunk #1. Type "shiva" and confirm it finds Shiva Skunk. Type something absent, like "blue dream", and confirm the page says "Not in the catalog yet."
+2. **Strain page.** On `/s/skunk-1/`, confirm the graph shows the 3 roots plus the proto-Skunk cross above Skunk #1, with 4 children below: Super Skunk, Early Skunk, Shiva Skunk, and Skunk Kush. Tapping a node should navigate. Check the "See on timeline" and "See on map" links.
+3. **Disputed toggle.** On `/s/acapulco-gold/`, tick "Show disputed links" and confirm a Nepalese link appears.
+4. **Timeline.** On `/timeline/`, confirm the undated strip holds the landraces and undated crosses. Open `/timeline/?family=shiva-skunk` and confirm only Shiva Skunk and its ancestors show.
+5. **Map.** On `/map/`, confirm the markers are Afghanistan, Colombia, Guerrero MX, Santa Cruz US, and the Netherlands. Open `/map/?family=super-skunk` and confirm lines run from Santa Cruz and Afghanistan to the Netherlands.
+6. **Shared link.** Send yourself `/map/?family=skunk-1`, open it, and confirm it opens already filtered.
+
+**B. Card spot-checks.** Open each card and its first source:
+- `skunk-1`: parentage vs. Sensi Seeds' "Sam the Skunkman" interview.
+- `super-skunk`: the 1990 launch, from the Sensi product page.
+- `shiva-skunk`: released in 1987 as NL#5xSK#1, from the Sensi product page.
+- `acapulco-gold`: Guerrero origin, the 1964 US record, and the Nepalese dispute, all from Wikipedia.
+- `colombian-gold`: Santa Marta / Caribbean coast, from the UC Press listing for Britto's *Marijuana Boom*.
+
+**C. Decisions:** posted in chat as a batched block.
 
 ## State (2026-09-24)
 - **Repo:** `New-Orbit-Digital/stemma`.
-  - `main` is protected: PR required, 0 approvals, no bypass. Set by Justin.
-- **Workflows on `main`:** `.github/workflows/ci.yml` and `claude.yml`, both created by Justin.
-- **Executor secret:** `CLAUDE_CODE_OAUTH_TOKEN` is an ORG secret, proven by the U1–U4 runs.
-- **Executor app:** the "Claude" GitHub App is installed on all org repos.
+  - `main` is at `84d1e93`.
+  - `main` is protected: PR required, no bypass.
+- **Workflows:** `ci.yml` and `claude.yml`, both Justin's.
+- **Executor secret:** org-level `CLAUDE_CODE_OAUTH_TOKEN`, proven by the U1–U6 runs.
 
-### Units
-- **STM-U1 (#1): MERGED** as `dbb93b9` (#8).
-- **STM-U2 (#2): MERGED** as `bd79021` (#9).
-- **STM-U3 (#3): MERGED** as `12ce446` (#13).
-  - CI run #20 against the real catalog passed.
-- **STM-U4 (#4): MERGED** as `2a59f95` (#15).
-  - Tests: 95 pass.
-  - Bar counts: 4 bars for 4 dated cards in fixtures, and 1 bar for 1 dated card in the real catalog.
-  - **Live check (2026-09-24):**
-    - `/timeline/?family=afghani-x-colombian-gold` shows 3 of 5 rows. `acapulco-gold` and `skunk-1` are hidden.
-    - The "See on timeline" link is present on strain pages.
-    - This only works after a forced asset refresh. See U6.
-- **STM-U5 (#5): TRIGGERED** 2026-09-24.
-- **STM-U6 (#17): FILED.** Asset cache-busting.
-  - The custom domain serves `/assets/*` with `max-age=14400`, so after a deploy returning browsers ran stale JS and CSS against new HTML.
-  - Trigger after U5 merges.
+### Units: all six MERGED
+| Unit | PR | Squash | Key evidence |
+|---|---|---|---|
+| U1 tooling | #8 | `dbb93b9` | validator, build, test runner |
+| U2 site | #9 | `bd79021` | 32 tests; serve/fetch 200s |
+| U3 graph | #13 | `12ce446` | 58 tests; CI run #20 on the real catalog |
+| U4 timeline | #15 | `2a59f95` | 95 tests; live `?family=` filter hides the correct rows |
+| U5 map | #19 | `cf18d75` | 149 tests; live Leaflet 1.9.4; tiles, markers, and 1 arc before this sprint's cards |
+| U6 cache-busting + Leaflet SRI | #21 | `8c465a7` | 153 tests; live check below |
 
-### Catalog: 6 cards, all `draft`
-- `skunk-1`, `afghani-x-colombian-gold`, and `acapulco-gold` (#6), with the follow-ups listed on #6.
-- `afghani` and `colombian-gold` (#12).
-- `super-skunk` (#18, CI run #28 passed). All evidence is breeder-claimed (Sensi Seeds). The Afghan parent is generic.
+**Live check after U6** (2026-09-24 ~01:57 UTC, built-in browser):
+- `/assets/app.js?v=3f74ce9c08` is served with `cache-control: public, max-age=31536000, immutable`.
+- HTML is served with `max-age=0, must-revalidate`.
+- Both Leaflet tags carry `integrity`, and Leaflet loads with those checks on.
+- The page also loads a Cloudflare Web Analytics beacon (`static.cloudflareinsights.com`). This comes from Pages or zone settings, not the repo. See the decision block.
+
+### Catalog: 13 cards (9 draft, 4 stub)
+- **Drafts:**
+  - `skunk-1`
+  - `afghani-x-colombian-gold`
+  - `acapulco-gold`: disputed, with a Nepalese folklore claim.
+  - `afghani`
+  - `colombian-gold`
+  - `super-skunk` (#18)
+  - `early-skunk`, `shiva-skunk`, and `skunk-kush` (#22)
+- **Stubs:** `early-pearl`, `northern-lights-5`, `hindu-kush`, and `nepalese`.
+- **#6 review follow-ups:** closed in #23.
+  - Acapulco Gold dispute recorded.
+  - Truncated labels shortened.
+  - Unused sources now cited.
+  - The generous `documented` tiers on Leafly, Barney's Farm, and Cannigma are left for the `reviewed` pass.
+- **Live dataset** (`generated 2026-09-24T02:00:30Z`):
+  - 13 strains and 13 edges, 1 of them disputed.
+  - Pages for search, about, timeline, map, and sample strains all return 200.
+  - The map draws 11 interactive layers.
+- **Known data gap:** `afghani-x-colombian-gold` has no sourced origin, so the Afghanistan and Colombia lines to California can't be drawn.
 
 ### Hosting: LIVE
-- **Deployment:** Cloudflare Pages project `stemma`, from `main`, with build command `python3 tools/build.py` and output directory `dist`.
-- **URLs:** `https://stemma-9j6.pages.dev` and `https://stemma.neworbitdigital.com`.
-- **First deploy check (2026-09-24 ~01:20 UTC):**
-  - All pages return 200.
-  - The dataset held 5 strains and 4 edges.
-  - `/s/skunk-1/` renders its 5-node graph on both domains.
-- **Justin's phone check (2026-09-24):**
-  - The Skunk #1 page renders in dark mode.
-  - The graph fits the screen, so it doesn't scroll, and the page doesn't scroll sideways.
-  - Light mode is deferred under functionality-first.
+- Cloudflare Pages project `stemma`, served at `stemma-9j6.pages.dev` and `stemma.neworbitdigital.com`.
+- Each PR now also gets a Cloudflare preview deploy check.
 
 ## Connector facts
-- **GitHub connector:**
-  - It authenticates as the GitHub App "Claude Github MCP Connector".
-  - It has no workflows, administration, or secrets permission.
-  - So chat cannot write `.github/workflows/*`, create repos, set branch protection, or manage secrets.
-- **CI evidence:**
-  - Check runs and combined status return 403, so the PR's `mergeable_state` is the CI evidence.
-  - CI job pages can be read in the built-in browser (GitHub is signed in there). Step logs don't always expand.
-- **Sandbox network:** the egress proxy blocks `*.pages.dev` and `neworbitdigital.com`. Deploy checks go through the built-in browser.
-- **Cloudflare:** the built-in browser does not share Justin's Cloudflare session. Dashboard work is Justin's hands.
+- **GitHub.**
+  - The GitHub App has no workflows, administration, or secrets permission.
+  - Check runs and combined status return 403, so `mergeable_state` and the built-in browser serve as CI evidence.
+  - Step logs don't always render in the browser.
+- **Sandbox proxy.** It blocks `*.pages.dev`, `neworbitdigital.com`, and cdnjs. Live checks and SRI hashing go through the built-in browser.
+- **Cloudflare.** The dashboard is Justin's hands only; the built-in browser doesn't share his Cloudflare session.
 
 ## Advance permissions in effect
-- **Auto-merge STM-U5 on a clean PASS** (2026-09-23/24). Expires when U5 merges.
-- **Auto-merge STM-U6 on a clean PASS** (Justin: "go on u6", 2026-09-24 ~01:37 UTC). Expires when U6 merges.
-- **Catalog-card and docs PRs:** the planner merges on a clean pass (2026-09-24). Standing, until Justin revokes it.
-- **Small fix units:** the planner designs, files, and auto-merges them on a clean PASS (2026-09-24). Standing for Sprint 1; renew per sprint.
-- **PASS** for any unit means all of the following:
-  - Every acceptance check has actual output posted, and it matches.
-  - Scope is respected.
-  - No stops were tripped.
-  - `mergeable_state` is clean.
+- **Catalog-card and docs PRs:** the planner merges on a clean pass. Standing, until revoked.
+- **Small fix units:** auto-merge on a clean PASS. Sprint 1 only; renew for Sprint 2.
+- **Expired:** the unit-level permissions for U3–U6. All four merged.
 
 ## Next
-1. Adjudicate U5, then merge. Trigger U6; adjudicate and merge it.
-2. Finish the Skunk family:
-   - The Dutch Skunk lines (Sensi's Early Skunk, Shiva Skunk, Skunk Kush, and others).
-   - The #6 follow-ups: tiers, the unused source, the Acapulco Gold dispute, and shorter `born.display` strings.
-3. At the stop point, post the bulk verification checklist to Justin.
+1. Justin's bulk verification pass. Record the results here.
+2. On Justin's go, start Sprint 2: the Haze and OG Kush families.
