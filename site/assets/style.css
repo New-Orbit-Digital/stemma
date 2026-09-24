@@ -12,6 +12,10 @@
   --warn-bg: #fdf3e0;
   --warn-line: #e6cf9d;
   --dispute: #a8481a;
+  --kind-landrace: #9a6a1f;
+  --kind-cultivar: #2f6d4a;
+  --kind-cut: #3d6aa3;
+  --kind-unknown: #6f6c64;
   --radius: 10px;
   --measure: 38rem;
 }
@@ -28,6 +32,10 @@
     --warn-bg: #2a2416;
     --warn-line: #574a2a;
     --dispute: #e8a273;
+    --kind-landrace: #d9ae63;
+    --kind-cultivar: #8fd3a5;
+    --kind-cut: #8ab4e8;
+    --kind-unknown: #9b978c;
   }
 }
 
@@ -313,6 +321,83 @@ a.lineage-node:focus .lineage-node__box { stroke: var(--accent); stroke-width: 2
 .lineage-key__line--dashed { border-top-style: dashed; }
 .lineage-key__line--dotted { border-top-style: dotted; }
 .lineage-key__line--disputed { border-top-color: var(--dispute); }
+
+.lineage__elsewhere { margin: 0.9rem 0 0; font-size: 0.9rem; }
+
+/* -- timeline --------------------------------------------------------- */
+/* Bars are laid out at build time, as plain SVG. The family filter only ever
+   adds .is-filtered to a row, so the axis never moves and no script writes
+   styles at runtime. */
+
+.timeline__filter { margin: 1.5rem 0 0; }
+.timeline__active { margin: 0.6rem 0 0; font-size: 0.9rem; }
+.timeline__active[hidden] { display: none; }
+.timeline__chart { margin-top: 1rem; }
+.timeline__note { margin: 0.7rem 0 0; color: var(--ink-soft); font-size: 0.85rem; }
+
+/* The axis scrolls inside this box; the page itself never scrolls sideways. */
+.timeline__scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.timeline__scroll:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.timeline-svg { display: block; max-width: none; }
+
+.timeline-band { fill: var(--ink); opacity: 0.045; }
+.timeline-grid { stroke: var(--line); stroke-width: 1; }
+.timeline-rule { stroke: var(--line); stroke-width: 1; }
+.timeline-axis__label,
+.timeline-caption {
+  font: 600 11px/1 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  fill: var(--ink-soft);
+  letter-spacing: 0.06em;
+}
+.timeline-row__name { font: 13px/1 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; fill: var(--ink); }
+.timeline-row__name--inside { font-weight: 600; }
+
+.timeline-bar { stroke-width: 1; }
+.timeline-bar--landrace { fill: var(--kind-landrace); stroke: var(--kind-landrace); }
+.timeline-bar--cultivar { fill: var(--kind-cultivar); stroke: var(--kind-cultivar); }
+.timeline-bar--cut { fill: var(--kind-cut); stroke: var(--kind-cut); }
+.timeline-bar--unknown { fill: var(--kind-unknown); stroke: var(--kind-unknown); }
+
+/* In the strip the name sits inside its box, so the fill stays a tint. */
+.timeline-row--root .timeline-bar { fill-opacity: 0.22; }
+
+a.timeline-row { cursor: pointer; text-decoration: none; }
+a.timeline-row:hover .timeline-bar,
+a.timeline-row:focus .timeline-bar { stroke-width: 2.5; }
+a.timeline-row:hover .timeline-row__name,
+a.timeline-row:focus .timeline-row__name { text-decoration: underline; }
+
+/* The family filter: out of the family, out of the diagram. */
+.timeline-row.is-filtered { display: none; }
+
+.timeline-key {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1rem;
+  list-style: none;
+  margin: 0.6rem 0 0;
+  padding: 0;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+}
+.timeline-key__item { display: inline-flex; align-items: center; gap: 0.4rem; }
+.timeline-key__swatch {
+  width: 22px;
+  height: 12px;
+  border-radius: 3px;
+  background: var(--kind-unknown);
+}
+.timeline-key__swatch--landrace { background: var(--kind-landrace); }
+.timeline-key__swatch--cultivar { background: var(--kind-cultivar); }
+.timeline-key__swatch--cut { background: var(--kind-cut); }
 
 .note, .stub-notice, .disputes {
   background: var(--panel);

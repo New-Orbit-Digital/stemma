@@ -1,0 +1,16 @@
+<section class="timeline" aria-labelledby="timeline-heading">
+  <h1 id="timeline-heading">Timeline</h1>
+  <p class="lede">Every dated strain as a bar, from the earliest year a source supports to the latest. Landraces and cards we have not dated sit in the strip at the start.</p>
+  <div class="timeline__filter" role="search">
+    <label class="search__label" for="family-input">Show one family: a strain and its ancestors</label>
+    <input class="search__input" id="family-input" type="search" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="skunk 1, afghani">
+    <p class="search__status" id="family-status" role="status">{{counts}}</p>
+    <ul class="results" id="family-results"></ul>
+    <p class="timeline__active" id="timeline-active" hidden><a id="timeline-clear" href="/timeline/">Show every card</a></p>
+  </div>
+  <noscript>
+    <p class="search__status">The family filter needs JavaScript. The whole timeline is below.</p>
+  </noscript>
+  <div class="timeline__chart" id="timeline">{{chart}}</div>
+  <p class="timeline__note">A bar spans the years a card's sources allow, not a release date. Clicking a bar opens the card.</p>
+</section>
