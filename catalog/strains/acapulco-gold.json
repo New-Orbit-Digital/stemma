@@ -1,0 +1,19 @@
+{
+  "id": "acapulco-gold",
+  "name": "Acapulco Gold",
+  "aliases": ["Hierba Dorada"],
+  "kind": "landrace",
+  "status": "draft",
+  "summary": "A Mexican sativa associated with the hills around Acapulco in Guerrero, prized for golden-toned flowers and famous in the US from the mid-1960s. Accounts differ: one book places its roots in neighboring Oaxaca, and some sources call it a Mexican x Nepalese cross rather than a pure landrace. One of the three parents of Skunk #1.",
+  "born": { "unknown": true, "display": "traditional; famed in the US by the mid-1960s" },
+  "origin": { "place": "Guerrero, Mexico (around Acapulco)", "country": "MX", "lat": 16.9, "lon": -99.9, "evidence": [ { "tier": "documented", "source": "s1" }, { "tier": "folklore", "source": "s3" } ] },
+  "breeder": null,
+  "lineage": { "status": "root", "parents": [], "disputes": [] },
+  "traditional_label": "sativa",
+  "sources": [
+    { "id": "s1", "title": "Acapulco Gold strain page (cites Novak, Marijuana in the Lives of America; and Cannabis Pharmacy)", "publisher": "Cannigma", "url": "https://cannigma.com/strains/acapulco-gold/", "accessed": "2026-09-23" },
+    { "id": "s2", "title": "Acapulco Gold", "publisher": "Wikipedia", "url": "https://en.wikipedia.org/wiki/Acapulco_Gold", "accessed": "2026-09-23" },
+    { "id": "s3", "title": "Acapulco Gold Strain: Mexico's Legendary Golden Landrace", "publisher": "Black Cannabis Magazine", "url": "https://blackcannabismagazine.com/acapulco-gold/", "accessed": "2026-09-23" }
+  ],
+  "updated": "2026-09-23"
+}
