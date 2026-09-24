@@ -1,9 +1,11 @@
 """Smoke tests for the static site that tools/build.py compiles into --out."""
 
+import hashlib
 import html
 import json
 import os
 import re
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -15,11 +17,13 @@ BUILD = os.path.join(ROOT, "tools", "build.py")
 VALID = os.path.join(ROOT, "tests", "fixtures", "valid")
 sys.path.insert(0, os.path.join(ROOT, "tools"))
 
+import build  # noqa: E402  (the build's own hash rule, not a copy)
 import origins  # noqa: E402  (the site's own located/unknown rule, not a copy)
 import timeline  # noqa: E402  (the site's own dated/undated rule, not a copy)
 
 LINK_RE = re.compile(r'(?:href|src)="([^"]*)"')
 EXTERNAL = ("http://", "https://", "//", "mailto:", "tel:", "data:")
+ASSET_REF_RE = re.compile(r'(?:href|src)="(/assets/[^"]*)"')
 
 
 def html_files(out):
@@ -113,6 +117,68 @@ class SiteTest(unittest.TestCase):
             self.assertTrue(
                 os.path.isfile(os.path.join(self.out, relpath)), "missing %s" % relpath
             )
+
+    # -- asset cache-busting ----------------------------------------------
+
+    def test_every_asset_reference_carries_the_built_file_s_hash(self):
+        pages = list(html_files(self.out))
+        checked = 0
+        for page in pages:
+            relpath = os.path.relpath(page, self.out)
+            for ref in ASSET_REF_RE.findall(self.read(relpath)):
+                name, _, query = ref[len("/assets/") :].partition("?")
+                built = os.path.join(self.out, "assets", name)
+                self.assertTrue(os.path.isfile(built), "%s: no such asset" % ref)
+                with open(built, "rb") as handle:
+                    digest = hashlib.sha256(handle.read()).hexdigest()
+                self.assertEqual(
+                    query,
+                    "v=%s" % digest[:10],
+                    "%s references %s, not the built file's hash" % (relpath, ref),
+                )
+                checked += 1
+        # Every page loads exactly the two shell assets, both versioned.
+        self.assertEqual(checked, 2 * len(pages))
+
+    def test_an_asset_s_hash_follows_its_bytes(self):
+        source = os.path.join(ROOT, "site", "assets", "app.js")
+        before = build.asset_hash(source)
+        self.assertEqual(len(before), 10)
+        copy = os.path.join(self.tmp.name, "app.js")
+        shutil.copyfile(source, copy)
+        self.assertEqual(build.asset_hash(copy), before)  # same bytes, same hash
+        with open(copy, "ab") as handle:
+            handle.write(b"\n")  # one byte is enough
+        self.assertNotEqual(build.asset_hash(copy), before)
+
+    def test_the_headers_file_gives_assets_an_immutable_cache(self):
+        path = os.path.join(self.out, "_headers")
+        self.assertTrue(os.path.isfile(path), "missing _headers")
+        with open(path, encoding="utf-8") as handle:
+            text = handle.read()
+        self.assertIn("/assets/*", text)
+        self.assertIn("Cache-Control: public, max-age=31536000, immutable", text)
+        # HTML and the dataset keep the Pages default, which revalidates.
+        self.assertNotIn("/data/", text)
+        self.assertNotIn(".html", text)
+
+    def test_a_rebuild_of_unchanged_assets_keeps_the_same_version(self):
+        out = os.path.join(self.tmp.name, "rebuild")
+        result = subprocess.run(
+            [sys.executable, BUILD, "--path", VALID, "--out", out],
+            cwd=ROOT,
+            capture_output=True,
+            text=True,
+        )
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        with open(os.path.join(out, "index.html"), encoding="utf-8") as handle:
+            rebuilt = handle.read()
+        self.assertEqual(
+            ASSET_REF_RE.findall(rebuilt),
+            ASSET_REF_RE.findall(self.read("index.html")),
+        )
+
+    # -- the rest of the scaffold, continued ------------------------------
 
     def test_every_page_is_noindex_and_carries_the_age_notice(self):
         pages = list(html_files(self.out))
@@ -325,10 +391,31 @@ class SiteTest(unittest.TestCase):
         base = "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/"
         self.assertIn('<script src="%sleaflet.min.js"' % base, page)
         self.assertIn('<link rel="stylesheet" href="%sleaflet.min.css"' % base, page)
-        # Pinned exactly: no range, no "latest", and no second library.
+        # Pinned by version, so the URLs carry no ?v= of ours.
+        self.assertNotIn("leaflet.min.js?v=", page)
+        self.assertNotIn("leaflet.min.css?v=", page)
+        # Subresource integrity: the exact digests the planner verified against
+        # the fetched files and the cdnjs API on 2026-09-24.
+        self.assertIn(
+            'integrity="sha512-puJW3E/qXDqYp9IfhAI54BJEaWIfloJ7JWs7OeD5i6ruC9JZ'
+            'L1gERT1wjtwXFlh7CjE7ZJ+/vcRZRkIYIb6p4g=="',
+            page,
+        )
+        self.assertIn(
+            'integrity="sha512-h9FcoyWjHcOcmEVkxOfTLnmZFWIH0iZhZT1H2TbOq55xssQG'
+            'EJHEaIm+PgoUaZbRvQTNTluNOEfb1ZRy6D3BOw=="',
+            page,
+        )
+        self.assertEqual(page.count('crossorigin="anonymous"'), 2)
+        # Pinned exactly: no range, no "latest", and no second library. Checked
+        # against the URLs the page loads, not its text: a content hash or a
+        # base64 digest can spell "d3" by chance.
         self.assertNotIn("leaflet/latest", page)
+        urls = [ref for ref in LINK_RE.findall(page) if ref.startswith(EXTERNAL)]
+        self.assertEqual(len(urls), 2)
         for other in ("d3", "mapbox", "jquery", "leaflet.markercluster"):
-            self.assertNotIn(other, page)
+            for url in urls:
+                self.assertNotIn(other, url, "%s loads %s" % (url, other))
 
     def test_only_the_map_page_loads_leaflet(self):
         for page in html_files(self.out):
