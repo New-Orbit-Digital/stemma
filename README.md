@@ -1,6 +1,6 @@
 # Stemma
 
-An evidence-backed catalog of cannabis strain lineage and history. Enter a strain, see where it came from: parents, ancestors back to landraces, when and where it emerged, and how sure we are about each claim.
+A community-maintained catalog of cannabis strain lineage and history. Enter a strain and see where it came from: its parents, its ancestors back to landraces, and when and where it emerged. Each card lists its sources, and where accounts differ, the card says so.
 
 - **Stemma** (this repo, v1): the catalog plus a static site at `stemma.neworbitdigital.com`.
 - **Budlogs** (future, v2): a Letterboxd-style social app for logging strains, reserved at `budlogs.neworbitdigital.com`. Budlogs consumes Stemma's compiled dataset (`dist/data/stemma.json`) the way Letterboxd consumes TMDB.
@@ -9,7 +9,7 @@ An evidence-backed catalog of cannabis strain lineage and history. Enter a strai
 - `catalog/strains/<id>.json`: one card per strain. Format: [docs/schema.md](docs/schema.md).
 - `tools/`: stdlib-only Python. `validate.py` checks cards, `build.py` compiles the dataset and site into `dist/`.
 - `site/`: plain HTML templates plus one stylesheet and one script. `build.py` substitutes `{{placeholder}}` values into them; the site reads only `data/stemma.json` at runtime.
-- `docs/`: `always.md` (stable context), `current.md` (volatile state), `backlog.md`, `schema.md`, `packets/` (executor units).
+- `docs/`: `always.md` (stable context), `current.md` (volatile state), `backlog.md`, `schema.md`, `packets/` (executor units), `research/` (research notes), `prep/` (suggestions for Justin).
 - `CLAUDE.md`: executor working notes. `CHANGELOG.md`: shipped history.
 
 ## Commands
