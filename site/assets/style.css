@@ -202,6 +202,10 @@ p { margin: 0 0 0.75rem; }
 .facts dt { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-soft); }
 .facts dd { margin: 0.15rem 0 0; }
 
+/* One plain-text line. No badges, no bars, no color-coding: a chemotype is a
+   range someone measured, and the page says it the way it says everything. */
+.chemotype { margin: 0.9rem 0 0; color: var(--ink-soft); font-size: 0.95rem; }
+
 .relations { list-style: none; margin: 0.5rem 0 0; padding: 0; }
 .relations li { margin-bottom: 0.7rem; }
 

@@ -236,6 +236,40 @@ def facts_block(data):
     return '<dl class="facts">%s</dl>' % "".join(rows)
 
 
+def chemotype_block(data):
+    """One plain-text line: the cannabinoid ranges, then the dominant terpenes.
+
+    Deliberately prose. Badges and charts belong to the parked visual-design
+    pass; until then a card says its chemotype the way it says everything else.
+    Each range prints its ``display`` string, which is what the card wrote for
+    a reader — the numbers underneath are for the dataset.
+    """
+    chemotype = data.get("chemotype")
+    if not isinstance(chemotype, dict):
+        return ""
+
+    sentences = []
+    ranges = []
+    for field, label in (("thc", "THC"), ("cbd", "CBD")):
+        value = chemotype.get(field)
+        if isinstance(value, dict) and value.get("display"):
+            ranges.append("%s %s" % (label, esc(value["display"])))
+    if ranges:
+        sentences.append("%s." % ", ".join(ranges))
+
+    names = [
+        esc(entry["name"])
+        for entry in chemotype.get("dominant_terpenes") or []
+        if isinstance(entry, dict) and entry.get("name")
+    ]
+    if names:
+        sentences.append("Dominant terpenes: %s." % ", ".join(names))
+
+    if not sentences:
+        return ""
+    return '<p class="chemotype">%s</p>' % " ".join(sentences)
+
+
 def chips_block(data):
     items = []
     kind = data.get("kind")
@@ -391,6 +425,7 @@ def strain_page(base, assets, template, data, edges, names, cards=None):
             else "<p>%s</p>" % links.render(data["summary"], names)
         ),
         "facts": "" if stub else facts_block(data),
+        "chemotype": "" if stub else chemotype_block(data),
         "parents": parents_block(data, names),
         "children": children_block(strain_id, edges, names),
         "lineage_graph": lineage.graph_html(strain_id, edges, cards or {strain_id: data}),

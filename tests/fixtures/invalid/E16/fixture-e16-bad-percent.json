@@ -1,0 +1,29 @@
+{
+  "id": "fixture-e16-bad-percent",
+  "name": "Fixture E16 Bad Percent",
+  "aliases": [],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "Fictional fixture whose dominant terpenes carry a percent outside 0 to 100 and one with more decimal places than the schema allows. Not a real strain.",
+  "parents": [],
+  "chemotype": {
+    "dominant_terpenes": [
+      {
+        "name": "myrcene",
+        "percent": 140.0
+      },
+      {
+        "name": "limonene",
+        "percent": 0.355
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Fixture database entry",
+      "publisher": "Fixture Lab",
+      "category": "database"
+    }
+  ],
+  "updated": "2026-09-24"
+}
