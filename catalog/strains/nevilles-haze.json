@@ -1,0 +1,67 @@
+{
+  "id": "nevilles-haze",
+  "name": "Neville's Haze",
+  "aliases": [
+    "Nevil's Haze"
+  ],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "Neville's Haze is a [[kind:cultivar|cultivar]] bred by [[breeder:Green House Seed Co.|Green House Seeds]] from [[haze|Haze]] backcrossed with [[northern-lights-5|Northern Lights #5]], named in tribute to Nevil Schoenmakers. It won first place in the seed company division at the 1998 High Times Cannabis Cup. Green House credits its breeding to Shantibaba, who later left to co-found Mr. Nice.",
+  "born": {
+    "year_min": 1997,
+    "year_max": 1998,
+    "display": "c. 1998"
+  },
+  "origin": {
+    "place": "Amsterdam, Netherlands",
+    "country": "NL",
+    "lat": 52.4,
+    "lon": 4.9
+  },
+  "breeder": "Green House Seed Co.",
+  "parents": [
+    "haze",
+    "northern-lights-5"
+  ],
+  "traditional_label": "sativa",
+  "growing": {
+    "environment": "indoor",
+    "flowering_weeks": {
+      "min": 12,
+      "max": 16
+    }
+  },
+  "sources": [
+    {
+      "title": "Neville's Haze (Green House Seeds)",
+      "publisher": "SeedFinder",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/nevilles-haze/green-house-seeds",
+      "accessed": "2026-09-24",
+      "note": "Planner-verified 2026-09-24: confirms Green House Seeds and a 1st-place, seed-company-division win at the 1998 High Times Cannabis Cup. Does not itself name Shantibaba; that detail comes from the Wikipedia source below."
+    },
+    {
+      "title": "Neville's Haze",
+      "publisher": "Mr. Nice Seedbank",
+      "category": "breeder",
+      "url": "https://mrnice.com/product/nevilles-haze/",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Neville's Haze",
+      "publisher": "Leafly",
+      "category": "database",
+      "url": "https://www.leafly.com/strains/nevilles-haze",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Scott Blakey",
+      "publisher": "Wikipedia",
+      "category": "database",
+      "url": "https://en.wikipedia.org/wiki/Scott_Blakey",
+      "accessed": "2026-09-24",
+      "note": "Source for the Shantibaba (Scott Blakey) attribution and his later move to Mr. Nice."
+    }
+  ],
+  "updated": "2026-09-24"
+}

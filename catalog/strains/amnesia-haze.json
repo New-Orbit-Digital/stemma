@@ -1,0 +1,63 @@
+{
+  "id": "amnesia-haze",
+  "name": "Amnesia Haze",
+  "aliases": [
+    "Amnesia"
+  ],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "Amnesia Haze is a [[kind:cultivar|cultivar]] whose origin is disputed. Soma's Sacred Seeds claims to have bred it from Southeast Asian landraces, Jamaican Haze lines, and an Afghani-Hawaiian cross; Leafly instead describes it simply as [[haze|Haze]] crossed with [[afghani|Afghani]]. An entry linked to Soma won the overall High Times Cannabis Cup in 2004, and Soma's own line won the sativa category in 2012.",
+  "born": {
+    "year_min": 1990,
+    "year_max": 2004,
+    "display": "1990s; in Amsterdam coffeeshops by 2004"
+  },
+  "origin": {
+    "place": "Amsterdam, Netherlands",
+    "country": "NL",
+    "lat": 52.4,
+    "lon": 4.9
+  },
+  "breeder": null,
+  "parents": [],
+  "traditional_label": "sativa",
+  "growing": {
+    "environment": "both",
+    "flowering_weeks": {
+      "min": 10,
+      "max": 12
+    }
+  },
+  "sources": [
+    {
+      "title": "Amnesia Haze",
+      "publisher": "Soma's Sacred Seeds",
+      "category": "breeder",
+      "url": "https://www.somaseeds.nl/product/amnesia-haze",
+      "accessed": "2026-09-24",
+      "note": "Planner-verified 2026-09-24: confirms Soma's claimed genetics (Southeast Asian lines including Thai/Cambodian/Laotian, Jamaican Haze, and an Afghani-Hawaiian cross)."
+    },
+    {
+      "title": "Trying to remember: a quarter century of Amnesia",
+      "publisher": "Dutch Passion",
+      "category": "breeder",
+      "url": "https://dutch-passion.com/en/blog/trying-to-remember-a-quarter-century-of-amnesia-n1011",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Amnesia Haze (Soma Seeds)",
+      "publisher": "SeedFinder",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/amnesia-haze/soma-seeds",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "2004 High Times Cannabis Cup",
+      "publisher": "Kind Green Buds",
+      "category": "community",
+      "url": "https://kindgreenbuds.com/culture/2004-high-times-cannabis-cup/",
+      "accessed": "2026-09-24"
+    }
+  ],
+  "updated": "2026-09-24"
+}

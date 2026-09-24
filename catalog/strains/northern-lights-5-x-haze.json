@@ -1,0 +1,67 @@
+{
+  "id": "northern-lights-5-x-haze",
+  "name": "Northern Lights #5 x Haze",
+  "aliases": [
+    "NL5 x Haze",
+    "NL#5 x Haze"
+  ],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "Northern Lights #5 x Haze is a [[kind:cultivar|cultivar]] first bred by Nevil Schoenmakers's The Seed Bank from [[northern-lights-5|Northern Lights #5]] and [[haze|Haze]], and released around 1989. [[breeder:Sensi Seeds]] later reworked the line and now sells it as roughly 70% sativa. It won the 1990 Cannabis Cup in the sativa category.",
+  "born": {
+    "year_min": 1985,
+    "year_max": 1989,
+    "display": "late 1980s (released 1989)"
+  },
+  "origin": {
+    "place": "Netherlands",
+    "country": "NL",
+    "lat": 52.4,
+    "lon": 4.9
+  },
+  "breeder": "Sensi Seeds",
+  "parents": [
+    "northern-lights-5",
+    "haze"
+  ],
+  "traditional_label": "sativa",
+  "growing": {
+    "environment": "both",
+    "flowering_weeks": {
+      "min": 9,
+      "max": 11
+    }
+  },
+  "sources": [
+    {
+      "title": "Northern Lights #5 x Haze",
+      "publisher": "Sensi Seeds",
+      "category": "breeder",
+      "url": "https://sensiseeds.com/en/feminized-seeds/sensi-seeds/northern-lights-5-x-haze-feminised",
+      "accessed": "2026-09-24",
+      "note": "Planner-verified 2026-09-24: confirms Sensi Seeds developed the cross and gives roughly 70% sativa. Does not itself mention the Seed Bank / Nevil origin or the 1989 date, which come from SeedFinder and Wikipedia."
+    },
+    {
+      "title": "Which Cannabis Cups … Has Sensi Seeds Won",
+      "publisher": "Sensi Seeds",
+      "category": "breeder",
+      "url": "https://sensiseeds.com/en/blog/which-cannabis-cups-awards-and-prizes-has-sensi-seeds-won-over-the-years/",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Northern Lights #5 X Haze (Sensi Seeds)",
+      "publisher": "SeedFinder",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/northern-lights-nr5-x-haze/sensi-seeds",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Nevil Schoenmakers",
+      "publisher": "Wikipedia",
+      "category": "database",
+      "url": "https://en.wikipedia.org/wiki/Nevil_Schoenmakers",
+      "accessed": "2026-09-24"
+    }
+  ],
+  "updated": "2026-09-24"
+}
