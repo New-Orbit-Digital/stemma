@@ -28,7 +28,8 @@ from datetime import datetime, timezone
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-import validate  # noqa: E402  (sibling module, resolved via the path insert)
+import lineage  # noqa: E402  (sibling module, resolved via the path insert)
+import validate  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = os.path.join(ROOT, "site")
@@ -362,7 +363,7 @@ def page(base, title, description, page_class, content, inline_data=""):
     )
 
 
-def strain_page(base, template, data, edges, names):
+def strain_page(base, template, data, edges, names, cards=None):
     strain_id = data["id"]
     sources = {
         source["id"]: source
@@ -394,6 +395,7 @@ def strain_page(base, template, data, edges, names):
         "facts": "" if stub else facts_block(data, sources),
         "parents": parents_block(data, names, sources),
         "children": children_block(strain_id, edges, names),
+        "lineage_graph": lineage.graph_html(strain_id, edges, cards or {strain_id: data}),
         "disputes": "" if stub else disputes_block(data, names, sources),
         "sources": "" if stub else sources_block(data),
         "updated": esc(data.get("updated")),
@@ -449,10 +451,9 @@ def write_site(out, dataset):
     base = read_template("base.html")
     strains = dataset["strains"]
     edges = dataset["edges"]
+    cards = {strain["id"]: strain for strain in strains if strain.get("id")}
     names = {
-        strain["id"]: strain.get("name") or strain["id"]
-        for strain in strains
-        if strain.get("id")
+        strain_id: strain.get("name") or strain_id for strain_id, strain in cards.items()
     }
 
     write_page(out, "index.html", index_page(base, read_template("index.html"), strains))
@@ -489,7 +490,7 @@ def write_site(out, dataset):
         write_page(
             out,
             os.path.join("s", strain["id"], "index.html"),
-            strain_page(base, template, strain, edges, names),
+            strain_page(base, template, strain, edges, names, cards),
         )
 
     assets_src = os.path.join(SITE, "assets")

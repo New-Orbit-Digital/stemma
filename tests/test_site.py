@@ -8,6 +8,7 @@ import subprocess
 import sys
 import tempfile
 import unittest
+import xml.etree.ElementTree as ET
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BUILD = os.path.join(ROOT, "tools", "build.py")
@@ -138,7 +139,7 @@ class SiteTest(unittest.TestCase):
         self.assertIn("Fixture Seeds", page)  # breeder
         self.assertIn('href="/s/fixture-landrace-root/"', page)  # parent link
         self.assertIn('href="/s/fixture-partial/"', page)  # child link, from edges
-        self.assertIn('id="lineage-graph"', page)  # left for U3
+        self.assertIn('id="lineage-graph"', page)  # the U3 graph lands here
         self.assertIn("/about/#traditional-labels", page)  # "what this means"
         self.assertIn('class="badge badge--documented"', page)  # evidence tier
         self.assertIn("Fixture magazine feature", page)  # sources list
@@ -164,6 +165,53 @@ class SiteTest(unittest.TestCase):
         self.assertIn("Children", page)
         self.assertIn('href="/s/fixture-known-cross/"', page)
         self.assertNotIn("Sources", page)
+
+    # -- the lineage graph -------------------------------------------------
+
+    def test_strain_pages_ship_a_rendered_lineage_graph(self):
+        page = self.read(os.path.join("s", "fixture-known-cross", "index.html"))
+        graph = page.split('id="lineage-graph"')[1].split("</section>")[0]
+        self.assertIn('<svg class="lineage-svg"', graph)
+        self.assertIn('class="lineage-node lineage-node--current"', graph)
+        self.assertIn('href="/s/fixture-landrace-root/"', graph)  # parent node
+        self.assertIn('href="/s/fixture-partial/"', graph)  # child node
+        self.assertIn("lineage-node--stub", graph)  # stubs are muted
+        self.assertIn('class="lineage-key"', graph)  # the legend
+        self.assertIn("lineage-edge--documented", graph)
+        self.assertIn("lineage-edge--breeder-claimed", graph)
+
+    def test_disputed_edges_ship_hidden_behind_an_unchecked_toggle(self):
+        page = self.read(os.path.join("s", "fixture-cut", "index.html"))
+        graph = page.split('id="lineage-graph"')[1].split("</section>")[0]
+        self.assertIn('type="checkbox"', graph)
+        self.assertNotIn("checked", graph)
+        self.assertIn("lineage-edge--disputed", graph)
+        self.assertIn("lineage-layer--disputed", graph)
+        css = self.read(os.path.join("assets", "style.css"))
+        self.assertIn(".lineage-layer--disputed { display: none; }", css)
+        self.assertIn(".lineage-graph__toggle:checked ~ .lineage-graph__scroll", css)
+
+    def test_the_graph_scrolls_inside_its_own_box(self):
+        css = self.read(os.path.join("assets", "style.css"))
+        scroll = css.split(".lineage-graph__scroll {")[1].split("}")[0]
+        self.assertIn("overflow-x: auto;", scroll)
+        self.assertIn("max-width: 100%;", scroll)
+
+    def test_every_rendered_graph_is_well_formed_svg(self):
+        drawn = 0
+        for strain in self.dataset["strains"]:
+            page = self.read(os.path.join("s", strain["id"], "index.html"))
+            if "<svg" not in page:
+                continue
+            svg = page[page.index("<svg") : page.index("</svg>") + len("</svg>")]
+            ET.fromstring(svg)  # raises on malformed markup
+            drawn += 1
+        self.assertGreater(drawn, 0)
+
+    def test_a_root_with_no_children_still_renders_something(self):
+        page = self.read(os.path.join("s", "fixture-landrace-root", "index.html"))
+        graph = page.split('id="lineage-graph"')[1].split("</section>")[0]
+        self.assertTrue("<svg" in graph or "No lineage links" in graph)
 
     def test_about_page_covers_the_contract(self):
         page = self.read(os.path.join("about", "index.html"))
