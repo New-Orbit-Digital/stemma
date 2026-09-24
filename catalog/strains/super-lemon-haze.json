@@ -1,0 +1,58 @@
+{
+  "id": "super-lemon-haze",
+  "name": "Super Lemon Haze",
+  "aliases": [
+    "SLH"
+  ],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "Super Lemon Haze is a [[kind:cultivar|cultivar]] bred by [[breeder:Green House Seed Co.]], crossing [[lemon-skunk|Lemon Skunk]] with [[super-silver-haze|Super Silver Haze]]. Wikipedia credits the breeding to Franco Loja. It won the High Times Cannabis Cup in both 2008 and 2009.",
+  "born": {
+    "unknown": true,
+    "display": "by 2008"
+  },
+  "origin": {
+    "place": "Amsterdam, Netherlands",
+    "country": "NL",
+    "lat": 52.4,
+    "lon": 4.9
+  },
+  "breeder": "Green House Seed Co.",
+  "parents": [
+    "lemon-skunk",
+    "super-silver-haze"
+  ],
+  "traditional_label": "sativa",
+  "growing": {
+    "environment": "both",
+    "flowering_weeks": {
+      "min": 9,
+      "max": 12
+    }
+  },
+  "sources": [
+    {
+      "title": "Super Lemon Haze",
+      "publisher": "Green House Seed Co.",
+      "category": "breeder",
+      "url": "https://shop.greenhouseseeds.nl/feminised-cannabis-seeds/1-seed-pack/super-lemon-haze/",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Super Lemon Haze",
+      "publisher": "Wikipedia",
+      "category": "database",
+      "url": "https://en.wikipedia.org/wiki/Super_Lemon_Haze",
+      "accessed": "2026-09-24",
+      "note": "Planner-verified 2026-09-24: confirms the Lemon Skunk x Super Silver Haze cross, breeding credited to Franco Loja at Green House Seed Co., and Cannabis Cup wins in 2008 and 2009."
+    },
+    {
+      "title": "Super Lemon Haze (Green House Seeds)",
+      "publisher": "SeedFinder",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/super-lemon-haze/green-house-seeds",
+      "accessed": "2026-09-24"
+    }
+  ],
+  "updated": "2026-09-24"
+}
