@@ -5,6 +5,15 @@
     "Dead Head OG"
   ],
   "kind": "cultivar",
-  "status": "stub",
-  "updated": "2026-09-24"
+  "status": "draft",
+  "summary": "**Deadhead OG** is a [[kind:cultivar|cultivar]] bred in June 2011 by Skunk VA at [[breeder:The Cali Connection]], crossing [[chemdawg|Chemdawg]] (Chem 91) and [[sfv-og|SFV OG]].",
+  "born": { "year_min": 2011, "year_max": 2011, "display": "2011" },
+  "origin": { "place": "Southern California, USA", "country": "US", "lat": 34.0, "lon": -118.2 },
+  "breeder": "The Cali Connection",
+  "parents": ["chemdawg", "sfv-og"],
+  "traditional_label": "hybrid",
+  "sources": [
+    { "title": "Deadhead OG: Parentage, Breeder, and Origins", "publisher": "Flower & Soul", "category": "community", "url": "https://myflowersoul.com/blog/deadhead-og-strain/", "accessed": "2026-09-25" }
+  ],
+  "updated": "2026-09-25"
 }

@@ -3,6 +3,16 @@
   "name": "Blue Zkittlez",
   "aliases": [],
   "kind": "cultivar",
-  "status": "stub",
-  "updated": "2026-09-24"
+  "status": "draft",
+  "summary": "**Blue Zkittlez** is a [[kind:cultivar|cultivar]] released by [[breeder:Dying Breed Seeds]] as a cross of [[zkittlez|Zkittlez]] and [[blue-diamond|Blue Diamond]]. The breeder's own published genealogy instead lists a related cut called the Original Z in place of Zkittlez.",
+  "born": { "unknown": true, "display": "undated" },
+  "origin": { "unknown": true },
+  "breeder": "Dying Breed Seeds",
+  "parents": ["zkittlez", "blue-diamond"],
+  "traditional_label": "indica",
+  "sources": [
+    { "title": "Blue Zkittlez (Dying Breed Seeds) — Lineage & Hybrids", "publisher": "SeedFinder.eu", "category": "database", "url": "https://seedfinder.eu/en/strain-info/blue-zkittlez/dying-breed-seeds/genealogy", "accessed": "2026-09-25" },
+    { "title": "Blue Zkittlez Marijuana Strain Information & Reviews", "publisher": "AllBud", "category": "database", "url": "https://www.allbud.com/marijuana-strains/indica-dominant-hybrid/blue-zkittlez", "accessed": "2026-09-25" }
+  ],
+  "updated": "2026-09-25"
 }

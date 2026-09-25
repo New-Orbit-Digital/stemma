@@ -3,6 +3,15 @@
   "name": "Blueberry Kush",
   "aliases": [],
   "kind": "cultivar",
-  "status": "stub",
-  "updated": "2026-09-24"
+  "status": "draft",
+  "summary": "**Blueberry Kush** is a [[kind:cultivar|cultivar]] crossing [[blueberry|Blueberry]] and [[og-kush|OG Kush]]. Multiple West Coast seed companies, including Kush Cannabis Seeds, release their own version of the cross under the same name, so its exact origin varies by breeder.",
+  "born": { "unknown": true, "display": "undated" },
+  "origin": { "unknown": true },
+  "breeder": null,
+  "parents": ["blueberry", "og-kush"],
+  "traditional_label": "hybrid",
+  "sources": [
+    { "title": "Blueberry Kush: Lineage and Background", "publisher": "Strainpedia", "category": "database", "url": "https://www.strainpedia.com/blueberry-kush/", "accessed": "2026-09-25" }
+  ],
+  "updated": "2026-09-25"
 }

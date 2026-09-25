@@ -6,6 +6,16 @@
     "Daywrecker"
   ],
   "kind": "cultivar",
-  "status": "stub",
-  "updated": "2026-09-24"
+  "status": "draft",
+  "summary": "**Original Diesel** is a [[kind:cultivar|cultivar]] bred in 1995 by an East Coast grower known as Weasel, who crossed a [[northern-lights|Northern Lights]] male with [[mass-super-skunk|Mass Super Skunk]] and then bred a male from that pairing to [[chemdawg|Chemdawg]].",
+  "born": { "year_min": 1995, "year_max": 1995, "display": "1995" },
+  "origin": { "unknown": true },
+  "breeder": null,
+  "parents": ["chemdawg", "mass-super-skunk", "northern-lights"],
+  "traditional_label": "hybrid",
+  "sources": [
+    { "title": "Daywrecker Diesel Strain", "publisher": "Greenpoint Seeds", "category": "breeder", "url": "https://greenpointseeds.com/cannabis-strain-attributes/lineage/daywrecker-diesel-strain/", "accessed": "2026-09-25" },
+    { "title": "Original Diesel (Unknown or Legendary)", "publisher": "SeedFinder.eu", "category": "database", "url": "https://seedfinder.eu/en/strain-info/original-diesel/unknown-or-legendary", "accessed": "2026-09-25" }
+  ],
+  "updated": "2026-09-25"
 }
