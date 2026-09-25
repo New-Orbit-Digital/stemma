@@ -6,14 +6,14 @@
   ],
   "kind": "cultivar",
   "status": "draft",
-  "summary": "**MK Ultra** is a [[kind:cultivar|hybrid]] bred by T.H. Seeds in Amsterdam, the Netherlands, crossing [[g13|G13]] with [[og-kush|OG Kush]]. Its name references the CIA's Cold War-era MKUltra mind-control program.",
+  "summary": "**MK Ultra** is a [[kind:cultivar|hybrid]] bred by [[breeder:T.H.Seeds|T.H. Seeds]] in Amsterdam, the Netherlands, crossing [[g13|G13]] with [[og-kush|OG Kush]]. Its name references the CIA's Cold War-era MKUltra mind-control program.",
   "origin": {
     "place": "Amsterdam, Netherlands",
     "country": "NL",
     "lat": 52.4,
     "lon": 4.9
   },
-  "breeder": "T.H. Seeds",
+  "breeder": "T.H.Seeds",
   "parents": [
     "g13",
     "og-kush"
@@ -44,5 +44,5 @@
       "note": "Confirms breeder and parentage, name origin"
     }
   ],
-  "updated": "2026-09-24"
+  "updated": "2026-09-25"
 }
