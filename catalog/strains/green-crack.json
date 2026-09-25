@@ -7,7 +7,7 @@
   ],
   "kind": "cut",
   "status": "draft",
-  "summary": "**Green Crack** is a [[kind:cut|cut]] first selected in Athens, Georgia, in the United States, by a grower known as Cecil C., in the late 1980s or early 1990s. It was originally called Green Cush before being renamed in the early 2000s. Its exact parentage was never documented, though [[skunk-1|Skunk #1]] and [[afghani|Afghani]] genetics are commonly cited as ancestors.",
+  "summary": "**Green Crack** is a [[kind:cut|cut]] selected in Athens, Georgia, in the United States by a grower known as Cecil C. in the late 1980s or early 1990s. It is commonly given as a cross of [[skunk-1|Skunk #1]] and an unidentified indica, sometimes said to be [[afghani|Afghani]]. It was called Green Cush before being renamed in the early 2000s.",
   "born": {
     "year_min": 1988,
     "year_max": 1992,
@@ -20,7 +20,9 @@
     "lon": -83.4
   },
   "breeder": null,
-  "parents": [],
+  "parents": [
+    "skunk-1"
+  ],
   "traditional_label": "sativa",
   "growing": {
     "environment": "indoor",
@@ -35,7 +37,8 @@
       "publisher": "SeedFinder.eu",
       "category": "database",
       "url": "https://seedfinder.eu/en/strain-info/green-crack/clone-only-strains",
-      "accessed": "2026-09-24"
+      "accessed": "2026-09-25",
+      "note": "L1-C audit 2026-09-25: the genealogy page gives Skunk #1 x Unknown Indica."
     },
     {
       "title": "Green Crack: Strain History, Effects, Benefits, and Cultivation",
@@ -45,5 +48,5 @@
       "accessed": "2026-09-24"
     }
   ],
-  "updated": "2026-09-24"
+  "updated": "2026-09-25"
 }
