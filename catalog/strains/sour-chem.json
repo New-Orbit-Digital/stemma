@@ -3,6 +3,15 @@
   "name": "Sour Chem",
   "aliases": [],
   "kind": "cultivar",
-  "status": "stub",
-  "updated": "2026-09-24"
+  "status": "draft",
+  "summary": "**Sour Chem** is a [[kind:cultivar|cultivar]] and a cross of [[sour-diesel|Sour Diesel]] and [[chemdawg|Chemdawg]]'s Chem D cut, also known as Chem Sour or Chemdog Sour Diesel.",
+  "born": { "unknown": true, "display": "undated" },
+  "origin": { "unknown": true },
+  "breeder": null,
+  "parents": ["sour-diesel", "chemdawg"],
+  "traditional_label": "hybrid",
+  "sources": [
+    { "title": "Sour Chem - Strain Information", "publisher": "CannaConnection", "category": "database", "url": "https://www.cannaconnection.com/strains/sour-chem", "accessed": "2026-09-25" }
+  ],
+  "updated": "2026-09-25"
 }

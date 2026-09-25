@@ -7,7 +7,7 @@
   ],
   "kind": "cut",
   "status": "draft",
-  "summary": "**Triangle Kush** is a [[kind:cut|cut]] of [[og-kush|OG Kush]] associated with Florida in the 1990s, named for the Tampa–Jacksonville–Miami triangle where it circulated. Some accounts instead describe an accidental cross of [[hindu-kush|Hindu Kush]] and Emerald Triangle genetics.",
+  "summary": "**Triangle Kush** is a [[kind:cut|cut]] from Florida, kept from seed of an accidental 1990s cross of [[hindu-kush|Hindu Kush]] and unidentified Emerald Triangle stock, credited to Marty \"TK\" Calabrese. Its name refers to the triangle formed by Jacksonville, Miami, and Tampa. Some accounts tie the same seed stock to the Florida origins of [[og-kush|OG Kush]].",
   "born": {
     "year_min": 1990,
     "year_max": 1999,
@@ -20,7 +20,7 @@
     "lon": -81.9
   },
   "parents": [
-    "og-kush"
+    "hindu-kush"
   ],
   "traditional_label": "indica",
   "sources": [
@@ -29,7 +29,8 @@
       "publisher": "SeedFinder",
       "category": "database",
       "url": "https://seedfinder.eu/en/strain-info/triangle-kush/clone-only-strains",
-      "accessed": "2026-09-24"
+      "accessed": "2026-09-25",
+      "note": "L1-C audit 2026-09-25: gives Hindu Kush x Emerald Triangle, accidentally bred in Florida in the 1990s by Marty 'TK' Calabrese; treats it as distinct from OG Kush, not a cut of it."
     },
     {
       "title": "Triangle Kush",
@@ -39,5 +40,5 @@
       "accessed": "2026-09-24"
     }
   ],
-  "updated": "2026-09-24"
+  "updated": "2026-09-25"
 }

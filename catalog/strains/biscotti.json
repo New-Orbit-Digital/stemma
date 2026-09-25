@@ -4,7 +4,7 @@
   "aliases": [],
   "kind": "cultivar",
   "status": "draft",
-  "summary": "**Biscotti** is a [[kind:cultivar|cultivar]] bred by [[breeder:Cookies|Cookies]]. A cross of [[gelato|Gelato]] #25 and [[south-florida-og|South Florida OG]], it is grown as an [[label:indica|indica]]-dominant hybrid. Some sources also list [[gsc|GSC]] as a parent.",
+  "summary": "**Biscotti** is a [[kind:cultivar|cultivar]] bred by [[breeder:Cookie Fam Genetics|Cookies]]. A cross of [[gelato|Gelato]] #25 and [[south-florida-og|South Florida OG]], it is grown as an [[label:indica|indica]]-dominant hybrid. Some sources also list [[gsc|GSC]] as a parent.",
   "born": {
     "unknown": true,
     "display": "recent"
@@ -12,7 +12,7 @@
   "origin": {
     "unknown": true
   },
-  "breeder": "Cookies",
+  "breeder": "Cookie Fam Genetics",
   "parents": [
     "gelato",
     "south-florida-og"
@@ -34,5 +34,5 @@
       "accessed": "2026-09-24"
     }
   ],
-  "updated": "2026-09-24"
+  "updated": "2026-09-25"
 }

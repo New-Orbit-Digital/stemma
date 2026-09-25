@@ -5,6 +5,15 @@
     "Maple Leaf"
   ],
   "kind": "cultivar",
-  "status": "stub",
-  "updated": "2026-09-24"
+  "status": "draft",
+  "summary": "**Maple Leaf Indica** is a [[kind:cultivar|cultivar]] released by [[breeder:Sensi Seeds]] from Afghan hash-plant genetics collected near [[mazar-i-sharif|Mazar-i-Sharif]], smuggled out of Afghanistan ahead of Soviet- and American-era disruption.",
+  "born": { "unknown": true, "display": "undated" },
+  "origin": { "place": "Mazar-i-Sharif region, Afghanistan", "country": "AF", "lat": 36.7, "lon": 67.1 },
+  "breeder": "Sensi Seeds",
+  "parents": [],
+  "traditional_label": "indica",
+  "sources": [
+    { "title": "Maple Leaf Indica Regular Cannabis Seeds", "publisher": "Sensi Seeds", "category": "breeder", "url": "https://sensiseeds.com/en/cannabis-seeds/sensi-seeds/maple-leaf-indica", "accessed": "2026-09-25" }
+  ],
+  "updated": "2026-09-25"
 }

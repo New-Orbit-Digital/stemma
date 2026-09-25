@@ -3,6 +3,15 @@
   "name": "Goji OG",
   "aliases": [],
   "kind": "cultivar",
-  "status": "stub",
-  "updated": "2026-09-24"
+  "status": "draft",
+  "summary": "**Goji OG** is a [[kind:cultivar|cultivar]] bred by [[breeder:Bodhi Seeds]], crossing a [[nepali-og|Nepali OG]] mother, an old OG Kush cut from Grass Valley, California, with a [[snow-lotus|Snow Lotus]] male. It had won hash and concentrate awards by 2013.",
+  "born": { "unknown": true, "display": "by 2013" },
+  "origin": { "unknown": true },
+  "breeder": "Bodhi Seeds",
+  "parents": ["nepali-og", "snow-lotus"],
+  "traditional_label": "hybrid",
+  "sources": [
+    { "title": "Goji OG (Bodhi Seeds)", "publisher": "SeedFinder.eu", "category": "database", "url": "https://seedfinder.eu/en/strain-info/goji-og/bodhi-seeds", "accessed": "2026-09-25" }
+  ],
+  "updated": "2026-09-25"
 }

@@ -4,7 +4,7 @@
   "aliases": [],
   "kind": "cultivar",
   "status": "draft",
-  "summary": "**Georgia Pie** is a [[kind:cultivar|cultivar]] bred by [[breeder:Seed Junky Genetics]] in California and released through the Cookies brand, despite its name referencing the state of Georgia. A cross of [[gelatti|Gelatti]] and [[kush-mints|Kush Mints]], it is also sold as Sticky Buns.",
+  "summary": "**Georgia Pie** is a [[kind:cultivar|cultivar]] bred by [[breeder:Seed Junky Genetics]] in California and released through the [[breeder:Cookie Fam Genetics|Cookies]] brand. A cross of [[gelatti|Gelatti]] and [[kush-mints|Kush Mints]], it is also sold as Sticky Buns.",
   "born": {
     "unknown": true,
     "display": "unknown"
@@ -44,5 +44,5 @@
       "accessed": "2026-09-24"
     }
   ],
-  "updated": "2026-09-24"
+  "updated": "2026-09-25"
 }
