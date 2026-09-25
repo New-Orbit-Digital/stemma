@@ -5,6 +5,15 @@
     "Cali Orange"
   ],
   "kind": "cultivar",
-  "status": "stub",
-  "updated": "2026-09-24"
+  "status": "draft",
+  "summary": "**California Orange** is a [[kind:cultivar|cultivar]] released by [[breeder:Dutch Passion]] after founder Henk van Dalen collected the genetics in California during the 1970s. Its parentage before that collection is undocumented.",
+  "born": { "unknown": true, "display": "by the 1970s" },
+  "origin": { "place": "California, USA", "country": "US", "lat": 36.7, "lon": -119.4 },
+  "breeder": "Dutch Passion",
+  "parents": [],
+  "traditional_label": "hybrid",
+  "sources": [
+    { "title": "Californian Orange Cannabis Strain Story", "publisher": "Dutch Passion", "category": "breeder", "url": "https://dutch-passion.com/en/blog/californian-orange-the-1970-s-cali-weed-heritage-n1165", "accessed": "2026-09-25" }
+  ],
+  "updated": "2026-09-25"
 }

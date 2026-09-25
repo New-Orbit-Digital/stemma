@@ -6,6 +6,15 @@
     "Critical+"
   ],
   "kind": "cultivar",
-  "status": "stub",
-  "updated": "2026-09-24"
+  "status": "draft",
+  "summary": "**Critical +**, also called Critical Plus, is a [[kind:cultivar|cultivar]] bred by [[breeder:Dinafem]], crossing [[big-bud|Big Bud]] with a Skunk selection.",
+  "born": { "unknown": true, "display": "undated" },
+  "origin": { "unknown": true },
+  "breeder": "Dinafem",
+  "parents": ["big-bud"],
+  "traditional_label": "hybrid",
+  "sources": [
+    { "title": "History of Critical +, a dip into the family tree of this yielding queen", "publisher": "Dinafem", "category": "breeder", "url": "https://www.dinafem.org/en/blog/history-critical-dip-family-tree-yielding-queen/", "accessed": "2026-09-25" }
+  ],
+  "updated": "2026-09-25"
 }

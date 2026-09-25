@@ -3,6 +3,15 @@
   "name": "Orange Bud",
   "aliases": [],
   "kind": "cultivar",
-  "status": "stub",
-  "updated": "2026-09-24"
+  "status": "draft",
+  "summary": "**Orange Bud** is a [[kind:cultivar|cultivar]] selected by [[breeder:Dutch Passion]] from [[skunk-1|Skunk #1]] genetics in the early 1980s. It won cannabis cups through the 1980s and 1990s.",
+  "born": { "year_min": 1980, "year_max": 1984, "display": "early 1980s" },
+  "origin": { "place": "Netherlands (Dutch Passion)", "country": "NL", "lat": 52.1, "lon": 5.3 },
+  "breeder": "Dutch Passion",
+  "parents": ["skunk-1"],
+  "traditional_label": "hybrid",
+  "sources": [
+    { "title": "Orange Bud (Dutch Passion)", "publisher": "SeedFinder.eu", "category": "database", "url": "https://seedfinder.eu/en/strain-info/orange-bud/dutch-passion", "accessed": "2026-09-25" }
+  ],
+  "updated": "2026-09-25"
 }
