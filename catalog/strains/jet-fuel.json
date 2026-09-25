@@ -6,7 +6,7 @@
   ],
   "kind": "cultivar",
   "status": "draft",
-  "summary": "**Jet Fuel** is a [[kind:cultivar|hybrid]] bred by 303 Seeds in Colorado, crossing [[aspen-og|Aspen OG]] with [[high-country-diesel|High Country Diesel]]. The G6 alias originated with the breeder, and Jet Fuel and Jet Fuel OG denote the same cut. It differs from [[jet-fuel-gelato|Jet Fuel Gelato]], a later cross adding Gelato lineage.",
+  "summary": "**Jet Fuel** is a [[kind:cultivar|hybrid]] bred by [[breeder:303 Seeds]] in Colorado, crossing [[aspen-og|Aspen OG]] with [[high-country-diesel|High Country Diesel]]. The G6 alias originated with the breeder, and Jet Fuel and Jet Fuel OG denote the same cut. It differs from [[jet-fuel-gelato|Jet Fuel Gelato]], a later cross adding [[gelato|Gelato]] lineage.",
   "origin": {
     "place": "Colorado, USA",
     "country": "US",
@@ -44,5 +44,5 @@
       "note": "Breeder (303 Seeds), G6 alias origin, distinction from Jet Fuel Gelato"
     }
   ],
-  "updated": "2026-09-24"
+  "updated": "2026-09-25"
 }

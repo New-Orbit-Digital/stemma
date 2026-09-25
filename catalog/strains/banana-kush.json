@@ -4,7 +4,7 @@
   "aliases": [],
   "kind": "cultivar",
   "status": "draft",
-  "summary": "**Banana Kush** is a [[kind:cultivar|hybrid]] bred by Crockett Family Farms in Northern California, crossing [[ghost-og|Ghost OG]] with a [[skunk-haze|Skunk-Haze]] line dating to the early 1970s. The breeder's original name for it, Banana, gave way to Banana Kush among growers. It spread through West Coast dispensaries and reached wider distribution by the mid-2010s.",
+  "summary": "**Banana Kush** is a [[kind:cultivar|hybrid]] bred by [[breeder:Crockett Family Farms]] in Northern California, crossing [[ghost-og|Ghost OG]] with a [[skunk-haze|Skunk-Haze]] line dating to the early 1970s. The breeder's original name for it, Banana, gave way to Banana Kush among growers. It spread through West Coast dispensaries and reached wider distribution by the mid-2010s.",
   "origin": {
     "place": "Northern California, USA",
     "country": "US",
@@ -35,5 +35,5 @@
       "note": "West Coast spread and dispensary history"
     }
   ],
-  "updated": "2026-09-24"
+  "updated": "2026-09-25"
 }

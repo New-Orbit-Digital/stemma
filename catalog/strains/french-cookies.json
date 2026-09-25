@@ -4,7 +4,7 @@
   "aliases": [],
   "kind": "cultivar",
   "status": "draft",
-  "summary": "**French Cookies** is a [[kind:cultivar|cultivar]] selected by [[breeder:TH Seeds]] from a seed found in a bag of [[platinum-cookies|Platinum Cookies]] while the breeders were testing strains in California. It is grown as an indica/sativa hybrid, with foliage ranging from dark green to near-black.",
+  "summary": "**French Cookies** is a [[kind:cultivar|cultivar]] selected by [[breeder:T.H.Seeds|TH Seeds]] from a seed found in a bag of [[platinum-cookies|Platinum Cookies]] while the breeders were testing strains in California. It is grown as an indica/sativa hybrid.",
   "born": {
     "unknown": true,
     "display": "unknown"
@@ -12,7 +12,7 @@
   "origin": {
     "unknown": true
   },
-  "breeder": "TH Seeds",
+  "breeder": "T.H.Seeds",
   "parents": [
     "platinum-cookies"
   ],

@@ -6,7 +6,7 @@
   ],
   "kind": "cultivar",
   "status": "draft",
-  "summary": "**Island Sweet Skunk** is a [[kind:cultivar|cultivar]] bred by Federation Seeds on Vancouver Island, British Columbia, [[country:CA|Canada]], and first sold in the early 2000s. Its parentage is disputed, with some tracing it to Sweet Skunk stock and Federation describing it as a separate selection from related material. It became one of the seed company's sativa-leaning lines and spread through Pacific Northwest markets.",
+  "summary": "**Island Sweet Skunk** is a [[kind:cultivar|cultivar]] bred by [[breeder:Federation Seeds]] on Vancouver Island, British Columbia, [[country:CA|Canada]], and first sold in the early 2000s. Its parentage is disputed, with some tracing it to Sweet Skunk stock and Federation describing it as a separate selection from related material. It became one of the seed company's sativa-leaning lines and spread through Pacific Northwest markets.",
   "born": {
     "year_min": 1999,
     "year_max": 2003,
@@ -44,5 +44,5 @@
       "accessed": "2026-09-24"
     }
   ],
-  "updated": "2026-09-24"
+  "updated": "2026-09-25"
 }

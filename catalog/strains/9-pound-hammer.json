@@ -6,7 +6,7 @@
   ],
   "kind": "cultivar",
   "status": "draft",
-  "summary": "**9 Pound Hammer** is a [[kind:cultivar|hybrid]] bred by Jinxproof Genetics in Washington State around 2010, crossing Gooberry with [[jesus-og|Jesus OG Kush]]. It was distributed through TGA Genetics until 2019, when it returned to Jinxproof's own catalog. The cultivar has since parented numerous further crosses.",
+  "summary": "**9 Pound Hammer** is a [[kind:cultivar|hybrid]] bred by [[breeder:Jinxproof Genetics]] in Washington State around 2010, crossing [[gooberry|Gooberry]] with [[jesus-og|Jesus OG Kush]]. It was distributed through [[breeder:TGA Genetics]] until 2019, when it returned to Jinxproof's own catalog.",
   "born": {
     "year_min": 2009,
     "year_max": 2011,
@@ -57,5 +57,5 @@
       "note": "Breeder confirmation and distribution history"
     }
   ],
-  "updated": "2026-09-24"
+  "updated": "2026-09-25"
 }
