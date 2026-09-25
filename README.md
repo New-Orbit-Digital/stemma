@@ -32,3 +32,7 @@ The same tree builds for either host. `--base` is where the site is mounted, and
 `--base` is normalized to start and end with a slash, so `stemma`, `/stemma`, and `/stemma/` all mean the same thing. It is a URL prefix, not a directory: `--out` is still the site root, and the pages are written where they have always been written. The base is also written onto `<body data-base="…">`, which is where `site/assets/app.js` reads it.
 
 The GitHub Pages deploy is `.github/workflows/pages.yml` (Pages source: GitHub Actions). It runs on every push to `main`. [`docs/github-pages-workflow.yml`](docs/github-pages-workflow.yml) is the draft it was pasted from. No CNAME: the org site owns justbost.com.
+
+## License
+- **Code** (tools, site, tests): [MIT](LICENSE).
+- **Strain data** (`catalog/` and the compiled `data/stemma.json`): [CC BY-SA 4.0](catalog/LICENSE.md). Contributions to the catalog are accepted under the same license.
