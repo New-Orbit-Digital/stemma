@@ -4,7 +4,16 @@
   "aliases": [
     "Face Off"
   ],
-  "kind": "cultivar",
-  "status": "stub",
-  "updated": "2026-09-24"
+  "kind": "cut",
+  "status": "draft",
+  "summary": "**Face Off OG** is a [[kind:cut|cut]] selected from [[og-kush|OG Kush]] plants that circulated in Southern California in the late 1990s. A collector chose one phenotype, numbered 4, for release as Face Off OG Kush.",
+  "born": { "year_min": 1997, "year_max": 1999, "display": "late 1990s" },
+  "origin": { "place": "Southern California, USA", "country": "US", "lat": 34.0, "lon": -118.2 },
+  "breeder": null,
+  "parents": ["og-kush"],
+  "traditional_label": "indica",
+  "sources": [
+    { "title": "Face-Off OG Kush (Clone Only Strains)", "publisher": "SeedFinder.eu", "category": "database", "url": "https://seedfinder.eu/en/strain-info/face-off-og-kush/clone-only-strains", "accessed": "2026-09-25" }
+  ],
+  "updated": "2026-09-25"
 }
