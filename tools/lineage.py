@@ -28,6 +28,8 @@ Shape of the layout:
 
 import html
 
+import urls
+
 MAX_GENERATIONS = 6
 
 # Geometry, in SVG user units (1 unit = 1 CSS px at the rendered size).
@@ -303,7 +305,7 @@ def _node_svg(node):
     attrs = ' class="%s"' % " ".join(classes)
     if node["current"]:
         return "<g%s>%s</g>" % (attrs, body)
-    return '<a%s href="/s/%s/">%s</a>' % (attrs, _esc(node["id"]), body)
+    return '<a%s href="%s">%s</a>' % (attrs, _esc(urls.strain(node["id"])), body)
 
 
 def _group(class_name, parts):

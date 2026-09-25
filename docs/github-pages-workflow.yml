@@ -1,0 +1,69 @@
+# GitHub Pages deploy for Stemma — a DRAFT, not a live workflow.
+#
+# The executor cannot write under .github/workflows/, so this file sits in docs/
+# where it is inert. Justin pastes it to .github/workflows/pages.yml to turn it
+# on, unchanged; nothing else in the repo reads it.
+#
+# It publishes the site as an org project site at https://justbost.com/stemma/,
+# which is why the build runs with --base /stemma/. There is deliberately no
+# CNAME file anywhere: the org's own Pages site owns justbost.com, and a second
+# CNAME would fight it.
+#
+# Before the first run, in Settings → Pages, set Source to "GitHub Actions".
+#
+# This does not replace the Cloudflare Pages deploy. That one builds with the
+# default base (/) and keeps serving stemma.neworbitdigital.com until the
+# cutover, which is a separate unit.
+
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# One deploy at a time. In-progress runs finish rather than being cancelled, so
+# a half-uploaded artifact is never what lands.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Check out the catalog
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      # Stdlib only, so there is nothing to install.
+      - name: Validate the catalog
+        run: python3 tools/validate.py
+
+      - name: Run the test suite
+        run: python3 tools/run_tests.py
+
+      # A project site lives under /stemma/, so every internal URL carries it.
+      - name: Build the site
+        run: python3 tools/build.py --base /stemma/ --out dist
+
+      - name: Upload the artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -6,7 +6,13 @@
   "use strict";
 
   var AGE_KEY = "stemma_age_ok";
-  var DATA_URL = "/data/stemma.json";
+
+  /* Where the site is mounted on its host. The build writes it onto <body>, so
+     the same script works at the root of stemma.neworbitdigital.com and under
+     /stemma/ on GitHub Pages. Falls back to the root for a page built before
+     the attribute existed. */
+  var BASE = (document.body && document.body.dataset.base) || "/";
+  var DATA_URL = BASE + "data/stemma.json";
   var MAX_RESULTS = 20;
 
   /* Fold a name to comparable form: "Skunk #1" and "skunk 1" both -> "skunk1". */
@@ -174,7 +180,7 @@
   function resultItem(entry, href) {
     var item = document.createElement("li");
     var link = document.createElement("a");
-    link.href = href || "/s/" + encodeURIComponent(entry.id) + "/";
+    link.href = href || BASE + "s/" + encodeURIComponent(entry.id) + "/";
 
     var name = document.createElement("span");
     name.className = "result__name";

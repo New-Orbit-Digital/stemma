@@ -34,6 +34,7 @@ import html
 import math
 
 import lineage
+import urls
 
 # Curve geometry, in degrees on the lat/lon plane the map projects.
 ARC_STEPS = 24  # sampled points per arc = ARC_STEPS + 1
@@ -268,7 +269,7 @@ def _esc(value):
 
 
 def _strain_href(strain_id):
-    return "/s/%s/" % strain_id
+    return urls.strain(strain_id)
 
 
 def _member_row(member):
