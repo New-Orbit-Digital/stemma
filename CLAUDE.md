@@ -4,7 +4,7 @@
 ## What this repo is
 - The Stemma strain-lineage catalog (`catalog/strains/*.json`).
 - Stdlib-only Python tooling (`tools/`).
-- A static site compiled into `dist/` and hosted on Cloudflare Pages at `https://stemma.neworbitdigital.com`.
+- A static site compiled into `dist/` and hosted on GitHub Pages at `https://justbost.com/stemma/` (`.github/workflows/pages.yml`, built with `--base /stemma/`). Cloudflare Pages (`stemma.neworbitdigital.com`) still builds at base `/` and is being retired to a 301 redirect.
 - Context: `docs/always.md`. State: `docs/current.md`. Card contract: `docs/schema.md`.
 
 ## The pipe
