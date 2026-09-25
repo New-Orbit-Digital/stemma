@@ -1,0 +1,18 @@
+{
+  "id": "hardcore-og",
+  "name": "Hardcore OG",
+  "aliases": [],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "**Hardcore OG** is a [[kind:cultivar|cultivar]] released by [[breeder:Nasha Genetics]] as a self-pollinated (S1) selection from a [[skywalker-og|Skywalker OG]] cross with an unnamed Kush line.",
+  "born": { "unknown": true, "display": "undated" },
+  "origin": { "unknown": true },
+  "breeder": "Nasha Genetics",
+  "parents": ["skywalker-og"],
+  "traditional_label": "indica",
+  "growing": { "environment": "both", "flowering_weeks": { "min": 8, "max": 9 } },
+  "sources": [
+    { "title": "Hardcore OG (Nasha Genetics)", "publisher": "SeedFinder.eu", "category": "database", "url": "https://seedfinder.eu/en/strain-info/hardcore-og/nasha-genetics", "accessed": "2026-09-25" }
+  ],
+  "updated": "2026-09-25"
+}

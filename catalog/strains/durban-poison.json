@@ -1,0 +1,47 @@
+{
+  "id": "durban-poison",
+  "name": "Durban Poison",
+  "aliases": [
+    "Durban"
+  ],
+  "kind": "landrace",
+  "status": "draft",
+  "summary": "**Durban Poison** is a [[kind:landrace|landrace]] [[label:sativa|sativa]] from the Durban region of [[country:ZA|South Africa]]. American writer Ed Rosenthal is credited with bringing seed to the United States in the 1970s, after which it spread through the American cannabis trade. It flowers in 12 to 16 weeks and grows both indoors and outdoors.",
+  "born": {
+    "unknown": true,
+    "display": "traditional"
+  },
+  "origin": {
+    "place": "Durban, KwaZulu-Natal",
+    "country": "ZA",
+    "lat": -29.9,
+    "lon": 31.0
+  },
+  "breeder": null,
+  "parents": [],
+  "traditional_label": "sativa",
+  "growing": {
+    "environment": "both",
+    "flowering_weeks": {
+      "min": 12,
+      "max": 16
+    }
+  },
+  "sources": [
+    {
+      "title": "Durban Poison (The Landrace Team) :: Cannabis Strain Info",
+      "publisher": "SeedFinder.eu",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/durban-poison/the-landrace-team",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Durban Poison Marijuana Strain Information & Reviews",
+      "publisher": "AllBud",
+      "category": "database",
+      "url": "https://www.allbud.com/marijuana-strains/sativa/durban-poison",
+      "accessed": "2026-09-24"
+    }
+  ],
+  "updated": "2026-09-24"
+}

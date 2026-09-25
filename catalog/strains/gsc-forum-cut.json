@@ -1,0 +1,34 @@
+{
+  "id": "gsc-forum-cut",
+  "name": "GSC Forum Cut",
+  "aliases": [
+    "Forum Cut",
+    "Forum Cut Cookies",
+    "Girl Scout Cookies Forum Cut"
+  ],
+  "kind": "cut",
+  "status": "draft",
+  "summary": "**GSC Forum Cut** is a [[kind:cut|phenotype]] of [[gsc|GSC]] that circulated among growers through online cultivation forums in the early 2010s. It is one of several distinct clones selected from GSC's original seed population, alongside the [[thin-mint-gsc|Thin Mint]] and [[platinum-gsc|Platinum]] cuts. No formal breeder is credited with isolating it.",
+  "born": {
+    "unknown": true,
+    "display": "unknown; circulating by the early 2010s"
+  },
+  "origin": {
+    "unknown": true
+  },
+  "breeder": null,
+  "parents": [
+    "gsc"
+  ],
+  "traditional_label": "hybrid",
+  "sources": [
+    {
+      "title": "GSC Forum Cut (Clone Only Strains) :: Lineage & Hybrids",
+      "publisher": "SeedFinder.eu",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/gsc-forum-cut/clone-only-strains/genealogy",
+      "accessed": "2026-09-24"
+    }
+  ],
+  "updated": "2026-09-24"
+}

@@ -1,0 +1,46 @@
+{
+  "id": "sour-diesel",
+  "name": "Sour Diesel",
+  "aliases": [
+    "Sour D",
+    "East Coast Sour Diesel"
+  ],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "**Sour Diesel** is a [[kind:cultivar|cultivar]] that emerged in New York City around 1996, first grown by a breeder known as Joe Murray. The common account makes it a cross of [[chemdawg|Chemdawg]] and [[super-skunk|Super Skunk]], though its parentage is disputed and some place a [[mexican-sativa|Mexican sativa]] in its background. It has since been distributed as clones and seed by numerous breeders.",
+  "born": {
+    "year_min": 1990,
+    "year_max": 1999,
+    "display": "1990s"
+  },
+  "origin": {
+    "place": "New York City, New York",
+    "country": "US",
+    "lat": 40.7,
+    "lon": -74.0
+  },
+  "breeder": null,
+  "parents": [
+    "chemdawg",
+    "super-skunk"
+  ],
+  "traditional_label": "sativa",
+  "sources": [
+    {
+      "title": "Sour Diesel (Unknown or Legendary) :: Cannabis Strain Info",
+      "publisher": "SeedFinder.eu",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/sour-diesel/unknown-or-legendary",
+      "accessed": "2026-09-24",
+      "note": "Gives the general consensus as Chemdawg x Skunk (via Original Diesel, with Super Skunk) and credits Joe Murray, New York, around 1996."
+    },
+    {
+      "title": "Sour Diesel Marijuana Strain Information & Reviews",
+      "publisher": "AllBud",
+      "category": "database",
+      "url": "https://www.allbud.com/marijuana-strains/sativa-dominant-hybrid/sour-diesel",
+      "accessed": "2026-09-24"
+    }
+  ],
+  "updated": "2026-09-24"
+}

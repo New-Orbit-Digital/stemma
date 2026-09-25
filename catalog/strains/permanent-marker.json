@@ -1,0 +1,49 @@
+{
+  "id": "permanent-marker",
+  "name": "Permanent Marker",
+  "aliases": [],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "**Permanent Marker** is a [[kind:cultivar|cultivar]] bred by [[breeder:Seed Junky Genetics]] and released through the Doja Exclusive brand in 2022. It is a three-way cross of [[biscotti|Biscotti]], Sherb BX, and [[jealousy|Jealousy]].",
+  "born": {
+    "year_min": 2022,
+    "year_max": 2022,
+    "display": "2022"
+  },
+  "origin": {
+    "place": "California, USA",
+    "country": "US",
+    "lat": 36.8,
+    "lon": -119.4
+  },
+  "breeder": "Seed Junky Genetics",
+  "parents": [
+    "biscotti",
+    "jealousy"
+  ],
+  "traditional_label": "hybrid",
+  "growing": {
+    "environment": "both",
+    "flowering_weeks": {
+      "min": 8,
+      "max": 10
+    }
+  },
+  "sources": [
+    {
+      "title": "Permanent Marker (Seed Junky Genetics)",
+      "publisher": "SeedFinder",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/permanent-marker/seed-junky-genetics",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Permanent Marker",
+      "publisher": "Leafly",
+      "category": "database",
+      "url": "https://www.leafly.com/strains/permanent-marker",
+      "accessed": "2026-09-24"
+    }
+  ],
+  "updated": "2026-09-24"
+}

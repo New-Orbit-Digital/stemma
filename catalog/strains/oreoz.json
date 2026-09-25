@@ -1,0 +1,52 @@
+{
+  "id": "oreoz",
+  "name": "Oreoz",
+  "aliases": [
+    "Oreos"
+  ],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "**Oreoz** is a [[kind:cultivar|cultivar]] bred by [[breeder:3rd Coast Genetics]] in Michigan, as a cross of [[secret-weapon|Secret Weapon]] and [[cookies-and-cream|Cookies and Cream]]. It first circulated as an unnamed cut before Greenpoint Seeds began using it widely as a breeding parent.",
+  "born": {
+    "year_min": 2014,
+    "year_max": 2016,
+    "display": "mid-2010s"
+  },
+  "origin": {
+    "place": "Michigan, USA",
+    "country": "US",
+    "lat": 44.3,
+    "lon": -85.6
+  },
+  "breeder": "3rd Coast Genetics",
+  "parents": [
+    "secret-weapon",
+    "cookies-and-cream"
+  ],
+  "traditional_label": "indica",
+  "growing": {
+    "environment": "both",
+    "flowering_weeks": {
+      "min": 8,
+      "max": 9
+    }
+  },
+  "sources": [
+    {
+      "title": "Oreoz Strain",
+      "publisher": "Greenpoint Seeds",
+      "category": "breeder",
+      "url": "https://greenpointseeds.com/cannabis-strain-attributes/lineage/oreoz-strain/",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Oooze (3rd Coast Genetics)",
+      "publisher": "SeedFinder",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/oooze/3rd-coast-genetics",
+      "accessed": "2026-09-25",
+      "note": "L1-C audit 2026-09-25: SeedFinder lists Oreoz under the spelling Oooze; confirms 3rd Coast Genetics and Secret Weapon x Cookies and Cream."
+    }
+  ],
+  "updated": "2026-09-25"
+}

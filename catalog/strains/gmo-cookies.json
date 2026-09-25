@@ -1,0 +1,60 @@
+{
+  "id": "gmo-cookies",
+  "name": "GMO Cookies",
+  "aliases": [
+    "GMO",
+    "Garlic Cookies",
+    "Garlic Mushroom Onion",
+    "Chem Cookies"
+  ],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "**GMO Cookies** is a [[kind:cultivar|cultivar]] bred by [[breeder:Mamiko Seeds|Mamiko Seeds]] in Spain, a cross of [[chemdawg-d|Chemdawg D]] and the [[gsc-forum-cut|GSC Forum cut]]. Its GMO backronym stands for Garlic Mushroom Onion, describing the cross rather than genetic modification, and it is also sold as Garlic Cookies or Chem Cookies.",
+  "born": {
+    "unknown": true,
+    "display": "early-to-mid 2010s"
+  },
+  "origin": {
+    "place": "Spain",
+    "country": "ES",
+    "lat": 40.5,
+    "lon": -3.7
+  },
+  "breeder": "Mamiko Seeds",
+  "parents": [
+    "chemdawg-d",
+    "gsc-forum-cut"
+  ],
+  "traditional_label": "hybrid",
+  "growing": {
+    "environment": "unknown",
+    "flowering_weeks": {
+      "min": 8,
+      "max": 9
+    }
+  },
+  "sources": [
+    {
+      "title": "GMO Cookies (Mamiko Seeds)",
+      "publisher": "SeedFinder.eu",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/gmo-cookies/mamiko-seeds",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "GMO Cookies: Strain Information",
+      "publisher": "CannaConnection",
+      "category": "publication",
+      "url": "https://www.cannaconnection.com/strains/gmo-cookies",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "GMO Cookies",
+      "publisher": "AllBud",
+      "category": "database",
+      "url": "https://www.allbud.com/marijuana-strains/hybrid/gmo-cookies",
+      "accessed": "2026-09-24"
+    }
+  ],
+  "updated": "2026-09-24"
+}

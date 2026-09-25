@@ -1,0 +1,46 @@
+{
+  "id": "trainwreck",
+  "name": "Trainwreck",
+  "aliases": [
+    "Train Wreck",
+    "Arcata Trainwreck"
+  ],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "**Trainwreck** is a [[kind:cultivar|cultivar]] that originated near Arcata, in Humboldt County, California, with accounts placing its creation anywhere from the mid-1970s to the late 1980s. A cross of [[mexican-sativa|Mexican Sativa]], [[thai|Thai]], and [[afghani|Afghani]] landraces, it takes its name from a local train-derailment legend. Some sources instead describe it as a cross of [[northern-lights|Northern Lights]] and Mexican sativa.",
+  "born": {
+    "year_min": 1975,
+    "year_max": 1989,
+    "display": "mid-1970s to late 1980s"
+  },
+  "origin": {
+    "place": "Arcata, Humboldt County, California",
+    "country": "US",
+    "lat": 40.9,
+    "lon": -124.1
+  },
+  "breeder": null,
+  "parents": [
+    "mexican-sativa",
+    "thai",
+    "afghani"
+  ],
+  "traditional_label": "sativa",
+  "sources": [
+    {
+      "title": "Trainwreck Marijuana Strain Information & Reviews",
+      "publisher": "AllBud",
+      "category": "database",
+      "url": "https://www.allbud.com/marijuana-strains/sativa-dominant-hybrid/trainwreck",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Arcata Trainwreck (1976)",
+      "publisher": "HENDRX",
+      "category": "community",
+      "url": "https://www.hendrx.farm/cultivar/trainwreck-1976/",
+      "accessed": "2026-09-24"
+    }
+  ],
+  "updated": "2026-09-24"
+}

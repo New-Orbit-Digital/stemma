@@ -1,0 +1,48 @@
+{
+  "id": "jet-fuel",
+  "name": "Jet Fuel",
+  "aliases": [
+    "G6"
+  ],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "**Jet Fuel** is a [[kind:cultivar|hybrid]] bred by [[breeder:303 Seeds]] in Colorado, crossing [[aspen-og|Aspen OG]] with [[high-country-diesel|High Country Diesel]]. The G6 alias originated with the breeder, and Jet Fuel and Jet Fuel OG denote the same cut. It differs from [[jet-fuel-gelato|Jet Fuel Gelato]], a later cross adding [[gelato|Gelato]] lineage.",
+  "origin": {
+    "place": "Colorado, USA",
+    "country": "US",
+    "lat": 39.0,
+    "lon": -105.5
+  },
+  "breeder": "303 Seeds",
+  "parents": [
+    "aspen-og",
+    "high-country-diesel"
+  ],
+  "traditional_label": "hybrid",
+  "growing": {
+    "environment": "both",
+    "flowering_weeks": {
+      "min": 8,
+      "max": 10
+    }
+  },
+  "sources": [
+    {
+      "title": "Jet Fuel Strain (Aspen OG x High Country Diesel)",
+      "publisher": "Strainpedia",
+      "category": "database",
+      "url": "https://www.strainpedia.com/jet-fuel/",
+      "accessed": "2026-09-24",
+      "note": "Lineage and flowering time"
+    },
+    {
+      "title": "Jet Fuel Strain (G6): Real Lineage",
+      "publisher": "Diesel Hemp",
+      "category": "publication",
+      "url": "https://dieselhemp.com/blogs/encyclopedia/jet-fuel-strain",
+      "accessed": "2026-09-24",
+      "note": "Breeder (303 Seeds), G6 alias origin, distinction from Jet Fuel Gelato"
+    }
+  ],
+  "updated": "2026-09-25"
+}

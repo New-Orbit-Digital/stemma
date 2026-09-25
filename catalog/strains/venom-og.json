@@ -1,0 +1,17 @@
+{
+  "id": "venom-og",
+  "name": "Venom OG",
+  "aliases": [],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "**Venom OG** is a [[kind:cultivar|cultivar]] and a cross of [[poison-og|Poison OG]] and [[rare-dankness-1|Rare Dankness #1]].",
+  "born": { "unknown": true, "display": "undated" },
+  "origin": { "unknown": true },
+  "breeder": null,
+  "parents": ["poison-og", "rare-dankness-1"],
+  "traditional_label": "hybrid",
+  "sources": [
+    { "title": "Venom OG Strain (Poison OG × Rare Dankness #1)", "publisher": "Strainpedia", "category": "community", "url": "https://www.strainpedia.com/venom-og/", "accessed": "2026-09-25" }
+  ],
+  "updated": "2026-09-25"
+}

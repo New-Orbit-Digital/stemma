@@ -1,7 +1,49 @@
 {
   "id": "silver-pearl",
   "name": "Silver Pearl",
+  "aliases": [],
   "kind": "cultivar",
-  "status": "stub",
+  "status": "draft",
+  "summary": "**Silver Pearl** is a [[kind:cultivar|cultivar]] bred by [[breeder:Sensi Seeds|Sensi Seeds]] in the Netherlands, a cross of [[early-skunk|Early Skunk]] and [[northern-lights-5|Northern Lights #5]]. Early Skunk itself traces to repeated crosses of [[skunk-1|Skunk #1]] and [[early-pearl|Early Pearl]]. The line is grown indoors and in greenhouses, finishing in 6 to 7 weeks.",
+  "born": {
+    "year_min": 1988,
+    "year_max": 1993,
+    "display": "early 1990s"
+  },
+  "origin": {
+    "place": "Netherlands",
+    "country": "NL",
+    "lat": 52.4,
+    "lon": 4.9
+  },
+  "breeder": "Sensi Seeds",
+  "parents": [
+    "early-skunk",
+    "northern-lights-5"
+  ],
+  "traditional_label": "hybrid",
+  "growing": {
+    "environment": "both",
+    "flowering_weeks": {
+      "min": 6,
+      "max": 7
+    }
+  },
+  "sources": [
+    {
+      "title": "Silver Pearl (Sensi Seeds) :: Cannabis Strain Info",
+      "publisher": "SeedFinder.eu",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/silver-pearl/sensi-seeds",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Silver Pearl (Sensi Seeds) :: Lineage & Hybrids",
+      "publisher": "SeedFinder.eu",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/silver-pearl/sensi-seeds/genealogy",
+      "accessed": "2026-09-24"
+    }
+  ],
   "updated": "2026-09-24"
 }

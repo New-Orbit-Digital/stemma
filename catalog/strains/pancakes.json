@@ -1,0 +1,34 @@
+{
+  "id": "pancakes",
+  "name": "Pancakes",
+  "aliases": [],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "**Pancakes** is a [[kind:cultivar|cultivar]] bred by [[breeder:Cookie Fam Genetics]] following the 2017 collaboration between [[breeder:Seed Junky Genetics]] and Cookies. A cross of [[london-pound-cake|London Pound Cake]] and [[kush-mints|Kush Mints]], the original cut was never made available to home growers, though other seed banks later released their own versions.",
+  "born": {
+    "unknown": true,
+    "display": "unknown"
+  },
+  "origin": {
+    "place": "California, United States",
+    "country": "US",
+    "lat": 36.8,
+    "lon": -119.4
+  },
+  "breeder": "Cookie Fam Genetics",
+  "parents": [
+    "london-pound-cake",
+    "kush-mints"
+  ],
+  "traditional_label": "indica",
+  "sources": [
+    {
+      "title": "Pancakes (Cookie Fam Genetics)",
+      "publisher": "SeedFinder.eu",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/pancakes/cookie-fam-genetics",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "updated": "2026-09-25"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "mass-super-skunk",
+  "name": "Mass Super Skunk",
+  "aliases": [],
+  "kind": "cut",
+  "status": "draft",
+  "summary": "**Mass Super Skunk** is a [[kind:cut|cut]] first selected by growers in Western Massachusetts in the late 1980s. It is described as a cross of [[skunk-1|Skunk #1]] and [[hash-plant|Hash Plant]], propagated only as a clone. Its exact breeder is not documented.",
+  "born": { "year_min": 1985, "year_max": 1989, "display": "late 1980s" },
+  "origin": { "place": "Western Massachusetts, USA", "country": "US", "lat": 42.4, "lon": -72.6 },
+  "breeder": null,
+  "parents": ["skunk-1", "hash-plant"],
+  "traditional_label": "hybrid",
+  "sources": [
+    { "title": "Mass Super Skunk: The East Coast Foundation", "publisher": "PiffinTen", "category": "community", "url": "https://www.piffinten.com/2026/02/Mass-Super-Skunk.html", "accessed": "2026-09-25", "note": "Its claim that Mass Super Skunk crossed with a Northern Lights male produced Chem 91 conflicts with the already-cited High Times account on the chemdawg card, so that part was left out here." }
+  ],
+  "updated": "2026-09-25"
+}

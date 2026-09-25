@@ -1,7 +1,38 @@
 {
   "id": "chitral",
   "name": "Chitral",
+  "aliases": [],
   "kind": "landrace",
-  "status": "stub",
+  "status": "draft",
+  "summary": "**Chitral** is a [[kind:landrace|landrace]] [[label:indica|indica]] from the Chitral district of [[country:PK|Pakistan]], in the Hindu Kush foothills of Khyber Pakhtunkhwa. Seed has been preserved and distributed by collectors such as the Landrace Team. It flowers indoors in 8 to 9 weeks and outdoors in late September to early October in the Northern Hemisphere.",
+  "born": {
+    "unknown": true,
+    "display": "traditional"
+  },
+  "origin": {
+    "place": "Chitral, Khyber Pakhtunkhwa",
+    "country": "PK",
+    "lat": 35.9,
+    "lon": 71.8
+  },
+  "breeder": null,
+  "parents": [],
+  "traditional_label": "indica",
+  "growing": {
+    "environment": "both",
+    "flowering_weeks": {
+      "min": 8,
+      "max": 9
+    }
+  },
+  "sources": [
+    {
+      "title": "Chitral (The Landrace Team) :: Cannabis Strain Info",
+      "publisher": "SeedFinder.eu",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/chitral/the-landrace-team",
+      "accessed": "2026-09-24"
+    }
+  ],
   "updated": "2026-09-24"
 }

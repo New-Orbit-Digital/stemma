@@ -1,0 +1,34 @@
+{
+  "id": "tres-dawg",
+  "name": "Tres Dawg",
+  "aliases": [
+    "Tres Dog"
+  ],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "**Tres Dawg** is a [[kind:cultivar|cultivar]] bred by [[breeder:Top Dawg Seeds]], a cross of [[chemdawg-d|Chem D]] and [[double-dawg|Double Dawg]]. Double Dawg is itself Chem D backcrossed onto a cross of Chem D and [[afghani-1|Afghani #1]]. Crossed with [[chemdawg-4|Chemdawg 4]], Tres Dawg later parented [[stardawg|Stardawg]].",
+  "born": {
+    "unknown": true,
+    "display": "undated"
+  },
+  "origin": {
+    "unknown": true
+  },
+  "breeder": "Top Dawg Seeds",
+  "parents": [
+    "chemdawg-d",
+    "double-dawg"
+  ],
+  "traditional_label": "hybrid",
+  "sources": [
+    {
+      "title": "Tres Dawg (Top Dawg Seeds)",
+      "publisher": "SeedFinder.eu",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/tres-dawg/top-dawg-seeds",
+      "accessed": "2026-09-25",
+      "note": "L1-C audit 2026-09-25: gives Top Dawg Seeds and Chem D x Double Dawg, with Double Dawg as Chem D x (Chem D x Afghani #1)."
+    }
+  ],
+  "updated": "2026-09-25"
+}

@@ -1,0 +1,19 @@
+{
+  "id": "707-headband",
+  "name": "707 Headband",
+  "aliases": [
+    "Headband 707"
+  ],
+  "kind": "cut",
+  "status": "draft",
+  "summary": "**707 Headband** is a [[kind:cut|cut]] of [[headband|Headband]] selected in Northern California's Emerald Triangle, named for the region's 707 area code. [[breeder:Humboldt Seed Organization]] stabilized and released the cut.",
+  "born": { "unknown": true, "display": "undated" },
+  "origin": { "place": "Humboldt County, California, USA", "country": "US", "lat": 40.7, "lon": -123.9 },
+  "breeder": "Humboldt Seed Organization",
+  "parents": ["headband"],
+  "traditional_label": "hybrid",
+  "sources": [
+    { "title": "707 Headband: Genetics and Origin", "publisher": "Kind Green Buds", "category": "community", "url": "https://kindgreenbuds.com/marijuana-strains/707-headband/", "accessed": "2026-09-25" }
+  ],
+  "updated": "2026-09-25"
+}

@@ -1,0 +1,50 @@
+{
+  "id": "chemdawg-4",
+  "name": "Chemdawg 4",
+  "aliases": [
+    "Chem 4",
+    "Chem #4",
+    "Chemdawg #4",
+    "Reunion Pheno"
+  ],
+  "kind": "cut",
+  "status": "draft",
+  "summary": "Chemdawg 4 is a [[kind:cut|cut]] from one of the last original [[chemdawg|Chemdawg]] seeds, four of which Chemdog gave to the grower Joe Brand in 2006. Brand kept the fourth plant, known as the Reunion Pheno. It is a sibling of Chem 91 and a parent of Gorilla Glue #4.",
+  "born": {
+    "year_min": 2006,
+    "year_max": 2006,
+    "display": "2006"
+  },
+  "origin": {
+    "unknown": true
+  },
+  "breeder": "Chemdog",
+  "parents": [],
+  "traditional_label": "hybrid",
+  "growing": {
+    "environment": "indoor",
+    "flowering_weeks": {
+      "min": 9,
+      "max": 11
+    }
+  },
+  "sources": [
+    {
+      "title": "25 Years of Chem Dog",
+      "publisher": "High Times",
+      "category": "publication",
+      "url": "https://hightimes.com/grow/25-years-of-chem-dog/",
+      "accessed": "2026-09-24",
+      "note": "Planner-verified 2026-09-24: confirms that Chemdog gave four of his last six seeds to Joe Brand in 2006, who picked Chem #4 as the Reunion Pheno."
+    },
+    {
+      "title": "Chemdawg 4 Strain",
+      "publisher": "Prime Cuts Nursery",
+      "category": "community",
+      "url": "https://www.primecutsnursery.com/strains/chemdawg-4",
+      "accessed": "2026-09-24",
+      "note": "Gives 63–77 days of flowering and the Gorilla Glue #4 connection."
+    }
+  ],
+  "updated": "2026-09-24"
+}

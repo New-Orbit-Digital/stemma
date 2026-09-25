@@ -1,0 +1,19 @@
+{
+  "id": "blue-sunset-sherbet",
+  "name": "Blue Sunset Sherbet",
+  "aliases": [
+    "Blue Sunset Sherbert"
+  ],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "**Blue Sunset Sherbet** is a [[kind:cultivar|cultivar]] from [[breeder:Barney's Farm]], crossing [[sunset-sherbet|Sunset Sherbet]] and [[purple-punch|Purple Punch]].",
+  "born": { "unknown": true, "display": "undated" },
+  "origin": { "unknown": true },
+  "breeder": "Barney's Farm",
+  "parents": ["sunset-sherbet", "purple-punch"],
+  "traditional_label": "indica",
+  "sources": [
+    { "title": "Blue Sunset Sherbet Strain (Sunset Sherbet × Purple Punch)", "publisher": "Strainpedia", "category": "database", "url": "https://www.strainpedia.com/blue-sunset-sherbet/", "accessed": "2026-09-25" }
+  ],
+  "updated": "2026-09-25"
+}

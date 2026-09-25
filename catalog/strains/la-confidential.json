@@ -1,0 +1,58 @@
+{
+  "id": "la-confidential",
+  "name": "LA Confidential",
+  "aliases": [
+    "L.A. Confidential"
+  ],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "**LA Confidential** is a [[kind:cultivar|cultivar]] bred by [[breeder:DNA Genetics]] in the early 2000s. A cross of [[og-la-affie|OG LA Affie]] and [[afghani|Afghani]], it pairs a Los Angeles OG cut with Afghan indica ancestry. It won the Cannabis Cup's indica category in 2006 and 2008.",
+  "born": {
+    "year_min": 2000,
+    "year_max": 2003,
+    "display": "early 2000s"
+  },
+  "origin": {
+    "place": "Los Angeles, California, United States",
+    "country": "US",
+    "lat": 34.1,
+    "lon": -118.2
+  },
+  "breeder": "DNA Genetics",
+  "parents": [
+    "og-la-affie",
+    "afghani"
+  ],
+  "traditional_label": "indica",
+  "growing": {
+    "environment": "unknown",
+    "flowering_weeks": {
+      "min": 8,
+      "max": 9
+    }
+  },
+  "sources": [
+    {
+      "title": "L.A. Confidential (DNA Genetics Seeds)",
+      "publisher": "SeedFinder.eu",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/la-confidential/dna-genetics-seeds",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "LA Confidential Cannabis Strain",
+      "publisher": "DNA Genetics",
+      "category": "breeder",
+      "url": "https://dnagenetics.com/la-confidential-cannabis-strain-2/",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Strain Spotlight: LA Confidential and the Reinforcement of Modern Indica Structure",
+      "publisher": "Beard Bros Pharms",
+      "category": "publication",
+      "url": "https://beardbrospharms.com/articles/strain-spotlight-la-confidential-and-the-reinforcement-of-modern-indica-structure/",
+      "accessed": "2026-09-24"
+    }
+  ],
+  "updated": "2026-09-24"
+}

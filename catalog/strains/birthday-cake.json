@@ -1,0 +1,33 @@
+{
+  "id": "birthday-cake",
+  "name": "Birthday Cake",
+  "aliases": [
+    "Birthday Cake Kush"
+  ],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "**Birthday Cake** is a [[kind:cultivar|cultivar]] and a cross of [[gsc|GSC]] and [[cherry-pie|Cherry Pie]]. Its breeder is not documented, and it is grown as a balanced hybrid, evenly split between indica and sativa traits.",
+  "born": {
+    "unknown": true,
+    "display": "unknown"
+  },
+  "origin": {
+    "unknown": true
+  },
+  "breeder": null,
+  "parents": [
+    "gsc",
+    "cherry-pie"
+  ],
+  "traditional_label": "hybrid",
+  "sources": [
+    {
+      "title": "Birthday Cake",
+      "publisher": "CannaConnection",
+      "category": "database",
+      "url": "https://www.cannaconnection.com/strains/birthday-cake",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "updated": "2026-09-25"
+}

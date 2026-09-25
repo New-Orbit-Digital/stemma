@@ -1,0 +1,50 @@
+{
+  "id": "pink-kush",
+  "name": "Pink Kush",
+  "aliases": [],
+  "kind": "cut",
+  "status": "draft",
+  "summary": "**Pink Kush** is a clone-only [[kind:cut|cut]] of [[og-kush|OG Kush]] that emerged in British Columbia, [[country:CA|Canada]], in the 1990s and early 2000s. Growers isolated and preserved the phenotype through cloning rather than seed, and it became a widely grown cultivar across Western Canada, gaining broader distribution after Canada's 2018 legalization.",
+  "born": {
+    "year_min": 1990,
+    "year_max": 2005,
+    "display": "1990s–2000s"
+  },
+  "origin": {
+    "place": "British Columbia, Canada",
+    "country": "CA",
+    "lat": 53.7,
+    "lon": -127.6
+  },
+  "breeder": null,
+  "parents": [
+    "og-kush"
+  ],
+  "traditional_label": "indica",
+  "growing": {
+    "environment": "indoor",
+    "flowering_weeks": {
+      "min": 8,
+      "max": 9
+    }
+  },
+  "sources": [
+    {
+      "title": "Pink Kush: A Comprehensive Strain Guide",
+      "publisher": "JointCommerce",
+      "category": "publication",
+      "url": "https://www.jointcommerce.com/blog/pink-kush-strain-a-comprehensive-strain-guide",
+      "accessed": "2026-09-24",
+      "note": "Origin, clone-only propagation, flowering time"
+    },
+    {
+      "title": "Pink Kush Marijuana Strain",
+      "publisher": "Kind Green Buds",
+      "category": "database",
+      "url": "https://kindgreenbuds.com/marijuana-strains/pink-kush/",
+      "accessed": "2026-09-24",
+      "note": "Confirms BC origin and OG Kush phenotype lineage"
+    }
+  ],
+  "updated": "2026-09-24"
+}

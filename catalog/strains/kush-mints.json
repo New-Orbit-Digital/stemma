@@ -1,0 +1,40 @@
+{
+  "id": "kush-mints",
+  "name": "Kush Mints",
+  "aliases": [
+    "Kush Mintz"
+  ],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "**Kush Mints** is a [[kind:cultivar|cultivar]] bred by [[breeder:Seed Junky Genetics|Seed Junky Genetics]] in California. A cross of [[bubba-kush|Bubba Kush]] and [[animal-mints|Animal Mints]], it is grown as a [[label:hybrid|hybrid]] with balanced indica and sativa traits.",
+  "born": {
+    "unknown": true,
+    "display": "recent"
+  },
+  "origin": {
+    "unknown": true
+  },
+  "breeder": "Seed Junky Genetics",
+  "parents": [
+    "bubba-kush",
+    "animal-mints"
+  ],
+  "traditional_label": "hybrid",
+  "sources": [
+    {
+      "title": "Kush Mints (Seed Junky Genetics)",
+      "publisher": "SeedFinder.eu",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/kush-mints/seed-junky-genetics",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Kush Mint",
+      "publisher": "AllBud",
+      "category": "database",
+      "url": "https://www.allbud.com/marijuana-strains/hybrid/kush-mint",
+      "accessed": "2026-09-24"
+    }
+  ],
+  "updated": "2026-09-24"
+}

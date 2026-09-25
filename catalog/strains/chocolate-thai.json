@@ -1,0 +1,39 @@
+{
+  "id": "chocolate-thai",
+  "name": "Chocolate Thai",
+  "aliases": [
+    "Chocolate Tai"
+  ],
+  "kind": "landrace",
+  "status": "draft",
+  "summary": "**Chocolate Thai** is a [[kind:landrace|landrace]] [[label:sativa|sativa]] traditionally grown in [[country:TH|Thailand]]. It reached the United States in the 1960s, sold as dried, bamboo-tied buds known as Thai sticks. Its original pure form is thought to no longer exist, with most seed sold under the name since crossed with other genetics.",
+  "born": {
+    "unknown": true,
+    "display": "traditional"
+  },
+  "origin": {
+    "place": "Thailand",
+    "country": "TH",
+    "lat": 15.9,
+    "lon": 100.0
+  },
+  "parents": [],
+  "traditional_label": "sativa",
+  "sources": [
+    {
+      "title": "Chocolate Thai",
+      "publisher": "Leafly",
+      "category": "database",
+      "url": "https://www.leafly.com/strains/chocolate-thai",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Chocolate Thai (Unknown or Legendary)",
+      "publisher": "SeedFinder",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/chocolate-thai/unknown-or-legendary",
+      "accessed": "2026-09-24"
+    }
+  ],
+  "updated": "2026-09-24"
+}

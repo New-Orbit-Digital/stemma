@@ -1,0 +1,41 @@
+{
+  "id": "lemon-thai",
+  "name": "Lemon Thai",
+  "aliases": [
+    "LTH"
+  ],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "Lemon Thai is a [[kind:cultivar|cultivar]] credited to [[breeder:Dutch Flowers]], a cross of [[thai|Thai]] and [[hawaiian|Hawaiian]] stock. It is best known as one of the parents commonly given for [[og-kush|OG Kush]]. Its release date is not recorded.",
+  "born": {
+    "unknown": true,
+    "display": "undated"
+  },
+  "origin": {
+    "unknown": true
+  },
+  "breeder": "Dutch Flowers",
+  "parents": [
+    "thai",
+    "hawaiian"
+  ],
+  "traditional_label": "sativa",
+  "growing": {
+    "environment": "both",
+    "flowering_weeks": {
+      "min": 10,
+      "max": 10
+    }
+  },
+  "sources": [
+    {
+      "title": "Lemon Thai",
+      "publisher": "Leafly",
+      "category": "database",
+      "url": "https://www.leafly.com/strains/lemon-thai",
+      "accessed": "2026-09-24",
+      "note": "Planner-verified 2026-09-24: confirms the Thai x Hawaiian cross, Dutch Flowers as producer, and a flowering time of about 10 weeks, indoors and out."
+    }
+  ],
+  "updated": "2026-09-24"
+}

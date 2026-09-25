@@ -1,0 +1,31 @@
+{
+  "id": "berry-pie",
+  "name": "Berry Pie",
+  "aliases": [],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "**Berry Pie** is a [[kind:cultivar|cultivar]] and a cross of [[gsc|GSC]] and [[blueberry|Blueberry]]. It circulates as a clone-only cut, and has itself been used as a parent of Brass Monkey, Huckleberry Pie, and other crosses. It is grown as a mostly sativa hybrid.",
+  "born": {
+    "unknown": true,
+    "display": "unknown"
+  },
+  "origin": {
+    "unknown": true
+  },
+  "breeder": null,
+  "parents": [
+    "gsc",
+    "blueberry"
+  ],
+  "traditional_label": "sativa",
+  "sources": [
+    {
+      "title": "Berry Pie (Clone Only Strains)",
+      "publisher": "SeedFinder.eu",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/berry-pie/clone-only-strains",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "updated": "2026-09-25"
+}

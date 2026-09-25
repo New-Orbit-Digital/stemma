@@ -1,0 +1,41 @@
+{
+  "id": "true-og",
+  "name": "True OG",
+  "aliases": [],
+  "kind": "cut",
+  "status": "draft",
+  "summary": "**True OG** is a [[kind:cut|cut]] phenotype of [[og-kush|OG Kush]] traced to Topanga Canyon in the Los Angeles area. The San Jose collective Elemental Wellness acquired cuttings in 2004, and [[breeder:Elemental Seeds]] later released a stabilized feminized-seed version.",
+  "born": {
+    "year_min": 2004,
+    "year_max": 2004,
+    "display": "2004"
+  },
+  "origin": {
+    "place": "Topanga Canyon, Los Angeles County, California, USA",
+    "country": "US",
+    "lat": 34.1,
+    "lon": -118.6
+  },
+  "breeder": "Elemental Seeds",
+  "parents": [
+    "og-kush"
+  ],
+  "traditional_label": "indica",
+  "growing": {
+    "environment": "both",
+    "flowering_weeks": {
+      "min": 8,
+      "max": 9
+    }
+  },
+  "sources": [
+    {
+      "title": "The True OG (Elemental Seeds)",
+      "publisher": "SeedFinder",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/the-true-og/elemental-seeds",
+      "accessed": "2026-09-24"
+    }
+  ],
+  "updated": "2026-09-24"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "blue-mystic",
+  "name": "Blue Mystic",
+  "aliases": [],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "**Blue Mystic** is a [[kind:cultivar|cultivar]] from [[breeder:Nirvana Seeds]], crossing a [[flo|Flo]] × [[afghani|Afghani]] hybrid with [[blueberry|Blueberry]]. It was selected for a blue tint that appears partway through flowering.",
+  "born": { "unknown": true, "display": "undated" },
+  "origin": { "unknown": true },
+  "breeder": "Nirvana Seeds",
+  "parents": ["flo", "afghani", "blueberry"],
+  "traditional_label": "hybrid",
+  "sources": [
+    { "title": "Blue Mystic (Nirvana Seeds)", "publisher": "SeedFinder.eu", "category": "database", "url": "https://seedfinder.eu/en/strain-info/blue-mystic/nirvana-seeds", "accessed": "2026-09-25" }
+  ],
+  "updated": "2026-09-25"
+}

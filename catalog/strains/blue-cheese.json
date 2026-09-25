@@ -1,0 +1,49 @@
+{
+  "id": "blue-cheese",
+  "name": "Blue Cheese",
+  "aliases": [],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "**Blue Cheese** is a [[kind:cultivar|cultivar]] bred by [[breeder:Big Buddha Seeds]] in the [[country:GB|United Kingdom]], crossing a UK phenotype of [[cheese|Cheese]] with [[blueberry|Blueberry]]. It had won recognition at the High Times Cannabis Cup by 2006.",
+  "born": {
+    "year_min": 2004,
+    "year_max": 2006,
+    "display": "mid-2000s"
+  },
+  "origin": {
+    "place": "United Kingdom",
+    "country": "GB",
+    "lat": 54.0,
+    "lon": -2.0
+  },
+  "breeder": "Big Buddha Seeds",
+  "parents": [
+    "cheese",
+    "blueberry"
+  ],
+  "traditional_label": "indica",
+  "growing": {
+    "environment": "both",
+    "flowering_weeks": {
+      "min": 8,
+      "max": 10
+    }
+  },
+  "sources": [
+    {
+      "title": "Blue Cheese (Big Buddha Seeds)",
+      "publisher": "SeedFinder",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/blue-cheese/big-buddha-seeds",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Blue Cheese (by Big Buddha Seeds) - Strain Review",
+      "publisher": "Grow Weed Easy",
+      "category": "publication",
+      "url": "https://www.growweedeasy.com/blue-cheese-big-buddha",
+      "accessed": "2026-09-24"
+    }
+  ],
+  "updated": "2026-09-24"
+}

@@ -1,0 +1,40 @@
+{
+  "id": "flo",
+  "name": "Flo",
+  "aliases": [
+    "DJ Short Flo"
+  ],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "**Flo** is a [[kind:cultivar|cultivar]] bred by DJ Short, a cross of [[purple-thai|Purple Thai]] and [[afghani|Afghani]] developed alongside his [[blueberry|Blueberry]] line. It was rated the top strain at the 1996 Cannabis Cup by Cannabis Canada Magazine and is grown as a sativa-leaning hybrid.",
+  "born": {
+    "unknown": true,
+    "display": "by 1996"
+  },
+  "origin": {
+    "unknown": true
+  },
+  "breeder": null,
+  "parents": [
+    "purple-thai",
+    "afghani"
+  ],
+  "traditional_label": "sativa",
+  "growing": {
+    "environment": "both",
+    "flowering_weeks": {
+      "min": 8,
+      "max": 9
+    }
+  },
+  "sources": [
+    {
+      "title": "Flo (DJ Short)",
+      "publisher": "SeedFinder.eu",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/flo/dj-short",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "updated": "2026-09-25"
+}

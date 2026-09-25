@@ -1,0 +1,40 @@
+{
+  "id": "ice-cream-cake",
+  "name": "Ice Cream Cake",
+  "aliases": [
+    "ICC"
+  ],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "**Ice Cream Cake** is a [[kind:cultivar|cultivar]] bred by [[breeder:Seed Junky Genetics|Seed Junky Genetics]]. A cross of [[wedding-cake|Wedding Cake]] and [[gelato-33|Gelato #33]], it is grown as an [[label:indica|indica]]-dominant hybrid.",
+  "born": {
+    "unknown": true,
+    "display": "recent"
+  },
+  "origin": {
+    "unknown": true
+  },
+  "breeder": "Seed Junky Genetics",
+  "parents": [
+    "wedding-cake",
+    "gelato-33"
+  ],
+  "traditional_label": "indica",
+  "sources": [
+    {
+      "title": "Ice Cream Cake (Seed Junky Genetics)",
+      "publisher": "SeedFinder.eu",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/ice-cream-cake/seed-junky-genetics",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Ice Cream Cake",
+      "publisher": "AllBud",
+      "category": "database",
+      "url": "https://www.allbud.com/marijuana-strains/indica/ice-cream-cake",
+      "accessed": "2026-09-24"
+    }
+  ],
+  "updated": "2026-09-24"
+}

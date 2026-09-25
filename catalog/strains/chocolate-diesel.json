@@ -1,0 +1,17 @@
+{
+  "id": "chocolate-diesel",
+  "name": "Chocolate Diesel",
+  "aliases": [],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "**Chocolate Diesel** is a [[kind:cultivar|cultivar]] crossing [[sour-diesel|Sour Diesel]] and [[chocolate-trip|Chocolate Trip]]. Its breeder is not documented.",
+  "born": { "unknown": true, "display": "undated" },
+  "origin": { "unknown": true },
+  "breeder": null,
+  "parents": ["sour-diesel", "chocolate-trip"],
+  "traditional_label": "hybrid",
+  "sources": [
+    { "title": "Chocolate Diesel Strain (Sour Diesel × Chocolate Trip)", "publisher": "Strainpedia", "category": "database", "url": "https://www.strainpedia.com/chocolate-diesel/", "accessed": "2026-09-25" }
+  ],
+  "updated": "2026-09-25"
+}

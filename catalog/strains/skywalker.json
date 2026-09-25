@@ -1,0 +1,17 @@
+{
+  "id": "skywalker",
+  "name": "Skywalker",
+  "aliases": [],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "**Skywalker** is a [[kind:cultivar|cultivar]] crossing [[mazar-i-sharif|Mazar-i-Sharif]] and [[blueberry|Blueberry]]. Crossed again with [[og-kush|OG Kush]], it became the base for [[skywalker-og|Skywalker OG]].",
+  "born": { "unknown": true, "display": "undated" },
+  "origin": { "unknown": true },
+  "breeder": null,
+  "parents": ["mazar-i-sharif", "blueberry"],
+  "traditional_label": "hybrid",
+  "sources": [
+    { "title": "Skywalker Strain: Lineage and Origin", "publisher": "Strainpedia", "category": "database", "url": "https://www.strainpedia.com/skywalker/", "accessed": "2026-09-25" }
+  ],
+  "updated": "2026-09-25"
+}

@@ -1,0 +1,38 @@
+{
+  "id": "tropicana-cookies",
+  "name": "Tropicana Cookies",
+  "aliases": [],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "**Tropicana Cookies** is a [[kind:cultivar|cultivar]] most commonly credited to [[breeder:Bloom Seed Co]]. It is a cross of [[gsc|GSC]] and [[tangie|Tangie]]. Some sources instead credit Oni Seed Co or Compound Genetics with the cross.",
+  "born": {
+    "unknown": true,
+    "display": "unknown"
+  },
+  "origin": {
+    "unknown": true
+  },
+  "breeder": "Bloom Seed Co",
+  "parents": [
+    "gsc",
+    "tangie"
+  ],
+  "traditional_label": "hybrid",
+  "sources": [
+    {
+      "title": "Tropicana Cookies (Bloom Seed Co) :: Lineage & Hybrids",
+      "publisher": "SeedFinder.eu",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/tropicana-cookies/bloom-seed-co/genealogy",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Tropicana Cookies Strain",
+      "publisher": "Strainpedia",
+      "category": "community",
+      "url": "https://www.strainpedia.com/tropicana-cookies/",
+      "accessed": "2026-09-24"
+    }
+  ],
+  "updated": "2026-09-25"
+}

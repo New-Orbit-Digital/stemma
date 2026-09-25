@@ -1,0 +1,41 @@
+{
+  "id": "purple-punch",
+  "name": "Purple Punch",
+  "aliases": [],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "**Purple Punch** is a [[kind:cultivar|cultivar]] released in seed form by [[breeder:Symbiotic Genetics]] of Sacramento, California, in 2017. A cross of [[larry-og|Larry OG]] and [[granddaddy-purple|Granddaddy Purple]], it had circulated as a clone before the public seed release. Some sources credit the original cross to Supernova Gardens instead.",
+  "born": {
+    "unknown": true,
+    "display": "unknown; seeds released 2017"
+  },
+  "origin": {
+    "place": "Sacramento, California, United States",
+    "country": "US",
+    "lat": 38.6,
+    "lon": -121.5
+  },
+  "breeder": "Symbiotic Genetics",
+  "parents": [
+    "larry-og",
+    "granddaddy-purple"
+  ],
+  "traditional_label": "indica",
+  "sources": [
+    {
+      "title": "Purple Punch Strain | Genetics, Grow Guide, Terpenes & Where to Buy",
+      "publisher": "purplepunchstrain.com",
+      "category": "publication",
+      "url": "https://purplepunchstrain.com/",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Symbiotic Genetics: The Sacramento Breeders Behind Mimosa and the Purple Punch Era",
+      "publisher": "Kind Green Buds",
+      "category": "publication",
+      "url": "https://kindgreenbuds.com/seed-banks/symbiotic-genetics/",
+      "accessed": "2026-09-24"
+    }
+  ],
+  "updated": "2026-09-24"
+}

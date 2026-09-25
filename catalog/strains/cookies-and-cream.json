@@ -1,0 +1,44 @@
+{
+  "id": "cookies-and-cream",
+  "name": "Cookies and Cream",
+  "aliases": [
+    "Cookies & Cream",
+    "Cookies N Cream"
+  ],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "**Cookies and Cream** is a [[kind:cultivar|cultivar]] bred by [[breeder:Exotic Genetix]] in Washington State. A cross of [[gsc|GSC]] and [[starfighter|Starfighter]], it combines GSC's cookie-line genetics with Starfighter's indica structure. The strain also circulates under the names Cookies & Cream and Cookies N Cream.",
+  "born": {
+    "unknown": true,
+    "display": "unknown"
+  },
+  "origin": {
+    "place": "Washington State, United States",
+    "country": "US",
+    "lat": 47.4,
+    "lon": -120.5
+  },
+  "breeder": "Exotic Genetix",
+  "parents": [
+    "gsc",
+    "starfighter"
+  ],
+  "traditional_label": "hybrid",
+  "sources": [
+    {
+      "title": "Cookies & Cream (Exotic Genetix) :: Lineage & Hybrids",
+      "publisher": "SeedFinder.eu",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/cookies-and-cream/exotic-genetix/genealogy",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Cookies and Cream",
+      "publisher": "CannaConnection",
+      "category": "publication",
+      "url": "https://www.cannaconnection.com/strains/cookies-and-cream",
+      "accessed": "2026-09-24"
+    }
+  ],
+  "updated": "2026-09-24"
+}

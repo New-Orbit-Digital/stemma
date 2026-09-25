@@ -1,0 +1,32 @@
+{
+  "id": "cheetah-piss",
+  "name": "Cheetah Piss",
+  "aliases": [],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "**Cheetah Piss** is a [[kind:cultivar|cultivar]] bred by [[breeder:LIT Farms]]. A three-way cross of [[lemonade|Lemonade]], a Gelato #42 phenotype of [[gelato|Gelato]], and [[london-pound-cake|London Pound Cake]] 97, it is grown as a sativa-leaning hybrid.",
+  "born": {
+    "unknown": true,
+    "display": "unknown"
+  },
+  "origin": {
+    "unknown": true
+  },
+  "breeder": "LIT Farms",
+  "parents": [
+    "lemonade",
+    "gelato",
+    "london-pound-cake"
+  ],
+  "traditional_label": "sativa",
+  "sources": [
+    {
+      "title": "Cheetah Piss Strain",
+      "publisher": "Strainpedia",
+      "category": "database",
+      "url": "https://www.strainpedia.com/cheetah-piss/",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "updated": "2026-09-25"
+}

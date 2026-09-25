@@ -1,0 +1,51 @@
+{
+  "id": "ghost-train-haze",
+  "name": "Ghost Train Haze",
+  "aliases": [
+    "GTH"
+  ],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "**Ghost Train Haze** is a [[kind:cultivar|cultivar]] bred by [[breeder:Rare Dankness]] founder Scott Reach in Colorado, with seeds first shared around 2011. A cross of [[ghost-og|Ghost OG]] and [[nevils-wreck|Nevil's Wreck]], it takes its name from its Ghost OG parent. It won top U.S. sativa at the 2014 Cannabis Cup in Denver.",
+  "born": {
+    "year_min": 2010,
+    "year_max": 2011,
+    "display": "around 2011"
+  },
+  "origin": {
+    "place": "Colorado, United States",
+    "country": "US",
+    "lat": 39.0,
+    "lon": -105.5
+  },
+  "breeder": "Rare Dankness",
+  "parents": [
+    "ghost-og",
+    "nevils-wreck"
+  ],
+  "traditional_label": "sativa",
+  "growing": {
+    "environment": "indoor",
+    "flowering_weeks": {
+      "min": 9,
+      "max": 11
+    }
+  },
+  "sources": [
+    {
+      "title": "Ghost Train Haze #1 (Rare Dankness Seeds) :: Cannabis Strain Info",
+      "publisher": "SeedFinder.eu",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/ghost-train-haze-nr1/rare-dankness-seeds",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Ghost Train Haze, marijuana review (Cannabis Cup winner)",
+      "publisher": "The Cannabist",
+      "category": "publication",
+      "url": "https://www.thecannabist.co/strains/ghost-train-haze-marijuana-review-strain-theory-cannabis-cup-u-s-sativa-winner/",
+      "accessed": "2026-09-24"
+    }
+  ],
+  "updated": "2026-09-24"
+}

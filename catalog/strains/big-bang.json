@@ -1,0 +1,17 @@
+{
+  "id": "big-bang",
+  "name": "Big Bang",
+  "aliases": [],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "**Big Bang** is a [[kind:cultivar|cultivar]] bred by [[breeder:Green House Seed Co.]], a three-way cross of [[skunk-1|Skunk]], [[northern-lights|Northern Lights]], and [[el-nino|El Niño]]. It placed third in the Cannabis Cup category at the 2001 High Times Cannabis Cup.",
+  "born": { "year_min": 2000, "year_max": 2001, "display": "by 2001" },
+  "origin": { "place": "Amsterdam, Netherlands", "country": "NL", "lat": 52.4, "lon": 4.9 },
+  "breeder": "Green House Seed Co.",
+  "parents": ["skunk-1", "northern-lights", "el-nino"],
+  "traditional_label": "hybrid",
+  "sources": [
+    { "title": "Big Bang (Green House Seeds)", "publisher": "SeedFinder.eu", "category": "database", "url": "https://seedfinder.eu/en/strain-info/big-bang/green-house-seeds", "accessed": "2026-09-25" }
+  ],
+  "updated": "2026-09-25"
+}

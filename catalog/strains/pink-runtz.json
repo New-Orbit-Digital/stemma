@@ -1,0 +1,54 @@
+{
+  "id": "pink-runtz",
+  "name": "Pink Runtz",
+  "aliases": [],
+  "kind": "cut",
+  "status": "draft",
+  "summary": "**Pink Runtz** is a [[kind:cut|cut]], most often described as a pink-hued phenotype of [[runtz|Runtz]], which itself crosses [[zkittlez|Zkittlez]] and [[gelato|Gelato]] and first circulated in Southern California around 2017. Other accounts describe Pink Runtz instead as a distinct cross of Pink Panties and Rainbow Sherbet.",
+  "born": {
+    "year_min": 2017,
+    "year_max": 2018,
+    "display": "circa 2017-2018"
+  },
+  "origin": {
+    "place": "Southern California, USA",
+    "country": "US",
+    "lat": 34.0,
+    "lon": -118.2
+  },
+  "parents": [
+    "runtz"
+  ],
+  "traditional_label": "hybrid",
+  "growing": {
+    "environment": "both",
+    "flowering_weeks": {
+      "min": 8,
+      "max": 9
+    }
+  },
+  "sources": [
+    {
+      "title": "Pink Runtz (Clone Only Strains)",
+      "publisher": "SeedFinder",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/pink-runtz/clone-only-strains",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Pink Runtz",
+      "publisher": "Leafly",
+      "category": "database",
+      "url": "https://www.leafly.com/strains/pink-runtz",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Here Are All the Runtz Strains We Know So Far",
+      "publisher": "Weedmaps",
+      "category": "publication",
+      "url": "https://weedmaps.com/news/2022/05/where-did-runtz-strains-come-from/",
+      "accessed": "2026-09-24"
+    }
+  ],
+  "updated": "2026-09-24"
+}

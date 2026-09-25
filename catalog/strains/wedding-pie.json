@@ -1,0 +1,41 @@
+{
+  "id": "wedding-pie",
+  "name": "Wedding Pie",
+  "aliases": [],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "**Wedding Pie** is a [[kind:cultivar|cultivar]] bred by [[breeder:Cannarado Genetics]] in Colorado. A cross of [[wedding-cake|Wedding Cake]] and [[grape-pie|Grape Pie]], it later gained wider circulation in California through the Jungle Boyz. It is grown as a mostly indica hybrid.",
+  "born": {
+    "unknown": true,
+    "display": "unknown"
+  },
+  "origin": {
+    "place": "Colorado, United States",
+    "country": "US",
+    "lat": 39.0,
+    "lon": -105.5
+  },
+  "breeder": "Cannarado Genetics",
+  "parents": [
+    "wedding-cake",
+    "grape-pie"
+  ],
+  "traditional_label": "indica",
+  "growing": {
+    "environment": "unknown",
+    "flowering_weeks": {
+      "min": 8,
+      "max": 8
+    }
+  },
+  "sources": [
+    {
+      "title": "Wedding Pie (Cannarado Genetics)",
+      "publisher": "SeedFinder.eu",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/wedding-pie/cannarado-genetics",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "updated": "2026-09-25"
+}

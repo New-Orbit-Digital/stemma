@@ -1,0 +1,49 @@
+{
+  "id": "moby-dick",
+  "name": "Moby Dick",
+  "aliases": [],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "**Moby Dick** is a [[kind:cultivar|cultivar]] bred by [[breeder:Dinafem]] in Spain, first selected around 2001 and released as the company's first major success in 2005. It is a cross of [[haze]] and [[white-widow]]. The strain won best sativa at the 2011 Summer Cup and Argentina's Silver Cup.",
+  "born": {
+    "year_min": 2001,
+    "year_max": 2005,
+    "display": "early-to-mid 2000s"
+  },
+  "origin": {
+    "place": "Spain",
+    "country": "ES",
+    "lat": 40.0,
+    "lon": -4.0
+  },
+  "breeder": "Dinafem",
+  "parents": [
+    "haze",
+    "white-widow"
+  ],
+  "traditional_label": "sativa",
+  "growing": {
+    "environment": "both",
+    "flowering_weeks": {
+      "min": 8,
+      "max": 10
+    }
+  },
+  "sources": [
+    {
+      "title": "The Real Moby Dick",
+      "publisher": "Dinafem Seeds",
+      "category": "breeder",
+      "url": "https://www.dinafem.org/en/blog/the-real-moby-dick/",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Moby Dick (Dinafem)",
+      "publisher": "SeedFinder.eu",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/moby-dick/dinafem",
+      "accessed": "2026-09-24"
+    }
+  ],
+  "updated": "2026-09-24"
+}

@@ -1,0 +1,51 @@
+{
+  "id": "blue-dream",
+  "name": "Blue Dream",
+  "aliases": [
+    "Azure Haze"
+  ],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "**Blue Dream** is a [[kind:cultivar|cultivar]] that emerged around 2003 in Santa Cruz, California, as a clone-only cross of [[blueberry|Blueberry]] and a [[haze|Haze]] phenotype. Sources differ on whether that second parent was [[super-silver-haze|Super Silver Haze]] or a local Santa Cruz Haze cut. No single breeder has been identified; the cut spread through Santa Cruz growers before seed versions followed.",
+  "born": {
+    "year_min": 2003,
+    "year_max": 2003,
+    "display": "2003"
+  },
+  "origin": {
+    "place": "Santa Cruz, California",
+    "country": "US",
+    "lat": 37.0,
+    "lon": -122.0
+  },
+  "breeder": null,
+  "parents": [
+    "blueberry",
+    "haze"
+  ],
+  "traditional_label": "hybrid",
+  "growing": {
+    "environment": "both",
+    "flowering_weeks": {
+      "min": 8,
+      "max": 10
+    }
+  },
+  "sources": [
+    {
+      "title": "Blue Dream (Clone Only Strains)",
+      "publisher": "SeedFinder.eu",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/blue-dream/clone-only-strains",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Blue Dream Strain Review: The Santa Cruz Cut, Genetics & Grow Guide",
+      "publisher": "Roots Cannabis Nursery",
+      "category": "publication",
+      "url": "https://rootscannabisnursery.com/2026/07/28/blue-dream-strain-review/",
+      "accessed": "2026-09-24"
+    }
+  ],
+  "updated": "2026-09-24"
+}

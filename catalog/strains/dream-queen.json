@@ -1,0 +1,36 @@
+{
+  "id": "dream-queen",
+  "name": "Dream Queen",
+  "aliases": [],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "**Dream Queen** is a [[kind:cultivar|cultivar]] from [[breeder:Humboldt Seed Company]], a three-way cross of [[green-crack|Green Crack]], [[skunk-1|Skunk #1]], and [[mazar-star|Mazar Star]]. The breeder stabilized it through two generations of selfing (S2).",
+  "born": {
+    "unknown": true,
+    "display": "undated"
+  },
+  "origin": {
+    "place": "Humboldt County, California, USA",
+    "country": "US",
+    "lat": 40.7,
+    "lon": -123.9
+  },
+  "breeder": "Humboldt Seed Company",
+  "parents": [
+    "green-crack",
+    "skunk-1",
+    "mazar-star"
+  ],
+  "traditional_label": "sativa",
+  "sources": [
+    {
+      "title": "Dream Queen (Humboldt Seed Company)",
+      "publisher": "SeedFinder.eu",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/dream-queen/humboldt-seed-company",
+      "accessed": "2026-09-25",
+      "note": "L1-C audit 2026-09-25: gives Humboldt Seed Company, Green Crack x Skunk #1 x Mazar Star, and S2 stabilization."
+    }
+  ],
+  "updated": "2026-09-25"
+}

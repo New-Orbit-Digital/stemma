@@ -1,0 +1,42 @@
+{
+  "id": "mac",
+  "name": "MAC",
+  "aliases": [
+    "Miracle Alien Cookies",
+    "MAC 1",
+    "Mac1"
+  ],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "**MAC** is a [[kind:cultivar|cultivar]] bred by [[breeder:Capulator|Capulator]]. A cross of [[alien-cookies|Alien Cookies]] and [[miracle-15|Miracle 15]], itself a hybrid of [[starfighter|Starfighter]] and a Colombian landrace, it is grown as a [[label:hybrid|hybrid]]. Its precise origin date remains undocumented, and the original cut is distributed selectively.",
+  "born": {
+    "unknown": true,
+    "display": "recent"
+  },
+  "origin": {
+    "unknown": true
+  },
+  "breeder": "Capulator",
+  "parents": [
+    "alien-cookies",
+    "miracle-15"
+  ],
+  "traditional_label": "hybrid",
+  "sources": [
+    {
+      "title": "MAC 1 (Capulator)",
+      "publisher": "SeedFinder.eu",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/mac-1/capulator",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "MAC (Miracle Alien Cookies)",
+      "publisher": "AllBud",
+      "category": "database",
+      "url": "https://www.allbud.com/marijuana-strains/hybrid/mac-1",
+      "accessed": "2026-09-24"
+    }
+  ],
+  "updated": "2026-09-24"
+}

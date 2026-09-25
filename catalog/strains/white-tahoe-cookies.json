@@ -1,0 +1,34 @@
+{
+  "id": "white-tahoe-cookies",
+  "name": "White Tahoe Cookies",
+  "aliases": [
+    "Tahoe Cookies"
+  ],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "**White Tahoe Cookies** is a [[kind:cultivar|cultivar]] created by the grower Kush4Breakfast and released through [[breeder:Archive Seed Bank]]. A three-way cross of [[the-white|The White]], [[tahoe-og|Tahoe OG]], and an unidentified [[gsc|GSC]] cut, it placed 5th at the 2018 Emerald Cup and 20th at the 2017 Emerald Cup. It is grown as an indica-dominant hybrid.",
+  "born": {
+    "unknown": true,
+    "display": "unknown"
+  },
+  "origin": {
+    "unknown": true
+  },
+  "breeder": "Archive Seed Bank",
+  "parents": [
+    "the-white",
+    "tahoe-og",
+    "gsc"
+  ],
+  "traditional_label": "indica",
+  "sources": [
+    {
+      "title": "White Tahoe Cookies (Archive Seed Bank)",
+      "publisher": "SeedFinder.eu",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/white-tahoe-cookies/archive-seed-bank",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "updated": "2026-09-25"
+}

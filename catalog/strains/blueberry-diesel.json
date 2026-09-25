@@ -1,0 +1,17 @@
+{
+  "id": "blueberry-diesel",
+  "name": "Blueberry Diesel",
+  "aliases": [],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "**Blueberry Diesel** is a [[kind:cultivar|cultivar]] crossing [[blueberry|Blueberry]] and [[sour-diesel|Sour Diesel]]. Its original breeder is not documented, and it is most often found in Colorado dispensaries.",
+  "born": { "unknown": true, "display": "undated" },
+  "origin": { "unknown": true },
+  "breeder": null,
+  "parents": ["blueberry", "sour-diesel"],
+  "traditional_label": "hybrid",
+  "sources": [
+    { "title": "Blueberry Diesel: Parent Strains and Origins", "publisher": "AllBud", "category": "database", "url": "https://www.allbud.com/marijuana-strains/indica-dominant-hybrid/blueberry-diesel", "accessed": "2026-09-25" }
+  ],
+  "updated": "2026-09-25"
+}

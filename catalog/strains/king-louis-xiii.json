@@ -1,0 +1,50 @@
+{
+  "id": "king-louis-xiii",
+  "name": "King Louis XIII",
+  "aliases": [
+    "King Louis",
+    "King Louie",
+    "King Louis 13th"
+  ],
+  "kind": "cut",
+  "status": "draft",
+  "summary": "**King Louis XIII** is a [[kind:cut|cut]] phenotype of [[og-kush|OG Kush]] associated with Los Angeles, grown from cuttings rather than stabilized seed. No breeder or origin year is documented.",
+  "born": {
+    "unknown": true,
+    "display": "unknown"
+  },
+  "origin": {
+    "place": "Los Angeles, California, USA",
+    "country": "US",
+    "lat": 34.1,
+    "lon": -118.2
+  },
+  "parents": [
+    "og-kush"
+  ],
+  "traditional_label": "indica",
+  "growing": {
+    "environment": "both",
+    "flowering_weeks": {
+      "min": 8,
+      "max": 9
+    }
+  },
+  "sources": [
+    {
+      "title": "King Louis XIII (Clone Only Strains)",
+      "publisher": "SeedFinder",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/king-louis-xiii/clone-only-strains",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "King Louis aka King Louis XIII",
+      "publisher": "Leafly",
+      "category": "database",
+      "url": "https://www.leafly.com/strains/king-louis",
+      "accessed": "2026-09-24"
+    }
+  ],
+  "updated": "2026-09-24"
+}

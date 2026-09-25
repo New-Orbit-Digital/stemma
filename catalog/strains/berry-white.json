@@ -1,0 +1,17 @@
+{
+  "id": "berry-white",
+  "name": "Berry White",
+  "aliases": [],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "**Berry White** is a [[kind:cultivar|cultivar]] bred by [[breeder:Green Beanz Seeds]] in Colorado, a cross of [[blueberry|Blueberry]] and [[white-widow|White Widow]]. It takes its name from soul singer Barry White, and little else is documented about when it was first bred.",
+  "born": { "unknown": true, "display": "undated" },
+  "origin": { "place": "Colorado, USA", "country": "US", "lat": 39.0, "lon": -105.5 },
+  "breeder": "Green Beanz Seeds",
+  "parents": ["blueberry", "white-widow"],
+  "traditional_label": "hybrid",
+  "sources": [
+    { "title": "Berry White (Unknown or Legendary)", "publisher": "SeedFinder.eu", "category": "database", "url": "https://seedfinder.eu/en/strain-info/berry-white/unknown-or-legendary", "accessed": "2026-09-25" }
+  ],
+  "updated": "2026-09-25"
+}

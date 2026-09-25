@@ -1,0 +1,45 @@
+{
+  "id": "blueberry",
+  "name": "Blueberry",
+  "aliases": [
+    "DJ Short Blueberry",
+    "Blueberry (DJ Short)"
+  ],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "**Blueberry** is a [[kind:cultivar|cultivar]] bred by DJ Short, who began the project in the [[country:US|United States]] Pacific Northwest in the late 1970s. A cross of [[purple-thai|Purple Thai]] and [[afghani|Afghani]] landraces, developed over several generations of selection. Some accounts trace the sativa side instead through a related Thai line. Short later shared the genetics with Dutch breeders.",
+  "born": {
+    "year_min": 1975,
+    "year_max": 1979,
+    "display": "late 1970s"
+  },
+  "origin": {
+    "place": "Pacific Northwest, Oregon, United States",
+    "country": "US",
+    "lat": 44.0,
+    "lon": -120.5
+  },
+  "breeder": null,
+  "parents": [
+    "purple-thai",
+    "afghani"
+  ],
+  "traditional_label": "indica",
+  "sources": [
+    {
+      "title": "Origins of Blueberry, Flo, and others by DJ Short",
+      "publisher": "THCFarmer",
+      "category": "community",
+      "url": "https://www.thcfarmer.com/threads/origins-of-blueberry-flo-and-others-by-dj-short.71/",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Blueberry (DJ Short) — Genealogy",
+      "publisher": "SeedFinder.eu",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/blueberry/dj-short/genealogy",
+      "accessed": "2026-09-24"
+    }
+  ],
+  "updated": "2026-09-24"
+}

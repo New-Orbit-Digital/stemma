@@ -1,0 +1,44 @@
+{
+  "id": "platinum-gsc",
+  "name": "Platinum GSC",
+  "aliases": [
+    "Platinum Cookies",
+    "Platinum Girl Scout Cookies"
+  ],
+  "kind": "cut",
+  "status": "draft",
+  "summary": "**Platinum GSC** is a [[kind:cut|phenotype]] of [[gsc|GSC]] that rose to notice on the California cannabis scene in the early 2010s. It won first place in the Outdoor Indica category at the 2013 Santa Cruz Medicinal Cannabis Cup. Like [[thin-mint-gsc|Thin Mint GSC]], it is generally cited as carrying GSC's [[og-kush|OG Kush]] and [[f1-durban|F1 Durban]] parentage.",
+  "born": {
+    "year_min": 2010,
+    "year_max": 2013,
+    "display": "early 2010s"
+  },
+  "origin": {
+    "place": "California, United States",
+    "country": "US",
+    "lat": 36.8,
+    "lon": -119.4
+  },
+  "breeder": null,
+  "parents": [
+    "gsc"
+  ],
+  "traditional_label": "indica",
+  "sources": [
+    {
+      "title": "Platinum Cookies (Clone Only Strains) :: Cannabis Strain Info",
+      "publisher": "SeedFinder.eu",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/platinum-cookies/clone-only-strains",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Platinum Girl Scout Cookies Marijuana Strain Information & Reviews",
+      "publisher": "AllBud",
+      "category": "database",
+      "url": "https://www.allbud.com/marijuana-strains/hybrid/platinum-girl-scout-cookies",
+      "accessed": "2026-09-24"
+    }
+  ],
+  "updated": "2026-09-24"
+}

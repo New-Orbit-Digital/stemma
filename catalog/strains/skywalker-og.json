@@ -1,0 +1,44 @@
+{
+  "id": "skywalker-og",
+  "name": "Skywalker OG",
+  "aliases": [
+    "Skywalker OG Kush"
+  ],
+  "kind": "cut",
+  "status": "draft",
+  "summary": "**Skywalker OG** is a [[kind:cut|cut]] that emerged from California dispensary circles in the mid-2000s. A cross of [[skywalker|Skywalker]] and [[og-kush|OG Kush]], selected and propagated as a single clone rather than sold as seed. Its exact origin grower is not documented, with different Los Angeles-area gardens credited in various accounts.",
+  "born": {
+    "year_min": 2004,
+    "year_max": 2008,
+    "display": "mid-2000s"
+  },
+  "origin": {
+    "place": "Los Angeles, California, United States",
+    "country": "US",
+    "lat": 34.1,
+    "lon": -118.2
+  },
+  "breeder": null,
+  "parents": [
+    "skywalker",
+    "og-kush"
+  ],
+  "traditional_label": "indica",
+  "sources": [
+    {
+      "title": "Skywalker OG (Clone Only Strains)",
+      "publisher": "SeedFinder.eu",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/skywalker-og/clone-only-strains",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Skywalker OG Strain Profile, Effects, and Growing Tips",
+      "publisher": "Seed Cellar",
+      "category": "publication",
+      "url": "https://seedcellar.com/cannabis-seeds-101/skywalker-og-strain/",
+      "accessed": "2026-09-24"
+    }
+  ],
+  "updated": "2026-09-24"
+}

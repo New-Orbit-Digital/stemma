@@ -1,0 +1,17 @@
+{
+  "id": "sensi-star",
+  "name": "Sensi Star",
+  "aliases": [],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "**Sensi Star** is a [[kind:cultivar|cultivar]] bred by [[breeder:Paradise Seeds]], selected from [[afghani|Afghani]] and Indian indica lines with a Skunk infusion. Released in 1994, it won the Cannabis Cup and Highlife Cup in Amsterdam in 1999.",
+  "born": { "year_min": 1994, "year_max": 1994, "display": "1994" },
+  "origin": { "place": "Netherlands (Paradise Seeds)", "country": "NL", "lat": 52.1, "lon": 5.3 },
+  "breeder": "Paradise Seeds",
+  "parents": ["afghani"],
+  "traditional_label": "indica",
+  "sources": [
+    { "title": "Sensi Star Strain Story, the Strongest Indica", "publisher": "Paradise Seeds", "category": "breeder", "url": "https://www.paradise-seeds.com/sensi-star-strain-story-super-strong-indica/", "accessed": "2026-09-25" }
+  ],
+  "updated": "2026-09-25"
+}

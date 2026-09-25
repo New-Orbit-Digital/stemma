@@ -1,0 +1,19 @@
+{
+  "id": "sour-kush",
+  "name": "Sour Kush",
+  "aliases": [
+    "Sour OG Kush"
+  ],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "**Sour Kush**, also called Sour OG Kush, is a [[kind:cultivar|cultivar]] bred by [[breeder:Reserva Privada]], crossing [[sour-diesel|Sour Diesel]] and [[og-kush|OG Kush]].",
+  "born": { "unknown": true, "display": "undated" },
+  "origin": { "unknown": true },
+  "breeder": "Reserva Privada",
+  "parents": ["sour-diesel", "og-kush"],
+  "traditional_label": "indica",
+  "sources": [
+    { "title": "Sour Kush - Strain Information", "publisher": "CannaConnection", "category": "database", "url": "https://www.cannaconnection.com/strains/sour-kush", "accessed": "2026-09-25" }
+  ],
+  "updated": "2026-09-25"
+}

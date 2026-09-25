@@ -1,0 +1,18 @@
+{
+  "id": "casey-jones",
+  "name": "Casey Jones",
+  "aliases": [],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "**Casey Jones** is a [[kind:cultivar|cultivar]] and a cross of [[trainwreck|Trainwreck]], [[sour-diesel|Sour Diesel]], and [[thai|Thai]]. It is named for the railroad engineer killed in 1900 while braking his train to avoid a collision.",
+  "born": { "unknown": true, "display": "undated" },
+  "origin": { "unknown": true },
+  "breeder": null,
+  "parents": ["trainwreck", "sour-diesel", "thai"],
+  "traditional_label": "sativa",
+  "sources": [
+    { "title": "Casey Jones Strain (Trainwreck × Sour Diesel × Thai)", "publisher": "Strainpedia", "category": "community", "url": "https://www.strainpedia.com/casey-jones/", "accessed": "2026-09-25" },
+    { "title": "Casey Jones - Strain Information", "publisher": "CannaConnection", "category": "database", "url": "https://www.cannaconnection.com/strains/casey-jones", "accessed": "2026-09-25", "note": "Breeder credited differently across sources (Devil's Harvest Seeds here, Head Seeds and Alphakronik Genes elsewhere); left unstated on the card." }
+  ],
+  "updated": "2026-09-25"
+}

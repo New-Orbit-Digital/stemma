@@ -1,0 +1,18 @@
+{
+  "id": "power-plant",
+  "name": "Power Plant",
+  "aliases": [],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "**Power Plant** is a [[kind:cultivar|cultivar]] stabilized by [[breeder:Dutch Passion]] from South African sativa seed that founder Henk van Dalen collected in the 1970s, then released after further breeding in the 1990s.",
+  "born": { "year_min": 1990, "year_max": 1999, "display": "1990s (seed collected in the 1970s)" },
+  "origin": { "place": "South Africa", "country": "ZA", "lat": -28.5, "lon": 24.7 },
+  "breeder": "Dutch Passion",
+  "parents": [],
+  "traditional_label": "sativa",
+  "growing": { "environment": "both", "flowering_weeks": { "min": 8, "max": 9 } },
+  "sources": [
+    { "title": "Power Plant, a history of the South African sativa", "publisher": "Dutch Passion (Weed World Magazine)", "category": "breeder", "url": "https://www.weedworldmagazine.org/2020/12/19/power-plant-a-history-of-the-south-african-sativa-by-tony-dutch-passion-seed-company/", "accessed": "2026-09-25" }
+  ],
+  "updated": "2026-09-25"
+}

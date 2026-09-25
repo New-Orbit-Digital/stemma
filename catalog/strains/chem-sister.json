@@ -1,0 +1,17 @@
+{
+  "id": "chem-sister",
+  "name": "Chem Sister",
+  "aliases": [],
+  "kind": "cut",
+  "status": "draft",
+  "summary": "**Chem Sister** is a [[kind:cut|cut]] kept by grower [[breeder:Chemdog]] as one of three phenotypes from his original 1991 seed find, alongside [[chemdawg|Chemdawg]] (then called Chem 91). Its further lineage is unknown, like its sibling cut's.",
+  "born": { "year_min": 1991, "year_max": 1991, "display": "1991" },
+  "origin": { "place": "Western Massachusetts, USA", "country": "US", "lat": 42.4, "lon": -72.6 },
+  "breeder": "Chemdog",
+  "parents": [],
+  "traditional_label": "hybrid",
+  "sources": [
+    { "title": "Chem Sister (Clone Only Strains)", "publisher": "SeedFinder.eu", "category": "database", "url": "https://seedfinder.eu/en/strain-info/chem-sister/clone-only-strains", "accessed": "2026-09-25" }
+  ],
+  "updated": "2026-09-25"
+}

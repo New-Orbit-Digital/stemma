@@ -1,0 +1,49 @@
+{
+  "id": "thin-mint-gsc",
+  "name": "Thin Mint GSC",
+  "aliases": [
+    "Thin Mint",
+    "Thin Mint Cookies",
+    "Thin Mint Girl Scout Cookies"
+  ],
+  "kind": "cut",
+  "status": "draft",
+  "summary": "**Thin Mint GSC** is a [[kind:cut|phenotype]] of [[gsc|GSC]] and one of its two most widely distributed cuts, alongside [[platinum-gsc|Platinum GSC]]. It placed as a finalist at the 2014 Seattle Cannabis Cup. Some accounts dispute the standard [[og-kush|OG Kush]] and [[f1-durban|F1 Durban]] story for this line, tracing it instead to an earlier [[cherry-pie|Cherry Pie]] x [[chemdawg|Chemdawg]] cross.",
+  "born": {
+    "year_min": 2010,
+    "year_max": 2012,
+    "display": "early 2010s"
+  },
+  "origin": {
+    "unknown": true
+  },
+  "breeder": null,
+  "parents": [
+    "gsc"
+  ],
+  "traditional_label": "hybrid",
+  "growing": {
+    "environment": "unknown",
+    "flowering_weeks": {
+      "min": 9,
+      "max": 10
+    }
+  },
+  "sources": [
+    {
+      "title": "GSC Thin Mints (Clone Only Strains) :: Cannabis Strain Info",
+      "publisher": "SeedFinder.eu",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/gsc-thin-mints/clone-only-strains",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Thin Mint Girl Scout Cookies Marijuana Strain Information & Reviews",
+      "publisher": "AllBud",
+      "category": "database",
+      "url": "https://www.allbud.com/marijuana-strains/hybrid/thin-mint-girl-scout-cookies",
+      "accessed": "2026-09-24"
+    }
+  ],
+  "updated": "2026-09-25"
+}

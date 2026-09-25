@@ -1,0 +1,48 @@
+{
+  "id": "strawberry-cough",
+  "name": "Strawberry Cough",
+  "aliases": [],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "**Strawberry Cough** is a [[kind:cultivar|cultivar]] believed to be a cross of [[haze|Haze]] and [[strawberry-fields|Strawberry Fields]], though its exact breeding origin is not documented. Grower Kyle Kushman obtained a clone-only cutting from another grower in Bridgeport, Connecticut, in 1999 and is credited with popularizing it. Dutch Passion and other seed banks now sell seed versions.",
+  "born": {
+    "unknown": true,
+    "display": "unknown; in circulation by 1999 via clone"
+  },
+  "origin": {
+    "place": "Connecticut, United States",
+    "country": "US",
+    "lat": 41.2,
+    "lon": -73.1
+  },
+  "breeder": null,
+  "parents": [
+    "haze",
+    "strawberry-fields"
+  ],
+  "traditional_label": "sativa",
+  "growing": {
+    "environment": "both",
+    "flowering_weeks": {
+      "min": 9,
+      "max": 11
+    }
+  },
+  "sources": [
+    {
+      "title": "Strawberry Cough: Sativa Effects, THC & Grow Guide",
+      "publisher": "CannaConnection",
+      "category": "publication",
+      "url": "https://www.cannaconnection.com/strains/strawberry-cough",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Strawberry Cough (Dutch Passion Seeds)",
+      "publisher": "Dutch Passion / Seed-City",
+      "category": "breeder",
+      "url": "https://www.seed-city.com/dutch-passion-seeds/strawberry-cough",
+      "accessed": "2026-09-24"
+    }
+  ],
+  "updated": "2026-09-25"
+}

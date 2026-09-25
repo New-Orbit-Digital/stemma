@@ -1,0 +1,18 @@
+{
+  "id": "blue-zushi",
+  "name": "Blue Zushi",
+  "aliases": [],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "**Blue Zushi** is a [[kind:cultivar|cultivar]] from [[breeder:The TENco]], crossing [[zkittlez|Zkittlez]] and a numbered [[kush-mints|Kush Mints]] phenotype known as Kush Mints #11. It circulated among legacy growers before wider release.",
+  "born": { "unknown": true, "display": "undated" },
+  "origin": { "unknown": true },
+  "breeder": "The TENco",
+  "parents": ["zkittlez", "kush-mints"],
+  "traditional_label": "hybrid",
+  "sources": [
+    { "title": "Blue Zushi Strain | Zkittlez × Kush Mints #11", "publisher": "Wunderbaum", "category": "community", "url": "https://wunderbaum.expert/en/cannabis-clones/blue-zushi", "accessed": "2026-09-25" },
+    { "title": "Blue Zushi Strain (Zkittlez × Kush Mints)", "publisher": "Strainpedia", "category": "database", "url": "https://www.strainpedia.com/blue-zushi/", "accessed": "2026-09-25" }
+  ],
+  "updated": "2026-09-25"
+}

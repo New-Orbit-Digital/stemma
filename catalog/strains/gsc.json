@@ -1,0 +1,47 @@
+{
+  "id": "gsc",
+  "name": "GSC",
+  "aliases": [
+    "Girl Scout Cookies",
+    "Girl Scout Cookie",
+    "Cookies"
+  ],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "**GSC** is a [[kind:cultivar|cultivar]] bred by Jigga of the Cookies Fam in Northern California in the early 2010s. Most accounts describe it as a cross of [[og-kush|OG Kush]] and [[durban-poison|Durban Poison]], sometimes with [[cherry-pie|Cherry Pie]] in the mix, though Jigga has said those stories were put out to deter copying. Rapper Berner later built the Cookies brand around it.",
+  "born": {
+    "year_min": 2010,
+    "year_max": 2012,
+    "display": "early 2010s"
+  },
+  "origin": {
+    "place": "Northern California",
+    "country": "US",
+    "lat": 38.8,
+    "lon": -122.8
+  },
+  "breeder": null,
+  "parents": [
+    "og-kush",
+    "durban-poison"
+  ],
+  "traditional_label": "hybrid",
+  "sources": [
+    {
+      "title": "GSC / Girl Scout Cookies strain page",
+      "publisher": "AllBud",
+      "category": "database",
+      "url": "https://www.allbud.com/marijuana-strains/hybrid/gsc",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Who's Got the Real Cookies?",
+      "publisher": "Cannabis Now",
+      "category": "publication",
+      "url": "https://cannabisnow.com/whos-got-real-cookies/",
+      "accessed": "2026-09-24",
+      "note": "Credits Jigga as breeder and places its emergence in the Mendocino region; other accounts say the Bay Area. Quotes Jigga calling the OG Kush/Durban Poison story a decoy."
+    }
+  ],
+  "updated": "2026-09-24"
+}

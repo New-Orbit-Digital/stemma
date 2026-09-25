@@ -1,0 +1,17 @@
+{
+  "id": "east-coast-alien",
+  "name": "East Coast Alien",
+  "aliases": [],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "**East Coast Alien** is a [[kind:cultivar|cultivar]] and a cross of [[alien-og|Alien OG]] and [[sour-diesel|East Coast Sour Diesel]].",
+  "born": { "unknown": true, "display": "undated" },
+  "origin": { "unknown": true },
+  "breeder": null,
+  "parents": ["alien-og", "sour-diesel"],
+  "traditional_label": "sativa",
+  "sources": [
+    { "title": "East Coast Alien Strain Info & Reviews", "publisher": "HashDash", "category": "database", "url": "https://hashdash.com/cultivars/east-coast-alien", "accessed": "2026-09-25" }
+  ],
+  "updated": "2026-09-25"
+}

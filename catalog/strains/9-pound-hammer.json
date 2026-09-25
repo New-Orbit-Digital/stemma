@@ -1,0 +1,61 @@
+{
+  "id": "9-pound-hammer",
+  "name": "9 Pound Hammer",
+  "aliases": [
+    "Nine Pound Hammer"
+  ],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "**9 Pound Hammer** is a [[kind:cultivar|hybrid]] bred by [[breeder:Jinxproof Genetics]] in Washington State around 2010, crossing [[gooberry|Gooberry]] with [[jesus-og|Jesus OG Kush]]. It was distributed through [[breeder:TGA Genetics]] until 2019, when it returned to Jinxproof's own catalog.",
+  "born": {
+    "year_min": 2009,
+    "year_max": 2011,
+    "display": "circa 2010"
+  },
+  "origin": {
+    "place": "Washington State, USA",
+    "country": "US",
+    "lat": 47.4,
+    "lon": -120.5
+  },
+  "breeder": "Jinxproof Genetics",
+  "parents": [
+    "gooberry",
+    "jesus-og"
+  ],
+  "traditional_label": "hybrid",
+  "growing": {
+    "environment": "both",
+    "flowering_weeks": {
+      "min": 7,
+      "max": 9
+    }
+  },
+  "sources": [
+    {
+      "title": "9 Pound Hammer Strain: Profile & Genetics",
+      "publisher": "Prime Cuts Nursery",
+      "category": "community",
+      "url": "https://www.primecutsnursery.com/strains/9-pound-hammer",
+      "accessed": "2026-09-24",
+      "note": "Breeder, lineage (Gooberry x Jesus OG Kush), history, Cannabis Cup wins"
+    },
+    {
+      "title": "9 Pound Hammer",
+      "publisher": "Alchimia Grow Shop",
+      "category": "publication",
+      "url": "https://www.alchimiaweb.com/en/9-pound-hammer-product-4937.php",
+      "accessed": "2026-09-24",
+      "note": "Genetics and grow specs, sold as Jinxproof Genetics product"
+    },
+    {
+      "title": "9 Pound Hammer",
+      "publisher": "Kind Green Buds",
+      "category": "database",
+      "url": "https://kindgreenbuds.com/marijuana-strains/9-pound-hammer/",
+      "accessed": "2026-09-24",
+      "note": "Breeder confirmation and distribution history"
+    }
+  ],
+  "updated": "2026-09-25"
+}

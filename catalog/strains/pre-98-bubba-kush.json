@@ -1,0 +1,52 @@
+{
+  "id": "pre-98-bubba-kush",
+  "name": "Pre-98 Bubba Kush",
+  "aliases": [
+    "Pre-98 Bubba",
+    "Pre 98 Bubba",
+    "Pre-98"
+  ],
+  "kind": "cut",
+  "status": "draft",
+  "summary": "**Pre-98 Bubba Kush** is a [[kind:cut|cut]] selected from the original clone-only [[bubba-kush|Bubba Kush]] mother plant before 1998. [[breeder:The Cali Connection]] later self-pollinated it into a stabilized S1 seed line. Accounts disagree on whether the original cross took place in New Orleans or Los Angeles.",
+  "born": {
+    "year_min": 1996,
+    "year_max": 1998,
+    "display": "mid-to-late 1990s"
+  },
+  "origin": {
+    "place": "Los Angeles, California, USA",
+    "country": "US",
+    "lat": 34.1,
+    "lon": -118.3
+  },
+  "breeder": "The Cali Connection",
+  "parents": [
+    "bubba-kush"
+  ],
+  "traditional_label": "indica",
+  "growing": {
+    "environment": "both",
+    "flowering_weeks": {
+      "min": 8,
+      "max": 10
+    }
+  },
+  "sources": [
+    {
+      "title": "Bubba Kush aka BK, Bubba, Bubba OG Kush",
+      "publisher": "Leafly",
+      "category": "database",
+      "url": "https://www.leafly.com/strains/bubba-kush",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Pre98 Bubba Kush",
+      "publisher": "Katsu Seeds",
+      "category": "breeder",
+      "url": "https://katsuseeds.com/parent-strains/pre98-bubba-kush/",
+      "accessed": "2026-09-24"
+    }
+  ],
+  "updated": "2026-09-25"
+}

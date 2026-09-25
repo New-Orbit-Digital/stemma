@@ -1,0 +1,21 @@
+{
+  "id": "afghani-1",
+  "name": "Afghani #1",
+  "aliases": [
+    "Afghani No. 1",
+    "Afghani 1",
+    "Afghan #1"
+  ],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "**Afghani #1** is a [[kind:cultivar|cultivar]] released by [[breeder:Sensi Seeds]] as a stabilized selection combining several parent plants from its [[afghani|Afghani]] lines into one seed strain.",
+  "born": { "unknown": true, "display": "undated" },
+  "origin": { "place": "Netherlands (Sensi Seeds; stock from Afghanistan)", "country": "NL", "lat": 52.1, "lon": 5.3 },
+  "breeder": "Sensi Seeds",
+  "parents": ["afghani"],
+  "traditional_label": "indica",
+  "sources": [
+    { "title": "Afghani #1 Regular Seeds", "publisher": "Sensi Seeds", "category": "breeder", "url": "https://sensiseeds.com/en/cannabis-seeds/sensi-seeds/afghani-1", "accessed": "2026-09-25" }
+  ],
+  "updated": "2026-09-25"
+}

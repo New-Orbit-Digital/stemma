@@ -1,0 +1,43 @@
+{
+  "id": "pakistani-kush",
+  "name": "Pakistani Kush",
+  "aliases": [
+    "Old World Paki Kush",
+    "Paki Kush"
+  ],
+  "kind": "landrace",
+  "status": "draft",
+  "summary": "Pakistani Kush is a [[kind:landrace|landrace]] from [[country:PK|Pakistan]], also called Old World Paki Kush. It is known mainly as one of the three parents commonly given for [[og-kush|OG Kush]], alongside [[chemdawg|Chemdawg]] and [[lemon-thai|Lemon Thai]]. Where in Pakistan the population was collected is not documented.",
+  "born": {
+    "unknown": true,
+    "display": "traditional"
+  },
+  "origin": {
+    "place": "Pakistan",
+    "country": "PK",
+    "lat": 30.4,
+    "lon": 69.3
+  },
+  "breeder": null,
+  "parents": [],
+  "traditional_label": "indica",
+  "sources": [
+    {
+      "title": "Everything You Need To Know About OG Kush",
+      "publisher": "Zamnesia",
+      "category": "breeder",
+      "url": "https://www.zamnesia.com/us/blog-og-kush-n93",
+      "accessed": "2026-09-24",
+      "note": "Planner-verified 2026-09-24: gives OG Kush as a three-way cross of Chemdawg, Lemon Thai, and Pakistani Kush."
+    },
+    {
+      "title": "OG Kush",
+      "publisher": "I Love Growing Marijuana",
+      "category": "community",
+      "url": "https://www.ilovegrowingmarijuana.com/strains/og-kush/",
+      "accessed": "2026-09-24",
+      "note": "Planner-verified 2026-09-24: names the parent as an Old World Paki Kush crossed with Chemdawg. No source checked describes the landrace itself."
+    }
+  ],
+  "updated": "2026-09-24"
+}

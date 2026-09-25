@@ -1,7 +1,42 @@
 {
   "id": "early-pearl",
   "name": "Early Pearl",
+  "aliases": [],
   "kind": "cultivar",
-  "status": "stub",
+  "status": "draft",
+  "summary": "**Early Pearl** is a [[kind:cultivar|cultivar]] bred by [[breeder:Sensi Seeds|Sensi Seeds]] in the Netherlands, first released in the mid-1980s as a cross of [[early-girl|Early Girl]] and [[pollyanna|Pollyanna]], a Colombian-Mexican sativa hybrid. It was developed for cooler climates and short summers, flowering outdoors in 7 to 10 weeks.",
+  "born": {
+    "year_min": 1983,
+    "year_max": 1987,
+    "display": "mid-1980s"
+  },
+  "origin": {
+    "place": "Netherlands",
+    "country": "NL",
+    "lat": 52.4,
+    "lon": 4.9
+  },
+  "breeder": "Sensi Seeds",
+  "parents": [
+    "early-girl",
+    "pollyanna"
+  ],
+  "traditional_label": "hybrid",
+  "growing": {
+    "environment": "both",
+    "flowering_weeks": {
+      "min": 7,
+      "max": 10
+    }
+  },
+  "sources": [
+    {
+      "title": "Early Pearl (Sensi Seeds) :: Cannabis Strain Info",
+      "publisher": "SeedFinder.eu",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/early-pearl/sensi-seeds",
+      "accessed": "2026-09-24"
+    }
+  ],
   "updated": "2026-09-24"
 }

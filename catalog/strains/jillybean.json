@@ -1,0 +1,53 @@
+{
+  "id": "jillybean",
+  "name": "Jillybean",
+  "aliases": [
+    "Jilly Bean"
+  ],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "**Jillybean** is a [[kind:cultivar|cultivar]] bred by [[breeder:MzJill Genetics|MzJill Genetics]], a cross of an orange-skunk phenotype called [[orange-velvet|Orange Velvet]] with a [[space-queen|Space Queen]] male. MzJill developed it in the mid-2000s while co-running [[breeder:TGA Genetics|TGA Genetics]] with Subcool in Oregon and Northern California, [[country:US|United States]], and it ranked among the Top 10 Strains of 2007.",
+  "born": {
+    "year_min": 2003,
+    "year_max": 2006,
+    "display": "mid-2000s"
+  },
+  "origin": {
+    "place": "Oregon and Northern California, USA",
+    "country": "US",
+    "lat": 42.3,
+    "lon": -122.9
+  },
+  "breeder": "MzJill Genetics",
+  "parents": [
+    "orange-velvet",
+    "space-queen"
+  ],
+  "traditional_label": "indica",
+  "growing": {
+    "environment": "both",
+    "flowering_weeks": {
+      "min": 7,
+      "max": 8
+    }
+  },
+  "sources": [
+    {
+      "title": "Jillybean (MzJill Genetics)",
+      "publisher": "SeedFinder.eu",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/jillybean/mzjill-genetics",
+      "accessed": "2026-09-24",
+      "note": "Breeder-submitted genetics (Orange Velvet x Space Queen) and flowering time."
+    },
+    {
+      "title": "The Story of MzJill Genetics",
+      "publisher": "Leaf Magazines",
+      "category": "publication",
+      "url": "https://leafmagazines.com/profiles/the-story-of-mzjill-genetics/",
+      "accessed": "2026-09-24",
+      "note": "History of MzJill co-founding TGA in 2003, Jilly Bean as her flagship strain, and its Top 10 Strains recognition in 2007."
+    }
+  ],
+  "updated": "2026-09-24"
+}

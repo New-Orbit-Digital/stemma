@@ -1,0 +1,17 @@
+{
+  "id": "blue-moonshine",
+  "name": "Blue Moonshine",
+  "aliases": [],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "**Blue Moonshine** is a [[kind:cultivar|cultivar]] bred by DJ Short as an F3 selection within his [[blueberry|Blueberry]] line, tracing to the same [[purple-thai|Purple Thai]] and [[afghani|Afghani]] parentage. It was selected for its deep blue-purple color and has since parented roughly twenty later hybrids.",
+  "born": { "unknown": true, "display": "undated" },
+  "origin": { "place": "Pacific Northwest, Oregon, United States", "country": "US", "lat": 44.0, "lon": -120.5 },
+  "breeder": null,
+  "parents": ["blueberry"],
+  "traditional_label": "indica",
+  "sources": [
+    { "title": "Blue Moonshine (DJ Short) — Genealogy", "publisher": "SeedFinder.eu", "category": "database", "url": "https://seedfinder.eu/en/strain-info/blue-moonshine/dj-short/genealogy", "accessed": "2026-09-25" }
+  ],
+  "updated": "2026-09-25"
+}

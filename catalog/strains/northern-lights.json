@@ -1,0 +1,52 @@
+{
+  "id": "northern-lights",
+  "name": "Northern Lights",
+  "aliases": [
+    "NL"
+  ],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "**Northern Lights** is a [[kind:cultivar|cultivar]] developed near Seattle, Washington, in the 1970s by a breeder known as \"The Indian\". It began as [[afghani|Afghani]] stock, with [[thai|Thai]] genetics added later. By 1985 it had reached the [[country:NL|Netherlands]], where Nevil Schoenmakers of The Seed Bank, later [[breeder:Sensi Seeds]], released it. Some accounts place its origin in California.",
+  "born": {
+    "year_min": 1970,
+    "year_max": 1979,
+    "display": "1970s"
+  },
+  "origin": {
+    "place": "Seattle area, Washington, USA",
+    "country": "US",
+    "lat": 47.6,
+    "lon": -122.3
+  },
+  "breeder": "Sensi Seeds",
+  "parents": [
+    "afghani",
+    "thai"
+  ],
+  "traditional_label": "indica",
+  "growing": {
+    "environment": "indoor",
+    "flowering_weeks": {
+      "min": 6,
+      "max": 7
+    }
+  },
+  "sources": [
+    {
+      "title": "Northern Lights (Sensi Seeds)",
+      "publisher": "SeedFinder.eu",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/nothern-lights/sensi-seeds",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "The origins of Northern Lights",
+      "publisher": "Alchimia Grow Shop",
+      "category": "publication",
+      "url": "https://www.alchimiaweb.com/blogen/origins-northern-lights/",
+      "accessed": "2026-09-25",
+      "note": "L1-C audit 2026-09-25: places its creation near Seattle in the 1970s by 'The Indian' (some say California), starting from Afghani with Thai added later, and its arrival with Nevil Schoenmakers of The Seed Bank (later Sensi Seeds) by 1985."
+    }
+  ],
+  "updated": "2026-09-25"
+}

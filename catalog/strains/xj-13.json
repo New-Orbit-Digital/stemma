@@ -1,0 +1,51 @@
+{
+  "id": "xj-13",
+  "name": "XJ-13",
+  "aliases": [
+    "XJ13"
+  ],
+  "kind": "cut",
+  "status": "draft",
+  "summary": "**XJ-13** is a [[kind:cut|clone-only]] cultivar that emerged in the medical dispensary scene of Orange County, California, in the late 2000s, credited informally to the Orange County Patients Collective. It is usually described as a cross of [[jack-herer]] and [[g13-haze|G13 Haze]], though some sources give [[g13|G13]] without the Haze line. THC Design's 2009 acquisition of the clone helped spread it through Northern California.",
+  "born": {
+    "year_min": 2008,
+    "year_max": 2010,
+    "display": "late 2000s"
+  },
+  "origin": {
+    "place": "Orange County, California, USA",
+    "country": "US",
+    "lat": 33.7,
+    "lon": -117.8
+  },
+  "breeder": null,
+  "parents": [
+    "jack-herer",
+    "g13-haze"
+  ],
+  "traditional_label": "sativa",
+  "growing": {
+    "environment": "indoor",
+    "flowering_weeks": {
+      "min": 8,
+      "max": 9
+    }
+  },
+  "sources": [
+    {
+      "title": "XJ-13 Strain – Grow Guide & Genetics",
+      "publisher": "Prime Cuts Nursery",
+      "category": "breeder",
+      "url": "https://www.primecutsnursery.com/strains/xj-13",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "XJ-13",
+      "publisher": "SeedFinder.eu",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/xj-13",
+      "accessed": "2026-09-24"
+    }
+  ],
+  "updated": "2026-09-25"
+}

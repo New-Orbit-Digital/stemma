@@ -1,0 +1,45 @@
+{
+  "id": "peanut-butter-breath",
+  "name": "Peanut Butter Breath",
+  "aliases": [
+    "PB Breath",
+    "PBB"
+  ],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "**Peanut Butter Breath** is a [[kind:cultivar|cultivar]] bred by [[breeder:ThugPug Genetics]] in California, crossing [[do-si-dos|Do-Si-Dos]] with a phenotype of [[mendo-breath|Mendo Breath]]. It placed third in the Mixed Light category at the 2018 Emerald Cup and has since been used as a parent in numerous hybrid crosses.",
+  "born": {
+    "year_min": 2016,
+    "year_max": 2018,
+    "display": "circa 2017"
+  },
+  "origin": {
+    "place": "California, USA",
+    "country": "US",
+    "lat": 36.8,
+    "lon": -119.4
+  },
+  "breeder": "ThugPug Genetics",
+  "parents": [
+    "do-si-dos",
+    "mendo-breath"
+  ],
+  "traditional_label": "hybrid",
+  "growing": {
+    "environment": "both",
+    "flowering_weeks": {
+      "min": 8,
+      "max": 10
+    }
+  },
+  "sources": [
+    {
+      "title": "Peanut Butter Breath (ThugPug Genetics)",
+      "publisher": "SeedFinder",
+      "category": "database",
+      "url": "https://en.seedfinder.eu/strain-info/Peanut_Butter_Breath/ThugPug_Genetics/",
+      "accessed": "2026-09-24"
+    }
+  ],
+  "updated": "2026-09-24"
+}

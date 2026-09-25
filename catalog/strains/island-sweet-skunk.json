@@ -1,0 +1,48 @@
+{
+  "id": "island-sweet-skunk",
+  "name": "Island Sweet Skunk",
+  "aliases": [
+    "ISS"
+  ],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "**Island Sweet Skunk** is a [[kind:cultivar|cultivar]] bred by [[breeder:Federation Seeds]] on Vancouver Island, British Columbia, [[country:CA|Canada]], and first sold in the early 2000s. Its parentage is disputed, with some tracing it to Sweet Skunk stock and Federation describing it as a separate selection from related material. It became one of the seed company's sativa-leaning lines and spread through Pacific Northwest markets.",
+  "born": {
+    "year_min": 1999,
+    "year_max": 2003,
+    "display": "circa early 2000s"
+  },
+  "origin": {
+    "place": "Vancouver Island, British Columbia, Canada",
+    "country": "CA",
+    "lat": 49.6,
+    "lon": -125.4
+  },
+  "breeder": "Federation Seeds",
+  "parents": [],
+  "traditional_label": "sativa",
+  "growing": {
+    "environment": "both",
+    "flowering_weeks": {
+      "min": 8,
+      "max": 9
+    }
+  },
+  "sources": [
+    {
+      "title": "Federation Seeds: Romulan, Island Sweet Skunk, and British Columbia's Underground Breeding Legacy",
+      "publisher": "Kind Green Buds",
+      "category": "publication",
+      "url": "https://kindgreenbuds.com/seed-banks/federation-seeds/",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Island Sweet Skunk Strain – BC's Tropical Sativa Classic",
+      "publisher": "Zen Weed Guide",
+      "category": "publication",
+      "url": "https://zenweedguide.com/strains/island-sweet-skunk/",
+      "accessed": "2026-09-24"
+    }
+  ],
+  "updated": "2026-09-25"
+}

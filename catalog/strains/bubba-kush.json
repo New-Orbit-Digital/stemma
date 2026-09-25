@@ -1,0 +1,53 @@
+{
+  "id": "bubba-kush",
+  "name": "Bubba Kush",
+  "aliases": [
+    "BK",
+    "Bubba",
+    "Bubba OG Kush"
+  ],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "Bubba Kush is a [[kind:cultivar|cultivar]] that appeared in Los Angeles in 1996, when Josh D's circle crossed [[og-kush|OG Kush]] with an indica called Bubba that Matt \"Bubba\" Berger had brought from Florida. It was sold from 1997. Leafly's strain page describes the other parent as an unknown indica from New Orleans.",
+  "born": {
+    "year_min": 1996,
+    "year_max": 1996,
+    "display": "1996"
+  },
+  "origin": {
+    "place": "Los Angeles, California, USA",
+    "country": "US",
+    "lat": 34.1,
+    "lon": -118.3
+  },
+  "breeder": null,
+  "parents": [
+    "og-kush"
+  ],
+  "traditional_label": "indica",
+  "growing": {
+    "environment": "unknown",
+    "flowering_weeks": {
+      "min": 7,
+      "max": 9
+    }
+  },
+  "sources": [
+    {
+      "title": "Bubba Kush turns 25 years old",
+      "publisher": "Leafly",
+      "category": "publication",
+      "url": "https://www.leafly.com/news/strains-products/bubba-kush-strain-anniversary-shopping",
+      "accessed": "2026-09-24",
+      "note": "Planner-verified 2026-09-24: confirms the 1996 Los Angeles origin, the OG Kush x 'Bubba' cross from Florida stock, and availability from 1997."
+    },
+    {
+      "title": "Bubba Kush",
+      "publisher": "Leafly",
+      "category": "database",
+      "url": "https://www.leafly.com/strains/bubba-kush",
+      "accessed": "2026-09-24"
+    }
+  ],
+  "updated": "2026-09-24"
+}

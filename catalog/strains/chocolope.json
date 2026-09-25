@@ -1,0 +1,44 @@
+{
+  "id": "chocolope",
+  "name": "Chocolope",
+  "aliases": [
+    "Chocolate Haze"
+  ],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "**Chocolope** is a [[kind:cultivar|cultivar]] bred by [[breeder:DNA Genetics]] in Amsterdam, [[country:NL|Netherlands]], by crossing an [[chocolate-thai|Original Chocolate Thai]] female with a [[cannalope-haze|Cannalope Haze]] male and backcrossing to shorten flowering time. Originally named D-Line, it was awarded High Times' Strain of the Year in 2007.",
+  "born": {
+    "year_min": 2005,
+    "year_max": 2007,
+    "display": "mid-2000s"
+  },
+  "origin": {
+    "place": "Amsterdam, Netherlands",
+    "country": "NL",
+    "lat": 52.4,
+    "lon": 4.9
+  },
+  "breeder": "DNA Genetics",
+  "parents": [
+    "chocolate-thai",
+    "cannalope-haze"
+  ],
+  "traditional_label": "sativa",
+  "growing": {
+    "environment": "both",
+    "flowering_weeks": {
+      "min": 8,
+      "max": 9
+    }
+  },
+  "sources": [
+    {
+      "title": "Chocolope (DNA Genetics Seeds)",
+      "publisher": "SeedFinder.eu",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/chocolope/dna-genetics-seeds",
+      "accessed": "2026-09-24"
+    }
+  ],
+  "updated": "2026-09-24"
+}

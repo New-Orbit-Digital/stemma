@@ -1,0 +1,18 @@
+{
+  "id": "black-domina",
+  "name": "Black Domina",
+  "aliases": [],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "**Black Domina** is a [[kind:cultivar|cultivar]] launched in 1996 by [[breeder:Sensi Seeds]], a four-way cross combining [[northern-lights|Northern Lights]], Ortega Indica, [[hash-plant|Hash Plant]], and an Afghani line called SA.",
+  "born": { "year_min": 1996, "year_max": 1996, "display": "1996" },
+  "origin": { "place": "Netherlands (Sensi Seeds)", "country": "NL", "lat": 52.1, "lon": 5.3 },
+  "breeder": "Sensi Seeds",
+  "parents": ["northern-lights", "hash-plant"],
+  "traditional_label": "indica",
+  "growing": { "environment": "indoor", "flowering_weeks": { "min": 7, "max": 8 } },
+  "sources": [
+    { "title": "Black Domina: With the power of the four indica hearts", "publisher": "Sensi Seeds", "category": "breeder", "url": "https://sensiseeds.com/en/blog/black-domina-with-the-power-of-the-four-indica-hearts/", "accessed": "2026-09-25", "note": "Ortega Indica and the Afghani line 'SA' are not separately cataloged, so only Northern Lights and Hash Plant appear in parents." }
+  ],
+  "updated": "2026-09-25"
+}

@@ -1,0 +1,39 @@
+{
+  "id": "chem-de-la-chem",
+  "name": "Chem de la Chem",
+  "aliases": [],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "**Chem de la Chem** is a [[kind:cultivar|cultivar]] combining two cuts from the [[chemdawg|Chemdawg]] line, [[chemdawg-d|Chem D]] and [[i-95|I-95]]. A backcrossed selection, sold as Chem de la Chem BX1, has since been released by other growers.",
+  "born": {
+    "unknown": true,
+    "display": "undated"
+  },
+  "origin": {
+    "unknown": true
+  },
+  "breeder": null,
+  "parents": [
+    "chemdawg-d",
+    "i-95"
+  ],
+  "traditional_label": "hybrid",
+  "sources": [
+    {
+      "title": "Chem De La Chem Strain (Chem D × I-95)",
+      "publisher": "Strainpedia",
+      "category": "community",
+      "url": "https://www.strainpedia.com/chem-de-la-chem/",
+      "accessed": "2026-09-25"
+    },
+    {
+      "title": "Chem De La Chem BX1 (Full Moon Genetics) :: Lineage & Hybrids",
+      "publisher": "SeedFinder.eu",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/chem-de-la-chem-bx1/full-moon-genetics/genealogy",
+      "accessed": "2026-09-25",
+      "note": "Backcrossed BX1 release; corroborates the Chem D / I-95 cross behind the base cultivar."
+    }
+  ],
+  "updated": "2026-09-25"
+}

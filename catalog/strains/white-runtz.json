@@ -1,0 +1,48 @@
+{
+  "id": "white-runtz",
+  "name": "White Runtz",
+  "aliases": [
+    "Runtz White"
+  ],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "**White Runtz** is a [[kind:cultivar|cultivar]] bred by [[breeder:Cookie Fam Genetics|Cookie Fam Genetics]] as a cross of [[runtz|Runtz]] and [[the-white|The White]]. It followed the original Runtz to market through the Runtz Crew's Jokes Up circle, reportedly promoted by Dolla$ Up Nero, and flowers in about 9 to 10 weeks indoors, outdoors, or in greenhouses.",
+  "born": {
+    "year_min": 2018,
+    "year_max": 2019,
+    "display": "2018-2019"
+  },
+  "origin": {
+    "unknown": true
+  },
+  "breeder": "Cookie Fam Genetics",
+  "parents": [
+    "runtz",
+    "the-white"
+  ],
+  "traditional_label": "hybrid",
+  "growing": {
+    "environment": "both",
+    "flowering_weeks": {
+      "min": 9,
+      "max": 10
+    }
+  },
+  "sources": [
+    {
+      "title": "White Runtz (Cookie Fam Genetics)",
+      "publisher": "SeedFinder.eu",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/white-runtz/cookie-fam-genetics",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "White Runtz",
+      "publisher": "AllBud",
+      "category": "database",
+      "url": "https://www.allbud.com/marijuana-strains/hybrid/white-runtz",
+      "accessed": "2026-09-24"
+    }
+  ],
+  "updated": "2026-09-24"
+}

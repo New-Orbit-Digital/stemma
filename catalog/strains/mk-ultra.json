@@ -1,0 +1,48 @@
+{
+  "id": "mk-ultra",
+  "name": "MK Ultra",
+  "aliases": [
+    "MK-Ultra"
+  ],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "**MK Ultra** is a [[kind:cultivar|hybrid]] bred by [[breeder:T.H.Seeds|T.H. Seeds]] in Amsterdam, the Netherlands, crossing [[g13|G13]] with [[og-kush|OG Kush]]. Its name references the CIA's Cold War-era MKUltra mind-control program.",
+  "origin": {
+    "place": "Amsterdam, Netherlands",
+    "country": "NL",
+    "lat": 52.4,
+    "lon": 4.9
+  },
+  "breeder": "T.H.Seeds",
+  "parents": [
+    "g13",
+    "og-kush"
+  ],
+  "traditional_label": "hybrid",
+  "growing": {
+    "environment": "indoor",
+    "flowering_weeks": {
+      "min": 8,
+      "max": 9
+    }
+  },
+  "sources": [
+    {
+      "title": "MK Ultra Strain (G13 x OG Kush)",
+      "publisher": "Strainpedia",
+      "category": "database",
+      "url": "https://www.strainpedia.com/mk-ultra/",
+      "accessed": "2026-09-24",
+      "note": "Breeder, lineage, flowering time, indoor cultivation notes"
+    },
+    {
+      "title": "MK Ultra Strain: Everything You Need to Know",
+      "publisher": "Fuego Quads",
+      "category": "publication",
+      "url": "https://fuegoquads.com/mk-ultra-strain-everything-you-need-to-know/",
+      "accessed": "2026-09-24",
+      "note": "Confirms breeder and parentage, name origin"
+    }
+  ],
+  "updated": "2026-09-25"
+}
