@@ -1,0 +1,18 @@
+{
+  "id": "fixture-e15-empty-chemotype",
+  "name": "Fixture E15 Empty Chemotype",
+  "aliases": [],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "Fictional fixture whose chemotype key is present with nothing under it. A card that has no chemotype should leave the key off. Not a real strain.",
+  "parents": [],
+  "chemotype": {},
+  "sources": [
+    {
+      "title": "Fixture database entry",
+      "publisher": "Fixture Lab",
+      "category": "database"
+    }
+  ],
+  "updated": "2026-09-24"
+}

@@ -33,8 +33,10 @@ ERROR_RULES = [
     "E12",
     "E13",
     "E14",
+    "E15",
+    "E16",
 ]
-WARN_RULES = ["W1", "W3"]
+WARN_RULES = ["W1", "W3", "W4"]
 RULE_RE = re.compile(r"^(E\d{2}|W\d)\b", re.MULTILINE)
 SUMMARY_RE = re.compile(r"^(\d+) cards, (\d+) errors, (\d+) warnings$")
 
@@ -78,7 +80,7 @@ class ValidFixturesTest(SummaryLineTest):
     def test_valid_fixtures_pass(self):
         result = run_validate("--path", VALID)
         self.assertEqual(result.returncode, 0, result.stdout)
-        self.assertEqual(self.summary(result.stdout), (7, 0, 0), result.stdout)
+        self.assertEqual(self.summary(result.stdout), (9, 0, 0), result.stdout)
 
     def test_valid_fixtures_cover_the_required_shapes(self):
         names = sorted(
@@ -96,6 +98,8 @@ class ValidFixturesTest(SummaryLineTest):
             "fixture-reviewed",
             "fixture-stub-parent",
             "fixture-links",
+            "fixture-chemotype",
+            "fixture-chemotype-terpenes",
         ):
             self.assertIn(required, names)
 
@@ -203,6 +207,22 @@ class InvalidFixturesTest(SummaryLineTest):
         result = run_validate("--path", os.path.join(INVALID, "E14"))
         self.assertIn("origin.country 'ZZ' is not in tools/countries.py", result.stdout)
 
+    def test_an_empty_or_inverted_chemotype_is_reported(self):
+        result = run_validate("--path", os.path.join(INVALID, "E15"))
+        for message in (
+            "'chemotype' is present but sets none of",
+            "chemotype.thc.min 24.0 is greater than chemotype.thc.max 18.0",
+        ):
+            self.assertIn(message, result.stdout)
+
+    def test_a_bad_terpene_percent_names_the_entry(self):
+        result = run_validate("--path", os.path.join(INVALID, "E16"))
+        for message in (
+            "chemotype.dominant_terpenes[0].percent 140.0 is outside 0..100",
+            "chemotype.dominant_terpenes[1].percent 0.355 has more than 2 decimal",
+        ):
+            self.assertIn(message, result.stdout)
+
 
 class WarningTest(SummaryLineTest):
     def test_every_warning_has_a_fixture_directory(self):
@@ -220,6 +240,52 @@ class WarningTest(SummaryLineTest):
         self.assertIn("W3", rule_ids(result.stdout), result.stdout)
         self.assertIn("landrace", result.stdout)
         self.assertEqual(self.summary(result.stdout), (2, 0, 1), result.stdout)
+
+    def test_w4_is_reported_without_failing(self):
+        result = run_validate("--path", os.path.join(WARN, "W4"))
+        self.assertEqual(result.returncode, 0, result.stdout)
+        self.assertIn("W4", rule_ids(result.stdout), result.stdout)
+        self.assertIn("no source has category 'database'", result.stdout)
+        self.assertEqual(self.summary(result.stdout), (1, 0, 1), result.stdout)
+
+    def test_a_chemotype_cited_to_a_database_is_not_warned_about(self):
+        """W4 is about the citation, not about carrying a chemotype at all."""
+        result = run_validate("--path", VALID)
+        self.assertNotIn("W4", rule_ids(result.stdout), result.stdout)
+
+
+class ChemotypeShapeTest(SummaryLineTest):
+    """The additive field: absent is the default, and it stays optional."""
+
+    def test_the_catalog_carries_no_chemotype_yet(self):
+        """Populating real cards is research work, not this unit's."""
+        for name in sorted(os.listdir(os.path.join(ROOT, "catalog", "strains"))):
+            if not name.endswith(".json"):
+                continue
+            path = os.path.join(ROOT, "catalog", "strains", name)
+            with open(path, "r", encoding="utf-8") as handle:
+                self.assertNotIn("chemotype", json.load(handle), name)
+
+    def test_a_card_without_the_key_is_untouched(self):
+        """No card carries one, so no card may be told anything about one."""
+        result = run_validate()
+        self.assertEqual(result.returncode, 0, result.stdout)
+        for rule in ("E15", "E16", "W4"):
+            self.assertNotIn(rule, rule_ids(result.stdout), result.stdout)
+
+    def test_a_terpene_percent_is_optional(self):
+        """The second valid fixture gives names only, and still passes."""
+        with open(
+            os.path.join(VALID, "fixture-chemotype-terpenes.json"),
+            "r",
+            encoding="utf-8",
+        ) as handle:
+            chemotype = json.load(handle)["chemotype"]
+        self.assertEqual(sorted(chemotype), ["dominant_terpenes"])
+        for entry in chemotype["dominant_terpenes"]:
+            self.assertNotIn("percent", entry)
+        result = run_validate("--path", VALID)
+        self.assertEqual(result.returncode, 0, result.stdout)
 
 
 class CliTest(SummaryLineTest):

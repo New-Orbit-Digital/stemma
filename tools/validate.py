@@ -40,9 +40,19 @@ ALWAYS_REQUIRED = ("id", "name", "kind", "status", "updated")
 DRAFT_REQUIRED = ("summary", "sources")
 DRAFT_PLUS = ("draft", "reviewed")
 
+# docs/schema.md "Chemotype". The two cannabinoid ranges are shaped like
+# ``born``; the terpene list is its own thing.
+CHEMOTYPE_RANGES = ("thc", "cbd")
+CHEMOTYPE_FIELDS = CHEMOTYPE_RANGES + ("dominant_terpenes",)
+
 DEFAULT_CATALOG = os.path.join("catalog", "strains")
 EARLIEST_YEAR = 1900
 MAX_SUMMARY = 400
+MAX_PERCENT = 100
+# Terpene concentrations run far smaller than cannabinoid ones, so the same
+# 1-decimal rule would round a real value to zero.
+CANNABINOID_DECIMALS = 1
+TERPENE_DECIMALS = 2
 
 
 def _enum(values):
@@ -59,6 +69,20 @@ def _is_int(value):
 
 def _is_number(value):
     return isinstance(value, (int, float)) and not isinstance(value, bool)
+
+
+def _is_set(value):
+    """True when a card actually says something with this value.
+
+    ``None``, ``[]`` and ``{}`` are all ways of writing the key and then not
+    filling it in, which is what E15 is about.
+    """
+    return value is not None and value != [] and value != {}
+
+
+def _within_decimals(value, places):
+    """True when ``value`` needs no more than ``places`` decimal places."""
+    return abs(round(float(value), places) - float(value)) <= 1e-9
 
 
 def _rel(path):
@@ -225,6 +249,7 @@ class Validator:
         self._check_origin(card)
         self._check_parents(card)
         self._check_growing(card)
+        self._check_chemotype(card)
 
     # -- E04: sources -------------------------------------------------------
     def _check_sources(self, card):
@@ -498,6 +523,138 @@ class Validator:
                     "E03",
                     card.rel,
                     "'growing.flowering_weeks.%s' must be a number" % field,
+                )
+
+    # -- E15, E16, W4: chemotype -------------------------------------------
+    def _check_chemotype(self, card):
+        """The cannabinoid ranges and the dominant-terpene list.
+
+        ``chemotype`` is optional, and an absent key means "not modeled"
+        rather than "no cannabinoids" — so an explicit ``null`` reads the
+        same way ``growing: null`` does. What E15 catches is the key written
+        with nothing under it: a card that announces a chemotype and then
+        says none.
+        """
+        if "chemotype" not in card.data:
+            return
+        chemotype = card.data["chemotype"]
+        if chemotype is None:
+            return
+        if not isinstance(chemotype, dict):
+            self.error("E03", card.rel, "'chemotype' must be an object")
+            return
+
+        if not any(_is_set(chemotype.get(field)) for field in CHEMOTYPE_FIELDS):
+            self.error(
+                "E15",
+                card.rel,
+                "'chemotype' is present but sets none of %s" % _enum(CHEMOTYPE_FIELDS),
+            )
+
+        for field in CHEMOTYPE_RANGES:
+            self._check_cannabinoid(card, field, chemotype.get(field))
+        self._check_terpenes(card, chemotype.get("dominant_terpenes"))
+
+        # W4: a chemotype is a measurement, and measurements come from
+        # somewhere. A nudge toward citing that somewhere, not a rule: a
+        # breeder page is a real source for these numbers too.
+        categories = {
+            source.get("category")
+            for source in card.data.get("sources") or []
+            if isinstance(source, dict)
+        }
+        if "database" not in categories:
+            self.warn(
+                "W4",
+                card.rel,
+                "'chemotype' is set but no source has category 'database'",
+            )
+
+    def _check_cannabinoid(self, card, field, value):
+        """One THC or CBD range, percent by dry weight. Shaped like ``born``."""
+        if value is None:
+            return
+        where = "chemotype.%s" % field
+        if not isinstance(value, dict):
+            self.error("E03", card.rel, "'%s' must be an object" % where)
+            return
+        if not _is_str(value.get("display")):
+            self.error(
+                "E03", card.rel, "'%s.display' must be a non-empty string" % where
+            )
+        if value.get("unknown") is True:
+            return  # an unknown range needs no numbers
+        for name in ("min", "max"):
+            if name not in value:
+                self.error(
+                    "E03",
+                    card.rel,
+                    "required field '%s.%s' is missing (%s is not unknown)"
+                    % (where, name, where),
+                )
+        low = value.get("min")
+        high = value.get("max")
+        for name, number in (("min", low), ("max", high)):
+            if number is None:
+                continue
+            if not _is_number(number):
+                self.error("E15", card.rel, "%s.%s must be a number" % (where, name))
+            elif not 0 <= number <= MAX_PERCENT:
+                self.error(
+                    "E15",
+                    card.rel,
+                    "%s.%s %s is outside 0..%d" % (where, name, number, MAX_PERCENT),
+                )
+            elif not _within_decimals(number, CANNABINOID_DECIMALS):
+                self.error(
+                    "E15",
+                    card.rel,
+                    "%s.%s %s has more than %d decimal place"
+                    % (where, name, number, CANNABINOID_DECIMALS),
+                )
+        if _is_number(low) and _is_number(high) and low > high:
+            self.error(
+                "E15",
+                card.rel,
+                "%s.min %s is greater than %s.max %s" % (where, low, where, high),
+            )
+
+    def _check_terpenes(self, card, terpenes):
+        """The dominant terpenes, most-dominant first. ``percent`` is optional
+        because a source does not always give one."""
+        if terpenes is None:
+            return
+        if not isinstance(terpenes, list):
+            self.error(
+                "E03", card.rel, "'chemotype.dominant_terpenes' must be an array"
+            )
+            return
+        for index, entry in enumerate(terpenes):
+            where = "chemotype.dominant_terpenes[%d]" % index
+            if not isinstance(entry, dict):
+                self.error("E16", card.rel, "%s is not an object" % where)
+                continue
+            if not _is_str(entry.get("name")):
+                self.error(
+                    "E16", card.rel, "%s needs a non-empty string 'name'" % where
+                )
+            percent = entry.get("percent")
+            if percent is None:
+                continue
+            if not _is_number(percent):
+                self.error("E16", card.rel, "%s.percent must be a number" % where)
+            elif not 0 <= percent <= MAX_PERCENT:
+                self.error(
+                    "E16",
+                    card.rel,
+                    "%s.percent %s is outside 0..%d" % (where, percent, MAX_PERCENT),
+                )
+            elif not _within_decimals(percent, TERPENE_DECIMALS):
+                self.error(
+                    "E16",
+                    card.rel,
+                    "%s.percent %s has more than %d decimal places"
+                    % (where, percent, TERPENE_DECIMALS),
                 )
 
     # -- cross-card --------------------------------------------------------

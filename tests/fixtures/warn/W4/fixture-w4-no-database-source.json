@@ -1,0 +1,26 @@
+{
+  "id": "fixture-w4-no-database-source",
+  "name": "Fixture W4 No Database Source",
+  "aliases": [],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "Fictional fixture carrying a chemotype while citing no source of the database category. Valid, but worth a nudge. Not a real strain, and the numbers are invented.",
+  "parents": [],
+  "chemotype": {
+    "thc": {
+      "min": 15.0,
+      "max": 20.0,
+      "display": "15–20%"
+    }
+  },
+  "sources": [
+    {
+      "title": "Fixture forum thread",
+      "publisher": "Fixture Forum",
+      "category": "community",
+      "url": "https://example.invalid/t/4",
+      "accessed": "2026-09-24"
+    }
+  ],
+  "updated": "2026-09-24"
+}

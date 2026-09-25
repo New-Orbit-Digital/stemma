@@ -1,0 +1,34 @@
+{
+  "id": "fixture-chemotype-terpenes",
+  "name": "Fixture Chemotype Terpenes",
+  "aliases": [],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "Fictional fixture whose chemotype is a terpene list and nothing else: no cannabinoid ranges, and no percents, because a source does not always give one. Not a real strain.",
+  "born": {
+    "unknown": true,
+    "display": "undated"
+  },
+  "breeder": null,
+  "parents": [],
+  "chemotype": {
+    "dominant_terpenes": [
+      {
+        "name": "terpinolene"
+      },
+      {
+        "name": "ocimene"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Fixture database entry, terpenes only",
+      "publisher": "Fixture Lab",
+      "category": "database",
+      "url": "https://example.invalid/terpenes",
+      "accessed": "2026-09-24"
+    }
+  ],
+  "updated": "2026-09-24"
+}

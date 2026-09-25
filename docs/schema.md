@@ -26,6 +26,7 @@ friction: one card, one source list, no tiers to argue about.
 | `parents` | optional | id[] | Defaults to `[]`. Every id must be an existing card. No self-reference and no cycles. An empty list means the strain is a root (landrace) or its parents are unknown. |
 | `traditional_label` | optional | `indica` \| `sativa` \| `hybrid` \| `unknown` | A traditional label only; the site explains its limits. |
 | `growing` | optional | `{environment, flowering_weeks:{min,max}}` | `environment`: `indoor` \| `outdoor` \| `both` \| `unknown` |
+| `chemotype` | optional | `{thc?, cbd?, dominant_terpenes?}` | Defaults to absent (not modeled). At least one of the three sub-fields must be set if the key is present. |
 | `sources` | draft+ | Source[] | |
 | `updated` | always | `YYYY-MM-DD` | |
 
@@ -41,6 +42,32 @@ One of two shapes:
 - `country` is an ISO 3166-1 alpha-2 code that must be a key in `tools/countries.py` (E14). The map is a
   deliberately partial list: adding a country is an edit someone makes on purpose, and each code that
   a card uses gets a `/browse/country/<cc>/` page.
+
+### Chemotype
+What a lab measured, not what a plant does to a person. Effects, flavors, and medical-condition
+data are deliberately out of the schema: they are subjective and not widely verified.
+
+Every sub-field is optional, but a `chemotype` that sets none of the three is an empty claim (E15).
+A card with nothing to say here leaves the key off.
+
+**`thc` and `cbd`** take the same two shapes `born` does, in percent by dry weight:
+- **Known:** `{ "min": 18.0, "max": 24.0, "display": "18–24%" }`, with `0 ≤ min ≤ max ≤ 100` and at
+  most 1 decimal place on each.
+- **Unknown:** `{ "unknown": true, "display": "trace" }`. Only for a card that needs to say something
+  without a number; otherwise omit the sub-field entirely.
+- `display` is what a reader sees, and it is required in both shapes.
+
+**`dominant_terpenes`** is an ordered array, most-dominant first:
+```json
+[ { "name": "myrcene", "percent": 0.35 }, { "name": "limonene" } ]
+```
+- `name` is required: the terpene's common name, lowercase.
+- `percent` is optional, because a source does not always give one. When present it is percent by dry
+  weight, `0 ≤ percent ≤ 100`, with at most **2** decimal places — terpene concentrations run far
+  smaller than cannabinoid ones, so 1 decimal would round real values to zero.
+
+There is no browse page for a terpene. Whether a chemotype becomes a browse dimension is an
+information-architecture decision, and it has not been made.
 
 ### Summary links
 The summary is the one field that carries markup. `docs/voice.md` is the contract for when to link;
@@ -103,6 +130,8 @@ The categories are descriptive labels, not a ranking:
 | **E12** | The summary's link markup is malformed: an unbalanced `[[` or `]]`, an empty target or text, or an unknown prefix. |
 | **E13** | A link target resolves to nothing: no such card, breeder, country, kind, or label. |
 | **E14** | An `origin.country` code is not in `tools/countries.py`. |
+| **E15** | A `chemotype` is present but sets none of `thc`, `cbd`, `dominant_terpenes`; or a `thc`/`cbd` range has `min > max`, a value outside 0..100, or more than 1 decimal place. |
+| **E16** | A `dominant_terpenes` entry has no `name`, or its `percent` is outside 0..100 or has more than 2 decimal places. |
 
 E07 and E08 were v1 rules for the `lineage.status` table and for per-claim evidence. Both concepts
 are gone in v2, so the ids are retired rather than reused.
@@ -110,6 +139,9 @@ are gone in v2, so the ids are retired rather than reused.
 ## Warnings (reported, not failures)
 - **W1:** a child's `year_max` is earlier than a parent's `year_min`. The dates are fuzzy, so flag it rather than fail.
 - **W3:** a `landrace` card lists parents. Usually a sign the card should be a `cultivar`.
+- **W4:** a card carries a `chemotype` but no source has `category: "database"`. A chemotype is a
+  measurement, so it should be traceable to one. A nudge, not a rule: a breeder page is a real
+  source for these numbers too, and the card does not fail over it.
 
 W2 was the v1 "nothing stronger than folklore" warning. It went with the tiers.
 
@@ -127,6 +159,8 @@ W2 was the v1 "nothing stronger than folklore" warning. It went with the tiers.
 - A card that has a `summary` also gets a `summary_plain`: the same prose with every link reduced to
   its display text, for anything that cannot render a link. `summary` stays the raw text with the
   markup, because that is what a card is edited as. The addition keeps `schema_version: 2`.
+- A card that carries a `chemotype` includes it as written; a card that does not omits the key. The
+  field is purely additive, so it too keeps `schema_version: 2`. `edges` are unaffected.
 - Output is deterministic apart from `generated`.
 
 ## Example card
@@ -144,6 +178,15 @@ W2 was the v1 "nothing stronger than folklore" warning. It went with the tiers.
   "parents": [ "parent-a", "parent-b" ],
   "traditional_label": "hybrid",
   "growing": { "environment": "indoor", "flowering_weeks": { "min": 8, "max": 9 } },
+  "chemotype": {
+    "thc": { "min": 18.0, "max": 24.0, "display": "18–24%" },
+    "cbd": { "min": 0.1, "max": 0.9, "display": "under 1%" },
+    "dominant_terpenes": [
+      { "name": "myrcene", "percent": 0.35 },
+      { "name": "limonene", "percent": 0.2 },
+      { "name": "caryophyllene" }
+    ]
+  },
   "sources": [
     { "title": "Breeder product page", "publisher": "Example Seeds", "category": "breeder", "url": "https://example.com", "accessed": "2026-09-23" },
     { "title": "Book or magazine", "publisher": "Example Press", "category": "publication" },

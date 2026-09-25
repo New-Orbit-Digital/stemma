@@ -240,6 +240,27 @@ class SiteTest(unittest.TestCase):
                 '<span class="sources__category">%s</span>' % category, block
             )
 
+    def test_a_chemotype_is_one_plain_text_line(self):
+        page = self.read(os.path.join("s", "fixture-chemotype", "index.html"))
+        line = page.split('<p class="chemotype">')[1].split("</p>")[0]
+        self.assertEqual(
+            line,
+            "THC 18–24%, CBD under 1%. "
+            "Dominant terpenes: myrcene, limonene, caryophyllene.",
+        )
+        # Plain text, not a chart: the visual-design pass has not started.
+        for gone in ("<svg", "<meter", "chemotype-bar", "style="):
+            self.assertNotIn(gone, line)
+
+    def test_a_terpene_only_chemotype_says_only_that(self):
+        page = self.read(os.path.join("s", "fixture-chemotype-terpenes", "index.html"))
+        line = page.split('<p class="chemotype">')[1].split("</p>")[0]
+        self.assertEqual(line, "Dominant terpenes: terpinolene, ocimene.")
+
+    def test_a_card_without_a_chemotype_renders_no_line(self):
+        page = self.read(os.path.join("s", "fixture-reviewed", "index.html"))
+        self.assertNotIn('class="chemotype"', page)
+
     def test_no_tier_or_dispute_language_survives_on_a_rendered_page(self):
         """Card prose may say "differ"; the chrome may not carry the old model."""
         for name in ("fixture-reviewed", "fixture-cut", "fixture-known-cross"):

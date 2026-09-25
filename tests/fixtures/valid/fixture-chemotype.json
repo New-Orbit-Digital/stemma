@@ -1,0 +1,52 @@
+{
+  "id": "fixture-chemotype",
+  "name": "Fixture Chemotype",
+  "aliases": [],
+  "kind": "cultivar",
+  "status": "draft",
+  "summary": "Fictional fixture carrying a full chemotype: both cannabinoid ranges and a dominant-terpene list with percents. Not a real strain, and the numbers are invented.",
+  "born": {
+    "year_min": 2001,
+    "year_max": 2004,
+    "display": "early 2000s"
+  },
+  "breeder": "Fixture Collective",
+  "parents": [],
+  "traditional_label": "hybrid",
+  "chemotype": {
+    "thc": {
+      "min": 18.0,
+      "max": 24.0,
+      "display": "18–24%"
+    },
+    "cbd": {
+      "min": 0.1,
+      "max": 0.9,
+      "display": "under 1%"
+    },
+    "dominant_terpenes": [
+      {
+        "name": "myrcene",
+        "percent": 0.35
+      },
+      {
+        "name": "limonene",
+        "percent": 0.2
+      },
+      {
+        "name": "caryophyllene"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Fixture database entry",
+      "publisher": "Fixture Lab",
+      "category": "database",
+      "url": "https://example.invalid/chemotype",
+      "accessed": "2026-09-24",
+      "note": "Invented figures. The fixture exists to exercise the shape, not to state a fact."
+    }
+  ],
+  "updated": "2026-09-24"
+}

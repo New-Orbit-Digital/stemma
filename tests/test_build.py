@@ -63,6 +63,8 @@ class BuildTest(unittest.TestCase):
         self.assertEqual(
             ids,
             [
+                "fixture-chemotype",
+                "fixture-chemotype-terpenes",
                 "fixture-cut",
                 "fixture-known-cross",
                 "fixture-landrace-root",
@@ -96,6 +98,21 @@ class BuildTest(unittest.TestCase):
         for strain in data["strains"]:
             if strain.get("summary") and "[[" not in strain["summary"]:
                 self.assertEqual(strain["summary_plain"], strain["summary"])
+
+    def test_a_chemotype_rides_along_as_written(self):
+        """Additive, so the dataset is still schema_version 2."""
+        data = json.loads(self.build_valid())
+        self.assertEqual(data["schema_version"], 2)
+        cards = {strain["id"]: strain for strain in data["strains"]}
+        chemotype = cards["fixture-chemotype"]["chemotype"]
+        self.assertEqual(chemotype["thc"]["display"], "18–24%")
+        self.assertEqual(
+            [entry["name"] for entry in chemotype["dominant_terpenes"]],
+            ["myrcene", "limonene", "caryophyllene"],
+        )
+        self.assertEqual(chemotype["dominant_terpenes"][0]["percent"], 0.35)
+        # A card that does not carry one does not gain the key.
+        self.assertNotIn("chemotype", cards["fixture-reviewed"])
 
     def test_edges_are_child_parent_pairs_sorted(self):
         data = json.loads(self.build_valid())
