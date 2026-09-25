@@ -6,7 +6,7 @@
   ],
   "kind": "cultivar",
   "status": "draft",
-  "summary": "**Alien OG** is a [[kind:cultivar|cultivar]] bred by [[breeder:Cali Connection]], crossing [[tahoe-og|Tahoe OG]] with [[alien-kush|Alien Kush]]. It first circulated as a clone-only cutting in California's Bay Area before being released in seed form.",
+  "summary": "**Alien OG** is a [[kind:cultivar|cultivar]] bred by [[breeder:The Cali Connection]], crossing [[tahoe-og|Tahoe OG]] with [[alien-kush|Alien Kush]]. It first circulated as a clone-only cutting in California's Bay Area before being released in seed form.",
   "born": {
     "year_min": 2010,
     "year_max": 2013,
@@ -18,7 +18,7 @@
     "lat": 37.8,
     "lon": -122.3
   },
-  "breeder": "Cali Connection",
+  "breeder": "The Cali Connection",
   "parents": [
     "tahoe-og",
     "alien-kush"

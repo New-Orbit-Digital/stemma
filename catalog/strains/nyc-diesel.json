@@ -6,7 +6,7 @@
   ],
   "kind": "cultivar",
   "status": "draft",
-  "summary": "**NYC Diesel** is a [[kind:cultivar|cultivar]] bred by [[breeder:Soma Seeds]] in [[country:NL|Amsterdam]] from a cross of [[mexican-sativa|Mexican Sativa]] and [[afghani|Afghani]], starting from bagseed sourced in New York City. It won multiple Cannabis Cup awards in the early 2000s. Some accounts describe the New York parent as an unidentified diesel line rather than Mexican Sativa.",
+  "summary": "**NYC Diesel** is a [[kind:cultivar|cultivar]] bred by [[breeder:Soma's Sacred Seeds|Soma Seeds]] in [[country:NL|Amsterdam]] from a cross of [[mexican-sativa|Mexican Sativa]] and [[afghani|Afghani]], starting from bagseed sourced in New York City. It won multiple Cannabis Cup awards in the early 2000s. Some accounts describe the New York parent as an unidentified diesel line rather than Mexican Sativa.",
   "born": {
     "year_min": 1998,
     "year_max": 2001,
@@ -18,7 +18,7 @@
     "lat": 52.4,
     "lon": 4.9
   },
-  "breeder": "Soma Seeds",
+  "breeder": "Soma's Sacred Seeds",
   "parents": [
     "mexican-sativa",
     "afghani"
@@ -47,5 +47,5 @@
       "accessed": "2026-09-24"
     }
   ],
-  "updated": "2026-09-24"
+  "updated": "2026-09-25"
 }
