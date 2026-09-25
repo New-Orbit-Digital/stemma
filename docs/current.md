@@ -1,23 +1,31 @@
 # Stemma — Current
 **STATUS:** Volatile state. Rewritten at every close-out.
 
-**Last update:** the planner (scheduled L1-A worklist run), 2026-09-24 ~19:10 UTC. **Sprint 3 (L1 library pass) is running.**
+**Last update:** the planner (chat, on Justin's go), 2026-09-25 ~04:00 UTC. **Sprint 3 (L1 library pass): fill PAUSED, winding down to the L1 stop point.**
+
+## L1-B fill paused (Justin, 2026-09-25)
+- **Why:** unattended WebFetch now returns `PROVENANCE_REQUIRED` on nearly every source, SeedFinder included (it worked on 2026-09-24). Batch 7 (#64) filled only 2 of 25 cards, and the batch-6 audit (#67) couldn't recheck 4 of its 7 samples. More hourly runs would mostly spend usage producing stubs.
+- **Done:** the fill task (`trig_01QhFK1ZkXZR3F8eydJQEZxa`) is **disabled**. Batch 5 (#59) was merged on `clean` (head `f869687`, squash `d1cbaaa`).
+- **Filled and merged:** batches 1, 2, 3, 5, 6, and 8. Batch 4 (#62) is filled and was reading `unstable` at 03:57 UTC; merge it on `clean`. Batch 7 (#64) carries 2 filled cards; merge on `clean`, and its 23 stubs stay stubs.
+- **Catalog after these:** roughly 215 draft cards; the rest (~340) stay stubs for a later pass once source access works.
+- **L1-C audit stays enabled** for one more pass: it audits the newly merged batches (4, 5, 7, 8), then does the close-out in `docs/library.md` L1-C step 5 (checklist here, then disables itself). Batches 9–20 are not being filled, so the close-out treats them as out of scope for this L1 stop point, not as unaudited batches.
+- **Standing rule added to `docs/always.md`:** scheduled tasks must never loop on failures. Two failed runs in a row, or one plainly systemic blocker, means the task disables itself and reports here.
 
 ## Headline
 - **L1-A (worklist) is done and merged.** 481 new stub cards across #47–#51, each merged on `mergeable_state: clean`. No existing card was edited.
-- **The catalog is 526 cards:** 39 draft and 487 stub.
-- **The fill queue is `docs/library/batches.json`:** 20 batches (19 of 25, the last of 12), 487 ids: the 481 new stubs plus the 6 older stubs. Seed families come first (batches 1–10, GSC and Blue Dream at the head of batch 1), then everything else by how widely known it is.
-- **L1-B (fill, Sonnet, hourly) and L1-C (audit, Opus, every 3 hours) are enabled** and run until the L1 stop point (`docs/library.md`).
+- **The catalog was 526 cards after L1-A** (39 draft, 487 stub). Fill batches added parent stubs; the validator read 547 cards on 2026-09-25.
+- **The fill queue is `docs/library/batches.json`:** 20 batches (19 of 25, the last of 12). Batches 1–8 were claimed; 9–20 are parked with the fill pause.
+- **L1-B (fill) is disabled. L1-C (audit, Opus, every 3 hours)** runs one more pass and closes out.
 - **Sprint 2 bulk verification is still open for Justin** (below). L1 doesn't depend on it.
 
 ## L1 status
 | Step | State |
 |---|---|
-| L1-A worklist | **Done** (this run). Stubs #47–#51; `batches.json` and `audit.md` in the docs PR that carries this file. |
-| L1-B fill | Enabled. Claims the lowest free batch each hour via a `planner/library-batch-<n>` branch. |
-| L1-C audit | Enabled. Logs to `docs/library/audit.md`. Writes Justin's L1 stop-point checklist here when every batch is filled and audited. |
+| L1-A worklist | **Done.** Stubs #47–#51; `batches.json` and `audit.md` in #52. |
+| L1-B fill | **Paused / disabled 2026-09-25** (source access blocked). Batches 1–8 claimed; 9–20 parked. |
+| L1-C audit | Enabled for the final pass. Logs to `docs/library/audit.md`, writes Justin's L1 stop-point checklist here, then disables itself. |
 
-## What merged this run (evidence)
+## What merged in L1-A (evidence)
 | PR | Contents | Merge evidence |
 |---|---|---|
 | #47 Library stubs (1/5) | 100 stubs: seed-family heads (GSC, Blue Dream, GG4, Skywalker OG, Northern Lights, Cheese, Purple Haze, …) | `clean` at head `7643712`; squash `f029e3f` |
@@ -36,7 +44,7 @@
 - **`kind` is a best guess.** L1-B may correct it. Clone-only selections are `cut`, regional populations are `landrace`, and everything else is `cultivar`.
 - **Existing stubs in the queue:** `sour-diesel`, `hawaiian`, `silver-pearl`, `early-pearl`, `chitral`, and `nepalese` all sit in batch 1.
 
-**Source-access note for L1-B and L1-C:** in this unattended run, WebFetch of `leafly.com` and `en.wikipedia.org` timed out on an approval prompt nobody answered. `seedfinder.eu`, `sensiseeds.com`, and `allbud.com` fetched without a prompt. Fill runs are unattended too, so they'll lean on breeder pages, SeedFinder, and AllBud unless Leafly and Wikipedia are approved at site scope.
+**Source-access note:** on 2026-09-24, unattended WebFetch of `leafly.com` and `en.wikipedia.org` timed out on an approval prompt nobody answered, while `seedfinder.eu`, `sensiseeds.com`, and `allbud.com` worked. By 2026-09-25 ~03:00 UTC, nearly every source (SeedFinder included) returned `PROVENANCE_REQUIRED`. This is what paused the fill.
 
 ## Sprint 2 bulk verification (Justin)
 **A. Live pages** (at `stemma.neworbitdigital.com`; the sandbox can't reach the site)
@@ -50,7 +58,7 @@
   - [ ] `/browse/breeder/dna-genetics/`
   - [ ] `/browse/breeder/chemdog/`
   - [ ] `/browse/breeder/white-label/`
-- [ ] `/browse/`: the index counts reflect the catalog (526 cards after L1-A; 45 before it).
+- [ ] `/browse/`: the index counts reflect the catalog.
 - [ ] Search: `Chem 91`, `Lemon Larry`, and `Old World Paki Kush` each find their card by alias.
 
 **B. OG Kush spot-checks** (the card against its source)
@@ -62,21 +70,23 @@
 
 **C. Decisions (only what needs you)**
 1. **Can a grower's moniker go in `breeder`?** R3 put "Chemdog" in `breeder` for the Chem line, but left OG Kush and Bubba Kush null, with the people named in the prose (they carried and spread the cuts rather than breeding them). L1 will hit this often. The default is to keep doing exactly this unless you say otherwise.
+2. **Parent lists longer than 2** (ak-47 has 4; gg4, trainwreck, original-diesel, dream-queen, blue-mystic have 3) against schema's "2 for a cross." Flagged by the audits; left as they are pending your call.
 
 ## Still open (carried forward)
-1. **STM-U9 (#42), chemotype fields:** the executor's draft PR is open and needs your go to merge. It unblocks R6, and L1 fills chemotype only after it merges.
+1. **STM-U9 (#42), chemotype fields:** the executor's draft PR is open and needs your go to merge. It unblocks R6.
 2. **U7 live-site checks:** likely covered by your Sprint 2B live pass, but not confirmed item by item. Low priority.
 3. **Interface direction:** A "Library card", B "Quiet app", C "Field notes", or a mix. See `docs/prep/stemma-interface.md`.
 4. **`tools/check_migration.py`:** keep or delete. The planner keeps it by default until the next tooling unit.
 5. **Cloudflare Insights beacon** on live pages even though Web Analytics is off. This is a dashboard look, and low priority (see backlog).
 6. **Unused branches:** `planner/r3-og-kush-3-descendants` (from R3) and the merged `planner/library-stubs-1` … `-5` branches are safe to delete.
+7. **Resuming the fill (batches 9–20, ~340 stubs):** needs working unattended source access first.
 
 ## Sprint plan
 | Sprint | Scope | Status |
 |---|---|---|
 | 1 | v1 features (U1–U6) and the Skunk family | VERIFIED |
 | 2 | U7 and U8, then the Haze and OG Kush families | 2A/2B VERIFIED. **2C (R3 OG Kush) MERGED**, awaiting Justin's bulk verification |
-| 3 | L1 library pass (500+ strains; GSC and Blue Dream fold in) | **L1-A MERGED** (#47–#51). L1-B fill and L1-C audit running |
+| 3 | L1 library pass (500+ strains; GSC and Blue Dream fold in) | **L1-A MERGED.** L1-B **paused** at ~215 filled (2026-09-25). L1-C final audit and close-out pending |
 
 **Launch readiness:**
 - A `reviewed` pass on all cards.
@@ -85,7 +95,7 @@
 
 ## State
 - **Units:** U1–U8 are merged (#8, #9, #13, #15, #19, #21, #27, and #33). STM-U9 is open as #42 and awaiting Justin.
-- **Catalog:** 526 cards: 39 draft and 487 stub. The 487 stubs are exactly the ids in `docs/library/batches.json`.
+- **Catalog:** 547 cards per the validator (2026-09-25); roughly 215 draft once batches 4 and 7 merge, the rest stubs.
 - **Hosting:** live at `stemma.neworbitdigital.com` and `stemma-9j6.pages.dev`. PRs get preview deploys.
 
 ## Connector facts
@@ -95,7 +105,7 @@
   - `push_files` handles 100 files per commit without trouble (L1-A stub PRs).
   - Stub-only PRs read `clean` almost at once (2026-09-24). If the audit sees a red CI run on `main`, suspect that `clean` was read before checks registered.
 - **Sandbox proxy:** it blocks `*.pages.dev`, `neworbitdigital.com`, and cdnjs. Live checks go to Justin, or to the built-in browser when it's linked.
-- **WebFetch in unattended runs:** a domain that needs approval times out rather than waiting (seen for `leafly.com` and `en.wikipedia.org` on 2026-09-24). Pre-approved domains, such as SeedFinder, Sensi Seeds, and AllBud, work.
+- **WebFetch in unattended runs:** as of 2026-09-25, most fetches return `PROVENANCE_REQUIRED` with nobody there to approve. Don't schedule source-dependent work unattended until this is resolved.
 - **Private repo:** `git clone` has no credentials, so use the connector.
 - **Cloudflare dashboard:** Justin's hands only.
 
@@ -111,5 +121,6 @@
   - `mergeable_state` is clean.
 
 ## Next
-1. **L1-B** fills one batch per hour (about 20 hours for the queue, then sweeps for anything left as a stub). **L1-C** audits every 3 hours and writes the L1 stop-point checklist here at the end.
-2. **Justin:** the Sprint 2 bulk verification and the breeder-moniker decision above, whenever convenient. Optionally, approve `leafly.com` and `en.wikipedia.org` for WebFetch at site scope so fill runs can use them.
+1. **Merge** #62 (batch 4), #64 (batch 7, 2 cards), and #67 (batch-6 audit fixes) on `clean`.
+2. **L1-C** runs its final pass (next at 06:19 UTC), audits the new batches, writes the L1 stop-point checklist here, and disables itself.
+3. **Justin:** one bulk verification pass (Sprint 2 plus the L1 checklist), the decisions above, and STM-U9's go.
