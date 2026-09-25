@@ -6,6 +6,15 @@
     "Mr. Nice G13 x Hash Plant"
   ],
   "kind": "cultivar",
-  "status": "stub",
-  "updated": "2026-09-24"
+  "status": "draft",
+  "summary": "**Mr. Nice** is a [[kind:cultivar|cultivar]] released in 1999 by [[breeder:Sensi Seeds]], crossing [[g13|G13]] and [[hash-plant|Hash Plant]]. It is named for Howard Marks, a smuggler-turned-author who used the same nickname.",
+  "born": { "year_min": 1999, "year_max": 1999, "display": "1999" },
+  "origin": { "place": "Netherlands (Sensi Seeds)", "country": "NL", "lat": 52.1, "lon": 5.3 },
+  "breeder": "Sensi Seeds",
+  "parents": ["g13", "hash-plant"],
+  "traditional_label": "indica",
+  "sources": [
+    { "title": "Mr Nice G13 X Hash Plant Regular Seeds", "publisher": "Sensi Seeds", "category": "breeder", "url": "https://sensiseeds.com/en/cannabis-seeds/sensi-seeds/mr-nice-g13-x-hash-plant", "accessed": "2026-09-25" }
+  ],
+  "updated": "2026-09-25"
 }
