@@ -3,6 +3,29 @@
   "name": "Cookies Kush",
   "aliases": [],
   "kind": "cultivar",
-  "status": "stub",
-  "updated": "2026-09-24"
+  "status": "draft",
+  "summary": "**Cookies Kush** is a [[kind:cultivar|cultivar]] and a cross of the [[gsc-forum-cut|GSC Forum Cut]] and Rollex OG Kush. Its breeder is not documented, and it is grown as an indica-dominant hybrid.",
+  "born": {
+    "unknown": true,
+    "display": "unknown"
+  },
+  "origin": {
+    "unknown": true
+  },
+  "breeder": null,
+  "parents": [
+    "gsc-forum-cut",
+    "rollex-og-kush"
+  ],
+  "traditional_label": "indica",
+  "sources": [
+    {
+      "title": "Cookies Kush Strain",
+      "publisher": "Strainpedia",
+      "category": "database",
+      "url": "https://www.strainpedia.com/cookies-kush/",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "updated": "2026-09-25"
 }

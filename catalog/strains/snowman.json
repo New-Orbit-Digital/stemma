@@ -3,6 +3,36 @@
   "name": "Snowman",
   "aliases": [],
   "kind": "cultivar",
-  "status": "stub",
-  "updated": "2026-09-24"
+  "status": "draft",
+  "summary": "**Snowman** is a [[kind:cultivar|cultivar]] and a cross of [[gsc|GSC]] and Florida Kush, selected under rapper Berner's Cookies brand. It is grown as a sativa-leaning hybrid despite indica-leaning parentage, and its frosty resin coverage gives the strain its name. It was later used as one parent of [[gary-payton|Gary Payton]].",
+  "born": {
+    "unknown": true,
+    "display": "unknown"
+  },
+  "origin": {
+    "unknown": true
+  },
+  "breeder": null,
+  "parents": [
+    "gsc",
+    "florida-kush"
+  ],
+  "traditional_label": "sativa",
+  "sources": [
+    {
+      "title": "Snowman Marijuana Strain Information",
+      "publisher": "AllBud",
+      "category": "database",
+      "url": "https://www.allbud.com/marijuana-strains/sativa-dominant-hybrid/snowman",
+      "accessed": "2026-09-25"
+    },
+    {
+      "title": "Snowman Strain",
+      "publisher": "Greenpoint Seeds",
+      "category": "database",
+      "url": "https://greenpointseeds.com/cannabis-strain-attributes/lineage/snowman-strain/",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "updated": "2026-09-25"
 }

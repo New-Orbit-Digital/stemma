@@ -3,6 +3,29 @@
   "name": "Zookies",
   "aliases": [],
   "kind": "cultivar",
-  "status": "stub",
-  "updated": "2026-09-24"
+  "status": "draft",
+  "summary": "**Zookies** is a [[kind:cultivar|cultivar]] and a cross of [[animal-cookies|Animal Cookies]] and [[gg4|GG4]]. Its breeder is not documented, and SeedFinder lists it under \"Unknown or Legendary.\" It is grown as a balanced hybrid, roughly even between indica and sativa traits.",
+  "born": {
+    "unknown": true,
+    "display": "unknown"
+  },
+  "origin": {
+    "unknown": true
+  },
+  "breeder": null,
+  "parents": [
+    "animal-cookies",
+    "gg4"
+  ],
+  "traditional_label": "hybrid",
+  "sources": [
+    {
+      "title": "Zookies (Unknown or Legendary)",
+      "publisher": "SeedFinder.eu",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/zookies/unknown-or-legendary",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "updated": "2026-09-25"
 }
