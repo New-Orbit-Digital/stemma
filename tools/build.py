@@ -20,6 +20,7 @@ Output layout under ``--out`` (the site root):
     assets/               style.css, app.js
     data/stemma.json      the Budlogs seam
     _headers              Cloudflare Pages cache rules for assets/ (base / only)
+    _redirects            Cloudflare Pages 301 to justbost.com/stemma/ (base / only)
     screenshot.png        copied from site/ when the file exists
 
 Assets are referenced as ``<base>assets/<name>?v=<hash>``, where the hash is the
@@ -101,6 +102,13 @@ LEAFLET_HEAD = (
 # is safe. HTML and data keep the Pages default, which revalidates.
 HEADERS_RELPATH = "_headers"
 HEADERS_TEXT = "/assets/*\n  Cache-Control: public, max-age=31536000, immutable\n"
+
+# The site moved to GitHub Pages at justbost.com/stemma/. The Cloudflare Pages
+# project stays up only to serve this: every path 301s to the same path there.
+# Written at base / only, which is the Cloudflare build.
+REDIRECTS_RELPATH = "_redirects"
+REDIRECT_TARGET = "https://justbost.com/stemma/"
+REDIRECTS_TEXT = "/*  %s:splat  301\n" % REDIRECT_TARGET
 
 ASSET_HASH_LEN = 10  # first 10 hex of sha256 — short enough to read in a URL
 
@@ -752,6 +760,8 @@ def write_site(out, dataset):
     if urls.is_root():
         path = write_page(out, HEADERS_RELPATH, HEADERS_TEXT)
         print("wrote %s: %s" % (path, ", ".join(hrefs[name] for name in sorted(hrefs))))
+        path = write_page(out, REDIRECTS_RELPATH, REDIRECTS_TEXT)
+        print("wrote %s: /* -> %s:splat (301)" % (path, REDIRECT_TARGET))
     else:
         print(
             "base %s: skipped %s (Cloudflare only); assets %s"

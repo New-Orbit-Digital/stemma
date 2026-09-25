@@ -146,6 +146,13 @@ class RootBuildTest(unittest.TestCase):
     def test_the_root_build_still_writes_the_cloudflare_headers(self):
         self.assertTrue(os.path.isfile(os.path.join(self.out, "_headers")))
 
+    def test_the_root_build_redirects_everything_to_justbost(self):
+        """Cloudflare serves only the 301 now: every path, splat preserved."""
+        with open(os.path.join(self.out, "_redirects"), encoding="utf-8") as handle:
+            self.assertEqual(
+                handle.read(), "/*  https://justbost.com/stemma/:splat  301\n"
+            )
+
 
 class SubpathBuildTest(unittest.TestCase):
     """The GitHub Pages build: everything internal moves under ``/stemma/``."""
@@ -260,6 +267,10 @@ class SubpathBuildTest(unittest.TestCase):
         """``_headers`` is Cloudflare's, and its /assets/* rule would be wrong."""
         self.assertFalse(os.path.isfile(os.path.join(self.out, "_headers")))
         self.assertIn("skipped _headers", self.stdout)
+
+    def test_the_subpath_build_writes_no_redirects(self):
+        """A /* rule on the new host would loop, so only Cloudflare gets one."""
+        self.assertFalse(os.path.isfile(os.path.join(self.out, "_redirects")))
 
     def test_the_dataset_is_the_same_dataset(self):
         """The base is a hosting detail; the Budlogs seam does not know about it."""
