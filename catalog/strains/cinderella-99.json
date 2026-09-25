@@ -6,6 +6,48 @@
     "Cinderella 99 (C99)"
   ],
   "kind": "cultivar",
-  "status": "stub",
+  "status": "draft",
+  "summary": "**Cinderella 99** is a [[kind:cultivar|cultivar]] bred by Rick \"Mr. Soul\" Campanella of Brothers Grimm Seeds in the mid-1990s. A cross of [[jack-herer]] and [[shiva-skunk]], it was stabilized from a single female plant, nicknamed Princess, through repeated backcrossing. Campanella documented the strain's creation online in 2000.",
+  "born": {
+    "year_min": 1996,
+    "year_max": 1999,
+    "display": "mid-to-late 1990s"
+  },
+  "origin": {
+    "place": "United States",
+    "country": "US",
+    "lat": 39.8,
+    "lon": -98.6
+  },
+  "breeder": "Brothers Grimm Seeds",
+  "parents": [
+    "jack-herer",
+    "shiva-skunk"
+  ],
+  "traditional_label": "sativa",
+  "growing": {
+    "environment": "both",
+    "flowering_weeks": {
+      "min": 7,
+      "max": 10
+    }
+  },
+  "sources": [
+    {
+      "title": "Cinderella 99 History — The Official Story of a Legendary Strain",
+      "publisher": "Brothers Grimm Seeds",
+      "category": "breeder",
+      "url": "https://brothersgrimmseeds.com/cinderella-99-official-history/",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Cinderella 99 Cannabis Strain",
+      "publisher": "DNA Genetics",
+      "category": "breeder",
+      "url": "https://dnagenetics.com/cinderella-99-cannabis-strain/",
+      "accessed": "2026-09-24",
+      "note": "Corroborating account of lineage and breeding history."
+    }
+  ],
   "updated": "2026-09-24"
 }

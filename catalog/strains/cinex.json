@@ -3,6 +3,36 @@
   "name": "Cinex",
   "aliases": [],
   "kind": "cultivar",
-  "status": "stub",
+  "status": "draft",
+  "summary": "**Cinex** is a [[kind:cultivar|cultivar]] bred by [[breeder:Elev8 Seeds|Elev8 Seeds]], a cross of a pineapple phenotype of [[cinderella-99|Cinderella 99]] and [[vortex|Vortex]]. It descends from a clone-only cut that circulated in the Pacific Northwest of the [[country:US|United States]] before Elev8 reworked it into a seed line for wider release.",
+  "origin": {
+    "place": "Pacific Northwest, USA",
+    "country": "US",
+    "lat": 45.5,
+    "lon": -122.5
+  },
+  "breeder": "Elev8 Seeds",
+  "parents": [
+    "cinderella-99",
+    "vortex"
+  ],
+  "traditional_label": "sativa",
+  "growing": {
+    "environment": "both",
+    "flowering_weeks": {
+      "min": 7,
+      "max": 9
+    }
+  },
+  "sources": [
+    {
+      "title": "Cinex",
+      "publisher": "SeedFinder.eu",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/cinex/elev8-seeds",
+      "accessed": "2026-09-24",
+      "note": "Breeder-submitted genetics (Cinderella 99 pineapple pheno x Vortex), flowering time, and history as a Pacific Northwest clone-only cut before Elev8 Seeds' seed release."
+    }
+  ],
   "updated": "2026-09-24"
 }

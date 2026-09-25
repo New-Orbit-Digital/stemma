@@ -3,6 +3,42 @@
   "name": "Dutch Treat",
   "aliases": [],
   "kind": "cultivar",
-  "status": "stub",
+  "status": "draft",
+  "summary": "**Dutch Treat** is a [[kind:cultivar|cultivar]] most often credited to Jordan of the Islands, a breeder on Vancouver Island, British Columbia, [[country:CA|Canada]]. It is usually described as a cross of [[northern-lights]] and [[haze]]. Some accounts instead trace it to Washington state growers; Amsterdam coffeeshops carried it under the same name by the 1990s.",
+  "origin": {
+    "place": "Vancouver Island, British Columbia, Canada",
+    "country": "CA",
+    "lat": 49.6,
+    "lon": -125.4
+  },
+  "breeder": null,
+  "parents": [
+    "northern-lights",
+    "haze"
+  ],
+  "traditional_label": "hybrid",
+  "growing": {
+    "environment": "both",
+    "flowering_weeks": {
+      "min": 6,
+      "max": 8
+    }
+  },
+  "sources": [
+    {
+      "title": "Dutch Treat Strain 2026 Guide: Terpenes, Effects & Flowering Time",
+      "publisher": "Cannigma",
+      "category": "publication",
+      "url": "https://cannigma.com/strains/dutch-treat/",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Profile/Review: Dutch Treat — Origin and Popularity",
+      "publisher": "The Canna Diary (Substack)",
+      "category": "community",
+      "url": "https://thecannadiary.substack.com/p/profile-review-dutch-treat-flower",
+      "accessed": "2026-09-24"
+    }
+  ],
   "updated": "2026-09-24"
 }

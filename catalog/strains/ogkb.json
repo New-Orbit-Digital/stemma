@@ -6,6 +6,45 @@
     "OG Kush Breath (OGKB)"
   ],
   "kind": "cut",
-  "status": "stub",
+  "status": "draft",
+  "summary": "**OGKB** (OG Kush Breath) is a [[kind:cut|clone-only]] phenotype of [[gsc|Girl Scout Cookies]] first shared publicly in the early 2010s by a grower known online as OGKushBreath. It was further documented by NorCalKid alongside the [[gsc-forum-cut|Forum Cut]], and became a parent strain behind crosses such as [[do-si-dos|Do-Si-Dos]] and [[mendo-breath|Mendo Breath]]. Its exact origin within the Cookies breeding circle remains undocumented.",
+  "born": {
+    "year_min": 2010,
+    "year_max": 2013,
+    "display": "early 2010s"
+  },
+  "origin": {
+    "unknown": true
+  },
+  "breeder": null,
+  "parents": [
+    "gsc"
+  ],
+  "traditional_label": "indica",
+  "growing": {
+    "environment": "both",
+    "flowering_weeks": {
+      "min": 8,
+      "max": 10
+    }
+  },
+  "sources": [
+    {
+      "title": "OGKB Strain – Grow Guide & Genetics",
+      "publisher": "Prime Cuts Nursery",
+      "category": "breeder",
+      "url": "https://www.primecutsnursery.com/strains/ogkb",
+      "accessed": "2026-09-24",
+      "note": "Describes OGKB as a Girl Scout Cookies phenotype first shared by OGKushBreath and documented by NorCalKid on ICMag; gives flowering time and grow details."
+    },
+    {
+      "title": "OG Kush Breath (OGKB)",
+      "publisher": "Weedmaps",
+      "category": "database",
+      "url": "https://weedmaps.com/strains/og-kush-breath-ogkb",
+      "accessed": "2026-09-24",
+      "note": "Confirms OGKB as a rare clone-only Girl Scout Cookies family phenotype with an origin story that has never been fully documented."
+    }
+  ],
   "updated": "2026-09-24"
 }

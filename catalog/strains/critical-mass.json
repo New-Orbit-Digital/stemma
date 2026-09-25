@@ -3,6 +3,47 @@
   "name": "Critical Mass",
   "aliases": [],
   "kind": "cultivar",
-  "status": "stub",
+  "status": "draft",
+  "summary": "**Critical Mass** is a [[kind:cultivar|cultivar]] bred by Mr. Nice Seedbank, founded in the Netherlands in 1998. A cross of [[afghani]] and [[skunk-1]], it was developed as an improved, heavier-yielding version of the older [[big-bud]]. A phenotype selected in Bilbao, Spain, known as Critical Bilbo, spread through home-grow circles across Spain.",
+  "born": {
+    "year_min": 1998,
+    "year_max": 2000,
+    "display": "late 1990s"
+  },
+  "origin": {
+    "place": "Netherlands",
+    "country": "NL",
+    "lat": 52.1,
+    "lon": 5.3
+  },
+  "breeder": "Mr. Nice Seedbank",
+  "parents": [
+    "afghani",
+    "skunk-1"
+  ],
+  "traditional_label": "indica",
+  "growing": {
+    "environment": "both",
+    "flowering_weeks": {
+      "min": 6,
+      "max": 9
+    }
+  },
+  "sources": [
+    {
+      "title": "Critical Mass",
+      "publisher": "Mr. Nice Seedbank",
+      "category": "breeder",
+      "url": "https://mrnice.com/product/critical-mass/",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Critical Mass by Mr. Nice, a legendary cannabis strain",
+      "publisher": "Alchimia Grow Shop",
+      "category": "publication",
+      "url": "https://www.alchimiaweb.com/blogen/critical-mass-by-mr-nice-a-legendary-cannabis-strain/",
+      "accessed": "2026-09-24"
+    }
+  ],
   "updated": "2026-09-24"
 }
