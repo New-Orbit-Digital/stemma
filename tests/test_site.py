@@ -206,7 +206,11 @@ class SiteTest(unittest.TestCase):
 
     def test_search_reads_only_the_dataset(self):
         app = self.read("assets/app.js")
-        self.assertIn("/data/stemma.json", app)
+        # The path is spelled under the build's base, which the shell hands the
+        # script on <body>; at the root the two compose back to /data/stemma.json.
+        self.assertIn('BASE + "data/stemma.json"', app)
+        self.assertIn("document.body.dataset.base", app)
+        self.assertIn('data-base="/"', self.read("index.html"))
         self.assertIn("Not in the catalog yet.", app)
 
     def test_strain_page_shows_the_card(self):

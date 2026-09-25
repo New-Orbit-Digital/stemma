@@ -9,16 +9,16 @@
 <title>{{title}}</title>
 <link rel="stylesheet" href="{{css_href}}">
 {{head}}</head>
-<body class="{{page_class}}">
+<body class="{{page_class}}" data-base="{{base}}">
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="masthead">
-  <a class="masthead__brand" href="/">Stemma</a>
+  <a class="masthead__brand" href="{{base}}">Stemma</a>
   <nav class="masthead__nav" aria-label="Site">
-    <a href="/">Search</a>
-    <a href="/browse/">Browse</a>
-    <a href="/timeline/">Timeline</a>
-    <a href="/map/">Map</a>
-    <a href="/about/">About</a>
+    <a href="{{base}}">Search</a>
+    <a href="{{base}}browse/">Browse</a>
+    <a href="{{base}}timeline/">Timeline</a>
+    <a href="{{base}}map/">Map</a>
+    <a href="{{base}}about/">About</a>
   </nav>
 </header>
 <main id="main" class="main">
@@ -26,7 +26,7 @@
 </main>
 <footer class="footer">
   <p>Stemma is a community-maintained catalog of strain lineage and history.</p>
-  <p>21+. Not medical advice. <a href="/about/">How to read this catalog</a></p>
+  <p>21+. Not medical advice. <a href="{{base}}about/">How to read this catalog</a></p>
 </footer>
 <div id="age-gate" class="age-gate" hidden aria-hidden="true">
   <div class="age-gate__panel" role="dialog" aria-modal="true" aria-labelledby="age-gate-title">

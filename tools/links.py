@@ -20,6 +20,9 @@ The forms, as docs/voice.md writes them::
     [[country:MX|Mexico]]        /browse/country/mx/
     [[label:sativa|sativa]]      /browse/label/sativa/
 
+The URLs above are written at the site root; under a build base they carry it,
+because :attr:`Link.href` spends ``tools/urls.py``.
+
 Everything that is not a strain id points at a browse page, so every link in a
 summary lands on something Stemma actually catalogs. Whether a target *exists*
 is not a question this module answers — resolution lives in the validator,
@@ -32,6 +35,7 @@ import html
 import re
 
 import countries
+import urls
 
 # A well-formed token holds no brackets of its own, so a stray ``[[`` cannot be
 # swallowed by the next ``]]`` several sentences later: it is left behind in the
@@ -70,12 +74,22 @@ class Link:
         return "Link(%r, %r, %r)" % (self.dimension, self.value, self.text)
 
     @property
-    def href(self):
+    def path(self):
+        """Where the target lives under the site root, base or no base.
+
+        This is the spelling ``tools/browse.py`` turns into a file path, so it
+        stays root-relative even when the site is built under a subpath.
+        """
         if self.dimension == STRAIN:
-            return "/s/%s/" % self.value
+            return urls.strain_path(self.value)
         if self.dimension == "country":
             return "/browse/country/%s/" % (countries.code(self.value) or "").lower()
         return "/browse/%s/%s/" % (self.dimension, slug(self.value))
+
+    @property
+    def href(self):
+        """What a page links to: :attr:`path` under the build's base."""
+        return urls.url(self.path)
 
     def display(self, names=None):
         """The visible text: the explicit ``|text``, or the target's own name.

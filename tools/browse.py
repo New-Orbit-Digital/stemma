@@ -30,6 +30,7 @@ import html
 import countries
 import links
 import timeline
+import urls
 
 KIND_LABELS = timeline.KIND_LABELS  # one wording, shared with the timeline legend
 
@@ -87,6 +88,11 @@ def value_title(dimension, value):
     return value
 
 
+def value_path(dimension, value):
+    """Where the page lives under the site root, which is also its file path."""
+    return links.Link(dimension, value, None, "").path
+
+
 def value_href(dimension, value):
     """The page's URL — the same one ``links.Link.href`` builds for a summary."""
     return links.Link(dimension, value, None, "").href
@@ -109,20 +115,23 @@ def entries(strains, dimension):
     by_slug = {}
     found = []
     for value in sorted(members):
-        href = value_href(dimension, value)
-        clash = by_slug.get(href)
+        # The path is what two values clashing would collide on, and what the
+        # page is written to; the href is the same path under the build's base.
+        path = value_path(dimension, value)
+        clash = by_slug.get(path)
         if clash is not None:
             raise ValueError(
-                "browse %s: %r and %r both map to %s" % (dimension, clash, value, href)
+                "browse %s: %r and %r both map to %s" % (dimension, clash, value, path)
             )
-        by_slug[href] = value
+        by_slug[path] = value
         found.append(
             {
                 "dimension": dimension,
                 "value": value,
                 "title": value_title(dimension, value),
-                "href": href,
-                "relpath": href.strip("/").split("/") + ["index.html"],
+                "path": path,
+                "href": urls.url(path),
+                "relpath": path.strip("/").split("/") + ["index.html"],
                 "members": sorted(members[value], key=_sort_key),
             }
         )
@@ -158,11 +167,11 @@ def row(card):
     born = (card.get("born") or {}).get("display") or "Born unknown"
     meta = " &middot; ".join(part for part in (_esc(kind), _esc(born)) if part)
     return (
-        '<li data-id="%s"><a href="/s/%s/"><strong>%s</strong>'
+        '<li data-id="%s"><a href="%s"><strong>%s</strong>'
         '<span class="result__meta">%s</span></a></li>'
         % (
             _esc(card.get("id")),
-            _esc(card.get("id")),
+            _esc(urls.strain(card.get("id"))),
             _esc(card.get("name") or card.get("id")),
             meta,
         )

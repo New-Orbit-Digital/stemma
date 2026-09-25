@@ -31,6 +31,7 @@ Shape of the page:
 import html
 
 import lineage
+import urls
 
 DECADE = 10
 ROOTS_LABEL = "Roots and undated"
@@ -347,10 +348,10 @@ def _row_svg(row):
             row["meta"],
             KIND_LABELS.get(row["kind"], "kind unknown"),
         )
-    return '<a class="%s" data-id="%s" href="/s/%s/"><title>%s</title>%s%s</a>' % (
+    return '<a class="%s" data-id="%s" href="%s"><title>%s</title>%s%s</a>' % (
         " ".join(classes),
         _esc(row["id"]),
-        _esc(row["id"]),
+        _esc(urls.strain(row["id"])),
         _esc(title),
         bar,
         label,

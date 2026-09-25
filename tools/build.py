@@ -19,12 +19,19 @@ Output layout under ``--out`` (the site root):
     s/<id>/index.html     one page per card, rendered at build time
     assets/               style.css, app.js
     data/stemma.json      the Budlogs seam
-    _headers              Cloudflare Pages cache rules for assets/
+    _headers              Cloudflare Pages cache rules for assets/ (base / only)
+    screenshot.png        copied from site/ when the file exists
 
-Assets are referenced as ``/assets/<name>?v=<hash>``, where the hash is the
+Assets are referenced as ``<base>assets/<name>?v=<hash>``, where the hash is the
 first ten hex characters of the file's sha256. The URL changes exactly when the
 bytes change, so ``_headers`` can hand assets a one-year immutable cache
 without a deploy ever pairing new HTML with stale CSS or JS.
+
+``--base`` is where the site is mounted on its host. Cloudflare Pages serves it
+at the root (``/``, the default); GitHub Pages serves it as a project site
+under ``/stemma/``. Every internal URL the build emits goes through
+``tools/urls.py``, so one tree compiles for either host and a root build spells
+every URL exactly as it did before the flag existed.
 """
 
 import argparse
@@ -45,6 +52,7 @@ import lineage  # noqa: E402
 import links  # noqa: E402
 import origins  # noqa: E402
 import timeline  # noqa: E402
+import urls  # noqa: E402
 import validate  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -57,7 +65,7 @@ DATASET_RELPATH = os.path.join("data", "stemma.json")
 PLACEHOLDER_RE = re.compile(r"\{\{([a-z_]+)\}\}")
 
 KIND_LABELS = timeline.KIND_LABELS  # one wording, shared with the timeline legend
-LABEL_HINT = '<a class="chip__hint" href="/about/#traditional-labels">what this means</a>'
+LABEL_HINT_PATH = "/about/#traditional-labels"
 
 # The one pre-approved front-end library, pinned to an exact version on cdnjs.
 # The subresource-integrity digests were verified against the fetched files and
@@ -95,6 +103,17 @@ HEADERS_RELPATH = "_headers"
 HEADERS_TEXT = "/assets/*\n  Cache-Control: public, max-age=31536000, immutable\n"
 
 ASSET_HASH_LEN = 10  # first 10 hex of sha256 — short enough to read in a URL
+
+# Copied verbatim when it exists. The planner adds the image; the build only
+# carries it, so a missing file is not an error.
+SCREENSHOT = "screenshot.png"
+
+
+def label_hint():
+    """The "what this means" link beside a traditional label."""
+    return '<a class="chip__hint" href="%s">what this means</a>' % esc(
+        urls.url(LABEL_HINT_PATH)
+    )
 
 
 # -- dataset ---------------------------------------------------------------
@@ -152,12 +171,12 @@ def asset_hash(path):
 
 
 def asset_hrefs(assets_src):
-    """``{name: "/assets/<name>?v=<hash>"}`` for every file the build copies."""
+    """``{name: "<base>assets/<name>?v=<hash>"}`` for every file the build copies."""
     hrefs = {}
     for name in sorted(os.listdir(assets_src)):
         path = os.path.join(assets_src, name)
         if os.path.isfile(path):
-            hrefs[name] = "/assets/%s?v=%s" % (name, asset_hash(path))
+            hrefs[name] = urls.url("/assets/%s?v=%s" % (name, asset_hash(path)))
     return hrefs
 
 
@@ -178,7 +197,7 @@ def write_page(out, relpath, text):
 
 
 def strain_href(strain_id):
-    return "/s/%s/" % strain_id
+    return urls.strain(strain_id)
 
 
 def fact(term, value_html):
@@ -287,7 +306,7 @@ def chips_block(data):
     if label:
         items.append(
             '<li class="chip">%s %s</li>'
-            % (browse_link("label", label, label), LABEL_HINT)
+            % (browse_link("label", label, label), label_hint())
         )
     status = data.get("status")
     if status:
@@ -380,12 +399,15 @@ def inline_data_block(data, children):
 # -- pages -----------------------------------------------------------------
 
 
-def page(base, assets, title, description, page_class, content, inline_data="", head=""):
+def page(shell, assets, title, description, page_class, content, inline_data="", head=""):
     """One page. ``head`` is the seam a page uses to pin its own library.
 
-    ``assets`` carries the versioned ``css_href``/``js_href`` for the shell.
+    ``shell`` is base.html; ``assets`` carries the versioned ``css_href`` and
+    ``js_href`` it spends. ``content`` is substituted rather than rescanned, so
+    a page template that uses ``{{base}}`` renders it before it gets here.
     """
     values = {
+        "base": esc(urls.get_base()),
         "title": title,
         "description": description,
         "page_class": page_class,
@@ -394,10 +416,17 @@ def page(base, assets, title, description, page_class, content, inline_data="", 
         "head": head,
     }
     values.update(assets)
-    return render(base, values)
+    return render(shell, values)
 
 
-def strain_page(base, assets, template, data, edges, names, cards=None):
+def render_content(template, values=None):
+    """A page template rendered with the base every template may spend."""
+    merged = {"base": esc(urls.get_base())}
+    merged.update(values or {})
+    return render(template, merged)
+
+
+def strain_page(shell, assets, template, data, edges, names, cards=None):
     strain_id = data["id"]
     aliases = [alias for alias in data.get("aliases") or [] if alias]
     stub = data.get("status") == "stub"
@@ -429,9 +458,10 @@ def strain_page(base, assets, template, data, edges, names, cards=None):
         "parents": parents_block(data, names),
         "children": children_block(strain_id, edges, names),
         "lineage_graph": lineage.graph_html(strain_id, edges, cards or {strain_id: data}),
-        "timeline_link": '<a href="/timeline/?family=%s">See on timeline</a>'
-        % esc(strain_id),
-        "map_link": '<a href="/map/?family=%s">See on map</a>' % esc(strain_id),
+        "timeline_link": '<a href="%s?family=%s">See on timeline</a>'
+        % (esc(urls.url("/timeline/")), esc(strain_id)),
+        "map_link": '<a href="%s?family=%s">See on map</a>'
+        % (esc(urls.url("/map/")), esc(strain_id)),
         "sources": "" if stub else sources_block(data),
         "updated": esc(data.get("updated")),
     }
@@ -447,17 +477,17 @@ def strain_page(base, assets, template, data, edges, names, cards=None):
             or ("%s lineage and history." % name)
         )
     return page(
-        base,
+        shell,
         assets,
         title="%s — Stemma" % name,
         description=description,
         page_class="page-strain",
-        content=render(template, values),
+        content=render_content(template, values),
         inline_data=inline_data_block(data, children),
     )
 
 
-def index_page(base, assets, template, strains):
+def index_page(shell, assets, template, strains):
     if strains:
         rows = "".join(
             "<li><a href=\"%s\"><strong>%s</strong>%s</a></li>"
@@ -478,25 +508,25 @@ def index_page(base, assets, template, strains):
     else:
         browse = '<p class="empty">No cards yet. The first ones land with the next packet.</p>'
         heading = "The catalog"
-    content = render(template, {"browse": browse, "browse_heading": esc(heading)})
+    body = render_content(template, {"browse": browse, "browse_heading": esc(heading)})
     return page(
-        base,
+        shell,
         assets,
         title="Stemma — cannabis strain lineage",
         description="Search a cannabis strain name and see where it came from, who bred it, and which sources the catalog is reading.",
         page_class="page-search",
-        content=content,
+        content=body,
     )
 
 
-def timeline_page(base, assets, template, graph, payload):
+def timeline_page(shell, assets, template, graph, payload):
     return page(
-        base,
+        shell,
         assets,
         title="Timeline — Stemma",
         description="Every dated strain in the Stemma catalog on one year axis, with landraces and undated cards in a strip at the start.",
         page_class="page-timeline",
-        content=render(
+        content=render_content(
             template,
             {"counts": esc(timeline.counts(graph)), "chart": timeline.render(graph)},
         ),
@@ -504,14 +534,14 @@ def timeline_page(base, assets, template, graph, payload):
     )
 
 
-def map_page(base, assets, template, marker_groups, arc_list, unknown_cards, payload):
+def map_page(shell, assets, template, marker_groups, arc_list, unknown_cards, payload):
     return page(
-        base,
+        shell,
         assets,
         title="Map — Stemma",
         description="Where every strain in the Stemma catalog emerged, at an approximate regional centre, with a line from each parent's origin to its child's.",
         page_class="page-map",
-        content=render(
+        content=render_content(
             template,
             {
                 "counts": esc(origins.counts(marker_groups, arc_list, unknown_cards)),
@@ -524,7 +554,7 @@ def map_page(base, assets, template, marker_groups, arc_list, unknown_cards, pay
     )
 
 
-def browse_pages(out, base, assets, strains):
+def browse_pages(out, shell, assets, strains):
     """Write ``/browse/`` and one page per value. Returns ``(groups, written)``.
 
     The tree is replaced wholesale, exactly as ``s/`` is: a breeder page whose
@@ -545,13 +575,13 @@ def browse_pages(out, base, assets, strains):
                 out,
                 os.path.join(*entry["relpath"]),
                 page(
-                    base,
+                    shell,
                     assets,
                     title="%s — Stemma" % esc(label),
                     description="Every card in the Stemma catalog under %s."
                     % esc(label),
                     page_class="page-browse",
-                    content=render(
+                    content=render_content(
                         template,
                         {
                             "heading": browse.heading(entry, group["label"]),
@@ -567,12 +597,12 @@ def browse_pages(out, base, assets, strains):
         out,
         os.path.join(browse.ROOT, "index.html"),
         page(
-            base,
+            shell,
             assets,
             title="Browse — Stemma",
             description="Browse the Stemma catalog by breeder, kind, origin country, and traditional label.",
             page_class="page-browse page-browse-index",
-            content=render(
+            content=render_content(
                 read_template("browse-index.html"),
                 {"groups": browse.index_html(found)},
             ),
@@ -583,7 +613,7 @@ def browse_pages(out, base, assets, strains):
 
 
 def write_site(out, dataset):
-    base = read_template("base.html")
+    shell = read_template("base.html")
     assets_src = os.path.join(SITE, "assets")
     hrefs = asset_hrefs(assets_src)
     assets = asset_values(hrefs)
@@ -595,18 +625,20 @@ def write_site(out, dataset):
     }
 
     write_page(
-        out, "index.html", index_page(base, assets, read_template("index.html"), strains)
+        out,
+        "index.html",
+        index_page(shell, assets, read_template("index.html"), strains),
     )
     write_page(
         out,
         os.path.join("about", "index.html"),
         page(
-            base,
+            shell,
             assets,
             title="About — Stemma",
             description="What Stemma is, how sources are categorized, and why indica and sativa are only traditional labels.",
             page_class="page-about",
-            content=read_template("about.html"),
+            content=render_content(read_template("about.html")),
         ),
     )
     chart = timeline.layout(strains, edges)
@@ -614,7 +646,7 @@ def write_site(out, dataset):
         out,
         os.path.join("timeline", "index.html"),
         timeline_page(
-            base,
+            shell,
             assets,
             read_template("timeline.html"),
             chart,
@@ -639,7 +671,7 @@ def write_site(out, dataset):
         out,
         os.path.join("map", "index.html"),
         map_page(
-            base,
+            shell,
             assets,
             read_template("map.html"),
             marker_groups,
@@ -664,12 +696,12 @@ def write_site(out, dataset):
         out,
         "404.html",
         page(
-            base,
+            shell,
             assets,
             title="Not found — Stemma",
             description="That page is not in the Stemma catalog.",
             page_class="page-404",
-            content=read_template("404.html"),
+            content=render_content(read_template("404.html")),
         ),
     )
 
@@ -683,10 +715,10 @@ def write_site(out, dataset):
         write_page(
             out,
             os.path.join("s", strain["id"], "index.html"),
-            strain_page(base, assets, template, strain, edges, names, cards),
+            strain_page(shell, assets, template, strain, edges, names, cards),
         )
 
-    found, browse_written = browse_pages(out, base, assets, strains)
+    found, browse_written = browse_pages(out, shell, assets, strains)
     # One page per value plus the index, so the two counts are the page's check.
     print(
         "wrote %s: %d pages (%s)"
@@ -708,8 +740,27 @@ def write_site(out, dataset):
             os.path.join(assets_src, name), os.path.join(assets_out, name)
         )
 
-    path = write_page(out, HEADERS_RELPATH, HEADERS_TEXT)
-    print("wrote %s: %s" % (path, ", ".join(hrefs[name] for name in sorted(hrefs))))
+    # The planner drops the image in when there is one; the build only carries it.
+    screenshot_src = os.path.join(SITE, SCREENSHOT)
+    if os.path.isfile(screenshot_src):
+        shutil.copyfile(screenshot_src, os.path.join(out, SCREENSHOT))
+        print("wrote %s" % os.path.join(out, SCREENSHOT))
+
+    # _headers is Cloudflare's, and it is written against the site root. Under a
+    # base the rule would name the wrong path, and GitHub Pages ignores the file
+    # either way, so the subpath build simply does not write one.
+    if urls.is_root():
+        path = write_page(out, HEADERS_RELPATH, HEADERS_TEXT)
+        print("wrote %s: %s" % (path, ", ".join(hrefs[name] for name in sorted(hrefs))))
+    else:
+        print(
+            "base %s: skipped %s (Cloudflare only); assets %s"
+            % (
+                urls.get_base(),
+                HEADERS_RELPATH,
+                ", ".join(hrefs[name] for name in sorted(hrefs)),
+            )
+        )
 
     # index, about, timeline, map, 404, one per card, plus the browse tree
     return 5 + len(strains) + browse_written
@@ -718,7 +769,10 @@ def write_site(out, dataset):
 # -- driver ----------------------------------------------------------------
 
 
-def build(path, out):
+def build(path, out, base=urls.DEFAULT_BASE):
+    # Set before anything renders: every module that emits an href reads it.
+    site_base = urls.set_base(base)
+
     validator = validate.Validator(path)
     code = validator.run()
     if code:
@@ -758,7 +812,7 @@ def build(path, out):
     )
 
     pages = write_site(out, dataset)
-    print("wrote %s: %d pages" % (out, pages))
+    print("wrote %s: %d pages, base %s" % (out, pages, site_base))
     return 0
 
 
@@ -774,8 +828,14 @@ def main(argv=None):
         default=DEFAULT_OUT,
         help="output directory, the site root (default: %(default)s)",
     )
+    parser.add_argument(
+        "--base",
+        default=urls.DEFAULT_BASE,
+        help="where the site is mounted on its host, e.g. /stemma/ for a GitHub "
+        "Pages project site (default: %(default)s)",
+    )
     args = parser.parse_args(argv)
-    return build(args.path, args.out)
+    return build(args.path, args.out, args.base)
 
 
 if __name__ == "__main__":
