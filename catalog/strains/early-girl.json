@@ -3,6 +3,16 @@
   "name": "Early Girl",
   "aliases": [],
   "kind": "cultivar",
-  "status": "stub",
-  "updated": "2026-09-24"
+  "status": "draft",
+  "summary": "**Early Girl** is a [[kind:cultivar|cultivar]] bred by [[breeder:Sensi Seeds]] as a fast-flowering outdoor hybrid, combining [[afghani|Afghan]] and North Indian indica lines with a [[mexican-sativa|Mexican sativa]].",
+  "born": { "unknown": true, "display": "undated" },
+  "origin": { "place": "Netherlands (Sensi Seeds)", "country": "NL", "lat": 52.1, "lon": 5.3 },
+  "breeder": "Sensi Seeds",
+  "parents": ["afghani", "mexican-sativa"],
+  "traditional_label": "indica",
+  "growing": { "environment": "outdoor", "flowering_weeks": { "min": 7, "max": 8 } },
+  "sources": [
+    { "title": "Early Girl Regular Seeds", "publisher": "Sensi Seeds", "category": "breeder", "url": "https://sensiseeds.com/en/cannabis-seeds/sensi-seeds/early-girl", "accessed": "2026-09-25" }
+  ],
+  "updated": "2026-09-25"
 }

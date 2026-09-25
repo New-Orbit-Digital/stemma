@@ -4,7 +4,7 @@
   "aliases": [],
   "kind": "cultivar",
   "status": "draft",
-  "summary": "**Tangie** is a [[kind:cultivar|cultivar]] bred by [[breeder:Crockett Family Farms]] in California, starting in the late 2000s. A cross of [[california-orange|California Orange]] and [[skunk-1|Skunk #1]], it was made as a citrus remake in the spirit of the 1990s strain Tangerine Dream. [[breeder:DNA Genetics]] later commercialized it worldwide in the early 2010s.",
+  "summary": "**Tangie** is a [[kind:cultivar|cultivar]] bred by [[breeder:Crockett Family Farms]] in California, starting in the late 2000s. A cross of [[california-orange|California Orange]] and [[skunk-1|Skunk #1]], it was made to revive the 1990s strain Tangerine Dream. [[breeder:DNA Genetics]] later commercialized it worldwide in the early 2010s.",
   "born": {
     "year_min": 2008,
     "year_max": 2011,
@@ -38,5 +38,5 @@
       "accessed": "2026-09-24"
     }
   ],
-  "updated": "2026-09-24"
+  "updated": "2026-09-25"
 }

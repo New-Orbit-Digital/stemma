@@ -3,6 +3,16 @@
   "name": "Blueberry Muffin",
   "aliases": [],
   "kind": "cultivar",
-  "status": "stub",
-  "updated": "2026-09-24"
+  "status": "draft",
+  "summary": "**Blueberry Muffin** is a [[kind:cultivar|cultivar]] bred by [[breeder:Humboldt Seed Company]], a cross of [[purple-panty-dropper|Purple Panty Dropper]] and [[blueberry|Blueberry]]. It placed sixth at the 2017 Emerald Cup.",
+  "born": { "unknown": true, "display": "undated" },
+  "origin": { "place": "Humboldt County, California, USA", "country": "US", "lat": 40.7, "lon": -123.9 },
+  "breeder": "Humboldt Seed Company",
+  "parents": ["purple-panty-dropper", "blueberry"],
+  "traditional_label": "hybrid",
+  "sources": [
+    { "title": "Blueberry Muffin Cannabis Seeds", "publisher": "Humboldt Seed Company", "category": "breeder", "url": "https://humboldtseedcompany.com/blueberry-muffin/", "accessed": "2026-09-25" },
+    { "title": "Blueberry Muffin Marijuana Strain Information & Reviews", "publisher": "AllBud", "category": "database", "url": "https://www.allbud.com/marijuana-strains/indica-dominant-hybrid/blueberry-muffin", "accessed": "2026-09-25" }
+  ],
+  "updated": "2026-09-25"
 }

@@ -4,7 +4,7 @@
   "aliases": [],
   "kind": "cultivar",
   "status": "draft",
-  "summary": "**Tropicana Cookies** is a [[kind:cultivar|cultivar]] most commonly credited to [[breeder:Bloom Seed Co]]. A cross of [[gsc|GSC]] and [[tangie|Tangie]], it pairs GSC's cookie sweetness with Tangie's citrus genetics. Some sources instead credit Oni Seed Co or Compound Genetics with the cross.",
+  "summary": "**Tropicana Cookies** is a [[kind:cultivar|cultivar]] most commonly credited to [[breeder:Bloom Seed Co]]. It is a cross of [[gsc|GSC]] and [[tangie|Tangie]]. Some sources instead credit Oni Seed Co or Compound Genetics with the cross.",
   "born": {
     "unknown": true,
     "display": "unknown"
@@ -34,5 +34,5 @@
       "accessed": "2026-09-24"
     }
   ],
-  "updated": "2026-09-24"
+  "updated": "2026-09-25"
 }
