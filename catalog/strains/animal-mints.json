@@ -4,7 +4,7 @@
   "aliases": [],
   "kind": "cultivar",
   "status": "draft",
-  "summary": "**Animal Mints** is a [[kind:cultivar|cultivar]] bred by [[breeder:Seed Junky Genetics]] in Southern California. A cross of [[animal-cookies|Animal Cookies]] and [[sin-mint-cookies|Sin Mint Cookies]], it joins two cookies-family lines into a resin-dense hybrid. Some sources describe it as a three-way cross that adds Blue Power directly.",
+  "summary": "**Animal Mints** is a [[kind:cultivar|cultivar]] bred by [[breeder:Seed Junky Genetics]] in Southern California. It is a cross of [[animal-cookies|Animal Cookies]] and [[sin-mint-cookies|Sin Mint Cookies]], two lines descended from [[gsc|GSC]]. Some sources describe it as a three-way cross that adds Blue Power directly.",
   "born": {
     "unknown": true,
     "display": "unknown"
@@ -37,5 +37,5 @@
       "accessed": "2026-09-24"
     }
   ],
-  "updated": "2026-09-24"
+  "updated": "2026-09-25"
 }

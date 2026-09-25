@@ -4,7 +4,7 @@
   "aliases": [],
   "kind": "cultivar",
   "status": "draft",
-  "summary": "**Animal Cookies** is a [[kind:cultivar|cultivar]] bred by [[breeder:BC Bud Depot]], a Canadian seed company. It is a cross of a [[gsc|GSC]] cut that won Best Hybrid at the 2013 Los Angeles Medical Cannabis Cup and a [[fire-og|Fire OG]] Bx3 male, aimed at adding size and structure to GSC while keeping its flavor. It is treated as its own cultivar rather than a GSC phenotype.",
+  "summary": "**Animal Cookies** is a [[kind:cultivar|cultivar]] bred by [[breeder:BC Bud Depot]], a Canadian seed company. It is a cross of a [[gsc|GSC]] cut that won Best Hybrid at the 2013 Los Angeles Medical Cannabis Cup and a [[fire-og|Fire OG]] Bx3 male. It is treated as its own cultivar rather than a GSC phenotype.",
   "born": {
     "year_min": 2013,
     "year_max": 2015,
@@ -45,5 +45,5 @@
       "accessed": "2026-09-24"
     }
   ],
-  "updated": "2026-09-24"
+  "updated": "2026-09-25"
 }

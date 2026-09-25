@@ -4,7 +4,7 @@
   "aliases": [],
   "kind": "cultivar",
   "status": "draft",
-  "summary": "**Cereal Milk** is a [[kind:cultivar|cultivar]] bred by [[breeder:Powerzzzup Genetics]] and released under the Cookies brand. It crosses [[y-life|Y Life]], itself a [[gsc|GSC]] and [[cherry-pie|Cherry Pie]] cross, with the [[snowman|Snowman]] cut.",
+  "summary": "**Cereal Milk** is a [[kind:cultivar|cultivar]] bred by [[breeder:Powerzzzup Genetics]] and released under the [[breeder:Cookie Fam Genetics|Cookies]] brand. It crosses [[y-life|Y Life]], itself a [[gsc|GSC]] and [[cherry-pie|Cherry Pie]] cross, with the [[snowman|Snowman]] cut.",
   "born": {
     "unknown": true,
     "display": "unknown"
@@ -44,5 +44,5 @@
       "accessed": "2026-09-24"
     }
   ],
-  "updated": "2026-09-24"
+  "updated": "2026-09-25"
 }

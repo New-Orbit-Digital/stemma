@@ -11,11 +11,11 @@
   ],
   "kind": "cut",
   "status": "draft",
-  "summary": "**GG4** is a [[kind:cut|cut]] discovered in 2013 by growers Joesy Whales and Ross Johnson, who later founded [[breeder:GG Strains]] in Nevada. It came from a three-way cross of [[chem-sister|Chem Sister]], [[sour-dubb|Sour Dubb]], and [[chocolate-diesel|Chocolate Diesel]], selected as a single phenotype. A trademark dispute with the adhesive maker forced the name change from Gorilla Glue to GG4.",
+  "summary": "**GG4** is a [[kind:cut|cut]] found in Nevada in 2011 by Joesy Whales and Lone Watty, who later founded [[breeder:GG Strains]]. A hermaphrodite [[chem-sister|Chem Sister]] plant pollinated nearby [[sour-dubb|Sour Dubb]] and [[chocolate-diesel|Chocolate Diesel]] plants, and one phenotype from that seed was kept. A trademark dispute with the adhesive maker led to its renaming from Gorilla Glue to GG4.",
   "born": {
-    "year_min": 2013,
-    "year_max": 2013,
-    "display": "2013"
+    "year_min": 2011,
+    "year_max": 2011,
+    "display": "2011"
   },
   "origin": {
     "place": "Nevada, United States",
@@ -50,8 +50,9 @@
       "publisher": "Green Avenger Seeds",
       "category": "publication",
       "url": "https://www.greenavengerseeds.com/the-history-of-gorilla-glue-4-gg4/",
-      "accessed": "2026-09-24"
+      "accessed": "2026-09-25",
+      "note": "L1-C audit 2026-09-25: gives 2011, Nevada, Joesy Whales and Lone Watty, and the hermaphrodite Chem's Sister pollinating Sour Dubb and Chocolate Diesel."
     }
   ],
-  "updated": "2026-09-24"
+  "updated": "2026-09-25"
 }

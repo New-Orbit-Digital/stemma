@@ -9,7 +9,8 @@
   "status": "draft",
   "summary": "**Stardawg** is a [[kind:cultivar|cultivar]] bred by [[breeder:Top Dawg Seeds]], crossing [[chemdawg-4|Chemdawg 4]] with [[tres-dawg|Tres Dawg]]. It was never released in feminized form, and several named phenotypes circulate under the Stardawg name. It has since been used as a parent in numerous hybrid crosses.",
   "born": {
-    "unknown": true,
+    "year_min": 2010,
+    "year_max": 2013,
     "display": "early 2010s"
   },
   "origin": {
@@ -40,5 +41,5 @@
       "accessed": "2026-09-24"
     }
   ],
-  "updated": "2026-09-24"
+  "updated": "2026-09-25"
 }
