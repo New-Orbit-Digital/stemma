@@ -45,6 +45,14 @@ Once Justin says go in chat, chat executes. The connector's approval prompt is t
 
 These ship as exact step lists. Justin also remains the verification gate on the deployed site.
 
+## Scheduled tasks: no failure loops (standing rule, Justin 2026-09-25)
+Never let a scheduled task keep spending usage on runs that fail or produce nothing. This overrides any job spec.
+- **A failed run** is one that errors, or whose main output is mostly empty because something outside the task blocked it (for example, WebFetch returning `PROVENANCE_REQUIRED` or timing out on most sources, a connector refusing, or CI that won't go clean).
+- **One failed run:** say so plainly at the top of the run's output and in its PR or log row. Don't paper over it by leaving most of the work as stubs and calling the run done.
+- **Two failed runs in a row, or one run where the blocker is plainly systemic:** disable the task itself (`update_trigger`, `enabled: false`), explain why in `docs/current.md`, and stop. Justin re-enables it once the blocker is fixed.
+- **Before starting work,** each run checks whether the previous run of the same task failed for the same reason (its PR, log row, or `current.md`). If the blocker is still there, disable and stop without redoing the work.
+- **Any task that schedules retries of itself** caps them (at most 2) and never re-schedules after the cap.
+
 ## Decisions (with dates)
 - **2026-09-23 — Stack:** a static site plus repo-stored cards. No database or accounts in v1; Supabase arrives with Budlogs.
 - **2026-09-23 — Cards are JSON, and tooling is stdlib-only Python.** The executor runner has no pip.
@@ -70,6 +78,7 @@ These ship as exact step lists. Justin also remains the verification gate on the
 - **2026-09-24 — Framing (Justin).** Stemma doesn't need to be authoritative. Cards are presented as researched with sources and open to changes.
 - **2026-09-24 — Library pass (Justin).** v1 grows from the five seed families to a library of 500+ strains, filled quickly as `draft` cards and merged on a clean pass, with an Opus sample audit. GSC and Blue Dream fold into the library. See `docs/library.md`.
 - **2026-09-24 — Model tiers (Justin).** Opus designs, handles messy lineages, and audits. Sonnet does bulk card filling. Haiku is only for status checks. The executor's model is set in `.github/workflows/claude.yml`, which is Justin's hands only.
+- **2026-09-25 — Fill paused (Justin).** L1-B fill is disabled at about 215 filled cards, because unattended source fetches are blocked. The remaining stubs wait for a later pass with working source access. See `docs/current.md`.
 
 ## Roles
 - **Justin:** product owner and verification gate. He gives the go on gated actions, directly or in advance.
