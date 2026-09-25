@@ -3,6 +3,29 @@
   "name": "Orange Cookies",
   "aliases": [],
   "kind": "cultivar",
-  "status": "stub",
-  "updated": "2026-09-24"
+  "status": "draft",
+  "summary": "**Orange Cookies** is a [[kind:cultivar|cultivar]] bred by [[breeder:Obsoul33t Genetics]]. A cross of [[gsc|GSC]] and Orange Juice, itself a cross of [[california-orange|California Orange]] and [[og-kush|OG Kush]], it is grown as a mostly indica hybrid and can be cultivated indoors or outdoors.",
+  "born": {
+    "unknown": true,
+    "display": "unknown"
+  },
+  "origin": {
+    "unknown": true
+  },
+  "breeder": "Obsoul33t Genetics",
+  "parents": [
+    "gsc",
+    "orange-juice"
+  ],
+  "traditional_label": "indica",
+  "sources": [
+    {
+      "title": "Orange Cookies (Obsoul33t Genetics)",
+      "publisher": "SeedFinder.eu",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/orange-cookies/obsoul33t-genetics",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "updated": "2026-09-25"
 }

@@ -1,8 +1,30 @@
 {
   "id": "lemonnade",
   "name": "Lemonnade",
-  "aliases": [],
+  "aliases": [
+    "The Original Lemonnade"
+  ],
   "kind": "cultivar",
-  "status": "stub",
-  "updated": "2026-09-24"
+  "status": "draft",
+  "summary": "**Lemonnade** is a [[kind:cultivar|cultivar]] whose breeder has kept its parent strains confidential, and no lineage is publicly documented. It is grown as a sativa-leaning hybrid, and is distinct from the similarly named Lemonade line.",
+  "born": {
+    "unknown": true,
+    "display": "unknown"
+  },
+  "origin": {
+    "unknown": true
+  },
+  "breeder": null,
+  "parents": [],
+  "traditional_label": "sativa",
+  "sources": [
+    {
+      "title": "Lemonnade",
+      "publisher": "AllBud",
+      "category": "database",
+      "url": "https://www.allbud.com/marijuana-strains/sativa-dominant-hybrid/lemonnade",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "updated": "2026-09-25"
 }

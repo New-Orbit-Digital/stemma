@@ -3,6 +3,32 @@
   "name": "Gelatti",
   "aliases": [],
   "kind": "cultivar",
-  "status": "stub",
-  "updated": "2026-09-24"
+  "status": "draft",
+  "summary": "**Gelatti** is a [[kind:cultivar|cultivar]] bred by [[breeder:Cookie Fam Genetics]], the Cookies brand's breeding arm. A cross of [[gelato|Gelato]] and [[biscotti|Biscotti]], the original cut bred and sold by Cookies is no longer available in seed or clone form, though other breeders have released their own Gelatti crosses under the name.",
+  "born": {
+    "unknown": true,
+    "display": "unknown"
+  },
+  "origin": {
+    "place": "California, United States",
+    "country": "US",
+    "lat": 36.8,
+    "lon": -119.4
+  },
+  "breeder": "Cookie Fam Genetics",
+  "parents": [
+    "gelato",
+    "biscotti"
+  ],
+  "traditional_label": "hybrid",
+  "sources": [
+    {
+      "title": "Gelatti (Cookie Fam Genetics)",
+      "publisher": "SeedFinder.eu",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/gelatti/cookie-fam-genetics",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "updated": "2026-09-25"
 }

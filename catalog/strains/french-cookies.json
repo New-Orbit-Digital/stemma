@@ -3,6 +3,35 @@
   "name": "French Cookies",
   "aliases": [],
   "kind": "cultivar",
-  "status": "stub",
-  "updated": "2026-09-24"
+  "status": "draft",
+  "summary": "**French Cookies** is a [[kind:cultivar|cultivar]] selected by [[breeder:TH Seeds]] from a seed found in a bag of [[platinum-cookies|Platinum Cookies]] while the breeders were testing strains in California. It is grown as an indica/sativa hybrid, with foliage ranging from dark green to near-black.",
+  "born": {
+    "unknown": true,
+    "display": "unknown"
+  },
+  "origin": {
+    "unknown": true
+  },
+  "breeder": "TH Seeds",
+  "parents": [
+    "platinum-cookies"
+  ],
+  "traditional_label": "hybrid",
+  "growing": {
+    "environment": "unknown",
+    "flowering_weeks": {
+      "min": 9,
+      "max": 10
+    }
+  },
+  "sources": [
+    {
+      "title": "French Cookies (TH Seeds)",
+      "publisher": "SeedFinder.eu",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/french-cookies/th-seeds",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "updated": "2026-09-25"
 }

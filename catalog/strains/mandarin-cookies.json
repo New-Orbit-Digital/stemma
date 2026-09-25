@@ -3,6 +3,36 @@
   "name": "Mandarin Cookies",
   "aliases": [],
   "kind": "cultivar",
-  "status": "stub",
-  "updated": "2026-09-24"
+  "status": "draft",
+  "summary": "**Mandarin Cookies** is a [[kind:cultivar|cultivar]] bred by [[breeder:Ethos Genetics]]. A cross of [[gsc-forum-cut|GSC Forum Cut]] and Mandarin Sunset, it is grown as an indica/sativa hybrid across several phenotypes.",
+  "born": {
+    "unknown": true,
+    "display": "unknown"
+  },
+  "origin": {
+    "unknown": true
+  },
+  "breeder": "Ethos Genetics",
+  "parents": [
+    "gsc-forum-cut",
+    "mandarin-sunset"
+  ],
+  "traditional_label": "hybrid",
+  "growing": {
+    "environment": "unknown",
+    "flowering_weeks": {
+      "min": 8,
+      "max": 10
+    }
+  },
+  "sources": [
+    {
+      "title": "Mandarin Cookies (Ethos Genetics)",
+      "publisher": "SeedFinder.eu",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/mandarin-cookies/ethos-genetics",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "updated": "2026-09-25"
 }
