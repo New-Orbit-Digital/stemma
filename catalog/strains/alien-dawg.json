@@ -5,6 +5,15 @@
     "Alien Dog"
   ],
   "kind": "cultivar",
-  "status": "stub",
-  "updated": "2026-09-24"
+  "status": "draft",
+  "summary": "**Alien Dawg**, also called Alien Dog, is a [[kind:cultivar|cultivar]] and a cross of [[chemdawg|Chemdawg]] and [[alien-technology|Alien Technology]], combining Northern California and Afghan lines.",
+  "born": { "unknown": true, "display": "undated" },
+  "origin": { "unknown": true },
+  "breeder": null,
+  "parents": ["chemdawg", "alien-technology"],
+  "traditional_label": "indica",
+  "sources": [
+    { "title": "Alien Dawg Marijuana Strain Information & Reviews", "publisher": "AllBud", "category": "database", "url": "https://www.allbud.com/marijuana-strains/indica-dominant-hybrid/alien-dawg", "accessed": "2026-09-25" }
+  ],
+  "updated": "2026-09-25"
 }

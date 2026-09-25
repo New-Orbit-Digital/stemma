@@ -3,6 +3,16 @@
   "name": "Private Reserve OG",
   "aliases": [],
   "kind": "cultivar",
-  "status": "stub",
-  "updated": "2026-09-24"
+  "status": "draft",
+  "summary": "**Private Reserve OG** is another name for [[og-18|OG #18]], a sour, diesel-leaning phenotype of [[og-kush|OG Kush]] selected from feminized seed by [[breeder:Reserva Privada]].",
+  "born": { "year_min": 2005, "year_max": 2009, "display": "mid-to-late 2000s" },
+  "origin": { "place": "California, USA", "country": "US", "lat": 36.7, "lon": -119.4 },
+  "breeder": "Reserva Privada",
+  "parents": ["og-kush"],
+  "traditional_label": "hybrid",
+  "growing": { "environment": "indoor", "flowering_weeks": { "min": 8, "max": 9 } },
+  "sources": [
+    { "title": "OG #18 (aka Private Reserve) Weed Strain Near Me", "publisher": "Weedmaps", "category": "database", "url": "https://weedmaps.com/strains/og-18", "accessed": "2026-09-25", "note": "States Private Reserve is the same strain as OG #18." }
+  ],
+  "updated": "2026-09-25"
 }

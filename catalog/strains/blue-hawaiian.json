@@ -3,6 +3,15 @@
   "name": "Blue Hawaiian",
   "aliases": [],
   "kind": "cultivar",
-  "status": "stub",
-  "updated": "2026-09-24"
+  "status": "draft",
+  "summary": "**Blue Hawaiian** is a [[kind:cultivar|cultivar]] from [[breeder:CalCo Genetics]], crossing [[kona-sunset|Kona Sunset]] and [[blueberry-syrup|Blueberry Syrup]]. Kona Sunset traces to 1980s Hawaiian Kona genetics crossed with Dark Cross, while Blueberry Syrup combines DJ Short's [[blueberry|Blueberry]] line with Humble Pie.",
+  "born": { "unknown": true, "display": "undated" },
+  "origin": { "unknown": true },
+  "breeder": "CalCo Genetics",
+  "parents": ["kona-sunset", "blueberry-syrup"],
+  "traditional_label": "hybrid",
+  "sources": [
+    { "title": "Blue Hawaiian (CalCo Genetics)", "publisher": "SeedFinder.eu", "category": "database", "url": "https://seedfinder.eu/en/strain-info/blue-hawaiian/calco-genetics", "accessed": "2026-09-25" }
+  ],
+  "updated": "2026-09-25"
 }

@@ -5,6 +5,15 @@
     "Motor Breath"
   ],
   "kind": "cultivar",
-  "status": "stub",
-  "updated": "2026-09-24"
+  "status": "draft",
+  "summary": "**Motorbreath** is a [[kind:cultivar|cultivar]] bred by Jimmy Nitz of [[breeder:Pisces Genetics]], crossing [[chemdawg|Chemdawg]] and [[sfv-og|SFV OG]].",
+  "born": { "unknown": true, "display": "undated" },
+  "origin": { "unknown": true },
+  "breeder": "Pisces Genetics",
+  "parents": ["chemdawg", "sfv-og"],
+  "traditional_label": "hybrid",
+  "sources": [
+    { "title": "Motorbreath Cannabis Strain: Parents, Breeder, and Origin", "publisher": "Carters Cannabis", "category": "community", "url": "https://www.carterscannabis.com/blog/genetics-blog-1/cannabis-genetics-explained-motorbreath-chemdog-x-sfv-og-the-history-and-story-of-breeders-jimmy-nitz-and-pisces-genetics-creation-120", "accessed": "2026-09-25" }
+  ],
+  "updated": "2026-09-25"
 }
