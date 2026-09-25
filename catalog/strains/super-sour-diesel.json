@@ -3,6 +3,15 @@
   "name": "Super Sour Diesel",
   "aliases": [],
   "kind": "cultivar",
-  "status": "stub",
-  "updated": "2026-09-24"
+  "status": "draft",
+  "summary": "**Super Sour Diesel** is a [[kind:cultivar|cultivar]] and a cross of [[super-silver-haze|Super Silver Haze]] and [[sour-diesel|Sour Diesel]].",
+  "born": { "unknown": true, "display": "undated" },
+  "origin": { "unknown": true },
+  "breeder": null,
+  "parents": ["super-silver-haze", "sour-diesel"],
+  "traditional_label": "hybrid",
+  "sources": [
+    { "title": "Super Sour Diesel (Unknown or Legendary) :: Lineage & Hybrids", "publisher": "SeedFinder.eu", "category": "database", "url": "https://seedfinder.eu/en/strain-info/super-sour-diesel/unknown-or-legendary/genealogy", "accessed": "2026-09-25" }
+  ],
+  "updated": "2026-09-25"
 }

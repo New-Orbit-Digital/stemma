@@ -1,0 +1,10 @@
+{
+  "id": "chem-d",
+  "name": "Chem D",
+  "aliases": [
+    "ChemD"
+  ],
+  "kind": "cut",
+  "status": "stub",
+  "updated": "2026-09-25"
+}

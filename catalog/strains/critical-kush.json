@@ -3,6 +3,15 @@
   "name": "Critical Kush",
   "aliases": [],
   "kind": "cultivar",
-  "status": "stub",
-  "updated": "2026-09-24"
+  "status": "draft",
+  "summary": "**Critical Kush** is a [[kind:cultivar|cultivar]] bred by [[breeder:Barney's Farm]], crossing [[critical-mass|Critical Mass]] and [[og-kush|OG Kush]].",
+  "born": { "unknown": true, "display": "undated" },
+  "origin": { "unknown": true },
+  "breeder": "Barney's Farm",
+  "parents": ["critical-mass", "og-kush"],
+  "traditional_label": "indica",
+  "sources": [
+    { "title": "Critical Kush Strain | Buy Feminised Cannabis Seeds", "publisher": "Barney's Farm", "category": "breeder", "url": "https://www.barneysfarm.com/critical-kush-23", "accessed": "2026-09-25" }
+  ],
+  "updated": "2026-09-25"
 }
