@@ -3,6 +3,38 @@
   "name": "Romulan",
   "aliases": [],
   "kind": "cultivar",
-  "status": "stub",
+  "status": "draft",
+  "summary": "**Romulan** is a [[kind:cultivar|cultivar]] developed by military veterans in British Columbia, [[country:CA|Canada]], starting from [[thai]] seed introduced in the late 1960s. [[colombian-gold|Colombian]] and [[afghani]] landraces were bred in over the following decade, and the line was known as Port Alberni Pinebud before being renamed Romulan. Some sources attribute its wider spread to a grower called Romulan Joe.",
+  "born": {
+    "year_min": 1970,
+    "year_max": 1979,
+    "display": "1970s"
+  },
+  "origin": {
+    "place": "British Columbia, Canada",
+    "country": "CA",
+    "lat": 49.2,
+    "lon": -124.8
+  },
+  "breeder": null,
+  "parents": [],
+  "traditional_label": "indica",
+  "sources": [
+    {
+      "title": "Romulan Genetics",
+      "publisher": "Brothers Grimm Seeds",
+      "category": "breeder",
+      "url": "https://brothersgrimmseeds.com/romulan-genetics/",
+      "accessed": "2026-09-24",
+      "note": "Account of Romulan's origins among veteran growers in BC/Northern California."
+    },
+    {
+      "title": "Romulan (Romulan Genetics)",
+      "publisher": "SeedFinder.eu",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/romulan/romulan-genetics",
+      "accessed": "2026-09-24"
+    }
+  ],
   "updated": "2026-09-24"
 }

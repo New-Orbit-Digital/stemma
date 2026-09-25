@@ -5,6 +5,30 @@
     "JTR"
   ],
   "kind": "cultivar",
-  "status": "stub",
+  "status": "draft",
+  "summary": "**Jack the Ripper** is a [[kind:cultivar|cultivar]] bred by [[breeder:TGA Genetics|TGA Genetics]] (Subcool's The Dank), an outcross of [[jacks-cleaner|Jack's Cleaner]] with a [[space-queen|Space Queen]] male. It was Subcool's first outcross beyond the Jack's Cleaner line, intended to build on it using Space Queen genetics. Deeper ancestry runs through [[jack-herer|Jack Herer]], [[northern-lights|Northern Lights]], and [[romulan|Romulan]].",
+  "breeder": "TGA Genetics",
+  "parents": [
+    "jacks-cleaner",
+    "space-queen"
+  ],
+  "traditional_label": "sativa",
+  "growing": {
+    "environment": "both",
+    "flowering_weeks": {
+      "min": 8,
+      "max": 10
+    }
+  },
+  "sources": [
+    {
+      "title": "Jack the Ripper (SubCool's The Dank)",
+      "publisher": "SeedFinder.eu",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/jack-the-ripper/subcools-the-dank",
+      "accessed": "2026-09-24",
+      "note": "Breeder-submitted lineage (Jack's Cleaner x Space Queen), flowering time, and history as Subcool's first Jack's Cleaner outcross."
+    }
+  ],
   "updated": "2026-09-24"
 }

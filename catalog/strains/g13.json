@@ -5,6 +5,42 @@
     "G-13"
   ],
   "kind": "cut",
-  "status": "stub",
+  "status": "draft",
+  "summary": "**G13** is a [[kind:cut|clone-only]] selection of pure [[afghani|Afghani]] genetics. A widely repeated legend traces it to a 1960s-70s government research program at the University of Mississippi, though documented history has Dutch breeder Neville Schoenmakers acquiring the clone in Portland, Oregon, in 1986. The original cut is believed extinct but survives through hybrids like [[g13-haze|G13 Haze]].",
+  "born": {
+    "unknown": true,
+    "display": "before 1986"
+  },
+  "origin": {
+    "unknown": true
+  },
+  "breeder": null,
+  "parents": [
+    "afghani"
+  ],
+  "traditional_label": "indica",
+  "growing": {
+    "environment": "unknown",
+    "flowering_weeks": {
+      "min": 8,
+      "max": 10
+    }
+  },
+  "sources": [
+    {
+      "title": "G13 Strain Origin: A Comprehensive Strain Guide",
+      "publisher": "JointCommerce",
+      "category": "publication",
+      "url": "https://www.jointcommerce.com/blog/g13-strain-origin-a-comprehensive-strain-guide",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "G13",
+      "publisher": "Prime Cuts Nursery",
+      "category": "database",
+      "url": "https://www.primecutsnursery.com/strains/g13",
+      "accessed": "2026-09-24"
+    }
+  ],
   "updated": "2026-09-24"
 }

@@ -3,6 +3,42 @@
   "name": "Golden Goat",
   "aliases": [],
   "kind": "cultivar",
-  "status": "stub",
+  "status": "draft",
+  "summary": "**Golden Goat** is a [[kind:cultivar|cultivar]] that originated from an unplanned pollination in Topeka, Kansas, [[country:US|USA]], when a [[hawaiian-x-romulan|Hawaiian x Romulan]] male fertilized an [[island-sweet-skunk|Island Sweet Skunk]] female grown by a cultivator known as Mr. Dank. The name refers to nearby recycling machines whose scent mingled with the plant's own. Irie Genetics later released a feminized version, Golden Goat S1.",
+  "origin": {
+    "place": "Topeka, Kansas, USA",
+    "country": "US",
+    "lat": 39.0,
+    "lon": -95.7
+  },
+  "breeder": null,
+  "parents": [
+    "island-sweet-skunk",
+    "hawaiian-x-romulan"
+  ],
+  "traditional_label": "sativa",
+  "growing": {
+    "environment": "both",
+    "flowering_weeks": {
+      "min": 8,
+      "max": 9
+    }
+  },
+  "sources": [
+    {
+      "title": "Golden Goat (Irie Genetics)",
+      "publisher": "SeedFinder.eu",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/golden-goat/irie-genetics",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Golden Goat: Topeka's Happy Accident That Became a Cannabis Legend",
+      "publisher": "This Is Topeka",
+      "category": "publication",
+      "url": "https://thisistopeka.com/2025/10/golden-goat-topekas-happy-accident-that-became-a-cannabis-legend/",
+      "accessed": "2026-09-24"
+    }
+  ],
   "updated": "2026-09-24"
 }

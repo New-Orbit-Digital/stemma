@@ -3,6 +3,36 @@
   "name": "Afghan Kush",
   "aliases": [],
   "kind": "landrace",
-  "status": "stub",
+  "status": "draft",
+  "summary": "**Afghan Kush** is a [[kind:landrace|landrace]] traditionally grown across the Hindu Kush mountains of [[country:AF|Afghanistan]], selected over generations for dense, resinous flowers suited to hashish production. Seeds and cuttings reached Europe and North America in the late 1960s and early 1970s via travelers on the Hippie Trail. It became a foundation type for many indica-labeled hybrids.",
+  "born": {
+    "unknown": true,
+    "display": "traditional"
+  },
+  "origin": {
+    "place": "Hindu Kush region, Afghanistan",
+    "country": "AF",
+    "lat": 35.0,
+    "lon": 67.5
+  },
+  "breeder": null,
+  "parents": [],
+  "traditional_label": "indica",
+  "sources": [
+    {
+      "title": "Strain Spotlight: Afghan Kush and the Lineage of Mountain Cannabis",
+      "publisher": "Beard Bros Pharms",
+      "category": "publication",
+      "url": "https://beardbrospharms.com/articles/strain-spotlight-afghan-kush-and-the-lineage-of-mountain-cannabis/",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Afghani Genetics",
+      "publisher": "CannaGenie",
+      "category": "database",
+      "url": "https://www.cannagenie.org/cultivar-history/landrace-families/asia-genetics/afghani-genetics",
+      "accessed": "2026-09-24"
+    }
+  ],
   "updated": "2026-09-24"
 }

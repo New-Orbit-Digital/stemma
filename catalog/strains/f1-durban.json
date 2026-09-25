@@ -5,7 +5,39 @@
     "F1",
     "Durban F1"
   ],
-  "kind": "cultivar",
-  "status": "stub",
+  "kind": "cut",
+  "status": "draft",
+  "summary": "**F1 Durban** is a [[kind:cut|cut]] line of [[durban-poison|Durban Poison]] first grown out by a cultivator known as Chang, reportedly around 1998. It later became a parent used in [[gsc|Girl Scout Cookies]] breeding, sometimes cited as its Durban Poison-derived parent. Its own origin and breeder affiliation remain undocumented beyond that early account.",
+  "born": {
+    "year_min": 1997,
+    "year_max": 1999,
+    "display": "circa 1998"
+  },
+  "origin": {
+    "unknown": true
+  },
+  "breeder": null,
+  "parents": [
+    "durban-poison"
+  ],
+  "traditional_label": "sativa",
+  "sources": [
+    {
+      "title": "F1 Durban (Unknown or Legendary)",
+      "publisher": "SeedFinder.eu",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/f1-durban/unknown-or-legendary",
+      "accessed": "2026-09-24",
+      "note": "Lists F1 Durban's parentage as an F1 hybrid x Durban Poison and notes its role as an ancestor of later hybrid strains."
+    },
+    {
+      "title": "F1 Durban by Unknown or Legendary: A Comprehensive Strain Guide",
+      "publisher": "Jointcommerce",
+      "category": "publication",
+      "url": "https://www.jointcommerce.com/blog/f1-durban-by-unknown-or-legendary-a-comprehensive-strain-guide",
+      "accessed": "2026-09-24",
+      "note": "Sole source found for the 1998/Chang origin account; treat the specific date with caution as it is not corroborated elsewhere."
+    }
+  ],
   "updated": "2026-09-24"
 }

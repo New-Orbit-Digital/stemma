@@ -5,6 +5,37 @@
     "Bubble Gum"
   ],
   "kind": "cultivar",
-  "status": "stub",
+  "status": "draft",
+  "summary": "**Bubblegum** is a [[kind:cultivar|cultivar]] first grown by an unidentified breeder in Indiana, USA; sources differ on whether it appeared in the late 1970s or in 1989. Its exact parentage was never recorded. Cuttings reached the East Coast and then Amsterdam, where Dutch breeders stabilized the line, and it won the Cannabis Cup in 1994 and placed second in 1995 and 1999.",
+  "born": {
+    "year_min": 1975,
+    "year_max": 1989,
+    "display": "late 1970s–1989 (disputed)"
+  },
+  "origin": {
+    "place": "Indiana, USA",
+    "country": "US",
+    "lat": 39.8,
+    "lon": -86.1
+  },
+  "breeder": null,
+  "parents": [],
+  "traditional_label": "hybrid",
+  "sources": [
+    {
+      "title": "Strain History: BubbleGum",
+      "publisher": "2Fast4Buds",
+      "category": "publication",
+      "url": "https://2fast4buds.com/news/strain-history-bubble-gum",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Bubblegum Marijuana Strain Information & Reviews",
+      "publisher": "AllBud",
+      "category": "database",
+      "url": "https://www.allbud.com/marijuana-strains/indica-dominant-hybrid/bubblegum",
+      "accessed": "2026-09-24"
+    }
+  ],
   "updated": "2026-09-24"
 }

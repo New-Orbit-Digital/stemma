@@ -4,7 +4,40 @@
   "aliases": [
     "Hashplant"
   ],
-  "kind": "cultivar",
-  "status": "stub",
+  "kind": "cut",
+  "status": "draft",
+  "summary": "**Hash Plant** is a [[kind:cut|clone-only]] selection of [[afghani|Afghani]] stock that was developed in the Pacific Northwest of the United States and carried to the Netherlands as cuttings in the early 1980s. [[breeder:Sensi Seeds|Sensi Seeds]] maintained and distributed it, and a stabilized seed line placed third in the Hydro category at the 2002 Highlife Cup.",
+  "born": {
+    "year_min": 1975,
+    "year_max": 1982,
+    "display": "late 1970s–early 1980s"
+  },
+  "origin": {
+    "place": "Pacific Northwest, USA",
+    "country": "US",
+    "lat": 45.5,
+    "lon": -122.5
+  },
+  "breeder": "Sensi Seeds",
+  "parents": [
+    "afghani"
+  ],
+  "traditional_label": "indica",
+  "growing": {
+    "environment": "indoor",
+    "flowering_weeks": {
+      "min": 5,
+      "max": 6
+    }
+  },
+  "sources": [
+    {
+      "title": "Hash Plant (Sensi Seeds)",
+      "publisher": "SeedFinder",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/hash-plant/sensi-seeds",
+      "accessed": "2026-09-24"
+    }
+  ],
   "updated": "2026-09-24"
 }

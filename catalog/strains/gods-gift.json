@@ -3,6 +3,48 @@
   "name": "God's Gift",
   "aliases": [],
   "kind": "cultivar",
-  "status": "stub",
+  "status": "draft",
+  "summary": "**God's Gift** is a [[kind:cultivar|cultivar]] cross of [[og-kush|OG Kush]] and [[granddaddy-purple|Granddaddy Purple]] that emerged in California dispensary circles in the mid-2000s. No formal breeder is credited, and it spread first as a clone-only cut before commercial seed lines appeared. The cross produces indica-dominant, deep-purple plants.",
+  "born": {
+    "year_min": 2004,
+    "year_max": 2007,
+    "display": "mid-2000s"
+  },
+  "origin": {
+    "place": "California, USA",
+    "country": "US",
+    "lat": 37.0,
+    "lon": -120.0
+  },
+  "breeder": null,
+  "parents": [
+    "og-kush",
+    "granddaddy-purple"
+  ],
+  "traditional_label": "hybrid",
+  "growing": {
+    "environment": "both",
+    "flowering_weeks": {
+      "min": 8,
+      "max": 9
+    }
+  },
+  "sources": [
+    {
+      "title": "God's Gift",
+      "publisher": "Strainpedia",
+      "category": "database",
+      "url": "https://www.strainpedia.com/god-s-gift/",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "God's Gift (Unknown or Legendary)",
+      "publisher": "SeedFinder",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/gods-gift/unknown-or-legendary",
+      "accessed": "2026-09-24",
+      "note": "Also used SeedFinder's genealogy page for lineage confirmation."
+    }
+  ],
   "updated": "2026-09-24"
 }

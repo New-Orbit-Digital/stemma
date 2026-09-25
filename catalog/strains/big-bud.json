@@ -3,6 +3,47 @@
   "name": "Big Bud",
   "aliases": [],
   "kind": "cultivar",
-  "status": "stub",
+  "status": "draft",
+  "summary": "**Big Bud** is a [[kind:cultivar|cultivar]] cross of [[skunk-1|Skunk #1]] and [[northern-lights|Northern Lights]] first bred in the United States in the 1980s from an Afghan-type indica and a skunk plant, then stabilized in the Netherlands by [[breeder:Sensi Seeds|Sensi Seeds]]. It won the indica category at the Cannabis Cup and became known for unusually large, dense flower clusters.",
+  "born": {
+    "year_min": 1980,
+    "year_max": 1989,
+    "display": "1980s"
+  },
+  "origin": {
+    "place": "United States",
+    "country": "US",
+    "lat": 39.8,
+    "lon": -98.5
+  },
+  "breeder": "Sensi Seeds",
+  "parents": [
+    "skunk-1",
+    "northern-lights"
+  ],
+  "traditional_label": "hybrid",
+  "growing": {
+    "environment": "both",
+    "flowering_weeks": {
+      "min": 7,
+      "max": 9
+    }
+  },
+  "sources": [
+    {
+      "title": "Big Bud Regular Seeds",
+      "publisher": "Sensi Seeds",
+      "category": "breeder",
+      "url": "https://sensiseeds.com/en/cannabis-seeds/sensi-seeds/big-bud",
+      "accessed": "2026-09-24"
+    },
+    {
+      "title": "Big Bud (Sensi Seeds)",
+      "publisher": "SeedFinder",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/big-bud/sensi-seeds",
+      "accessed": "2026-09-24"
+    }
+  ],
   "updated": "2026-09-24"
 }
