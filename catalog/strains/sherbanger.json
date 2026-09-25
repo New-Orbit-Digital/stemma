@@ -3,6 +3,29 @@
   "name": "Sherbanger",
   "aliases": [],
   "kind": "cultivar",
-  "status": "stub",
-  "updated": "2026-09-24"
+  "status": "draft",
+  "summary": "**Sherbanger** is a [[kind:cultivar|cultivar]] and a cross of [[sunset-sherbet|Sunset Sherbet]] and Headbanger, itself a cross of [[sour-diesel|Sour Diesel]] and Biker Kush. It combines Sunset Sherbet's dessert-leaning lineage with Headbanger's diesel-heavy side and is grown as a hybrid.",
+  "born": {
+    "unknown": true,
+    "display": "unknown"
+  },
+  "origin": {
+    "unknown": true
+  },
+  "breeder": null,
+  "parents": [
+    "sunset-sherbet",
+    "headbanger"
+  ],
+  "traditional_label": "hybrid",
+  "sources": [
+    {
+      "title": "Sherbanger Strain",
+      "publisher": "Strainpedia",
+      "category": "database",
+      "url": "https://www.strainpedia.com/sherbanger/",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "updated": "2026-09-25"
 }

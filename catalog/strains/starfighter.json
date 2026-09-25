@@ -3,6 +3,29 @@
   "name": "Starfighter",
   "aliases": [],
   "kind": "cultivar",
-  "status": "stub",
-  "updated": "2026-09-24"
+  "status": "draft",
+  "summary": "**Starfighter** is a [[kind:cultivar|cultivar]] bred by [[breeder:Alien Genetics]]. A cross of their Lemon Alien Dawg and Tahoe Alien lines, both rooted in [[alien-technology|Alien Technology]] and [[chemdawg|Chemdawg]] genetics, it was never released as feminized seed. It later became a parent of [[mac|MAC]].",
+  "born": {
+    "unknown": true,
+    "display": "unknown"
+  },
+  "origin": {
+    "unknown": true
+  },
+  "breeder": "Alien Genetics",
+  "parents": [
+    "lemon-alien-dawg",
+    "tahoe-alien"
+  ],
+  "traditional_label": "indica",
+  "sources": [
+    {
+      "title": "Starfighter (Alien Genetics)",
+      "publisher": "SeedFinder.eu",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/starfighter/alien-genetics",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "updated": "2026-09-25"
 }

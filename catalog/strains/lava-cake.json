@@ -3,6 +3,43 @@
   "name": "Lava Cake",
   "aliases": [],
   "kind": "cultivar",
-  "status": "stub",
-  "updated": "2026-09-24"
+  "status": "draft",
+  "summary": "**Lava Cake** is a [[kind:cultivar|cultivar]] and a cross of [[thin-mint-gsc|Thin Mint GSC]] and [[grape-pie|Grape Pie]]. Multiple breeders, including Jungle Boys, Cannarado Genetics, and Emerald Family Farms, have each circulated their own cut of the cross, and no single origin is documented. It is grown as an indica-leaning hybrid.",
+  "born": {
+    "unknown": true,
+    "display": "unknown"
+  },
+  "origin": {
+    "unknown": true
+  },
+  "breeder": null,
+  "parents": [
+    "thin-mint-gsc",
+    "grape-pie"
+  ],
+  "traditional_label": "indica",
+  "growing": {
+    "environment": "unknown",
+    "flowering_weeks": {
+      "min": 8,
+      "max": 9
+    }
+  },
+  "sources": [
+    {
+      "title": "Lava Cake Strain Guide",
+      "publisher": "DNA Genetics",
+      "category": "breeder",
+      "url": "https://dnagenetics.com/lava-cake-marijuana-strain/",
+      "accessed": "2026-09-25"
+    },
+    {
+      "title": "Lava Cake Strain: A Frosty Hybrid with Dessert-Like Flavors",
+      "publisher": "Respect My Region",
+      "category": "community",
+      "url": "https://respectmyregion.com/lava-cake-strain-jungle-boys/",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "updated": "2026-09-25"
 }

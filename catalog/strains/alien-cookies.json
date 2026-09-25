@@ -3,6 +3,36 @@
   "name": "Alien Cookies",
   "aliases": [],
   "kind": "cultivar",
-  "status": "stub",
-  "updated": "2026-09-24"
+  "status": "draft",
+  "summary": "**Alien Cookies** is a [[kind:cultivar|cultivar]] bred by [[breeder:Motherland Genetics]]. A cross of their Alien Abduction line and a Durban Cookies Kush male that combines [[thin-mint-gsc|Thin Mint GSC]] with [[ogkb|OGKB]], it introduces [[durban-poison|Durban Poison]] ancestry and is grown as a mostly indica hybrid with varied phenotypes.",
+  "born": {
+    "unknown": true,
+    "display": "unknown"
+  },
+  "origin": {
+    "unknown": true
+  },
+  "breeder": "Motherland Genetics",
+  "parents": [
+    "alien-abduction",
+    "durban-cookies-kush"
+  ],
+  "traditional_label": "indica",
+  "growing": {
+    "environment": "both",
+    "flowering_weeks": {
+      "min": 9,
+      "max": 9
+    }
+  },
+  "sources": [
+    {
+      "title": "Alien Cookies (Motherland Genetics)",
+      "publisher": "SeedFinder.eu",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/alien-cookies/motherland-genetics",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "updated": "2026-09-25"
 }
