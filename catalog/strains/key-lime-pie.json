@@ -3,6 +3,38 @@
   "name": "Key Lime Pie",
   "aliases": [],
   "kind": "cut",
-  "status": "stub",
-  "updated": "2026-09-24"
+  "status": "draft",
+  "summary": "**Key Lime Pie** is a [[kind:cut|cut]] selected by [[breeder:Purple Caper Seeds]] from a sour-lime [[gsc|GSC]] phenotype that first circulated as a clone-only cut around Santa Cruz, California, later crossed back to a GSC F2 male. Offspring split between key-lime and mint-gas leaning phenotypes.",
+  "born": {
+    "unknown": true,
+    "display": "unknown"
+  },
+  "origin": {
+    "place": "Santa Cruz, California",
+    "country": "US",
+    "lat": 36.9,
+    "lon": -122.0
+  },
+  "breeder": "Purple Caper Seeds",
+  "parents": [
+    "gsc"
+  ],
+  "traditional_label": "hybrid",
+  "growing": {
+    "environment": "indoor",
+    "flowering_weeks": {
+      "min": 9,
+      "max": 9
+    }
+  },
+  "sources": [
+    {
+      "title": "Key Lime Pie (Purple Caper Seeds)",
+      "publisher": "SeedFinder.eu",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/key-lime-pie/purple-caper-seeds",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "updated": "2026-09-25"
 }

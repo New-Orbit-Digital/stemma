@@ -1,8 +1,47 @@
 {
   "id": "gelato-cake",
   "name": "Gelato Cake",
-  "aliases": [],
+  "aliases": [
+    "Wedding Cake Gelato"
+  ],
   "kind": "cultivar",
-  "status": "stub",
-  "updated": "2026-09-24"
+  "status": "draft",
+  "summary": "**Gelato Cake** is a [[kind:cultivar|cultivar]] and a cross of [[wedding-cake|Wedding Cake]] and [[gelato-33|Gelato #33]], sometimes credited to [[breeder:Seed Junky Genetics]] though this is unconfirmed. TH Seeds separately sells a three-way Gelato Cake cross of Gelato #33, Birthday Cake, and Strawbanana Cream. It is grown as a mostly indica hybrid.",
+  "born": {
+    "unknown": true,
+    "display": "unknown"
+  },
+  "origin": {
+    "unknown": true
+  },
+  "breeder": null,
+  "parents": [
+    "wedding-cake",
+    "gelato-33"
+  ],
+  "traditional_label": "indica",
+  "growing": {
+    "environment": "both",
+    "flowering_weeks": {
+      "min": 8,
+      "max": 9
+    }
+  },
+  "sources": [
+    {
+      "title": "Gelato Cake (TH Seeds)",
+      "publisher": "SeedFinder.eu",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/gelato-cake/th-seeds",
+      "accessed": "2026-09-25"
+    },
+    {
+      "title": "Gelato Cake Strain Information & Review",
+      "publisher": "ILoveGrowingMarijuana",
+      "category": "community",
+      "url": "https://www.ilovegrowingmarijuana.com/strains/gelato-cake-strain/",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "updated": "2026-09-25"
 }

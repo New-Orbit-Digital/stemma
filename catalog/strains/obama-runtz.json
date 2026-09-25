@@ -3,6 +3,30 @@
   "name": "Obama Runtz",
   "aliases": [],
   "kind": "cultivar",
-  "status": "stub",
-  "updated": "2026-09-24"
+  "status": "draft",
+  "summary": "**Obama Runtz** is a [[kind:cultivar|cultivar]] and a three-way cross of [[afghani|Afghani]], [[og-kush|OG Kush]], and [[runtz|Runtz]]. Its breeder is not documented, and it is grown as an indica-leaning hybrid.",
+  "born": {
+    "unknown": true,
+    "display": "unknown"
+  },
+  "origin": {
+    "unknown": true
+  },
+  "breeder": null,
+  "parents": [
+    "afghani",
+    "og-kush",
+    "runtz"
+  ],
+  "traditional_label": "indica",
+  "sources": [
+    {
+      "title": "Obama Runtz",
+      "publisher": "AllBud",
+      "category": "database",
+      "url": "https://www.allbud.com/marijuana-strains/indica-dominant-hybrid/obama-runtz",
+      "accessed": "2026-09-25"
+    }
+  ],
+  "updated": "2026-09-25"
 }

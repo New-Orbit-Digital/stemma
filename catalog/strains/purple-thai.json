@@ -3,6 +3,44 @@
   "name": "Purple Thai",
   "aliases": [],
   "kind": "cultivar",
-  "status": "stub",
-  "updated": "2026-09-24"
+  "status": "draft",
+  "summary": "**Purple Thai** is a [[kind:cultivar|cultivar]] and a cross of [[oaxacan-gold|Highland Oaxacan Gold]] and [[chocolate-thai|Chocolate Thai]], part of DJ Short's foundational lines. Some sources instead describe it as a pure Thai landrace population stabilized by breeders such as Anesia Seeds. It was later used as a parent of [[blueberry|Blueberry]] and [[flo|Flo]].",
+  "born": {
+    "unknown": true,
+    "display": "unknown"
+  },
+  "origin": {
+    "unknown": true
+  },
+  "breeder": null,
+  "parents": [
+    "oaxacan-gold",
+    "chocolate-thai"
+  ],
+  "traditional_label": "sativa",
+  "growing": {
+    "environment": "both",
+    "flowering_weeks": {
+      "min": 11,
+      "max": 13
+    }
+  },
+  "sources": [
+    {
+      "title": "Purple Thai, Landraces",
+      "publisher": "Anesia Seeds",
+      "category": "breeder",
+      "url": "https://anesiaseeds.com/product/purple-thai-landraces/",
+      "accessed": "2026-09-25"
+    },
+    {
+      "title": "Flo (DJ Short)",
+      "publisher": "SeedFinder.eu",
+      "category": "database",
+      "url": "https://seedfinder.eu/en/strain-info/flo/dj-short",
+      "accessed": "2026-09-25",
+      "note": "Describes Purple Thai as Highland Oaxacan Gold x Chocolate Thai in the DJ Short lineage."
+    }
+  ],
+  "updated": "2026-09-25"
 }
