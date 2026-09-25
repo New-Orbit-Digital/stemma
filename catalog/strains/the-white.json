@@ -4,13 +4,24 @@
   "aliases": [],
   "kind": "cut",
   "status": "draft",
-  "summary": "**The White** is a [[kind:cut|clone-only]] cut of undisclosed three-way parentage, first grown by a breeder known as Krome under the working name \"Triangle.\" It was renamed for the pale, trichome-dusted look of its finished buds, and Krome has said only that it has no relation to [[white-widow|White Widow]]. It placed second in the Indica category at the 2009 IC 420 Growers Cup and is still passed on only as cuttings.",
-  "born": { "unknown": true, "display": "documented by 2009" },
-  "origin": { "unknown": true },
+  "summary": "**The White** is a [[kind:cut|clone-only]] cut of undisclosed three-way parentage, first grown by a breeder known as Krome under the working name \"Triangle.\" Krome has said only that it has no relation to [[white-widow|White Widow]]. It placed second in the Indica category at the 2009 IC 420 Growers Cup.",
+  "born": {
+    "unknown": true,
+    "display": "documented by 2009"
+  },
+  "origin": {
+    "unknown": true
+  },
   "breeder": null,
   "parents": [],
   "traditional_label": "hybrid",
-  "growing": { "environment": "both", "flowering_weeks": { "min": 8, "max": 9 } },
+  "growing": {
+    "environment": "both",
+    "flowering_weeks": {
+      "min": 8,
+      "max": 9
+    }
+  },
   "sources": [
     {
       "title": "The White (Clone Only Strains)",

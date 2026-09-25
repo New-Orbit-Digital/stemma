@@ -4,13 +4,27 @@
   "aliases": [],
   "kind": "cultivar",
   "status": "draft",
-  "summary": "**Kandy Kush** is a [[kind:cultivar|hybrid]] bred by [[breeder:Reserva Privada]], a DNA Genetics line, as a cross of [[og-kush|OG Kush]] and [[trainwreck|Trainwreck]]. OG Kush contributes its resinous, earthy structure while Trainwreck adds vigorous growth and citrus notes, and the blend runs roughly three-fifths indica to two-fifths sativa. Indoors it finishes in nine to ten weeks, with outdoor harvests typically in mid-to-late October.",
-  "born": { "unknown": true, "display": "date undocumented" },
-  "origin": { "unknown": true },
+  "summary": "**Kandy Kush** is a [[kind:cultivar|hybrid]] bred by [[breeder:Reserva Privada]], the sister line of [[breeder:DNA Genetics]], as a cross of [[og-kush|OG Kush]] and [[trainwreck|Trainwreck]].",
+  "born": {
+    "unknown": true,
+    "display": "date undocumented"
+  },
+  "origin": {
+    "unknown": true
+  },
   "breeder": "Reserva Privada",
-  "parents": ["og-kush", "trainwreck"],
+  "parents": [
+    "og-kush",
+    "trainwreck"
+  ],
   "traditional_label": "hybrid",
-  "growing": { "environment": "both", "flowering_weeks": { "min": 9, "max": 10 } },
+  "growing": {
+    "environment": "both",
+    "flowering_weeks": {
+      "min": 9,
+      "max": 10
+    }
+  },
   "sources": [
     {
       "title": "Kandy Kush Strain (OG Kush × Trainwreck)",
