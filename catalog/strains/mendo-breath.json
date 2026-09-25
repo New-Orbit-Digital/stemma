@@ -6,7 +6,7 @@
   ],
   "kind": "cultivar",
   "status": "draft",
-  "summary": "**Mendo Breath** is a [[kind:cultivar|cultivar]] bred by [[breeder:Gage Green Genetics]], named for California's Mendocino County. A cross of [[ogkb|OGKB]] and [[mendo-montage|Mendo Montage]], it began as a clone-only cut before being released as feminized seed. It has since been used as a parent in numerous Gage Green crosses, including [[peanut-butter-breath|Peanut Butter Breath]].",
+  "summary": "**Mendo Breath** is a [[kind:cultivar|cultivar]] bred by [[breeder:Gage Green Genetics]], named for California's Mendocino County. A cross of [[ogkb|OGKB]] and [[mendo-montage|Mendo Montage]], it began as a clone-only cut before being released as feminized seed. Other breeders have since used it as a parent, including [[breeder:ThugPug Genetics]] in [[peanut-butter-breath|Peanut Butter Breath]].",
   "born": {
     "unknown": true,
     "display": "unknown"
@@ -46,5 +46,5 @@
       "accessed": "2026-09-24"
     }
   ],
-  "updated": "2026-09-24"
+  "updated": "2026-09-25"
 }

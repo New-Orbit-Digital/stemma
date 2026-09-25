@@ -7,7 +7,7 @@
   ],
   "kind": "cultivar",
   "status": "draft",
-  "summary": "**London Pound Cake** is a [[kind:cultivar|cultivar]] bred by [[breeder:Cookies]]. A cross of [[sunset-sherbet|Sunset Sherbet]] and an undisclosed indica line, it carries Sunset Sherbet's sweet dessert profile alongside a heavier, unnamed parent that the breeder has never revealed.",
+  "summary": "**London Pound Cake** is a [[kind:cultivar|cultivar]] bred by [[breeder:Cookie Fam Genetics]] and sold under the Cookies brand. It is a cross of [[sunset-sherbet|Sunset Sherbet]] and an indica parent that the breeder has not disclosed.",
   "born": {
     "unknown": true,
     "display": "unknown"
@@ -15,7 +15,7 @@
   "origin": {
     "unknown": true
   },
-  "breeder": "Cookies",
+  "breeder": "Cookie Fam Genetics",
   "parents": [
     "sunset-sherbet"
   ],
@@ -36,5 +36,5 @@
       "accessed": "2026-09-24"
     }
   ],
-  "updated": "2026-09-24"
+  "updated": "2026-09-25"
 }

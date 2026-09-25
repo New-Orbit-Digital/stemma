@@ -3,6 +3,15 @@
   "name": "Ultra Sour",
   "aliases": [],
   "kind": "cultivar",
-  "status": "stub",
-  "updated": "2026-09-24"
+  "status": "draft",
+  "summary": "**Ultra Sour** is a [[kind:cultivar|cultivar]] bred by [[breeder:T.H.Seeds]] as a cross of [[mk-ultra|MK Ultra]] and [[sour-diesel|Sour Diesel]]. It was released as feminized seed and has since been discontinued.",
+  "born": { "unknown": true, "display": "undated" },
+  "origin": { "unknown": true },
+  "breeder": "T.H.Seeds",
+  "parents": ["mk-ultra", "sour-diesel"],
+  "traditional_label": "indica",
+  "sources": [
+    { "title": "UltraSour (TH Seeds)", "publisher": "SeedFinder.eu", "category": "database", "url": "https://seedfinder.eu/en/strain-info/ultrasour/th-seeds", "accessed": "2026-09-25" }
+  ],
+  "updated": "2026-09-25"
 }

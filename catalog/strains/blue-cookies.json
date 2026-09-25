@@ -6,7 +6,7 @@
   ],
   "kind": "cultivar",
   "status": "draft",
-  "summary": "**Blue Cookies** is a [[kind:cultivar|cultivar]] most often described as a cross of [[gsc|GSC]] and [[blueberry|Blueberry]], though its breeder is not documented. Some accounts instead trace it to a cross of F1 Durb and Florida OG, and a separate GSC phenotype circulates under the same name without any Blueberry genetics. It is also sold as Blue GSC.",
+  "summary": "**Blue Cookies** is a [[kind:cultivar|cultivar]] most often described as a cross of [[gsc|GSC]] and [[blueberry|Blueberry]], though its breeder is not documented. Some accounts instead trace it to a cross of [[f1-durban|F1 Durb]] and [[florida-og|Florida OG]], and a separate GSC phenotype circulates under the same name without any Blueberry genetics. It is also sold as Blue GSC.",
   "born": {
     "unknown": true,
     "display": "unknown"
@@ -42,5 +42,5 @@
       "accessed": "2026-09-24"
     }
   ],
-  "updated": "2026-09-24"
+  "updated": "2026-09-25"
 }

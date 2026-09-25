@@ -3,6 +3,16 @@
   "name": "Blueberry OG",
   "aliases": [],
   "kind": "cultivar",
-  "status": "stub",
-  "updated": "2026-09-24"
+  "status": "draft",
+  "summary": "**Blueberry OG** is a [[kind:cultivar|cultivar]] from [[breeder:Barney's Farm]], crossing [[blueberry|Blueberry]] and [[og-kush|OG Kush]]. Other seed companies, including Yellowhammer Genetics and Original Sensible Seeds, sell their own crosses under the same name.",
+  "born": { "unknown": true, "display": "undated" },
+  "origin": { "unknown": true },
+  "breeder": "Barney's Farm",
+  "parents": ["blueberry", "og-kush"],
+  "traditional_label": "hybrid",
+  "growing": { "environment": "unknown", "flowering_weeks": { "min": 8, "max": 8 } },
+  "sources": [
+    { "title": "Blueberry OG (Barneys Farm)", "publisher": "SeedFinder.eu", "category": "database", "url": "https://seedfinder.eu/en/strain-info/blueberry-og/barneys-farm", "accessed": "2026-09-25" }
+  ],
+  "updated": "2026-09-25"
 }

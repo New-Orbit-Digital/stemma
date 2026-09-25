@@ -3,6 +3,15 @@
   "name": "Yoda OG",
   "aliases": [],
   "kind": "cultivar",
-  "status": "stub",
-  "updated": "2026-09-24"
+  "status": "draft",
+  "summary": "**Yoda OG** is a [[kind:cultivar|cultivar]] bred by [[breeder:DNA Genetics]], crossing [[og-kush|OG Kush]] and [[master-kush|Master Kush]]. It won first place at the 2012 High Times Los Angeles Cannabis Cup.",
+  "born": { "unknown": true, "display": "by 2012" },
+  "origin": { "unknown": true },
+  "breeder": "DNA Genetics",
+  "parents": ["og-kush", "master-kush"],
+  "traditional_label": "hybrid",
+  "sources": [
+    { "title": "Yoda OG Cannabis Strain: Sedative Kush Hybrid with OG Roots", "publisher": "DNA Genetics", "category": "breeder", "url": "https://dnagenetics.com/yoda-og-cannabis-strain/", "accessed": "2026-09-25" }
+  ],
+  "updated": "2026-09-25"
 }

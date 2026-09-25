@@ -3,6 +3,15 @@
   "name": "Blue Widow",
   "aliases": [],
   "kind": "cultivar",
-  "status": "stub",
-  "updated": "2026-09-24"
+  "status": "draft",
+  "summary": "**Blue Widow** is a [[kind:cultivar|cultivar]] crossing [[blueberry|Blueberry]] and [[white-widow|White Widow]]. It pairs Blueberry's 1970s DJ Short line with White Widow, bred by Green House Seed Co. in the 1990s, though the breeder who first combined the two is not documented.",
+  "born": { "unknown": true, "display": "undated" },
+  "origin": { "unknown": true },
+  "breeder": null,
+  "parents": ["blueberry", "white-widow"],
+  "traditional_label": "hybrid",
+  "sources": [
+    { "title": "Blue Widow: Parent Strains, Breeder, and Origin", "publisher": "Strainpedia", "category": "database", "url": "https://www.strainpedia.com/blue-widow/", "accessed": "2026-09-25" }
+  ],
+  "updated": "2026-09-25"
 }
