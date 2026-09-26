@@ -6,10 +6,7 @@ Durable standing work. `[blocker]` = gates other work.
 - ~~STM-U7~~ MERGED 2026-09-24 (#27): schema v2, the community-catalog model. Tiers and disputes are dropped, sources are categorized, and the site is simplified.
 - ~~STM-U8~~ MERGED 2026-09-24 (#33): inline `[[...]]` links, browse pages, `tools/countries.py`.
 - **STM-U8 visual pass (proposed)** — still waits on Justin's interface direction (`docs/prep/stemma-interface.md`).
-- **STM-U9 (issue #41, PR #42)** — a `chemotype` field for cannabinoid (THC/CBD) ranges and dominant
-  terpenes. Purely additive; `schema_version` stays 2, per the U8 precedent. See
-  `docs/packets/STM-U9.md`. The first executor run errored at 0s (2026-09-24 ~14:23 UTC, before the
-  usage rollover); re-triggered ~16:10 UTC, and draft PR #42 is open. Its PR needs Justin's go. Unblocks R6.
+- ~~STM-U9~~ MERGED 2026-09-25 (#42, squash `269034d`) on Justin's go: the optional `chemotype` field (THC/CBD ranges, dominant terpenes). Branch updated to the ~550-card `main`; `clean` at `c677bee`, preview deploy succeeded. Unblocks R6.
 
 ## Research units (planner sessions, cards via PR)
 - **R1** — Skunk family. Done for Sprint 1 (13 cards, migrated to v2 in U7, voice-rewritten with links in Sprint 2B / #34).
@@ -24,12 +21,14 @@ Durable standing work. `[blocker]` = gates other work.
   - **Open for Justin:** whether a grower's moniker belongs in `breeder` (see `current.md`).
 - ~~**R4** — GSC family.~~ Folded into L1 (Justin, 2026-09-24).
 - ~~**R5** — Blue Dream family.~~ Folded into L1 (Justin, 2026-09-24).
-- **L1 — Library pass (500+ strains).** Opus worklist, then Sonnet fill batches of 25, with an Opus
-  sample audit. L1-A is scheduled for 2026-09-24 18:30 UTC, now that R3 has closed out. See `docs/library.md`.
-- **R6 — Chemotype enrichment (proposed, blocked on STM-U9 merging).** Populate `chemotype` on
+- **L1 — Library pass (500+ strains).** L1-A worklist merged (#47–#51). L1-B fill **paused 2026-09-25**
+  (Justin) at about 190 filled cards, because unattended source fetches are blocked. Batches 9–20 are parked
+  until unattended source access works. L1-C runs its final audit and close-out. See `docs/library.md`
+  and `docs/current.md`.
+- **R6 — Chemotype enrichment (proposed; unblocked by STM-U9 on 2026-09-25).** Populate `chemotype` on
   existing and future cards from original sources (breeder and seed-bank pages, SeedFinder, Leafly,
-  AllBud, lab-data pages), cited and paraphrased like every other fact. L1 fills chemotype
-  opportunistically once U9 merges; R6 is the dedicated pass afterwards.
+  AllBud, lab-data pages), cited and paraphrased like every other fact. Needs working source access,
+  like the rest of the fill.
 
 ### External strain databases (Justin found 2026-09-24; planner live-checked the same day)
 **Working rule:** treat these as finder indexes. Use them to locate the original page, verify
@@ -56,6 +55,7 @@ against that page, cite it, and paraphrase. Don't bulk-import their data.
 
 ## Tooling
 - `tools/check_migration.py` (added in U7) backs the U7 mechanical proof. Keep it or delete it at the next tooling unit. Still open as of Sprint 2B.
+- `tools/migrate_v2.py`'s `V2_KEY_ORDER` lacks `chemotype` (noted in #42). Re-running that one-shot migration would drop the key. Decide at the next tooling unit.
 
 ## Site copy (small)
 - A short framing line for the About page and strain pages, e.g. "Researched from cited sources;
@@ -76,7 +76,15 @@ against that page, cite it, and paraphrase. Don't bulk-import their data.
 ## Parked (v2+)
 - **Evidence tiers and structured disputes** (removed in U7, 2026-09-24). Revisit only if wanted, possibly as Budlogs "case files".
 - **Budlogs:** accounts, logs, reviews, lists, and lineage-as-diary. Supabase. Justin isn't ready to think about its interface yet.
+- **Catalog data store (discussed 2026-09-25; HELD until Budlogs work starts, Justin).** The planner's
+  proposed shape:
+  - Git stays the source of truth for cards, so the PR review, validator, history, and audit loop keep working.
+  - Each merge loads the compiled `dist/data/stemma.json` into a Supabase `strains` table.
+  - Budlogs keys its logs and reviews to that table (the stable `id`).
+  - The public API reads from Supabase, or is served as static JSON (`/api/strains/<id>.json`) from Cloudflare.
+  - Revisit the source of truth (move it to Supabase) only once non-technical or community editors work through a web form.
+  - Scope it as a packet when Budlogs starts.
 - **Dispensary QR pilot.** Check state cannabis marketing rules first.
-- **Public Stemma API.**
+- **Public Stemma API.** See the catalog data store item above.
 - **Payment-processor check** before any paid Budlogs feature.
 - **Name:** staying with "Stemma" for now (Justin, 2026-09-24). A Teradata data-catalog product uses the same name.
